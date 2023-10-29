@@ -1,0 +1,78 @@
+24 de Abril
+
+Tipos de tablas
+		M_	tabla Maestra de tipo principal
+		S_	tabla Maestra de tipo secundario
+		R_	tabla de relaciones
+		T_	Tabla temporal
+
+--------------------------------------------------------------------
+NOMBRES
+--------------------------------------------------------------------
+Antiguo			Nuevo			Descripcion
+--------------------------------------------------------------------
+T_AULAS			M_Aulas					AULAS
+T_CURSOS       M_Cursos      			CURSOS
+T_HORARIO      M_Horario     			HORARIO FINAL
+T_PROFESORES	M_Profesores			PROFESORES
+
+T_CURSOS_HM		S_CursosHModificado	CURSOS PARTIDOS, CAMBIA EL H
+TS_EDIFICIOS	S_Edificios				EDIFICIOS
+TS_HORAS			S_Horas					HORAS
+TS_OFICINAS		S_Oficinas				OFICINAS
+TS_RECURSOS		S_Recursos				RECURSOS
+
+TR_PROFESOR_CURSO	R_ProfesorCurso		PROFESOR CURSO
+--------------------------------------------------------------------
+
+
+####################
+# 1:45 AM 27/04/98 #
+####################
+
+Algoritmo de asignacion
+-----------------------
+
+Asumiendo que hemos ingresado todos los datos necesarios
+
+1. Ordenar la tabla de aulas segun capacidad (Tabla 1)
+2. Ordenar las tablas de cursos segun H y ciclo
+3. La tabla de profesores con requerimientos iniciales del profesor
+4. Definir la relacion profesor curso y afinar los requerimientos
+
+Inicio real del algoritmo
+-------------------------
+1. Funcion objetivo min. Z = (|Vacantes del Curso - Capacidad del Aula|)
+2. Esto nos da un subconjunto de aulas que cumplen estos requerimientos
+3. Al buscar la relacion aula PCR pueden darse las sgt situaciones:
+
+Aula-PCR se satisface exactamente, no hay problema.
+
+Si no se da, al buscar la asignacion optima se daran satisfaccion o desperdicio de recursos en mayor o menor medida. Teniendo en cuenta los recursos con la prioridad anteriormente asignada (binaria) la nueva funcion objetivo a utilizar seria max. W = S - D
+
+Si existen dos W iguales se usa la comparacion de S
+
+4.-Ubicado el curso se completa la tabla T_Curso_hm  y la tabla horario
+
+Teoria de los H
+---------------
+Un curso cambia de h cuando no logra completar salones dentro de su H establecido, el primer intento es enviarlo a otra hora los mismos dias quedando de esta manera H1 en H5, los H2 en H6, y asi sucesivamente
+
+Esto solo se aplica para los cursos que estan desde H1 - H4
+
+
+############################
+#Martes 28 de Abril de 1998#
+############################
+
+Reunión con Susana Vegas.
+
+Atributos de Aula escalonada y Ventilador no van
+Retroproyector & Ecram van juntos y de la mano
+Ecram no lleva acento y termina en m
+Si un curso tiene laboratorio, se le descuenta una hora de clase
+H1 a H4 son los unicos reales, el resto surge porque no hay espacio
+HE no importa cuando se ponga, solo que no se cruce
+Ella parte los salones
+Hay que bloquear las aulas
+

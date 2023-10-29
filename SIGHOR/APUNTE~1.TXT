@@ -1,0 +1,17 @@
+SQL utiles para el programa
+===========================
+
+Numero de Aulas:
+	SELECT DISTINCT Count(M_Aulas.Nombre) AS NumeroAulas
+	FROM M_Aulas
+
+Aulas Bloqueadas:
+	SELECT DISTINCT Count(M_Aulas.Bloqueada) AS AulasBloqueadas
+	FROM M_Aulas
+	WHERE ((M_Aulas.Bloqueada<>False))
+
+Aulas No Bloqueadas:
+	NumeroDeAulas - AulasBloqueadas
+
+
+
