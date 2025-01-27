@@ -1,6 +1,6 @@
 # Sistema Generador de Horarios (SigHor) - 1998
 
-> by:Claude
+> Ingeniería inversa by: Claude + MMV
 
 ## Propósito
 
