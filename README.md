@@ -26,3 +26,7 @@ Universidad de Piura aplicamos lo que habíamos aprendido en Investigación de O
 ![](/images/F8zD2blXAAArega.jpeg)
 
 </div>
+
+## Ingeniería inversa
+
+- [Documentación](/reverseEngineering.md)

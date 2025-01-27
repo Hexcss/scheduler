@@ -1,0 +1,103 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class Aula {
+  -id: Integer
+  -nombre: String
+  -capacidad: Integer
+  -propiedades: BitSet
+  -especial: Boolean
+  -bloqueada: Boolean
+  +tieneRecurso(r: Recurso): Boolean
+}
+
+class Profesor {
+  -id: Integer
+  -nombre: String
+  -oficina: String
+  -prioridadRecursos: Integer[5]
+  +calcularPreferencia(aula: Aula): Integer
+}
+
+class Curso {
+  -id: Integer
+  -nombre: String
+  -sigla: String
+  -creditos: Integer
+  -vacantes: Integer
+  -ciclo: Integer
+  -programas: Set<Programa>
+  -tipoHorario: TipoH
+  -laboratorio: Boolean
+  -profesorVisitante: Boolean
+  -activo: Boolean
+}
+
+class Horario {
+  -dia: DiaSemana
+  -hora: Integer
+}
+
+class BloqueHorario {
+  -tipo: TipoH
+  -horas: List<Horario>
+}
+
+enum TipoH {
+  H1
+  H2
+  H3
+  H4
+  H5
+  H6
+  H7
+  H8
+  HE
+  HV
+}
+
+enum DiaSemana {
+  LUNES
+  MARTES
+  MIERCOLES
+  JUEVES
+  VIERNES
+  SABADO
+}
+
+enum Programa {
+  INDUSTRIAL
+  SISTEMAS
+  MECANICA
+  CIVIL
+}
+
+class AsignacionHorario {
+  +calcularOptimizacion(): Integer
+}
+
+class Edificio {
+  -id: Integer
+  -nombre: String
+}
+
+class Recurso {
+  -id: Integer
+  -nombre: String
+  -descripcion: String
+}
+
+Aula "*" --o "1" Edificio: pertenece a >
+Curso "1" -- "*" Programa: es dictado en >
+Curso "*" -- "1" BloqueHorario: asignado a >
+BloqueHorario "*" -- "1" TipoH: es de tipo >
+BloqueHorario "*" -- "*" Horario: compuesto por >
+Horario "*" -- "1" DiaSemana: ocurre en >
+
+AsignacionHorario "*" -- "1" Aula: utiliza >
+AsignacionHorario "*" -- "1" Curso: asigna >
+AsignacionHorario "*" -- "1" Profesor: dictado por >
+AsignacionHorario "*" -- "1" Horario: ocurre en >
+
+Profesor "*" -- "*" Curso: dicta >
+@enduml

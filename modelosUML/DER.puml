@@ -1,0 +1,113 @@
+entity M_AULAS {
+    int ID PK
+    string Nombre
+    int Capacidad
+    int Propiedades "5 bits: Ecram,Acrilica,etc"
+    boolean Especial
+    boolean Bloqueada
+    int IDEdificio FK
+}
+entity M_CURSOS {
+    int ID PK
+    string Nombre
+    string Sigla
+    string Programa
+    int Creditos
+    string H "1-8,E,V"
+    int Vacantes
+    int Ciclo
+    boolean PI "Industrial"
+    boolean PS "Sistemas"
+    boolean PC "Civil"
+    boolean PE "Electrica"
+    boolean Laboratorio
+    boolean ProfesorVisitante
+    boolean Activo
+}
+entity M_PROFESORES {
+    int ID PK
+    string Nombre
+    string Oficina
+    int R1 "Prioridad recurso 1"
+    int R2 "Prioridad recurso 2"
+    int R3 "Prioridad recurso 3"
+    int R4 "Prioridad recurso 4"
+    int R5 "Prioridad recurso 5"
+}
+entity M_HORARIO {
+    string Dia "L,M,X,J,V,S"
+    int Hora "7-12"
+    int IDAula FK
+    int IDCurso FK
+}
+entity S_EDIFICIOS {
+    int ID PK
+    string Nombre
+}
+entity S_HORAS {
+    int ID PK
+    string Descripcion
+}
+entity S_OFICINAS {
+    int ID PK
+    string Nombre
+}
+entity S_RECURSOS {
+    int ID PK
+    string Nombre
+    string Descripcion
+}
+entity T_DIAS {
+    string DiaCorto PK
+    string DiaLargo
+}
+entity T_HORAS {
+    int ID PK
+    int Hora
+}
+entity R_PROFESORCURSO {
+    int IDProfesor FK
+    int IDCurso FK
+}
+entity M_DATOSGENERALES {
+    int IDClase
+    int IDCorrelativo
+    string Descripcion
+    string Elemento
+}
+entity S_CURSOSHMODIFICADO {
+    int IDCurso FK
+    string NuevoH
+}
+entity T_PREHORARIO {
+    int IDAula FK
+    int IDCurso FK
+    int H
+}
+entity T_AULALIBRE {
+    int ID FK
+    int Z "Capacidad - Vacantes"
+    int Entero "Score recursos"
+}
+entity T_AULAOCUPADA {
+    int ID FK "IDAula"
+}
+entity S_AULAOCUPADA {
+    int ID FK "IDAula"
+    boolean HOcupa
+}
+
+M_CURSOS ||--o{ M_HORARIO : "tiene"
+M_AULAS ||--o{ M_HORARIO : "asignada_a"
+M_PROFESORES ||--o{ R_PROFESORCURSO : "dicta"
+M_CURSOS ||--o{ R_PROFESORCURSO : "es_dictado"
+M_CURSOS ||--o{ S_CURSOSHMODIFICADO : "puede_cambiar"
+S_EDIFICIOS ||--o{ M_AULAS : "contiene"
+M_CURSOS ||--o{ T_PREHORARIO : "asignado_temp"
+M_AULAS ||--o{ T_PREHORARIO : "reservada_temp"
+M_AULAS ||--o{ T_AULALIBRE : "disponible"
+M_AULAS ||--o{ T_AULAOCUPADA : "ocupada_temp"
+M_AULAS ||--o{ S_AULAOCUPADA : "ocupada_perm"
+M_HORARIO }o--|| T_HORAS : "usa"
+M_HORARIO }o--|| T_DIAS : "usa"
+M_PROFESORES }o--|| S_OFICINAS : "ubicado_en"
