@@ -27,42 +27,53 @@ class Curso {
   -vacantes: Integer
   -ciclo: Integer
   -programas: Set<Programa>
-  -tipoHorario: TipoH
+  -bloqueH: BloqueH
   -laboratorio: Boolean
   -profesorVisitante: Boolean
   -activo: Boolean
 }
 
-class Horario {
+enum BloqueH {
+  H1 "LXV 07-08"
+  H2 "MJS 07-08"
+  H3 "LXV 09-10"
+  H4 "MJS 09-10"
+  H5 "LXV 11-12"
+  H6 "MJS 11-12"
+  H7 "LXV 05-06"
+  H8 "MJS 05-06"
+  HE "Especial"
+  HV "Varios"
+}
+
+class PatronDias {
+  -nombre: String
+  -lunes: Boolean
+  -martes: Boolean
+  -miercoles: Boolean
+  -jueves: Boolean
+  -viernes: Boolean
+  -sabado: Boolean
+}
+
+class RangoHorario {
+  -horaInicio: Integer
+  -horaFin: Integer
+}
+
+class AsignacionHorario {
   -dia: DiaSemana
   -hora: Integer
-}
-
-class BloqueHorario {
-  -tipo: TipoH
-  -horas: List<Horario>
-}
-
-enum TipoH {
-  H1
-  H2
-  H3
-  H4
-  H5
-  H6
-  H7
-  H8
-  HE
-  HV
+  +calcularOptimizacion(): Integer
 }
 
 enum DiaSemana {
-  LUNES
-  MARTES
-  MIERCOLES
-  JUEVES
-  VIERNES
-  SABADO
+  L "Lunes"
+  M "Martes"
+  X "Miércoles"
+  J "Jueves"
+  V "Viernes"
+  S "Sábado"
 }
 
 enum Programa {
@@ -70,10 +81,6 @@ enum Programa {
   SISTEMAS
   MECANICA
   CIVIL
-}
-
-class AsignacionHorario {
-  +calcularOptimizacion(): Integer
 }
 
 class Edificio {
@@ -87,17 +94,31 @@ class Recurso {
   -descripcion: String
 }
 
-Aula "*" --o "1" Edificio: pertenece a >
+BloqueH "1" -- "1" PatronDias
+BloqueH "1" -- "1" RangoHorario
+PatronDias "*" -- "*" DiaSemana
+
+Aula "*" -- "1" Edificio: pertenece a >
 Curso "1" -- "*" Programa: es dictado en >
-Curso "*" -- "1" BloqueHorario: asignado a >
-BloqueHorario "*" -- "1" TipoH: es de tipo >
-BloqueHorario "*" -- "*" Horario: compuesto por >
-Horario "*" -- "1" DiaSemana: ocurre en >
+Curso "*" -- "1" BloqueH: asignado a >
 
 AsignacionHorario "*" -- "1" Aula: utiliza >
 AsignacionHorario "*" -- "1" Curso: asigna >
 AsignacionHorario "*" -- "1" Profesor: dictado por >
-AsignacionHorario "*" -- "1" Horario: ocurre en >
 
 Profesor "*" -- "*" Curso: dicta >
+
+note right of PatronDias
+  Hay dos patrones principales:
+  - LXV (Lunes, Miércoles, Viernes)
+  - MJS (Martes, Jueves, Sábado)
+end note
+
+note right of BloqueH
+  Los bloques están organizados en pares:
+  - H1-H2: mismo horario, diferente patrón
+  - H3-H4: mismo horario, diferente patrón
+  - H5-H6: mismo horario, diferente patrón
+  - H7-H8: mismo horario, diferente patrón
+end note
 @enduml
