@@ -364,4 +364,87 @@ Manuel consulta sobre la persistencia del contexto al cerrar/abrir sesiones:
 
 ---
 
+## Conversación 9: Identificación de Actores y Casos de Uso
+**Fecha**: 2025-01-04  
+**Participantes**: Manuel (Usuario) + Claude Code
+
+### Propuesta del Siguiente Artefacto
+Manuel propone continuar con RUP generando actores y casos de uso:
+> "tocaría proceder con la identificación de actores y casos de uso iniciales usando el modelo del dominio actual como base"
+
+### Enfoque Metodológico Acordado
+
+#### Proceso Iterativo Definido
+1. **Identificar** actores y casos de uso principales con conocimiento actual
+2. **Documentar** limitaciones del modelo conforme emerjan
+3. **Refinar** modelo del dominio cuando casos de uso revelen conceptos faltantes
+4. **Registrar** proceso de refinamiento en conversation-log
+
+#### Estrategia del Proyecto
+- **Base**: Sistema legacy (fidelidad al original)
+- **Mejoras**: Postergadas hasta después de análisis y diseño
+- **Funcionalidad**: CRUD entidades → Generación de horario
+
+#### Artefactos a Generar
+1. **Diagrama de Actores y Casos de Uso** (UML tradicional)
+2. **Diagrama de Contexto** (máquina de estados con transiciones)
+
+### Concepto del Diagrama de Contexto
+
+#### Explicación de Manuel
+> "El diagrama de contexto lo uso para relacionar los casos de uso de un actor como un todo. [...] identificar los casos de uso correctamente (conversación atómica actor-sistema iniciada por el actor que concluye en un resultado observable de interés) y después [...] describir el sistema como un conjunto de estados que se transitan usando los casos de uso."
+
+#### Características del Diagrama de Contexto
+- **Estados**: Pantallas/interfaces del sistema
+- **Transiciones**: Casos de uso que llevan de una pantalla a otra
+- **Casos de uso**: Conversaciones atómicas actor-sistema (NO secuencias)
+- **Patrón**: Hub central (MENU_PRINCIPAL) conecta con estados específicos
+- **Navegación**: Bidireccional (ida y vuelta al menú)
+
+#### Estados Candidatos para SigHor
+- `NO_AUTENTICADO` (pantalla login)
+- `MENU_PRINCIPAL` (dashboard)
+- `GESTIONANDO_PROFESORES` (CRUD profesores)
+- `GESTIONANDO_CURSOS` (CRUD cursos)
+- `GESTIONANDO_AULAS` (CRUD aulas)
+- `GENERANDO_HORARIO` (algoritmo de generación)
+- `CONSULTANDO_HORARIOS` (visualización resultados)
+
+### Errores Conceptuales Identificados y Corregidos
+
+#### Error 1: Actor "Sistema de Archivos"
+- **Error de Claude**: Proponer "Sistema de Archivos" como actor
+- **Corrección de Manuel**: 
+  > "¡Sistema de archivos no es un actor! Es un error gravísimo. [...] no ataca al sistema sino más bien es un servicio que utilizamos."
+
+**Aprendizaje clave**:
+- **Actores**: Inician conversaciones, tienen objetivos, obtienen valor
+- **Servicios**: Infraestructura que el sistema utiliza internamente
+
+#### Error 2: Casos de Uso "Gestionar"
+- **Error de Claude**: Proponer casos de uso como `gestionarProfesores()`
+- **Corrección de Manuel**: 
+  > "'gestionar' es otro error gravísimo, producto de la visión ágil. Para que un caso de uso sea verdaderamente atómico, una regla que yo utilizo es encontrarle paralelo con uno de las cuatro acciones de CRUD."
+
+**Aprendizaje clave**:
+- **"Gestionar"**: Demasiado amplio, no atómico, ambiguo
+- **CRUD**: Casos de uso específicos, atómicos, testeables
+
+#### Casos de Uso Corregidos (Patrón CRUD)
+- `crearProfesor()`, `listarProfesores()`, `editarProfesor()`, `eliminarProfesor()`
+- `crearCurso()`, `listarCursos()`, `editarCurso()`, `eliminarCurso()`
+- `crearAula()`, `listarAulas()`, `editarAula()`, `eliminarAula()`
+
+### Valor Didáctico de los Errores
+- **Error sistema de archivos**: Clarifica concepto fundamental de actor
+- **Error "gestionar"**: Refuerza importancia de atomicidad en casos de uso
+- **Proceso iterativo**: Demuestra refinamiento continuo del entendimiento
+
+### Estado Actual
+- **Conceptos fundamentales**: ✅ Clarificados
+- **Errores conceptuales**: ✅ Identificados y corregidos
+- **Próximo paso**: Continuar con identificación específica de actores y casos de uso CRUD
+
+---
+
 *Este registro se actualizará continuamente conforme avance el proyecto*

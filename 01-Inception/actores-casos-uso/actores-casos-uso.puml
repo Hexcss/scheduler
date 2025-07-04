@@ -1,0 +1,92 @@
+@startuml
+
+left to right direction
+
+actor "Administrador de Horarios" as admin
+actor "Consultor de Horarios" as consultor
+
+package "Gestión de Programas" {
+    (crearPrograma)
+    (listarProgramas)
+    (editarPrograma)
+    (eliminarPrograma)
+}
+
+package "Gestión de Cursos" {
+    (crearCurso)
+    (listarCursos)
+    (editarCurso)
+    (eliminarCurso)
+}
+
+package "Gestión de Profesores" {
+    (crearProfesor)
+    (listarProfesores)
+    (editarProfesor)
+    (eliminarProfesor)
+    (configurarPreferenciasProfesor)
+}
+
+package "Gestión de Campus" {
+    (crearEdificio)
+    (listarEdificios)
+    (editarEdificio)
+    (eliminarEdificio)
+    (crearAula)
+    (listarAulas)
+    (editarAula)
+    (eliminarAula)
+    (crearRecurso)
+    (listarRecursos)
+    (editarRecurso)
+    (eliminarRecurso)
+}
+
+package "Asignaciones" {
+    (asignarProfesorACurso)
+}
+
+package "Generación de Horarios" {
+    (generarHorario)
+}
+
+package "Consulta de Horarios" {
+    (consultarHorario)
+}
+
+admin --> (crearPrograma)
+admin --> (listarProgramas)
+admin --> (editarPrograma)
+admin --> (eliminarPrograma)
+
+admin --> (crearCurso)
+admin --> (listarCursos)
+admin --> (editarCurso)
+admin --> (eliminarCurso)
+
+admin --> (crearProfesor)
+admin --> (listarProfesores)
+admin --> (editarProfesor)
+admin --> (eliminarProfesor)
+admin --> (configurarPreferenciasProfesor)
+
+admin --> (crearEdificio)
+admin --> (listarEdificios)
+admin --> (editarEdificio)
+admin --> (eliminarEdificio)
+admin --> (crearAula)
+admin --> (listarAulas)
+admin --> (editarAula)
+admin --> (eliminarAula)
+admin --> (crearRecurso)
+admin --> (listarRecursos)
+admin --> (editarRecurso)
+admin --> (eliminarRecurso)
+
+admin --> (asignarProfesorACurso)
+admin --> (generarHorario)
+admin --> (consultarHorario)
+
+consultor --> (consultarHorario)
+
+@enduml
