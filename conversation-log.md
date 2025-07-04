@@ -447,4 +447,103 @@ Manuel propone continuar con RUP generando actores y casos de uso:
 
 ---
 
+## Conversación 10: Generación de Actores y Casos de Uso
+**Fecha**: 2025-01-04  
+**Participantes**: Manuel (Usuario) + Claude Code
+
+### Debate sobre Formato de Generación
+Claude pregunta sobre el formato para generar el artefacto:
+
+#### Opciones Debatidas
+1. **PlantUML**: Diagrama visual estándar UML
+2. **Tabla**: Información densa (estilo establecido por Manuel)
+3. **Ambos**: Combinación de ambos enfoques
+
+#### Decisión de Manuel
+> "Hagámoslo mas bien a la inversa: plantuml y luego tabla..."
+
+**Enfoque acordado**: PlantUML primero (visualización), tabla después (información densa)
+
+### Definición de Actores
+
+#### Actores Identificados
+- **Administrador de Horarios**: El actor "potente" que maneja todo el sistema
+- **Consultor de Horarios**: Actor "observador" que solo consulta
+
+#### Clarificación de Manuel
+> "solo el administrador de horarios, porque el otro actor será el consultador (o consultor le llamaste, creo), pero es un observador sin más: el potente es el Administrador de horarios."
+
+### Nomenclatura de Casos de Uso
+
+#### Especificación de Manuel
+> "a los casos de uso vamos ya haciendo que 'huelan' al código en el que se convertiran. Por ejemplo, crearProfesor() ;)"
+
+**Convención establecida**: Casos de uso con nomenclatura que sugiere implementación directa
+
+### Generación del Artefacto
+
+#### Autorización
+Manuel autoriza la generación con:
+> "adelante!"
+
+#### Artefactos Generados
+1. **Directorio**: `01-Inception/actores-casos-uso/`
+2. **Diagrama PlantUML**: `actores-casos-uso.puml`
+3. **Documentación**: `actores-casos-uso.md`
+
+#### Contenido Generado
+- **2 actores**: Administrador de Horarios, Consultor de Horarios
+- **24 casos de uso CRUD**: Organizados por packages (Programas, Cursos, Profesores, Campus)
+- **Casos de uso especiales**: configurarPreferenciasProfesor(), asignarProfesorACurso(), generarHorario(), consultarHorario()
+- **Documentación completa**: Tablas de actores, casos de uso por entidad, descripciones detalladas
+
+### Refinamiento por Manuel
+
+#### Ajustes Realizados
+Manuel realiza ajustes al artefacto generado:
+
+1. **División en múltiples diagramas**:
+   - `actores-casos-uso-001.puml`: Gestión de Programas y Cursos
+   - `actores-casos-uso-002.puml`: Profesores, Consulta, Generación, Asignaciones
+   - `actores-casos-uso-003.puml`: Gestión del Campus
+
+2. **Mejoras visuales**:
+   - `left to right direction`: Mejor orientación
+   - Variación en conectores: `-->` y `<--`
+   - Actor dentro del package en diagrama 003
+
+3. **Herencia de actores** (diagrama 002):
+   ```plantuml
+   consultor <|-up- admin
+   ```
+
+4. **Actualización del markdown**:
+   - Tabla con 3 diagramas SVG
+   - Referencias a los 3 archivos PlantUML
+
+### Clarificación de Herencia
+
+#### Pregunta de Claude
+Claude consulta sobre el significado de la herencia de actores.
+
+#### Explicación de Manuel
+> "consultor <|-up- admin significa que el administrador es una especialización del consultor. El consultor solo ejecuta un caso de uso. El admin, el del consultor más otros."
+
+**Jerarquía clarificada**:
+- **Consultor de Horarios** (generalización): `consultarHorario()`
+- **Administrador de Horarios** (especialización): `consultarHorario()` + todos los demás casos de uso
+
+**Lógica**: El Administrador ES-UN Consultor con capacidades adicionales
+
+### Estado del Artefacto
+- **Diagramas PlantUML**: ✅ 3 diagramas organizados y optimizados
+- **Documentación**: ✅ Completa con tablas y descripciones
+- **Herencia de actores**: ✅ Clarificada y correctamente modelada
+- **Nomenclatura**: ✅ Casos de uso "que huelan a código"
+
+### Próximo Paso
+Pendiente: Diagrama de contexto (máquina de estados con transiciones)
+
+---
+
 *Este registro se actualizará continuamente conforme avance el proyecto*
