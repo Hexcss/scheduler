@@ -819,4 +819,109 @@ LISTANDO_PROFESORES → crearProfesor() → EDITANDO_PROFESOR (con datos mínimo
 
 ---
 
+## Conversación 13: Aplicación de Correcciones Metodológicas y Optimización de Casos de Uso
+**Fecha**: 2025-01-05  
+**Participantes**: Manuel (Usuario) + Claude Code
+
+### Aplicación de Correcciones Metodológicas
+
+#### **Corrección del Diagrama de Contexto**
+Claude aplica las correcciones metodológicas identificadas:
+
+**Estados Granulares Implementados**:
+- **Antes**: Estados "GESTIONANDO_*" simplificados (estilo ágil)
+- **Después**: Estados separados LISTANDO_X y EDITANDO_X (granularidad optimizada)
+
+**Patrón Granular Optimizado Aplicado**:
+- **Flujo crear**: `crearX()` → EDITANDO_X (con datos mínimos)
+- **Flujo editar**: `editarX()` → EDITANDO_X (con datos completos)
+- **Continuidad**: Estados EDITANDO autorreflexivos para edición continua
+- **Retorno**: `listarX()` desde EDITANDO_X → LISTANDO_X
+
+**Nivel de Abstracción Corregido**:
+- **Eliminado**: Referencias a "dashboard", "breadcrumbs", elementos UI específicos
+- **Enfoque**: Solo conceptos de negocio y casos de uso (nivel RUP Inception)
+- **Independencia**: Sin asumir tecnología de interfaz específica
+
+#### **Documentación Actualizada**
+
+**Cambios Estructurales**:
+- **Versión 2.0**: Refleja correcciones metodológicas aplicadas
+- **Nuevas secciones**: Patrón granular explicado, consideraciones de análisis
+- **Secciones modificadas**: Estados del sistema, transiciones, características del diseño
+- **Eliminadas**: Referencias de implementación UI prematura
+
+**Contenido Mejorado**:
+- **Estados granulares**: Tabla actualizada con estados LISTANDO/EDITANDO
+- **Transiciones optimizadas**: Patrón crear-editar documentado
+- **Validación de casos de uso**: Análisis de completitud y coherencia
+- **Consideraciones de análisis**: Nivel conceptual apropiado
+
+### Reflexión de Optimización: Unificación de Casos de Uso
+
+Manuel identifica una **optimización importante** en los casos de uso:
+
+#### **Problema Detectado**
+> "iniciarSesion() debe ir seguido de mostrarMenu(). Por tanto, todos los volverAlMenu() son realmente mostrarMenu(). Optimización: Reutilizar código usando un solo caso de uso mostrarMenu()"
+
+#### **Análisis de Redundancia**
+- **`iniciarSesion()`**: NO_AUTENTICADO → necesita mostrar menú
+- **`volverAlMenu()`**: Desde cualquier estado → hace exactamente lo mismo
+- **Problema**: Dos casos de uso para la misma funcionalidad básica
+
+#### **Solución Optimizada**
+**Unificación propuesta**:
+- **Un solo caso de uso**: `mostrarMenu()`
+- **Reutilización**: Mismo caso de uso desde múltiples estados
+- **Coherencia**: Lógica unificada para mostrar el menú
+
+**Transformación**:
+```
+Antes:
+iniciarSesion(): NO_AUTENTICADO → MENU_PRINCIPAL
+volverAlMenu(): ESTADO_X → MENU_PRINCIPAL
+
+Después:
+iniciarSesion(): NO_AUTENTICADO → (solo autenticación)
+mostrarMenu(): Desde cualquier estado → MENU_PRINCIPAL
+```
+
+#### **Ventajas de la Optimización**
+- **Código reutilizable**: Un solo caso de uso para mostrar menú
+- **Mantenibilidad**: Cambios en una sola función
+- **Coherencia**: Comportamiento uniforme
+- **Simplicidad**: Menos redundancia en el diseño
+
+#### **Aplicación Requerida**
+- **Eliminar**: Casos de uso `volverAlMenu()` redundantes
+- **Usar**: `mostrarMenu()` como caso de uso unificado
+- **Actualizar**: Diagrama PlantUML y documentación
+
+### Valor de la Optimización
+
+#### **Mejora del Diseño**
+- **Principio DRY**: Don't Repeat Yourself aplicado a casos de uso
+- **Cohesión**: Funcionalidad relacionada unificada
+- **Claridad**: Separación limpia entre autenticación y navegación
+
+#### **Impacto en Implementación**
+- **Reutilización**: Una función `mostrarMenu()` llamada desde múltiples contextos
+- **Testeo**: Un solo caso de uso para probar
+- **Mantenimiento**: Cambios centralizados
+
+### Estado del Proyecto
+
+- **Correcciones metodológicas**: ✅ Aplicadas (granularidad, nivel abstracción)
+- **Optimización detectada**: ✅ Identificada y analizada
+- **Próximo paso**: ⏳ Aplicar optimización de unificación de casos de uso
+
+### Próximos Pasos
+
+1. **Aplicar optimización**: Unificar casos de uso con `mostrarMenu()`
+2. **Actualizar documentación**: Reflejar la optimización aplicada
+3. **Validar diagrama final**: Verificar coherencia completa
+4. **Continuar con siguiente artefacto**: Diagrama de contexto del Consultor
+
+---
+
 *Este registro se actualizará continuamente conforme avance el proyecto*
