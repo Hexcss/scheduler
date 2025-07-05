@@ -546,4 +546,124 @@ Pendiente: Diagrama de contexto (máquina de estados con transiciones)
 
 ---
 
+## Conversación 11: Clarificación del Concepto de Diagrama de Contexto
+**Fecha**: 2025-01-05  
+**Participantes**: Manuel (Usuario) + Claude Code
+
+### Contexto de la Conversación
+
+Manuel solicita repasar el concepto de "Diagrama de contexto" antes de proceder con su generación, que es el siguiente artefacto en la secuencia RUP.
+
+### Comprensión Inicial de Claude
+
+Claude muestra entendimiento parcial del concepto basándose en el registro de conversaciones:
+
+#### Características Identificadas
+- **Máquina de estados**: Sistema como conjunto de estados que se transitan
+- **Estados**: Pantallas/interfaces del sistema
+- **Transiciones**: Casos de uso como transiciones entre estados
+- **Patrón hub**: `MENU_PRINCIPAL` conecta con estados específicos
+- **Navegación bidireccional**: Ida y vuelta al menú
+
+#### Estados Candidatos para SigHor
+- `NO_AUTENTICADO`, `MENU_PRINCIPAL`, `GESTIONANDO_PROFESORES`, `GESTIONANDO_CURSOS`, `GESTIONANDO_AULAS`, `GENERANDO_HORARIO`, `CONSULTANDO_HORARIOS`
+
+### Ejemplo Educativo Proporcionado
+
+Manuel proporciona archivo ejemplo en `zzzTemp/ejemploDiagramaContexto.puml` para profundizar el entendimiento.
+
+#### Características del Ejemplo
+- **Estados definidos**: `NO_AUTENTICADO`, `MENU_PRINCIPAL`, `EN_TEST`, `REVISION_TEST`, `GESTION_PAQUETES`, `VISUALIZACION_ESTADISTICAS`
+- **Transiciones etiquetadas**: Casos de uso en `note on link`
+- **Estado inicial**: `[*] --> NoAuth`
+- **Transiciones autorreflexivas**: `Test --> Test` (realizarDuda())
+- **Múltiples casos de uso por transición**: Una transición puede tener varios casos de uso relacionados
+
+### Clarificación Fundamental: Un Diagrama por Actor
+
+Manuel introduce el concepto clave:
+
+#### Perspectiva por Actor
+> "Hay un diagrama de contexto por actor. Es lo que permite ver el sistema como un todo para ese actor y dónde se especifica la secuencialidad"
+
+#### Especificación de Secuencialidad
+> "aquí quedan explícitas muchas precondiciones que de otro modo tendrían que especificarse textualmente"
+
+**Ejemplo práctico**:
+- **Sin diagrama**: "Precondición: el usuario debe estar autenticado y en el menú principal"
+- **Con diagrama**: Se ve gráficamente que no hay transición directa desde `NO_AUTENTICADO` a `EN_TEST`
+
+#### Implicaciones para SigHor
+- **Administrador de Horarios**: Diagrama con todos los estados CRUD + generación
+- **Consultor de Horarios**: Diagrama simplificado con solo consulta
+
+### Valor Analítico del Diagrama de Contexto
+
+Manuel explica el **poder analítico** del diagrama:
+
+#### Detección de Casos de Uso Innecesarios
+> "Casos de uso que se previeron, pero no se usan (al menos para un actor en concreto), porque no aparecen en el diagrama de contexto"
+
+#### Detección de Casos de Uso Omitidos
+> "Casos de uso que se omitieron: porque para alguna transición no encontramos caso de uso que la permita"
+
+#### Validación Cruzada
+- **Casos de uso → Diagrama**: ¿Todos los casos de uso tienen lugar en el flujo?
+- **Diagrama → Casos de uso**: ¿Todas las transiciones tienen caso de uso que las permita?
+
+### Casos de Uso Compuestos (Con Cuidado)
+
+#### Ejemplo del Diagrama
+`MENU_PRINCIPAL` → `GESTION_PAQUETES` con `comprarPaquetes()` + `resincronizarPaquetes()`
+
+#### Observación de Manuel
+> "se puede admitir (con cuidado) que alguna transición requiera dos casos de uso, uno a continuación de otro [...] De todos modos, ese estado no me termina de convencer ;)"
+
+#### Señales de Alerta
+- Múltiples casos de uso para una transición pueden indicar:
+  - Estado mal definido
+  - Falta de atomicidad en el diseño
+  - Necesidad de estado intermedio
+
+### Concepto Completo del Diagrama de Contexto
+
+#### Definición Completa
+- **Diagrama de contexto por actor**: Máquina de estados UML que muestra la perspectiva completa de un actor específico sobre el sistema
+- **Estados**: Pantallas/interfaces que el actor puede experimentar
+- **Transiciones**: Casos de uso que permiten pasar de un estado a otro
+- **Precondiciones visuales**: La topología del diagrama hace explícitas las restricciones de navegación
+
+#### Metodología RUP
+Manuel aclara que no es metodología propia:
+> "me gustaría decir que es mi metodología, pero es RUP en su máxima expresión"
+
+### Valor Educativo y Metodológico
+
+#### Ventajas del Enfoque
+- **Completitud**: Cada actor ve todo su "universo" de interacción
+- **Claridad**: Las restricciones de navegación son visualmente obvias
+- **Validación**: Fácil detectar caminos imposibles o estados inalcanzables
+- **Análisis**: Identificación de casos de uso innecesarios u omitidos
+
+#### Calidad del Diseño
+- **Coherencia**: Asegurar que todos los casos de uso tengan lugar en el flujo
+- **Minimalismo**: Eliminar casos de uso que no se usan realmente
+- **Completitud**: Identificar funcionalidad faltante
+
+### Estado del Proyecto
+
+- **Concepto de diagrama de contexto**: ✅ Clarificado completamente
+- **Ejemplo educativo**: ✅ Analizado y comprendido
+- **Metodología RUP**: ✅ Confirmada como base teórica
+- **Próximo paso**: Crear diagramas de contexto para los actores de SigHor
+
+### Preparación para Próximo Artefacto
+
+Con el concepto clarificado, el proyecto está listo para generar:
+1. **Diagrama de contexto del Administrador de Horarios**: Estados completos del sistema
+2. **Diagrama de contexto del Consultor de Horarios**: Estados limitados a consulta
+3. **Validación cruzada**: Verificar coherencia entre casos de uso y diagramas de contexto
+
+---
+
 *Este registro se actualizará continuamente conforme avance el proyecto*

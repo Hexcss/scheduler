@@ -1,0 +1,74 @@
+@startuml
+
+state "NO_AUTENTICADO" as NoAuth
+state "MENU_PRINCIPAL" as Menu
+state "EN_TEST" as Test
+state "REVISION_TEST" as Revision
+state "GESTION_PAQUETES" as Paquetes
+state "VISUALIZACION_ESTADISTICAS" as Stats
+
+[*] --> NoAuth
+
+NoAuth --> Menu
+    note on link
+        iniciarSesión()
+    end note
+
+Menu --> NoAuth
+    note on link
+        cerrarSesión()
+    end note
+
+Menu --> Test
+    note on link
+        realizarTest()
+    end note
+
+Menu --> Revision
+    note on link
+        verTestCorregido()
+    end note
+
+Menu --> Stats
+    note on link
+        verEstadísticas()
+    end note
+
+Menu --> Paquetes
+    note on link
+        comprarPaquetes()
+        resincronizarPaquetes()
+    end note
+
+Test --> Test
+    note on link
+        realizarDuda()
+    end note
+
+Revision --> Revision
+    note on link
+        realizarDuda()
+    end note
+
+Test --> Menu
+    note on link
+        finalizarTest()
+    end note
+
+Revision --> Menu
+    note on link
+        volverAlMenú()
+    end note
+
+Stats --> Menu
+    note on link
+        volverAlMenú()
+    end note
+
+Paquetes --> Menu
+    note on link
+        finalizarCompra()
+        finalizarSincronización()
+    end note
+
+@enduml
