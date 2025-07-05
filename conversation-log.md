@@ -1332,4 +1332,113 @@ end note
 
 ---
 
+## Conversación 16: Especificación del Caso de Uso iniciarSesion() y Refinamiento de Vocabulario
+**Fecha**: 2025-01-05  
+**Participantes**: Manuel (Usuario) + Claude Code
+
+### Contexto
+Aplicación de la metodología establecida para especificar casos de uso detallados usando diagramas de estado. Se seleccionó `iniciarSesion()` como primer caso por ser fundamental en el flujo del sistema.
+
+### Especificación Inicial del Caso de Uso
+
+#### Artefactos Creados
+1. **`/01-Inception/casos-uso-detalle/iniciarSesion.puml`** - Diagrama de estado con:
+   - Estados anónimos internos (SolicitandoAcceso, ProporcionandoCredenciales)
+   - Choice point para decisión de validación
+   - Colores semánticos: verde (éxito), rojo (error)
+   - Tipografía enfatizada para Actor y Sistema
+
+2. **`/01-Inception/casos-uso-detalle/iniciarSesion.md`** - Documentación completa con:
+   - Información del caso de uso (objetivo, actores, pre/postcondiciones)
+   - Conversación detallada en formato tabular
+   - Estados internos y validaciones
+   - Conexión con diagrama de contexto
+   - Vocabulario utilizado y características metodológicas
+
+### Corrección Crítica de Vocabulario
+
+#### Error Metodológico Detectado
+Manuel identifica violaciones graves al vocabulario establecido:
+
+> "no se pueden usar los términos 'formulario, botón, clic, selección, etc' en la especificación del caso de uso. El actor solo 'solicita, introduce, proporciona'. El sistema solo 'permite, presenta, muestra, visualiza, valida'. Si hubiera necesidad de saltarse esta regla, lo comentamos (por ejemplo, no es correcto poner que el sistema valida credenciales, porque eso ya se hizo en el choice y no hace falta poner nada más que 'usuario:contraseña no válida')"
+
+#### Principios de Vocabulario Purificado
+
+**Términos Prohibidos:**
+- Referencias a UI específica: "formulario", "botón", "campo", "clic", "selección"
+- Implementación técnica: detalles de interfaz, base de datos, frameworks
+
+**Vocabulario Permitido:**
+- **Actor**: `solicita`, `introduce`, `proporciona`
+- **Sistema**: `permite`, `presenta`, `muestra`, `visualiza`
+
+**Redundancias Eliminadas:**
+- Las validaciones explícitas del sistema son redundantes si ya están implícitas en el choice point
+- Solo resultado: "usuario:contraseña válida/no válida"
+
+### Correcciones Aplicadas
+
+#### En el Diagrama PlantUML
+```plantuml
+// ANTES (incorrecto):
+Sistema presenta formulario de autenticación
+• campo usuario
+• campo contraseña  
+• botón acceder
+
+Sistema valida credenciales
+usuario:contraseña válida
+
+// DESPUÉS (correcto):
+Sistema permite introducir
+• usuario
+• contraseña
+
+usuario:contraseña válida
+```
+
+#### En la Documentación
+- **Conversación detallada**: Eliminados términos de UI específica
+- **Estados internos**: Simplificadas responsabilidades sin validaciones explícitas
+- **Vocabulario**: Reducido a términos estrictamente permitidos
+- **Características metodológicas**: Énfasis en separación limpia actor/sistema
+
+### Diagrama Técnico Corregido
+También se corrigió diagnóstico técnico:
+- Agregado nombre al diagrama: `@startuml iniciarSesion`
+
+### Aprendizajes Metodológicos
+
+#### Pureza Conceptual
+- La especificación debe mantener nivel conceptual sin contaminación de implementación
+- Los choice points ya contienen la lógica, no requieren explicación redundante
+- El vocabulario restringido fuerza claridad en la separación de responsabilidades
+
+#### Simplicidad Comunicativa
+- Actor: Solo inicia conversaciones y proporciona información
+- Sistema: Solo habilita capacidades, las validaciones son implícitas
+- Resultado: Solo se expresa el resultado de la evaluación, no el proceso
+
+#### Coherencia con Método
+- Esta purificación del vocabulario es coherente con el enfoque de diagramas de estado
+- Los estados y transiciones expresan la lógica, las notas solo etiquetan
+- Se mantiene trazabilidad con diagrama de contexto sin redundancia
+
+### Valor Didáctico de la Corrección
+- **Lección aprendida**: La tentación de sobre-especificar debe resistirse
+- **Principio aplicado**: Menos es más en especificación de requisitos
+- **Método validado**: El vocabulario restringido mejora claridad y reduce ambigüedad
+
+### Estado del Artefacto
+- **Versión corregida**: 1.1 (vocabulario purificado)
+- **Conexión validada**: Con diagrama de contexto del administrador
+- **Patrón establecido**: Para especificaciones subsiguientes
+
+### Próximos Pasos Actualizados
+1. **Documentar esta corrección**: En conversation-log.md (✅ completado)
+2. **Aplicar patrón purificado**: A casos de uso subsiguientes
+3. **Validar metodología**: Confirmar que el patrón es replicable y eficaz
+
+---
+
 *Este registro se actualizará continuamente conforme avance el proyecto*

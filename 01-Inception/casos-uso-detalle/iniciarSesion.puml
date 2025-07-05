@@ -1,4 +1,4 @@
-@startuml
+@startuml iniciarSesion
 
 state iniciarSesion as "iniciarSesion()" {
 
@@ -13,30 +13,26 @@ state iniciarSesion as "iniciarSesion()" {
     
     SolicitandoAcceso -[#green]-> ProporcionandoCredenciales
     note on link
-    <b>Sistema</b> presenta formulario de autenticación
-    • campo usuario
-    • campo contraseña
-    • botón acceder
+    <b>Sistema</b> permite introducir
+    • usuario
+    • contraseña
     end note
     
     ProporcionandoCredenciales -[#green]-> c
     note on link
-    <b>UsuarioNoRegistrado</b> proporciona
+    <b>UsuarioNoRegistrado</b> introduce
     • usuario
     • contraseña
     end note
     
     c -[#red]-> SolicitandoAcceso
     note on link
-    <b>Sistema</b> valida credenciales
     usuario:contraseña no válida
     end note
 
     c -[#green]-> [*]
     note on link
-    <b>Sistema</b> valida credenciales
     usuario:contraseña válida
-    autenticación exitosa
     end note
 }
 

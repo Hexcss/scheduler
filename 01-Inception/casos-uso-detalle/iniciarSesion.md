@@ -42,33 +42,33 @@ Especificación detallada del caso de uso `iniciarSesion()` mediante diagrama de
 |Actor|Acción|Sistema|Respuesta|
 |-|-|-|-|
 |**UsuarioNoRegistrado**|solicita acceder al sistema||
-||**Sistema**|presenta formulario de autenticación|• campo usuario<br>• campo contraseña<br>• botón acceder|
-|**UsuarioNoRegistrado**|proporciona credenciales|• usuario<br>• contraseña|
-||**Sistema**|valida credenciales|usuario:contraseña válida<br>autenticación exitosa|
+||**Sistema**|permite introducir|• usuario<br>• contraseña|
+|**UsuarioNoRegistrado**|introduce|• usuario<br>• contraseña|
+|||usuario:contraseña válida|
 
 ### flujo alternativo (error)
 
 |Actor|Acción|Sistema|Respuesta|
 |-|-|-|-|
 |**UsuarioNoRegistrado**|solicita acceder al sistema||
-||**Sistema**|presenta formulario de autenticación|• campo usuario<br>• campo contraseña<br>• botón acceder|
-|**UsuarioNoRegistrado**|proporciona credenciales|• usuario<br>• contraseña|
-||**Sistema**|valida credenciales|usuario:contraseña no válida<br>regresa a solicitud de acceso|
+||**Sistema**|permite introducir|• usuario<br>• contraseña|
+|**UsuarioNoRegistrado**|introduce|• usuario<br>• contraseña|
+|||usuario:contraseña no válida|
 
 ## estados internos del caso de uso
 
 |Estado|Descripción|Responsabilidad|
 |-|-|-|
-|**SolicitandoAcceso**|Estado inicial donde se requiere autenticación|Sistema debe presentar interfaz de autenticación|
-|**ProporcionandoCredenciales**|Usuario está introduciendo credenciales|Sistema debe permitir entrada de datos|
-|**Punto de decisión**|Validación de credenciales proporcionadas|Sistema debe verificar contra repositorio de usuarios|
+|**SolicitandoAcceso**|Estado inicial donde se requiere autenticación|Sistema debe permitir introducir credenciales|
+|**ProporcionandoCredenciales**|Usuario está introduciendo credenciales|Sistema recibe entrada de datos|
+|**Punto de decisión**|Evaluación de credenciales introducidas|Sistema determina validez|
 
 ## validaciones del sistema
 
-|Validación|Criterio|Acción en caso de fallo|
+|Validación|Criterio|Resultado|
 |-|-|-|
-|**Credenciales válidas**|usuario:contraseña existe en repositorio|Continuar con mostrarMenu()|
-|**Credenciales inválidas**|usuario:contraseña no existe o incorrecta|Regresar a SolicitandoAcceso|
+|**Credenciales válidas**|usuario:contraseña válida|Continuar con mostrarMenu()|
+|**Credenciales inválidas**|usuario:contraseña no válida|Regresar a SolicitandoAcceso|
 
 ## conexión con diagrama de contexto
 
@@ -81,18 +81,16 @@ La especificación detalla el interior del estado **AUTENTICANDO** del diagrama 
 
 ### actor (UsuarioNoRegistrado)
 - **solicita**: inicia conversación pidiendo algo al sistema
-- **proporciona**: entrega información requerida por el sistema
+- **introduce**: proporciona información requerida por el sistema
 
 ### sistema
-- **presenta**: muestra interfaz o información al actor
-- **valida**: verifica información contra reglas de negocio
 - **permite**: habilita funcionalidad para el actor
 
 ## características metodológicas
 
 ### separación de responsabilidades
-- **Actor**: Solo inicia conversación y proporciona datos
-- **Sistema**: Presenta interfaces, valida información, toma decisiones
+- **Actor**: Solo inicia conversación e introduce datos
+- **Sistema**: Solo permite acciones, no se especifican validaciones explícitas
 
 ### ausencia de detalles de implementación
 - No especifica tecnología de autenticación
