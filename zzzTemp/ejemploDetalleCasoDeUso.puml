@@ -6,35 +6,35 @@ state login as "login()" {
     state " " as ProvidingCredentials
     state c <<choice>>
 
-    [*] --> RequiringCredentials 
+    [*] -[#green]-> RequiringCredentials 
     note on link
-    UsuarioNoRegistrado solicita acceder
+    <b>UsuarioNoRegistrado</b> solicita acceder
     end note    
     
-    RequiringCredentials --> ProvidingCredentials
+    RequiringCredentials -[#green]-> ProvidingCredentials
     note on link
-    El sistema permite introducir
+    <b>Sistema</b> permite introducir
     • usuario
     • contraseña
     end note
     
-    ProvidingCredentials --> c
+    ProvidingCredentials -[#green]-> c
     note on link
-    UsuarioNoRegistrado introduce
+    <b>UsuarioNoRegistrado</b> introduce
     • usuario
     • contraseña
     end note
     
-    c --> RequiringCredentials
+    c -[#red]-> RequiringCredentials
     note on link
     usuario:contraseña
     no es válida
     end note
 
-    c --> [*]
+    c -[#green]-> [*]
 }
 
-login --> OPENED_DASHBOARD
+login -[#green]-> OPENED_DASHBOARD
 note on link
 openDashboard()
 end note

@@ -1190,13 +1190,13 @@ Manuel proporciona `ejemploDetalleCasoDeUso.puml` que demuestra:
 
 **Flujo de validación**:
 ```plantuml
-c --> RequiringCredentials
+c -[#red]-> RequiringCredentials
 note on link
 usuario:contraseña
 no es válida
 end note
 
-c --> [*]
+c -[#green]-> [*]
 note on link
 Validación exitosa
 end note
@@ -1204,7 +1204,7 @@ end note
 
 **Conexión con diagrama de contexto**:
 ```plantuml
-login --> OPENED_DASHBOARD
+login -[#green]-> OPENED_DASHBOARD
 note on link
 openDashboard()
 end note
@@ -1264,12 +1264,71 @@ Basándose en el diagrama de contexto del administrador:
 - **Representativos**: Casos que ejemplifican patrones CRUD
 - **Complejos**: Casos con lógica de negocio específica
 
+### Refinamiento Estético de la Metodología
+
+#### **Ajustes Visuales Aplicados al Ejemplo**
+Manuel aplica mejoras estéticas importantes al ejemplo `login()`:
+
+**Colores semánticos en transiciones**:
+- **Verde (`-[#green]->`)**: Flujo exitoso/normal del caso de uso
+- **Rojo (`-[#red]->`)**: Flujo de error/excepción
+
+**Énfasis en responsabilidades**:
+- **`<b>UsuarioNoRegistrado</b>`**: Actor destacado en negrita
+- **`<b>Sistema</b>`**: Sistema destacado en negrita
+
+#### **Valor de los Ajustes Estéticos**
+
+**Claridad visual mejorada**:
+- **Código cromático universal**: Verde = éxito, Rojo = error
+- **Flujos principales** vs **manejo de errores** inmediatamente identificables
+- **Responsabilidades** sin ambigüedad tipográfica
+
+**Calidad profesional**:
+- **Legibilidad**: Diagramas más fáciles de interpretar
+- **Estándar visual**: Convención consistente para todos los casos de uso
+- **Valor pedagógico**: Diferenciación clara de flujos normales vs excepcionales
+
+#### **Plantilla Actualizada para Casos de Uso**
+```plantuml
+state casoDeUso as "nombreCasoUso()" {
+    state " " as EstadoInicial
+    state " " as EstadoProcesamiento  
+    state c <<choice>>
+    
+    [*] -[#green]-> EstadoInicial
+    note on link
+    <b>Actor</b> solicita/introduce/proporciona
+    end note
+    
+    EstadoInicial -[#green]-> EstadoProcesamiento
+    note on link
+    <b>Sistema</b> permite/presenta/muestra/valida
+    end note
+    
+    c -[#red]-> EstadoInicial
+    note on link
+    Condición de error
+    end note
+    
+    c -[#green]-> [*]
+    note on link
+    Condición exitosa
+    end note
+}
+
+casoDeUso -[#green]-> ESTADO_CONTEXTO_SIGUIENTE
+note on link
+proximoCasoDeUso()
+end note
+```
+
 ### Próximos Pasos
 
-1. **Seleccionar primer caso de uso**: Para especificación detallada
-2. **Aplicar metodología**: Usar diagrama de estados con vocabulario establecido
+1. **Seleccionar primer caso de uso**: Para especificación detallada aplicando plantilla refinada
+2. **Aplicar metodología completa**: Diagrama de estados + vocabulario + colores semánticos + énfasis tipográfico
 3. **Validar conexión**: Asegurar coherencia con diagrama de contexto
-4. **Documentar patrón**: Establecer plantilla para casos subsiguientes
+4. **Documentar patrón**: Establecer plantilla visual para casos subsiguientes
 
 ---
 
