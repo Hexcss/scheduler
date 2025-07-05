@@ -1,5 +1,7 @@
 @startuml iniciarSesion
 
+skinparam linetype polyline
+
 state iniciarSesion as "iniciarSesion()" {
 
     state " " as SolicitandoAcceso
@@ -38,6 +40,7 @@ state iniciarSesion as "iniciarSesion()" {
 
 iniciarSesion -[#green]-> MENU_PRINCIPAL
 note on link
+UsuarioNoRegistrado → Administrador
 mostrarMenu()
 end note
 

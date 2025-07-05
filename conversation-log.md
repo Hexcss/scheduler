@@ -1439,6 +1439,29 @@ También se corrigió diagnóstico técnico:
 2. **Aplicar patrón purificado**: A casos de uso subsiguientes
 3. **Validar metodología**: Confirmar que el patrón es replicable y eficaz
 
+### Mejora Visual Adicional
+
+#### Optimización de Diagramas de Estado
+Manuel agrega mejora visual para diagramas de detalle de casos de uso:
+
+```plantuml
+@startuml nombreCasoDeUso
+
+skinparam linetype polyline
+
+state casoDeUso as "casoDeUso()" {
+    // ... contenido del caso de uso
+}
+```
+
+**Beneficio**: `skinparam linetype polyline` mejora significativamente la visibilidad de las transiciones entre estados en diagramas de estado complejos, especialmente cuando hay múltiples transiciones y choice points.
+
+**Aplicación**: 
+- ✅ Agregado a `/zzzTemp/ejemploDetalleCasoDeUso.puml` (plantilla)
+- ✅ Agregado a `/01-Inception/casos-uso-detalle/iniciarSesion.puml` (implementación)
+
+**Estándar actualizado**: Todos los diagramas de estado para especificación detallada de casos de uso deben incluir esta directiva para consistencia visual y legibilidad mejorada.
+
 ---
 
 *Este registro se actualizará continuamente conforme avance el proyecto*

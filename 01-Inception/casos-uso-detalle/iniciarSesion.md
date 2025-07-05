@@ -22,7 +22,7 @@ Especificación detallada del caso de uso `iniciarSesion()` mediante diagrama de
 |**Tipo**|Primario, esencial|
 |**Nivel**|Objetivo de usuario|
 |**Precondición**|Usuario no está autenticado en el sistema|
-|**Postcondición exitosa**|Usuario autenticado, sistema listo para mostrar menú principal|
+|**Postcondición exitosa**|UsuarioNoRegistrado se convierte en Administrador, sistema listo para mostrar menú principal|
 |**Postcondición de fallo**|Usuario no autenticado, sistema permanece en estado inicial|
 
 ## diagrama de especificación
@@ -102,9 +102,16 @@ La especificación detalla el interior del estado **AUTENTICANDO** del diagrama 
 - Tiene objetivo claro: autenticar usuario
 - Termina en estado definido: éxito o fallo
 
+### transformación del actor
+- **Entrada**: UsuarioNoRegistrado (sin permisos en el sistema)
+- **Salida**: Administrador (con acceso completo a funcionalidades)
+- **Mecanismo**: Autenticación exitosa produce cambio de rol
+- **Representación**: `UsuarioNoRegistrado → Administrador` en transición de salida
+
 ### trazabilidad con contexto
 - Estados internos corresponden a flujo del diagrama de contexto
 - Transición de salida conecta con siguiente caso de uso (mostrarMenu)
+- Cambio de actor permite acceso a todos los casos de uso del Administrador
 
 ## referencias
 

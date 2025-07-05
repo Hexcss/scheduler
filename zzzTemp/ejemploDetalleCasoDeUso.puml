@@ -1,5 +1,7 @@
 @startuml
 
+skinparam linetype polyline
+
 state login as "login()" {
 
     state " " as RequiringCredentials
@@ -36,6 +38,7 @@ state login as "login()" {
 
 login -[#green]-> OPENED_DASHBOARD
 note on link
+UsuarioNoRegistrado → Administrador
 openDashboard()
 end note
 
