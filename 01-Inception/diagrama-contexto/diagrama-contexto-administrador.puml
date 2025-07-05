@@ -1,0 +1,162 @@
+@startuml
+
+left to right direction
+
+state "NO_AUTENTICADO" as NoAuth
+state "MENU_PRINCIPAL" as Menu
+state "GESTIONANDO_PROGRAMAS" as Programas
+state "GESTIONANDO_CURSOS" as Cursos
+state "GESTIONANDO_PROFESORES" as Profesores
+state "GESTIONANDO_EDIFICIOS" as Edificios
+state "GESTIONANDO_AULAS" as Aulas
+state "GESTIONANDO_RECURSOS" as Recursos
+state "CONFIGURANDO_ASIGNACIONES" as Asignaciones
+state "GENERANDO_HORARIO" as Generacion
+state "CONSULTANDO_HORARIOS" as Consulta
+
+[*] --> NoAuth
+
+NoAuth --> Menu
+    note on link
+        iniciarSesion()
+    end note
+
+Menu --> NoAuth
+    note on link
+        cerrarSesion()
+    end note
+
+Menu --> Programas
+    note on link
+        listarProgramas()
+    end note
+
+Menu --> Cursos
+    note on link
+        listarCursos()
+    end note
+
+Menu --> Profesores
+    note on link
+        listarProfesores()
+    end note
+
+Menu --> Edificios
+    note on link
+        listarEdificios()
+    end note
+
+Menu --> Aulas
+    note on link
+        listarAulas()
+    end note
+
+Menu --> Recursos
+    note on link
+        listarRecursos()
+    end note
+
+Menu --> Asignaciones
+    note on link
+        asignarProfesorACurso()
+    end note
+
+Menu --> Generacion
+    note on link
+        generarHorario()
+    end note
+
+Menu --> Consulta
+    note on link
+        consultarHorario()
+    end note
+
+Programas --> Programas
+    note on link
+        crearPrograma()
+        editarPrograma()
+        eliminarPrograma()
+    end note
+
+Programas --> Menu
+    note on link
+        volverAlMenu()
+    end note
+
+Cursos --> Cursos
+    note on link
+        crearCurso()
+        editarCurso()
+        eliminarCurso()
+    end note
+
+Cursos --> Menu
+    note on link
+        volverAlMenu()
+    end note
+
+Profesores --> Profesores
+    note on link
+        crearProfesor()
+        editarProfesor()
+        eliminarProfesor()
+        configurarPreferenciasProfesor()
+    end note
+
+Profesores --> Menu
+    note on link
+        volverAlMenu()
+    end note
+
+Edificios --> Edificios
+    note on link
+        crearEdificio()
+        editarEdificio()
+        eliminarEdificio()
+    end note
+
+Edificios --> Menu
+    note on link
+        volverAlMenu()
+    end note
+
+Aulas --> Aulas
+    note on link
+        crearAula()
+        editarAula()
+        eliminarAula()
+    end note
+
+Aulas --> Menu
+    note on link
+        volverAlMenu()
+    end note
+
+Recursos --> Recursos
+    note on link
+        crearRecurso()
+        editarRecurso()
+        eliminarRecurso()
+    end note
+
+Recursos --> Menu
+    note on link
+        volverAlMenu()
+    end note
+
+Asignaciones --> Menu
+    note on link
+        finalizarAsignacion()
+    end note
+
+Generacion --> Menu
+    note on link
+        finalizarGeneracion()
+    end note
+
+Consulta --> Menu
+    note on link
+        volverAlMenu()
+    end note
+
+@enduml
