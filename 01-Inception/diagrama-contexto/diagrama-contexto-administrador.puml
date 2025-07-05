@@ -3,6 +3,7 @@
 left to right direction
 
 state "NO_AUTENTICADO" as NoAuth
+state "AUTENTICANDO" as PreMenu
 state "MENU_PRINCIPAL" as Menu
 
 state "LISTANDO_PROGRAMAS" as ListProgramas
@@ -24,9 +25,19 @@ state "CONSULTANDO_HORARIOS" as Consulta
 
 [*] --> NoAuth
 
-NoAuth --> Menu
+PreMenu --> NoAuth
+    note on link
+        iniciarSesion(error)
+    end note
+
+NoAuth --> PreMenu
     note on link
         iniciarSesion()
+    end note
+
+PreMenu --> Menu
+    note on link
+        mostrarMenu()
     end note
 
 Menu --> NoAuth
@@ -82,6 +93,10 @@ Menu --> Consulta
 ListProgramas --> EditPrograma
     note on link
         crearPrograma()
+    end note
+
+ListProgramas --> EditPrograma
+    note on link
         editarPrograma()
     end note
 
@@ -208,47 +223,47 @@ EditRecurso --> ListRecursos
 
 ListProgramas --> Menu
     note on link
-        volverAlMenu()
+        mostrarMenu()
     end note
 
 ListCursos --> Menu
     note on link
-        volverAlMenu()
+        mostrarMenu()
     end note
 
 ListProfesores --> Menu
     note on link
-        volverAlMenu()
+        mostrarMenu()
     end note
 
 ListEdificios --> Menu
     note on link
-        volverAlMenu()
+        mostrarMenu()
     end note
 
 ListAulas --> Menu
     note on link
-        volverAlMenu()
+        mostrarMenu()
     end note
 
 ListRecursos --> Menu
     note on link
-        volverAlMenu()
+        mostrarMenu()
     end note
 
 Asignaciones --> Menu
     note on link
-        finalizarAsignacion()
+        mostrarMenu()
     end note
 
 Generacion --> Menu
     note on link
-        finalizarGeneracion()
+        mostrarMenu()
     end note
 
 Consulta --> Menu
     note on link
-        volverAlMenu()
+        mostrarMenu()
     end note
 
 @enduml

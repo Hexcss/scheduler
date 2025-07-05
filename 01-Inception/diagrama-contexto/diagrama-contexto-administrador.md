@@ -4,7 +4,7 @@
 
 - **Proyecto**: pySigHor - Modernización del Sistema Generador de Horarios
 - **Fase RUP**: Inception (Inicio)
-- **Versión**: 2.0
+- **Versión**: 3.0
 - **Fecha**: 2025-01-05
 - **Autor**: Equipo de desarrollo
 
@@ -55,8 +55,9 @@ Este documento presenta el diagrama de contexto para el actor "Administrador de 
 
 ## Transiciones principales
 
-### Autenticación
-- `iniciarSesion()`: NO_AUTENTICADO → MENU_PRINCIPAL
+### Autenticación y navegación al menú
+- `iniciarSesion()`: NO_AUTENTICADO → NO_AUTENTICADO (proceso de autenticación)
+- `mostrarMenu()`: NO_AUTENTICADO → MENU_PRINCIPAL (tras autenticación exitosa)
 - `cerrarSesion()`: MENU_PRINCIPAL → NO_AUTENTICADO
 
 ### Navegación a estados de listado
@@ -96,7 +97,7 @@ Los estados LISTANDO y EDITANDO tienen navegación directa entre sí, optimizand
 
 ### Secuencialidad obligatoria
 Para realizar cualquier operación CRUD:
-`NO_AUTENTICADO` → `iniciarSesion()` → `MENU_PRINCIPAL` → `listarX()` → `LISTANDO_X` → `crearX()/editarX()` → `EDITANDO_X`
+`NO_AUTENTICADO` → `iniciarSesion()` → `mostrarMenu()` → `MENU_PRINCIPAL` → `listarX()` → `LISTANDO_X` → `crearX()/editarX()` → `EDITANDO_X`
 
 ## Validación de casos de uso
 
@@ -105,18 +106,19 @@ Todos los casos de uso identificados para el Administrador de Horarios aparecen 
 - **24 casos de uso CRUD**: Distribuidos entre transiciones LISTANDO → EDITANDO y autorreflexivas
 - **4 casos de uso especiales**: configurarPreferenciasProfesor(), asignarProfesorACurso(), generarHorario(), consultarHorario()
 - **12 casos de uso de listado**: listarX() para navegación a estados de listado
-- **2 casos de uso de autenticación**: iniciarSesion(), cerrarSesion()
+- **3 casos de uso de autenticación/navegación**: iniciarSesion(), mostrarMenu(), cerrarSesion()
 
 ### Casos de uso de navegación granular
-El patrón granular revela casos de uso adicionales necesarios:
+El patrón granular y la optimización aplicada revelan:
 - **Estados LISTANDO**: Casos de uso listarX() desde MENU_PRINCIPAL y desde EDITANDO_X
-- **Retorno al menú**: volverAlMenu() desde estados LISTANDO
-- **Finalización de procesos**: finalizarAsignacion(), finalizarGeneracion()
+- **Navegación unificada**: mostrarMenu() como caso de uso único para retorno al menú
+- **Separación de responsabilidades**: iniciarSesion() solo autentica, mostrarMenu() solo navega
 
 ### Optimización del flujo
 - **Eliminación in situ**: eliminarX() permanece en LISTANDO_X (sin cambio de estado)
 - **Edición continua**: editarX() autorreflexivo en EDITANDO_X
 - **Configuración integrada**: configurarPreferenciasProfesor() dentro de EDITANDO_PROFESOR
+- **Caso de uso unificado**: mostrarMenu() reemplaza volverAlMenu() y complementa iniciarSesion()
 
 ## Características del diseño
 
@@ -153,6 +155,12 @@ El diseño permite agregar nuevas entidades siguiendo el patrón LISTANDO/EDITAN
 - **Crear mínimo → editar**: Flujo natural de creación
 - **Edición continua**: Optimización de experiencia de trabajo
 - **Eliminación in situ**: Operación sin cambio de contexto
+- **Navegación unificada**: mostrarMenu() como punto único de acceso al menú principal
+
+### Separación de responsabilidades optimizada
+- **iniciarSesion()**: Solo proceso de autenticación
+- **mostrarMenu()**: Solo navegación al menú principal
+- **Reutilización**: mostrarMenu() desde múltiples contextos (post-autenticación, retorno desde funcionalidades)
 
 ## Referencias
 
