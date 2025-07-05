@@ -4,12 +4,20 @@ left to right direction
 
 state "NO_AUTENTICADO" as NoAuth
 state "MENU_PRINCIPAL" as Menu
-state "GESTIONANDO_PROGRAMAS" as Programas
-state "GESTIONANDO_CURSOS" as Cursos
-state "GESTIONANDO_PROFESORES" as Profesores
-state "GESTIONANDO_EDIFICIOS" as Edificios
-state "GESTIONANDO_AULAS" as Aulas
-state "GESTIONANDO_RECURSOS" as Recursos
+
+state "LISTANDO_PROGRAMAS" as ListProgramas
+state "EDITANDO_PROGRAMA" as EditPrograma
+state "LISTANDO_CURSOS" as ListCursos
+state "EDITANDO_CURSO" as EditCurso
+state "LISTANDO_PROFESORES" as ListProfesores
+state "EDITANDO_PROFESOR" as EditProfesor
+state "LISTANDO_EDIFICIOS" as ListEdificios
+state "EDITANDO_EDIFICIO" as EditEdificio
+state "LISTANDO_AULAS" as ListAulas
+state "EDITANDO_AULA" as EditAula
+state "LISTANDO_RECURSOS" as ListRecursos
+state "EDITANDO_RECURSO" as EditRecurso
+
 state "CONFIGURANDO_ASIGNACIONES" as Asignaciones
 state "GENERANDO_HORARIO" as Generacion
 state "CONSULTANDO_HORARIOS" as Consulta
@@ -26,32 +34,32 @@ Menu --> NoAuth
         cerrarSesion()
     end note
 
-Menu --> Programas
+Menu --> ListProgramas
     note on link
         listarProgramas()
     end note
 
-Menu --> Cursos
+Menu --> ListCursos
     note on link
         listarCursos()
     end note
 
-Menu --> Profesores
+Menu --> ListProfesores
     note on link
         listarProfesores()
     end note
 
-Menu --> Edificios
+Menu --> ListEdificios
     note on link
         listarEdificios()
     end note
 
-Menu --> Aulas
+Menu --> ListAulas
     note on link
         listarAulas()
     end note
 
-Menu --> Recursos
+Menu --> ListRecursos
     note on link
         listarRecursos()
     end note
@@ -71,75 +79,159 @@ Menu --> Consulta
         consultarHorario()
     end note
 
-Programas --> Programas
+ListProgramas --> EditPrograma
     note on link
         crearPrograma()
         editarPrograma()
+    end note
+
+ListProgramas --> ListProgramas
+    note on link
         eliminarPrograma()
     end note
 
-Programas --> Menu
+EditPrograma --> EditPrograma
     note on link
-        volverAlMenu()
+        editarPrograma()
     end note
 
-Cursos --> Cursos
+EditPrograma --> ListProgramas
+    note on link
+        listarProgramas()
+    end note
+
+ListCursos --> EditCurso
     note on link
         crearCurso()
         editarCurso()
+    end note
+
+ListCursos --> ListCursos
+    note on link
         eliminarCurso()
     end note
 
-Cursos --> Menu
+EditCurso --> EditCurso
     note on link
-        volverAlMenu()
+        editarCurso()
     end note
 
-Profesores --> Profesores
+EditCurso --> ListCursos
+    note on link
+        listarCursos()
+    end note
+
+ListProfesores --> EditProfesor
     note on link
         crearProfesor()
         editarProfesor()
+    end note
+
+ListProfesores --> ListProfesores
+    note on link
         eliminarProfesor()
+    end note
+
+EditProfesor --> EditProfesor
+    note on link
+        editarProfesor()
         configurarPreferenciasProfesor()
     end note
 
-Profesores --> Menu
+EditProfesor --> ListProfesores
     note on link
-        volverAlMenu()
+        listarProfesores()
     end note
 
-Edificios --> Edificios
+ListEdificios --> EditEdificio
     note on link
         crearEdificio()
         editarEdificio()
+    end note
+
+ListEdificios --> ListEdificios
+    note on link
         eliminarEdificio()
     end note
 
-Edificios --> Menu
+EditEdificio --> EditEdificio
     note on link
-        volverAlMenu()
+        editarEdificio()
     end note
 
-Aulas --> Aulas
+EditEdificio --> ListEdificios
+    note on link
+        listarEdificios()
+    end note
+
+ListAulas --> EditAula
     note on link
         crearAula()
         editarAula()
+    end note
+
+ListAulas --> ListAulas
+    note on link
         eliminarAula()
     end note
 
-Aulas --> Menu
+EditAula --> EditAula
+    note on link
+        editarAula()
+    end note
+
+EditAula --> ListAulas
+    note on link
+        listarAulas()
+    end note
+
+ListRecursos --> EditRecurso
+    note on link
+        crearRecurso()
+        editarRecurso()
+    end note
+
+ListRecursos --> ListRecursos
+    note on link
+        eliminarRecurso()
+    end note
+
+EditRecurso --> EditRecurso
+    note on link
+        editarRecurso()
+    end note
+
+EditRecurso --> ListRecursos
+    note on link
+        listarRecursos()
+    end note
+
+ListProgramas --> Menu
     note on link
         volverAlMenu()
     end note
 
-Recursos --> Recursos
+ListCursos --> Menu
     note on link
-        crearRecurso()
-        editarRecurso()
-        eliminarRecurso()
+        volverAlMenu()
     end note
 
-Recursos --> Menu
+ListProfesores --> Menu
+    note on link
+        volverAlMenu()
+    end note
+
+ListEdificios --> Menu
+    note on link
+        volverAlMenu()
+    end note
+
+ListAulas --> Menu
+    note on link
+        volverAlMenu()
+    end note
+
+ListRecursos --> Menu
     note on link
         volverAlMenu()
     end note
