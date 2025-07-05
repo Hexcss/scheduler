@@ -771,9 +771,48 @@ LISTANDO_PROGRAMAS → editarPrograma() → EDITANDO_PROGRAMA
 - **Correcciones**: ⏳ Pendientes de aplicar
 - **Aprendizaje**: ✅ Documentado para referencia futura
 
+### Especificación del Patrón Granular Optimizado
+
+Manuel especifica el patrón correcto para estados granulares:
+
+#### **Ejemplo: Gestión de Profesores**
+
+**En lugar de**:
+```
+GESTIONANDO_PROFESORES (con CRUD interno)
+```
+
+**Usar**:
+```
+LISTANDO_PROFESORES → editarProfesor() → EDITANDO_PROFESOR → editarProfesor() & listarProfesores() → LISTANDO_PROFESORES
+LISTANDO_PROFESORES → crearProfesor() → EDITANDO_PROFESOR (con datos mínimos) y a partir de aquí ya es una edición
+```
+
+#### **Flujo Granular y Optimizado**
+
+**Desde LISTANDO_PROFESORES**:
+1. **Para editar**: `editarProfesor()` → **EDITANDO_PROFESOR** (con datos completos)
+2. **Para crear**: `crearProfesor()` → **EDITANDO_PROFESOR** (con datos mínimos)
+
+**Desde EDITANDO_PROFESOR**:
+- **Continuar editando**: `editarProfesor()` → **EDITANDO_PROFESOR** (loop autorreflexivo)
+- **Volver a lista**: `listarProfesores()` → **LISTANDO_PROFESORES**
+
+#### **Principio Clave**
+- **Crear** = insertar datos mínimos + **redirigir inmediatamente a edición**
+- **Editar** = estado común para modificación (tanto creación como edición usan el mismo estado)
+- **Un solo estado de edición** sirve para ambos casos (crear nuevo vs editar existente)
+
+#### **Ventajas del Patrón**
+- **Flujo natural**: Crear algo es empezar a editarlo
+- **Reutilización**: Un estado de edición para ambos casos
+- **Optimización**: El usuario puede seguir editando sin cambiar de contexto
+- **Granularidad**: Estados específicos para cada tipo de operación
+- **Experiencia**: Refleja interacciones naturales usuario-sistema
+
 ### Próximos Pasos
 
-1. **Corregir diagrama de contexto**: Aplicar principios metodológicos
+1. **Corregir diagrama de contexto**: Aplicar principios metodológicos y patrón granular
 2. **Actualizar documentación**: Eliminar referencias de UI específica
 3. **Validar correcciones**: Verificar adherencia a RUP
 4. **Continuar con siguiente artefacto**: Una vez validado el diagrama corregido
