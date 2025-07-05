@@ -666,4 +666,118 @@ Con el concepto clarificado, el proyecto está listo para generar:
 
 ---
 
+## Conversación 12: Generación y Corrección Metodológica del Diagrama de Contexto
+**Fecha**: 2025-01-05  
+**Participantes**: Manuel (Usuario) + Claude Code
+
+### Generación del Diagrama de Contexto del Administrador
+
+#### Primera Iteración
+Claude genera el diagrama de contexto para el Administrador de Horarios con:
+- **11 estados**: NO_AUTENTICADO, MENU_PRINCIPAL, GESTIONANDO_* (6 estados), CONFIGURANDO_ASIGNACIONES, GENERANDO_HORARIO, CONSULTANDO_HORARIOS
+- **Transiciones**: Casos de uso como transiciones entre estados
+- **Patrón hub**: MENU_PRINCIPAL como centro de navegación
+- **Documentación completa**: Análisis de estados, transiciones y precondiciones
+
+#### Resultado Inicial
+- **Diagrama PlantUML**: `diagrama-contexto-administrador.puml`
+- **Documentación**: `diagrama-contexto-administrador.md`
+- **Validación**: Todos los casos de uso incluidos en el flujo
+
+### Identificación de Problemas Metodológicos
+
+Manuel identifica **dos problemas metodológicos fundamentales**:
+
+#### **Problema 1: Nivel de Abstracción Incorrecto**
+
+**Error detectado**:
+- Mención de "botones", "breadcrumbs", "dashboard" en consideraciones de implementación
+- Asunción de interfaz gráfica web/desktop específica
+
+**Por qué es problemático**:
+- **Fase Inception**: Solo debe manejar conceptos de negocio y casos de uso
+- **Asunción prematura**: El sistema podría no ser gráfico (ej: sistema gestionado por Alexa)
+- **Violación RUP**: Elementos de UI vienen en diseño/prototipado, no en análisis
+
+#### **Problema 2: Optimización de Estados Perdida (Simplificación Ágil)**
+
+**Error detectado**:
+- Estados simplificados "GESTIONANDO_*" estilo ágil
+- No aprovecha optimizaciones de flujo natural
+
+**Por qué es problemático**:
+- **Patrón perdido**: crear() → estado intermedio mínimo → editar() completo
+- **Flujo natural**: Crear algo es crearlo mínimamente y luego entrar a edición
+- **Oportunidad perdida**: Optimización de experiencia de usuario
+
+**Ejemplo de mejora**:
+```
+MENU_PRINCIPAL → crearPrograma() → EDITANDO_PROGRAMA
+EDITANDO_PROGRAMA → guardar() → LISTANDO_PROGRAMAS  
+LISTANDO_PROGRAMAS → editarPrograma() → EDITANDO_PROGRAMA
+```
+
+### Correcciones Metodológicas Requeridas
+
+#### **1. Estados más granulares**
+- Separar LISTANDO, EDITANDO, CREANDO por separado
+- Eliminar estados "GESTIONANDO_*" que agrupan múltiples responsabilidades
+
+#### **2. Flujos optimizados**
+- Crear mínimo → editar completo
+- Seguir patrones naturales de interacción usuario-sistema
+
+#### **3. Documentación sin referencias de UI**
+- Mantener nivel conceptual apropiado para fase Inception
+- Evitar asumir tecnologías específicas de interfaz
+
+#### **4. Nivel RUP apropiado**
+- Solo conceptos de negocio y casos de uso
+- No anticipar decisiones de diseño/implementación
+
+### Aprendizajes Clave
+
+#### **Error Conceptual: Mezclar Niveles de Abstracción**
+- **Inception**: Análisis de negocio, casos de uso, conceptos de dominio
+- **Diseño**: Interfaces, tecnologías, componentes de UI
+- **Implementación**: Código, frameworks, herramientas específicas
+
+#### **Error de Granularidad: Simplificación Ágil**
+- **Problema**: Estados "GESTIONANDO_*" ocultan flujo natural
+- **Solución**: Estados granulares que reflejan interacciones reales
+- **Beneficio**: Optimización de experiencia usuario desde análisis
+
+#### **Error de Asunción: Tecnología Específica**
+- **Problema**: Asumir interfaz gráfica web/desktop
+- **Solución**: Mantener independencia tecnológica
+- **Beneficio**: Flexibilidad en decisiones de diseño posteriores
+
+### Valor Educativo del Error
+
+#### **RUP en su Máxima Expresión**
+- **Disciplina**: Cada fase tiene su propósito y nivel de abstracción
+- **Separación**: No mezclar análisis con diseño/implementación
+- **Progresión**: Cada artefacto construye sobre los anteriores sin anticipar
+
+#### **Calidad del Proceso**
+- **Detección temprana**: Identificar errores metodológicos en revisión
+- **Corrección sistemática**: Aplicar principios RUP para corregir
+- **Aprendizaje**: Documentar errores para evitar repetición
+
+### Estado del Proyecto
+
+- **Diagrama de contexto**: ✅ Generado (primera iteración)
+- **Problemas metodológicos**: ✅ Identificados y documentados
+- **Correcciones**: ⏳ Pendientes de aplicar
+- **Aprendizaje**: ✅ Documentado para referencia futura
+
+### Próximos Pasos
+
+1. **Corregir diagrama de contexto**: Aplicar principios metodológicos
+2. **Actualizar documentación**: Eliminar referencias de UI específica
+3. **Validar correcciones**: Verificar adherencia a RUP
+4. **Continuar con siguiente artefacto**: Una vez validado el diagrama corregido
+
+---
+
 *Este registro se actualizará continuamente conforme avance el proyecto*
