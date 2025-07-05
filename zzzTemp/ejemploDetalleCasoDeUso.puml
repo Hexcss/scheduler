@@ -1,0 +1,42 @@
+@startuml
+
+state login as "login()" {
+
+    state " " as RequiringCredentials
+    state " " as ProvidingCredentials
+    state c <<choice>>
+
+    [*] --> RequiringCredentials 
+    note on link
+    UsuarioNoRegistrado solicita acceder
+    end note    
+    
+    RequiringCredentials --> ProvidingCredentials
+    note on link
+    El sistema permite introducir
+    • usuario
+    • contraseña
+    end note
+    
+    ProvidingCredentials --> c
+    note on link
+    UsuarioNoRegistrado introduce
+    • usuario
+    • contraseña
+    end note
+    
+    c --> RequiringCredentials
+    note on link
+    usuario:contraseña
+    no es válida
+    end note
+
+    c --> [*]
+}
+
+login --> OPENED_DASHBOARD
+note on link
+openDashboard()
+end note
+
+@enduml

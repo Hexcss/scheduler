@@ -1092,4 +1092,185 @@ EDITANDO_PROFESOR_PREFERENCIAS → editarProfesor() → EDITANDO_PROFESOR
 
 ---
 
+## Conversación 15: Establecimiento de Metodología para Detalle de Casos de Uso
+**Fecha**: 2025-01-05  
+**Participantes**: Manuel (Usuario) + Claude Code
+
+### Necesidad de Metodología para Especificación Detallada
+
+#### **Contexto del Avance**
+Con los artefactos base completados (modelo del dominio, actores y casos de uso, diagrama de contexto del administrador), Manuel introduce la metodología para el **siguiente nivel de detalle**: especificación completa de casos de uso.
+
+#### **Archivo de Índice RUP Creado**
+Manuel crea `RUP.md` como **mapa de navegación inicial** para los artefactos completados:
+- Enlaces directos a modelo del dominio, actores y casos de uso, diagrama de contexto
+- Referencia al conversation-log.md para trazabilidad
+- Estructura clara para refinamiento futuro
+
+### Metodología Específica para Detalle de Casos de Uso
+
+#### **Decisión Metodológica Fundamental**
+Manuel especifica el uso de **diagramas de estados UML** (no diagramas de actividad) para la especificación detallada de casos de uso.
+
+#### **Formato de Especificación Establecido**
+
+**Estructura requerida**:
+```plantuml
+state casoDeUso as "nombreCasoUso()" {
+    // Estados internos y transiciones
+}
+casoDeUso --> ESTADO_FINAL_CONTEXTO
+```
+
+### Elementos del Diagrama de Estados para Casos de Uso
+
+#### **1. Estado Compuesto como Caso de Uso**
+```plantuml
+state login as "login()" {
+    // Lógica interna completa
+}
+```
+- **Contenedor**: Todo el caso de uso dentro de un estado compuesto
+- **Nombre**: Corresponde exactamente al caso de uso identificado
+
+#### **2. Estados Internos Anónimos**
+```plantuml
+state " " as EstadoSemantico
+```
+- **Limpieza visual**: Estados sin etiquetas visibles
+- **Semántica interna**: Nombres descriptivos para referencia
+- **Principio**: Separación entre presentación y lógica
+
+#### **3. Choice Points para Decisiones**
+```plantuml
+state c <<choice>>
+```
+- **Validaciones del sistema**: Puntos de decisión lógica
+- **Flujos condicionales**: Bifurcación basada en reglas de negocio
+
+#### **4. Transiciones con Interacciones**
+```plantuml
+EstadoA --> EstadoB
+note on link
+Actor/Sistema realiza acción
+end note
+```
+- **Responsabilidades claras**: Quién hace qué en cada transición
+- **Detalle de interacción**: Especificación de la comunicación actor-sistema
+
+### Lenguaje y Semántica (Aspecto Crítico)
+
+#### **Vocabulario del Actor**
+- **Permitido**: solicita, introduce, proporciona
+- **Enfoque**: Acciones concretas que el actor puede realizar
+
+#### **Vocabulario del Sistema**
+- **Permitido**: permite, presenta, muestra, visualiza, valida
+- **Enfoque**: Respuestas y servicios que el sistema proporciona
+
+#### **Prohibiciones Metodológicas**
+- **❌ Pensamientos del actor**: "usuario decide", "usuario piensa"
+- **❌ Detalles de implementación**: "guarda en base de datos"
+- **❌ Referencias de UI**: "pulsa botón", "ventana de"
+
+#### **Rationale de las Prohibiciones**
+- **Nivel de abstracción**: Mantener nivel conceptual apropiado
+- **Independencia tecnológica**: No asumir implementación específica
+- **Enfoque en interacción**: Actor-sistema, no actor-interfaz
+
+### Ejemplo Metodológico Proporcionado
+
+#### **Análisis del Ejemplo `login()`**
+Manuel proporciona `ejemploDetalleCasoDeUso.puml` que demuestra:
+
+**Estados internos**:
+- `RequiringCredentials`: Sistema solicita credenciales
+- `ProvidingCredentials`: Actor proporciona credenciales
+- `c <<choice>>`: Sistema valida credenciales
+
+**Flujo de validación**:
+```plantuml
+c --> RequiringCredentials
+note on link
+usuario:contraseña
+no es válida
+end note
+
+c --> [*]
+note on link
+Validación exitosa
+end note
+```
+
+**Conexión con diagrama de contexto**:
+```plantuml
+login --> OPENED_DASHBOARD
+note on link
+openDashboard()
+end note
+```
+
+### Conexión con Diagrama de Contexto
+
+#### **Principio de Coherencia**
+- **Estado final** del caso de uso debe corresponder con estado del diagrama de contexto
+- **Transición de salida** etiquetada con próximo caso de uso del flujo
+
+#### **Trazabilidad Completa**
+- **Nivel superior**: Diagrama de contexto muestra flujo general
+- **Nivel detallado**: Diagramas de estado especifican cada caso de uso
+- **Coherencia**: Estados finales conectan ambos niveles
+
+### Ventajas de la Metodología Establecida
+
+#### **Rigor Metodológico**
+- **UML estándar**: Uso correcto de diagramas de estados
+- **Separación de responsabilidades**: Actor vs Sistema claramente diferenciados
+- **Nivel apropiado**: Sin detalles de implementación prematuros
+
+#### **Calidad del Análisis**
+- **Completitud**: Cada interacción actor-sistema especificada
+- **Trazabilidad**: Conexión directa con diagramas de contexto
+- **Verificabilidad**: Cada transición puede ser validada
+
+#### **Valor Educativo**
+- **Metodología completa**: Desde casos de uso hasta especificación detallada
+- **Principios claros**: Vocabulario y restricciones bien definidas
+- **Ejemplo funcional**: Patrón a seguir para todos los casos de uso
+
+### Estado del Proyecto
+
+#### **Artefactos Base Completados**
+- **Modelo del dominio**: ✅ Entidades y relaciones conceptuales
+- **Actores y casos de uso**: ✅ Identificación completa con herencia
+- **Diagrama de contexto (Administrador)**: ✅ Flujo completo con correcciones metodológicas
+
+#### **Metodología para Siguiente Fase**
+- **Especificación detallada**: ✅ Metodología establecida
+- **Herramientas**: ✅ Diagramas de estados UML + vocabulario riguroso
+- **Conexión**: ✅ Trazabilidad con diagramas de contexto
+
+### Preparación para Especificación Detallada
+
+#### **Casos de Uso Candidatos para Detalle**
+Basándose en el diagrama de contexto del administrador:
+- **iniciarSesion()**: Flujo de autenticación con validación
+- **crearPrograma()**: Patrón crear datos mínimos → editar
+- **listarProgramas()**: Visualización y selección de entidades
+- **mostrarMenu()**: Navegación centralizada al hub
+
+#### **Criterios de Priorización**
+- **Fundamentales**: Casos de uso de autenticación y navegación
+- **Representativos**: Casos que ejemplifican patrones CRUD
+- **Complejos**: Casos con lógica de negocio específica
+
+### Próximos Pasos
+
+1. **Seleccionar primer caso de uso**: Para especificación detallada
+2. **Aplicar metodología**: Usar diagrama de estados con vocabulario establecido
+3. **Validar conexión**: Asegurar coherencia con diagrama de contexto
+4. **Documentar patrón**: Establecer plantilla para casos subsiguientes
+
+---
+
 *Este registro se actualizará continuamente conforme avance el proyecto*
