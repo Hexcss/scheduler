@@ -12,6 +12,7 @@ state "LISTANDO_CURSOS" as ListCursos
 state "EDITANDO_CURSO" as EditCurso
 state "LISTANDO_PROFESORES" as ListProfesores
 state "EDITANDO_PROFESOR" as EditProfesor
+state "EDITANDO_PROFESOR_PREFERENCIAS" as EditProfesorPreferencias
 state "LISTANDO_EDIFICIOS" as ListEdificios
 state "EDITANDO_EDIFICIO" as EditEdificio
 state "LISTANDO_AULAS" as ListAulas
@@ -118,6 +119,10 @@ EditPrograma --> ListProgramas
 ListCursos --> EditCurso
     note on link
         crearCurso()
+    end note
+
+ListCursos --> EditCurso
+    note on link
         editarCurso()
     end note
 
@@ -139,6 +144,10 @@ EditCurso --> ListCursos
 ListProfesores --> EditProfesor
     note on link
         crearProfesor()
+    end note
+
+ListProfesores --> EditProfesor
+    note on link
         editarProfesor()
     end note
 
@@ -150,9 +159,18 @@ ListProfesores --> ListProfesores
 EditProfesor --> EditProfesor
     note on link
         editarProfesor()
+    end note
+
+EditProfesor --> EditProfesorPreferencias
+    note on link
         configurarPreferenciasProfesor()
     end note
 
+EditProfesorPreferencias --> EditProfesor
+    note on link
+        editarProfesor()
+    end note
+    
 EditProfesor --> ListProfesores
     note on link
         listarProfesores()
@@ -161,6 +179,10 @@ EditProfesor --> ListProfesores
 ListEdificios --> EditEdificio
     note on link
         crearEdificio()
+    end note
+
+ListEdificios --> EditEdificio
+    note on link
         editarEdificio()
     end note
 
@@ -182,6 +204,10 @@ EditEdificio --> ListEdificios
 ListAulas --> EditAula
     note on link
         crearAula()
+    end note
+
+ListAulas --> EditAula
+    note on link
         editarAula()
     end note
 
@@ -203,6 +229,10 @@ EditAula --> ListAulas
 ListRecursos --> EditRecurso
     note on link
         crearRecurso()
+    end note
+
+ListRecursos --> EditRecurso
+    note on link
         editarRecurso()
     end note
 

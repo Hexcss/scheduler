@@ -4,7 +4,7 @@
 
 - **Proyecto**: pySigHor - Modernización del Sistema Generador de Horarios
 - **Fase RUP**: Inception (Inicio)
-- **Versión**: 3.0
+- **Versión**: 5.0
 - **Fecha**: 2025-01-05
 - **Autor**: Equipo de desarrollo
 
@@ -36,13 +36,15 @@ Este documento presenta el diagrama de contexto para el actor "Administrador de 
 |Estado|Descripción|Función principal|
 |-|-|-|
 |**NO_AUTENTICADO**|Estado inicial del sistema|Punto de entrada, requiere autenticación|
+|**AUTENTICANDO**|Estado de procesamiento|Validación de credenciales y autenticación|
 |**MENU_PRINCIPAL**|Hub central de navegación|Punto de acceso a todas las funcionalidades|
 |**LISTANDO_PROGRAMAS**|Lista de programas académicos|Visualización y selección de programas|
 |**EDITANDO_PROGRAMA**|Edición de programa|Modificación de datos de programa (crear/editar)|
 |**LISTANDO_CURSOS**|Lista de cursos|Visualización y selección de cursos|
 |**EDITANDO_CURSO**|Edición de curso|Modificación de datos de curso (crear/editar)|
 |**LISTANDO_PROFESORES**|Lista de profesores|Visualización y selección de profesores|
-|**EDITANDO_PROFESOR**|Edición de profesor|Modificación de datos de profesor y preferencias|
+|**EDITANDO_PROFESOR**|Edición de profesor|Modificación de datos de profesor|
+|**EDITANDO_PROFESOR_PREFERENCIAS**|Configuración de preferencias|Configuración específica de preferencias del profesor|
 |**LISTANDO_EDIFICIOS**|Lista de edificios|Visualización y selección de edificios|
 |**EDITANDO_EDIFICIO**|Edición de edificio|Modificación de datos de edificio|
 |**LISTANDO_AULAS**|Lista de aulas|Visualización y selección de aulas|
@@ -56,8 +58,9 @@ Este documento presenta el diagrama de contexto para el actor "Administrador de 
 ## Transiciones principales
 
 ### Autenticación y navegación al menú
-- `iniciarSesion()`: NO_AUTENTICADO → NO_AUTENTICADO (proceso de autenticación)
-- `mostrarMenu()`: NO_AUTENTICADO → MENU_PRINCIPAL (tras autenticación exitosa)
+- `iniciarSesion()`: NO_AUTENTICADO → AUTENTICANDO (proceso de autenticación)
+- `iniciarSesion(error)`: AUTENTICANDO → NO_AUTENTICADO (credenciales inválidas)
+- `mostrarMenu()`: AUTENTICANDO → MENU_PRINCIPAL (tras autenticación exitosa)
 - `cerrarSesion()`: MENU_PRINCIPAL → NO_AUTENTICADO
 
 ### Navegación a estados de listado
@@ -71,11 +74,23 @@ Este documento presenta el diagrama de contexto para el actor "Administrador de 
 - `generarHorario()`: MENU_PRINCIPAL → GENERANDO_HORARIO
 - `consultarHorario()`: MENU_PRINCIPAL → CONSULTANDO_HORARIOS
 
-### Patrón granular optimizado
-- **Desde estados LISTANDO**: `crearX()` y `editarX()` → EDITANDO_X
-- **Eliminación**: `eliminarX()` permanece en LISTANDO_X
-- **Estados EDITANDO**: Autorreflexivos con `editarX()` para continuar editando
-- **Retorno**: `listarX()` desde EDITANDO_X → LISTANDO_X
+### Patrón granular optimizado con transiciones separadas
+
+**Para entidades estándar (Programas, Cursos, Edificios, Aulas, Recursos)**:
+- **LISTANDO_X → crearX() → EDITANDO_X** (transición separada)
+- **LISTANDO_X → editarX() → EDITANDO_X** (transición separada)
+- **LISTANDO_X → eliminarX() → LISTANDO_X** (operación in situ)
+- **EDITANDO_X → editarX() → EDITANDO_X** (edición continua)
+- **EDITANDO_X → listarX() → LISTANDO_X** (retorno a lista)
+
+**Para entidad Profesores (patrón extendido)**:
+- **LISTANDO_PROFESORES → crearProfesor() → EDITANDO_PROFESOR** (transición separada)
+- **LISTANDO_PROFESORES → editarProfesor() → EDITANDO_PROFESOR** (transición separada)
+- **LISTANDO_PROFESORES → eliminarProfesor() → LISTANDO_PROFESORES** (operación in situ)
+- **EDITANDO_PROFESOR → editarProfesor() → EDITANDO_PROFESOR** (edición continua)
+- **EDITANDO_PROFESOR → configurarPreferenciasProfesor() → EDITANDO_PROFESOR_PREFERENCIAS** (funcionalidad específica)
+- **EDITANDO_PROFESOR_PREFERENCIAS → editarProfesor() → EDITANDO_PROFESOR** (retorno a edición general)
+- **EDITANDO_PROFESOR → listarProfesores() → LISTANDO_PROFESORES** (retorno a lista)
 
 ### Flujo natural crear-editar
 - **Crear**: Datos mínimos → redirige inmediatamente a edición
@@ -86,8 +101,9 @@ Este documento presenta el diagrama de contexto para el actor "Administrador de 
 
 ### Autenticación requerida
 El diagrama hace explícito que para acceder a cualquier funcionalidad del sistema, el administrador debe:
-1. Estar autenticado (pasar por iniciarSesion())
-2. Estar en el MENU_PRINCIPAL
+1. Pasar por proceso de autenticación (NO_AUTENTICADO → AUTENTICANDO)
+2. Completar autenticación exitosa (AUTENTICANDO → MENU_PRINCIPAL)
+3. Manejo de errores: credenciales inválidas regresan a NO_AUTENTICADO
 
 ### Navegación centralizada desde menú
 El acceso a estados de listado requiere pasar por MENU_PRINCIPAL.
@@ -97,16 +113,18 @@ Los estados LISTANDO y EDITANDO tienen navegación directa entre sí, optimizand
 
 ### Secuencialidad obligatoria
 Para realizar cualquier operación CRUD:
-`NO_AUTENTICADO` → `iniciarSesion()` → `mostrarMenu()` → `MENU_PRINCIPAL` → `listarX()` → `LISTANDO_X` → `crearX()/editarX()` → `EDITANDO_X`
+`NO_AUTENTICADO` → `iniciarSesion()` → `AUTENTICANDO` → `mostrarMenu()` → `MENU_PRINCIPAL` → `listarX()` → `LISTANDO_X` → `crearX()` o `editarX()` → `EDITANDO_X`
 
 ## Validación de casos de uso
 
 ### Casos de uso incluidos
 Todos los casos de uso identificados para el Administrador de Horarios aparecen en el diagrama:
-- **24 casos de uso CRUD**: Distribuidos entre transiciones LISTANDO → EDITANDO y autorreflexivas
-- **4 casos de uso especiales**: configurarPreferenciasProfesor(), asignarProfesorACurso(), generarHorario(), consultarHorario()
-- **12 casos de uso de listado**: listarX() para navegación a estados de listado
-- **3 casos de uso de autenticación/navegación**: iniciarSesion(), mostrarMenu(), cerrarSesion()
+- **32 casos de uso CRUD estándar**: 5 entidades × (crear + editar + eliminar + listar + editar continua + retorno) = 30 transiciones
+- **8 casos de uso CRUD profesores**: Patrón extendido con estado adicional para preferencias
+- **3 casos de uso especiales**: asignarProfesorACurso(), generarHorario(), consultarHorario()
+- **6 casos de uso de navegación inicial**: listarX() desde MENU_PRINCIPAL  
+- **4 casos de uso de autenticación/navegación**: iniciarSesion(), iniciarSesion(error), mostrarMenu(), cerrarSesion()
+- **9 casos de uso de retorno al menú**: mostrarMenu() desde estados LISTANDO y especiales
 
 ### Casos de uso de navegación granular
 El patrón granular y la optimización aplicada revelan:
@@ -117,7 +135,8 @@ El patrón granular y la optimización aplicada revelan:
 ### Optimización del flujo
 - **Eliminación in situ**: eliminarX() permanece en LISTANDO_X (sin cambio de estado)
 - **Edición continua**: editarX() autorreflexivo en EDITANDO_X
-- **Configuración integrada**: configurarPreferenciasProfesor() dentro de EDITANDO_PROFESOR
+- **Estado especializado**: EDITANDO_PROFESOR_PREFERENCIAS para configuración específica
+- **Navegación bidireccional**: Entre EDITANDO_PROFESOR y EDITANDO_PROFESOR_PREFERENCIAS
 - **Caso de uso unificado**: mostrarMenu() reemplaza volverAlMenu() y complementa iniciarSesion()
 
 ## Características del diseño
@@ -134,6 +153,7 @@ Los estados EDITANDO permiten edición continua sin cambios de contexto.
 ### Separación de responsabilidades
 - **Estados LISTANDO**: Visualización y selección
 - **Estados EDITANDO**: Modificación de datos (crear/editar)
+- **Estado EDITANDO_PROFESOR_PREFERENCIAS**: Configuración específica de preferencias
 - **Estados especiales**: Procesos únicos (generación, asignaciones, consulta)
 
 ### Extensibilidad
@@ -159,8 +179,19 @@ El diseño permite agregar nuevas entidades siguiendo el patrón LISTANDO/EDITAN
 
 ### Separación de responsabilidades optimizada
 - **iniciarSesion()**: Solo proceso de autenticación
+- **iniciarSesion(error)**: Manejo de credenciales inválidas
 - **mostrarMenu()**: Solo navegación al menú principal
-- **Reutilización**: mostrarMenu() desde múltiples contextos (post-autenticación, retorno desde funcionalidades)
+- **Estado intermedio**: AUTENTICANDO separa validación de navegación
+- **Reutilización**: mostrarMenu() desde múltiples contextos
+
+### Rigor metodológico aplicado
+- **Transiciones separadas**: crear/editar como decisiones independientes del usuario (aplicado a todas las 6 entidades)
+- **Sin ambigüedad semántica**: Cada transición representa una acción específica
+- **UML estándar**: No implica secuencialidad entre casos de uso alternativos
+- **Manejo de errores**: Flujos explícitos para casos de fallo en autenticación
+- **Estados especializados**: EDITANDO_PROFESOR_PREFERENCIAS para funcionalidad específica
+- **Consistencia base**: Patrón uniforme aplicado a 5 entidades estándar
+- **Extensión controlada**: Profesores con patrón extendido para preferencias
 
 ## Referencias
 
