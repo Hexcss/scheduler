@@ -1,6 +1,6 @@
 # Reingeniería usando RUP
 
-Esto a modo de mapa inicial, luego lo refinamos.
+Esto a modo de mapa inicial, luego lo refinamos. Además, [guardamos toda la interacción](conversation-log.md)!
 
 ## Inception
 
