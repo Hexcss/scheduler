@@ -35,6 +35,47 @@ Especificación detallada del caso de uso `iniciarSesion()` mediante diagrama de
 
 </div>
 
+## prototipo de interfaz
+
+### propósito del prototipo
+**Objetivo:** Que te digan que NO lo antes posible - validar la especificación antes de invertir en desarrollo.
+
+### wireframes
+
+#### pantalla 1: diálogo de inicio de sesión
+<div align=center>
+
+|![Wireframe: Inicio de sesión](/images/01-Inception/casos-uso-detalle/iniciarSesion-wireframe.svg)|
+|-|
+|**Estado**: SolicitandoAcceso → ProporcionandoCredenciales|
+
+</div>
+
+**Correspondencia con especificación:**
+- Actor "solicita acceder al sistema"
+- Sistema "permite introducir usuario y contraseña"
+
+#### pantalla 2: credenciales inválidas
+<div align=center>
+
+|![Wireframe: Error de credenciales](/images/01-Inception/casos-uso-detalle/iniciarSesion-credenciales-invalidas-wireframe.svg)|
+|-|
+|**Estado**: Choice point → regreso a SolicitandoAcceso|
+
+</div>
+
+**Correspondencia con especificación:**
+- Choice point evalúa: "usuario:contraseña no válida"
+- Sistema presenta mismo diálogo + mensaje de error
+
+### validaciones del wireframe
+- ¿El diálogo refleja correctamente la conversación actor-sistema?
+- ¿Es clara la diferencia entre estado normal y estado de error?
+- ¿La terminología "SigHor" es familiar para usuarios finales?
+- ¿Faltan elementos en la especificación que el wireframe revela?
+
+**Código fuente:** [iniciarSesion-wireframe.puml](iniciarSesion-wireframe.puml)</div>
+
 ## conversación detallada
 
 ### flujo principal (éxito)

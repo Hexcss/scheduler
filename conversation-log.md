@@ -1464,4 +1464,140 @@ state casoDeUso as "casoDeUso()" {
 
 ---
 
+## Conversación 17: Prototipado de Casos de Uso y Organización de Artefactos
+**Fecha**: 2025-01-05  
+**Participantes**: Manuel (Usuario) + Claude Code
+
+### Contexto
+Tras completar la especificación detallada de `iniciarSesion()`, surge la necesidad de prototipar la interfaz para validar la especificación antes de avanzar al desarrollo.
+
+### Reflexión sobre el Propósito del Prototipado
+
+#### Visión Inicial de Claude (enfoque tradicional)
+Claude propone prototipado para:
+- Detectar omisiones en la especificación
+- Identificar ambigüedades 
+- Validar conversación actor-sistema
+- Descubrir casos de uso implícitos
+
+#### Corrección Metodológica de Manuel
+Manuel corrige con visión más pragmática:
+
+> "Tengo una visión alternativa a lo que propones de para qué sirve un prototipo. En mi visión, un prototipo sirve para que te digan que no lo antes posible y evitar trabajar en vano."
+
+#### Principio Fundamental Establecido
+**Prototipo = "Que te digan que NO lo antes posible"**
+
+**Beneficios económicos:**
+- Fallar barato antes de invertir recursos serios
+- Obtener rechazo temprano cuando aún puedes pivotar
+- Evitar construir algo que nadie quiere
+- Descubrir malentendidos antes de que sean costosos
+
+**Aplicación práctica:**
+- 10 minutos de wireframe vs semanas de desarrollo
+- Validar interpretación del sistema legacy de 1998
+- Mejor que rechacen el wireframe que el sistema completo
+
+### Selección de Herramienta: SALT de PlantUML
+
+#### Justificación Técnica
+- **Rápido** como papel y lápiz
+- **Versionable** (texto plano)
+- **Integrado** con ecosistema PlantUML del proyecto
+- **Consistente** con resto de artefactos
+
+#### Ventajas sobre Papel
+Aunque Manuel prefiere papel en la vida real, SALT ofrece:
+- Mantiene todo en formato PlantUML
+- Permite evolución versionada del prototipo
+- Facilita documentación y trazabilidad
+
+### Implementación del Wireframe
+
+#### Primera Versión (Claude)
+- 3 wireframes complejos
+- Menú principal incluido
+- Sintaxis SALT incorrecta
+- Sobre-especificación
+
+#### Versión Simplificada (Manuel)
+```plantuml
+@startsalt iniciarSesion-wireframe
+{
+    ====
+    SigHor - Sistema Generador de Horarios
+    ====
+    {^" Iniciar sesión "
+        Usuario    | "Administrador   "
+        Contraseña | "********        "
+        {
+            [Cancel] | [  OK   ]
+        }
+    }
+}
+@endsalt
+```
+
+**Mejoras aplicadas:**
+- **Solo 2 wireframes** vs 3 propuestos (más directo)
+- **Sintaxis SALT correcta** (llaves anidadas, groupbox)
+- **Interfaz tipo diálogo** (más realista)
+- **Ejemplo concreto** ("Administrador" vs placeholder genérico)
+- **Enfoque específico** (solo autenticación, no menú)
+
+### Reflexión sobre Organización de Artefactos
+
+#### Dilema Organizacional
+¿Dónde ubicar el wireframe del caso de uso?
+
+**Opción 1: casos-uso-detalle/** (elegida)
+- ✅ Prototipo valida especificación - son complementarios
+- ✅ Facilita navegación (todo del caso en un lugar)
+- ✅ Coherencia: especificación + wireframe = mismo nivel
+- ❌ Mezcla tipos de artefactos diferentes
+
+**Opción 2: casos-uso-prototipado/**
+- ✅ Separación clara por tipo de artefacto
+- ✅ Escalabilidad para múltiples prototipos
+- ✅ Metodológicamente más puro
+- ❌ Fragmenta artefactos relacionados
+- ❌ Navegación más compleja
+
+**Opción 3: casos-uso-detalle/prototipos/**
+- ✅ Mantiene cohesión por caso de uso
+- ✅ Organiza por tipo dentro del caso
+- ❌ Estructura más profunda
+
+#### Decisión Tomada
+**Mantener en casos-uso-detalle/** por:
+- **Principio de cohesión**: Prototipo existe para validar especificación
+- **Simplicidad de navegación**: Un caso de uso = una carpeta
+- **Alineación con RUP**: Prototipo de UI acompaña especificación detallada
+
+### Aprendizajes Metodológicos
+
+#### Filosofía del Prototipado
+- **Menos es más**: Simplificar al máximo para validar esencial
+- **Foco en rechazo**: Buscar activamente el "NO" temprano
+- **Economía de recursos**: 10 minutos > semanas
+
+#### Organización Pragmática
+- **Priorizar cohesión funcional** sobre pureza categórica
+- **Facilitar navegación** del equipo de desarrollo
+- **Documentar decisiones** para casos futuros
+
+#### Calidad de Wireframes
+- **Sintaxis correcta** de herramientas (SALT en este caso)
+- **Realismo apropiado** (diálogos vs pantallas completas)
+- **Enfoque específico** (un caso de uso por wireframe)
+
+### Próximos Pasos
+1. **Integrar wireframe en documentación** de iniciarSesion.md (pendiente)
+2. **Validar wireframe** con stakeholders para obtener "NO" temprano
+3. **Iterar especificación** si wireframe revela omisiones
+4. **Establecer patrón** para prototipos subsiguientes
+
+---
+
 *Este registro se actualizará continuamente conforme avance el proyecto*
