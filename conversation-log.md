@@ -1877,4 +1877,159 @@ El documento confirma explícitamente:
 
 ---
 
+---
+
+## Conversación 20: Reorganización Final y Corrección de Enlaces de Imágenes
+**Fecha**: 2025-01-05  
+**Participantes**: Manuel (Usuario) + Claude Code
+
+### Contexto
+Tras completar la implementación de análisis MVC para `iniciarSesion()`, se procede a la reorganización final del proyecto de disciplinas basada en fases a organización puramente disciplinar, siguiendo metodología RUP auténtica.
+
+### Reorganización Estructural Final
+
+#### Estructura Anterior (Basada en Fases)
+```
+/01-Inception/
+├── casos-uso/
+├── casos-uso-detalle/
+├── analisis/
+└── prototipos/
+```
+
+#### Estructura Final (Disciplinar)
+```
+/RUP/
+├── 00-casos-uso/          # Disciplina de Requisitos
+│   ├── 00-modelo-del-dominio/
+│   ├── 01-actores-casos-uso/
+│   └── 02-detalle/
+└── 01-analisis/           # Disciplina de Análisis
+    └── casos-uso/
+```
+
+### Justificación Metodológica
+
+#### Decisión Estratégica (Manuel)
+> "Llegados a este punto, reflexionemos... Debería seguir llamándose 01-Inception o deberíamos llamarla \RUP... Sí. Debería ser RUP. Luego verificaremos los links muertos de las imágenes..."
+
+#### Beneficios de la Reorganización
+- **Claridad conceptual**: Estructura refleja disciplinas RUP, no fases
+- **Escalabilidad**: Facilita agregar nuevas disciplinas (Diseño, Implementación, etc.)
+- **Navegación mejorada**: Los artefactos se organizan por naturaleza, no por momento temporal
+- **Metodología auténtica**: Estructura alineada con RUP formal
+
+### Corrección Sistemática de Enlaces
+
+#### Problema Identificado
+Tras la regeneración de imágenes por parte de Manuel, varios archivos markdown mantenían referencias al directorio anterior (`/images/01-Inception/`), causando enlaces rotos.
+
+#### Proceso de Corrección
+**Archivos corregidos:**
+1. **modelo-dominio.md** - Imagen del modelo del dominio
+2. **actores-casos-uso.md** - Tres diagramas de casos de uso
+3. **diagrama-contexto-administrador.md** - Diagrama de contexto
+4. **iniciarSesion/README.md** (detalle) - Especificación y wireframes
+5. **iniciarSesion/README.md** (análisis) - Diagrama de colaboración
+
+#### Patrón de Corrección Aplicado
+```markdown
+<!-- ANTES (enlaces rotos) -->
+![Imagen](/images/01-Inception/path/to/image.svg)
+
+<!-- DESPUÉS (enlaces corregidos) -->
+![Imagen](/images/RUP/path/to/image.svg)
+```
+
+### Actualización del Índice de Navegación
+
+#### Cambios en RUP.md
+Manuel actualizó la estructura de navegación:
+
+```markdown
+### 00 - Requisitos
+- [00 - Modelo del dominio](/RUP/00-casos-uso/00-modelo-del-dominio/modelo-dominio.md)
+- [01 - Actores y casos de uso](/RUP/00-casos-uso/01-actores-casos-uso/actores-casos-uso.md)
+- [02 - Detalle de casos de uso](/RUP/00-casos-uso/02-detalle/)
+
+### 01 - Análisis
+- [Casos de uso analizados](/RUP/01-analisis/casos-uso/)
+```
+
+**Cambio terminológico importante:**
+- **"00 - Casos de uso"** → **"00 - Requisitos"**
+- Refleja mejor la naturaleza de la disciplina RUP
+
+### Verificación Completa de Enlaces
+
+#### Metodología de Verificación
+1. **Búsqueda sistemática**: `grep -r "01-Inception" /RUP/`
+2. **Corrección puntual**: Cada archivo identificado corregido individualmente
+3. **Validación final**: Verificación de que todos los enlaces apuntan a `/images/RUP/`
+
+#### Resultados de Verificación
+**✅ Enlaces corregidos exitosamente:**
+- Modelo del dominio: 1 imagen
+- Actores y casos de uso: 3 imágenes
+- Diagrama de contexto: 1 imagen
+- Detalle iniciarSesion: 3 imágenes (especificación + 2 wireframes)
+- Análisis iniciarSesion: 1 imagen (colaboración MVC)
+
+**Total: 9 enlaces de imágenes corregidos**
+
+### Consideraciones Técnicas
+
+#### Impacto en Desarrollo
+- **Consistencia**: Todas las imágenes siguen el mismo patrón de ruta
+- **Versionado**: Enlaces apuntan a ubicaciones definitivas
+- **Mantenibilidad**: Estructura final facilita mantenimiento futuro
+
+#### Trazabilidad Mantenida
+- **Conversación completa documentada**: Todas las decisiones registradas
+- **Artefactos enlazados**: Referencias cruzadas actualizadas
+- **Metodología preservada**: Rigor RUP mantenido en nueva estructura
+
+### Valor Didáctico de la Reorganización
+
+#### Demostración Práctica
+- **Evolución natural**: Cómo un proyecto se adapta conforme madura
+- **Metodología flexible**: RUP permite ajustes estructurales
+- **Rigor mantenido**: Cambios estructurales sin pérdida de contenido
+
+#### Lecciones Aprendidas
+1. **Estructura importa**: La organización afecta comprensión y navegación
+2. **Consistencia es clave**: Enlaces rotos fragmentan la experiencia
+3. **Documentación es esencial**: Cambios deben estar justificados y registrados
+4. **Flexibilidad metodológica**: RUP permite adaptación sin perder rigor
+
+### Estado Final del Proyecto
+
+#### Estructura Consolidada
+- **Disciplina de Requisitos**: Completa con modelo del dominio, actores, casos de uso y especificaciones detalladas
+- **Disciplina de Análisis**: Iniciada con análisis MVC de `iniciarSesion()`
+- **Documentación**: Trazabilidad completa desde inicio hasta estado actual
+- **Metodología**: RUP auténtico aplicado con terminología pedagógica MVC
+
+#### Próximos Pasos Identificados
+1. **Continuar análisis**: Más casos de uso según prioridad
+2. **Implementar paquetes**: Organización sistemática de clases de análisis
+3. **Preparar diseño**: Transición a decisiones tecnológicas
+4. **Documentar patrones**: Plantillas para escalabilidad
+
+### Conclusiones de la Sesión
+
+#### Logros Metodológicos
+- **Reorganización exitosa**: Estructura disciplinar implementada
+- **Integridad preservada**: Todos los artefactos accesibles y enlazados
+- **Calidad mejorada**: Navegación más clara y lógica
+- **Escalabilidad mejorada**: Base sólida para disciplinas adicionales
+
+#### Valor del Proceso
+- **Transparencia total**: Cada decisión documentada y justificada
+- **Aprendizaje continuo**: Errores y correcciones como parte del proceso
+- **Metodología validada**: RUP aplicado con rigor y flexibilidad
+- **Herramientas apropiadas**: PlantUML, Markdown, Git para proyecto completo
+
+---
+
 *Este registro se actualizará continuamente conforme avance el proyecto*
