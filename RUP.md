@@ -4,7 +4,7 @@ Esto a modo de mapa inicial, luego lo refinamos. Además, [guardamos toda la int
 
 ## Disciplinas RUP
 
-### 00 - Casos de uso
+### 00 - Requisitos
 - [00 - Modelo del dominio](/RUP/00-casos-uso/00-modelo-del-dominio/modelo-dominio.md)
 - [01 - Actores y casos de uso](/RUP/00-casos-uso/01-actores-casos-uso/actores-casos-uso.md)
   - [Diagrama de contexto (actor administrador)](/RUP/00-casos-uso/01-actores-casos-uso/diagrama-contexto-administrador.md)
