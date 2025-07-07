@@ -2,16 +2,15 @@
 
 Profesor -d- Curso : imparte
 
-Programa *-r- Curso
+Curso -r-* Programa
 
 package CampusUniversitario {
     Edificio *-u- Aula
 }
 
-
-Horario *-- Aula
-Horario *-u- Curso
-Horario *-- Profesor
+Horario o-- Aula
+Horario o-d- Curso
+Horario o-- Profesor
 
 Profesor ..> Recurso : prefiere
 Aula ..> Recurso : ofrece

@@ -68,11 +68,38 @@ El algoritmo de generación de horarios busca crear instancias de **Horario** qu
 
 ## Relaciones
 
-|Académicas|Del campus|De asignación|De preferencias|
-|-|-|-|-|
-|**Profesor imparte Curso**: Relación fundamental de enseñanza|- **Edificio contiene Aula**: Organización física del campus|**Horario integra Profesor, Curso y Aula**: La entidad central que materializa la solución|**Profesor prefiere Recurso**: Preferencias del docente sobre equipamiento
-|**Programa contiene Curso**: Los cursos pertenecen a programas académicos|||**Aula ofrece Recurso**: Recursos disponibles en cada espacio físico
-|**Curso depende de BloqueHorario**: Cada curso tiene un patrón horario preferido
+### Relaciones académicas
+- **Profesor imparte Curso**: Relación fundamental de enseñanza
+- **Programa contiene Curso**: Los cursos pertenecen a programas académicos específicos
+- **Curso asociado a BloqueHorario**: Cada curso tiene un patrón temporal preferido
+
+### Relaciones del campus físico
+- **Edificio contiene Aula**: Organización física del campus universitario
+
+### Relaciones de asignación
+- **Horario referencia Profesor, Curso y Aula**: La entidad central que materializa las asignaciones del algoritmo
+
+### Relaciones de preferencias
+- **Profesor prefiere Recurso**: Preferencias del docente sobre equipamiento
+- **Aula ofrece Recurso**: Recursos disponibles en cada espacio físico
+
+## Cambios en las relaciones del modelo
+
+### Refinamiento aplicado
+**Cambio 1: Dirección corregida en Programa-Curso**
+- **Antes**: `Programa *-r- Curso` (dirección incorrecta)
+- **Ahora**: `Curso -r-* Programa` (dirección natural)
+- **Justificación**: "Curso pertenece a Programa" es más intuitivo que al revés
+
+**Cambio 2: De composición a agregación en Horario**
+- **Antes**: `Horario *-- Entidad` (composición - "Horario posee")
+- **Ahora**: `Horario o-- Entidad` (agregación - "Horario referencia")
+- **Justificación**: Las entidades (Profesor, Curso, Aula) existen independientemente del Horario
+
+### Semántica mejorada
+- **Agregación (`o--`)**: Horario es una **asignación temporal** que conecta entidades preexistentes
+- **Independencia**: Si se elimina un Horario, las entidades referenciadas permanecen intactas
+- **Realidad del dominio**: Refleja mejor cómo funciona el algoritmo de generación de horarios
 
 ## Vocabulario
 

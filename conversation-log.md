@@ -2032,4 +2032,154 @@ Manuel actualizó la estructura de navegación:
 
 ---
 
+## Conversación 21: Refinación del Modelo del Dominio - Precisión Semántica
+**Fecha**: 2025-01-05  
+**Participantes**: Manuel (Usuario) + Claude Code
+
+### Contexto
+Tras la consolidación estructural del proyecto, Manuel identifica oportunidades de mejora en la precisión conceptual del modelo del dominio, aplicando ajustes que refinan la semántica de las relaciones.
+
+### Ajustes Realizados al Modelo del Dominio
+
+#### Cambio 1: Corrección de Dirección en Relación Programa-Curso
+**Antes:**
+```plantuml
+Programa *-r- Curso
+```
+
+**Después:**
+```plantuml
+Curso -r-* Programa
+```
+
+**Justificación:**
+- **Dirección natural**: "Curso pertenece a Programa" es más intuitivo que al revés
+- **Composición correcta**: Un Programa contiene múltiples Cursos, no viceversa
+- **Legibilidad mejorada**: La relación se lee de forma más natural
+
+#### Cambio 2: De Composición a Agregación en Horario
+**Antes:**
+```plantuml
+Horario *-- Aula
+Horario *-u- Curso
+Horario *-- Profesor
+```
+
+**Después:**
+```plantuml
+Horario o-- Aula
+Horario o-d- Curso
+Horario o-- Profesor
+```
+
+**Justificación Conceptual:**
+- **Composición (`*--`)**: Implica propiedad/pertenencia - "Horario posee Profesor"
+- **Agregación (`o--`)**: Implica uso/referencia - "Horario referencia Profesor"
+
+**Realidad del dominio:**
+- Profesores, Cursos y Aulas **existen independientemente** del Horario
+- Horario es una **asignación temporal** que conecta entidades preexistentes
+- Si se elimina un Horario, las entidades referenciadas permanecen intactas
+
+### Análisis de Impacto en Artefactos Existentes
+
+#### Impacto en Disciplina de Requisitos: **Nulo**
+
+**Casos de uso permanecen inalterados:**
+- CRUD operations: `crearPrograma()`, `crearCurso()`, `crearProfesor()`, etc.
+- Procesos centrales: `generarHorario()`, `consultarHorario()`
+- Autenticación: `iniciarSesion()` (sin relación con modelo del dominio)
+
+**Actores y responsabilidades:** Sin cambios
+- Administrador de Horarios mantiene las mismas capacidades
+- Consultor de Horarios mantiene el mismo acceso de solo lectura
+
+**Especificaciones detalladas:** Sin impacto
+- El caso de uso `iniciarSesion()` es sobre autenticación, no sobre entidades del dominio
+- Diagramas de contexto y wireframes permanecen válidos
+
+#### Impacto en Disciplina de Análisis: **Mínimo conceptual**
+
+**Clases de análisis identificadas:** Inalteradas
+- **Model**: `Usuario`, `Sesion`, `UsuarioRepository` (mismo conjunto)
+- **View**: `LoginView` (misma responsabilidad)
+- **Controller**: `IniciarSesionController` (misma lógica)
+
+**Semántica refinada pero funcionalmente equivalente:**
+- Las clases siguen teniendo las mismas responsabilidades
+- Las interacciones actor-sistema permanecen idénticas
+- Los diagramas de colaboración MVC siguen siendo válidos
+
+### Justificación Metodológica del Refinamiento
+
+#### Naturaleza del Modelo del Dominio
+El modelo del dominio es **conceptual, no implementacional**:
+- Se enfoca en **relaciones semánticas** entre entidades de negocio
+- Debe reflejar con precisión la **realidad del dominio**
+- Los ajustes mejoran **claridad y comprensión** sin alterar funcionalidad
+
+#### Principio de Mejora Continua
+- **Refinación iterativa**: Los modelos deben evolucionar conforme se comprende mejor el dominio
+- **Corrección temprana**: Mejor ajustar conceptos antes que arrastrar imprecisiones
+- **Impacto controlado**: Cambios semánticos con impacto mínimo en artefactos derivados
+
+### Valor de la Corrección
+
+#### Beneficios Conceptuales
+1. **Precisión semántica**: Las relaciones reflejan mejor la realidad del negocio
+2. **Comprensión mejorada**: Stakeholders entienden mejor las dependencias
+3. **Calidad del modelo**: Fundamento más sólido para artefactos futuros
+4. **Consistencia metodológica**: Uso correcto de notación UML
+
+#### Beneficios Prácticos
+1. **Mantenimiento**: Cambios futuros serán más predecibles y coherentes
+2. **Extensibilidad**: Nuevas funcionalidades se apoyarán en modelo más preciso
+3. **Comunicación**: Discusiones técnicas basadas en conceptos más claros
+4. **Validación**: Fácil verificar que implementación refleja intención del negocio
+
+### Implicaciones para Fases Futuras
+
+#### Disciplina de Diseño (futura)
+- **Mapeo objeto-relacional**: Agregación vs composición tiene implicaciones en BD
+- **Ciclo de vida**: Entidades referenciadas vs entidades poseídas
+- **Restricciones de integridad**: Diferentes estrategias según tipo de relación
+
+#### Disciplina de Implementación (futura)
+- **Persistencia**: Las relaciones de agregación se implementan diferente que composición
+- **Gestión de memoria**: Referencias vs ownership en lenguajes orientados a objetos
+- **APIs**: Endpoints para entidades independientes vs entidades dependientes
+
+### Lecciones Metodológicas
+
+#### Refinamiento vs Refactoring
+- **Refinamiento**: Mejora conceptual sin cambio funcional (este caso)
+- **Refactoring**: Reestructuración con preservación de comportamiento
+- **Timing apropiado**: Refinamientos conceptuales son más baratos en fases tempranas
+
+#### Impacto Controlado
+- **Evaluación sistemática**: Analizar impacto en cada disciplina antes de aplicar cambios
+- **Documentación**: Registrar justificación y evaluación de impacto
+- **Comunicación**: Explicar cambios a stakeholders para mantener alineación
+
+#### Calidad Evolutiva
+- **Mejora continua**: Los modelos no son estáticos, deben evolucionar
+- **Rigor mantenido**: Cambios deben seguir siendo metodológicamente rigurosos
+- **Valor agregado**: Cada refinamiento debe aportar claridad o precisión
+
+### Conclusiones
+
+#### Refinamiento Exitoso
+- **Cambios conceptuales** que mejoran calidad del modelo
+- **Impacto mínimo** en artefactos existentes de requisitos y análisis
+- **Base más sólida** para desarrollo futuro del proyecto
+- **Metodología preservada** con rigor y flexibilidad
+
+#### Próximas Acciones
+1. **Actualizar documentación** del modelo del dominio con cambios aplicados
+2. **Regenerar diagrama** PlantUML para reflejar relaciones corregidas
+3. **Validar comprensión** del modelo refinado con stakeholders
+4. **Mantener trazabilidad** documentando el proceso de refinamiento
+
+---
+
 *Este registro se actualizará continuamente conforme avance el proyecto*
