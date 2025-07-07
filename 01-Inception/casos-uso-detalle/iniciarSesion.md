@@ -74,7 +74,82 @@ Especificación detallada del caso de uso `iniciarSesion()` mediante diagrama de
 - ¿La terminología "SigHor" es familiar para usuarios finales?
 - ¿Faltan elementos en la especificación que el wireframe revela?
 
-**Código fuente:** [iniciarSesion-wireframe.puml](iniciarSesion-wireframe.puml)</div>
+**Código fuente:** [iniciarSesion-wireframe.puml](iniciarSesion-wireframe.puml)
+
+## análisis del caso de uso
+
+### diagrama de colaboración
+
+<div align=center>
+
+|![Análisis: iniciarSesion()](/images/01-Inception/casos-uso-detalle/iniciarSesion-analisis.svg)|
+|-|
+|**Disciplina**: Análisis RUP<br>**Enfoque**: Diagramas de colaboración MVC|
+
+</div>
+
+### clases de análisis identificadas
+
+#### clases model (naranja #F2AC4E)
+|Clase|Responsabilidad|Trazabilidad|
+|-|-|-|
+|**Usuario**|Entidad del dominio que representa usuario del sistema|Modelo del dominio|
+|**Sesion**|Entidad que representa estado de autenticación activa|Concepto del caso de uso|
+|**UsuarioRepository**|Concepto puro de acceso a datos de usuarios|Análisis puro|
+
+#### clases view (azul #629EF9)
+|Clase|Responsabilidad|Derivación|
+|-|-|-|
+|**LoginView**|Ventana principal de interacción para autenticación|Wireframe SALT|
+
+#### clases controller (verde #b5bd68)
+|Clase|Responsabilidad|Caso de uso|
+|-|-|-|
+|**IniciarSesionController**|Control y coordinación completa del caso de uso|iniciarSesion()|
+
+#### colaboraciones (verde claro #CDEBA5)
+|Colaboración|Propósito|Invocación|
+|-|-|-|
+|**:Collaboration MostrarMenu**|Invocación del siguiente caso de uso|Tras autenticación exitosa|
+
+### mensajes de colaboración
+
+#### flujo principal
+|Origen|Destino|Mensaje|Intención|
+|-|-|-|-|
+|**UsuarioNoRegistrado**|**LoginView**|`iniciarSesion(usuario, contraseña)`|Solicitar acceso al sistema|
+|**LoginView**|**IniciarSesionController**|`autenticar(usuario, contraseña)`|Delegar proceso de autenticación|
+|**IniciarSesionController**|**UsuarioRepository**|`validarCredenciales(usuario, contraseña)`|Verificar credenciales contra repositorio|
+|**IniciarSesionController**|**Sesion**|`crearSesion(usuario)`|Establecer sesión activa|
+|**LoginView**|**Sesion**|`getSesion()`|Obtener sesión para siguiente caso|
+|**LoginView**|**:Collaboration MostrarMenu**|`invocar(sesion)`|Activar siguiente caso de uso|
+
+### enlaces de dependencia
+- **LoginView** conoce a **IniciarSesionController** (delegación)
+- **LoginView** conoce a **Sesion** (acceso a resultado)
+- **LoginView** conoce a **:Collaboration MostrarMenu** (activación subsiguiente)
+- **IniciarSesionController** conoce a **UsuarioRepository** (validación)
+- **IniciarSesionController** conoce a **Sesion** (creación estado)
+- **IniciarSesionController** conoce a **Usuario** (manipulación entidad)
+- **UsuarioRepository** conoce a **Usuario** (gestión entidad)
+
+### trazabilidad con artefactos previos
+
+#### con especificación detallada
+- **Estados internos** → **Clases de análisis**
+- **Choice point** → **UsuarioRepository.validarCredenciales()**
+- **Transformación actor** → **Sesion.crearSesion()**
+
+#### con wireframe
+- **Diálogo de login** → **LoginView**
+- **Campos usuario/contraseña** → **Atributos de LoginView**
+- **Estados de error** → **Manejo en IniciarSesionController**
+
+#### con modelo del dominio
+- **Usuario** (entidad) → **Usuario** (clase de análisis)
+- **Relaciones dominio** → **Enlaces colaboración**
+
+**Código fuente:** [iniciarSesion-analisis.puml](iniciarSesion-analisis.puml)
 
 ## conversación detallada
 
