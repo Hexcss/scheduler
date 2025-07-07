@@ -1,0 +1,53 @@
+@startuml
+
+actor user
+rectangle #629EF9 SignInView
+rectangle #629EF9 LoginView
+rectangle #b5bd68 SignInController
+rectangle #F2AC4E MechanicsDao
+rectangle #F2AC4E Mechanic
+rectangle #F2AC4E Session
+rectangle #CDEBA5 ":Collaboration OpenDashboard" as OpenDashboard
+
+user -right-> LoginView
+note on link
+    signin()
+end note
+
+LoginView -right-> SignInView
+note on link
+    new SignInView
+end note
+
+user -right-> SignInView
+note on link
+    setUsername(string)
+    setPassword(string)
+    setRepeatPassword(string)
+end note
+
+SignInView -right-> SignInController
+note on link
+    signin(username, password, repeatPassword)
+end note
+
+SignInView -up-> OpenDashboard
+note on link
+    openDashboard(session)
+end note
+
+SignInView --> Mechanic
+SignInView --> Session
+note on link
+    setMechanic(mechanic)
+end note
+
+SignInController -down-> MechanicsDao
+note on link
+    create(mechanic)
+end note
+
+SignInController --> Mechanic
+MechanicsDao -- Mechanic
+
+@enduml

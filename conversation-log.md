@@ -1593,10 +1593,133 @@ Aunque Manuel prefiere papel en la vida real, SALT ofrece:
 - **Enfoque específico** (un caso de uso por wireframe)
 
 ### Próximos Pasos
-1. **Integrar wireframe en documentación** de iniciarSesion.md (pendiente)
+1. **Integrar wireframe en documentación** de iniciarSesion.md (✅ completado)
 2. **Validar wireframe** con stakeholders para obtener "NO" temprano
 3. **Iterar especificación** si wireframe revela omisiones
 4. **Establecer patrón** para prototipos subsiguientes
+
+---
+
+## Conversación 18: Transición al Análisis y Metodología MVC
+**Fecha**: 2025-01-05  
+**Participantes**: Manuel (Usuario) + Claude Code
+
+### Contexto
+Completado el ciclo especificación → prototipado para `iniciarSesion()`, se procede al análisis del caso de uso siguiendo la metodología RUP con enfoque MVC.
+
+### Comprensión del Análisis en RUP
+
+#### Definición de Análisis (Manuel)
+> "El análisis divide el proyecto en clases modelo, vista, controlador, sin aterrizar aún en tecnologías (eso se ve luego, en diseño). Aquí hemos de crear un controlador por cada caso de uso y nos apoyamos en clases vista de análisis (que se generan en principio a partir de los prototipos de interfaz propuestos), así como en clases modelo que vienen de los elementos identificados en el modelo del dominio."
+
+#### Validación y Enriquecimiento (Claude)
+**✅ Correcto - Separación MVC sin tecnología:**
+- **Modelo**: Clases conceptuales del dominio (vienen del modelo del dominio)
+- **Vista**: Clases de interfaz de análisis (derivan de prototipos)
+- **Controlador**: Una clase por caso de uso (orquesta la lógica)
+
+**✅ Correcto - Nivel de abstracción:**
+- Análisis = conceptual, sin comprometerse con tecnologías específicas
+- Diseño = tecnológico, decisiones de implementación
+
+### Análisis del Ejemplo de Referencia
+
+#### Patrón Identificado en `ejemploAnalisisCasoDeUso.puml`
+**Codificación por colores:**
+- **#629EF9 (azul)**: Clases Vista (`SignInView`, `LoginView`)
+- **#b5bd68 (verde)**: Clases Control (`SignInController`) 
+- **#F2AC4E (naranja)**: Clases Modelo (`MechanicsDao`, `Mechanic`, `Session`)
+- **#CDEBA5 (verde claro)**: Colaboraciones (`:Collaboration OpenDashboard`)
+
+**Elementos del flujo:**
+- Actor → Vista → Controlador → Entidades
+- Vista conoce al Controlador y Entidades para paso de datos
+- Colaboración representa invocación de caso de uso subsiguiente
+
+#### Clarificaciones del Patrón (Manuel)
+1. **Colaboración OpenDashboard**: ✅ Representa invocación del siguiente caso de uso
+2. **SignInView vs LoginView**: ✅ LoginView pantalla inicial, SignInView formulario específico (caso particular del ejemplo)
+3. **Relaciones**: ✅ Representan uso/conocimiento/dependencia, NO flujo temporal
+4. **Preferencia por colaboración**: ✅ Diagramas de colaboración vs secuencia para mostrar dependencias
+
+### Debate sobre DAOs en Análisis
+
+#### Posición de Claude
+**DAOs NO deberían estar en análisis puro:**
+- **Análisis** = conceptos del dominio y responsabilidades de negocio
+- **DAO** = patrón de acceso a datos, decisión de diseño/tecnológica
+- Más apropiado: `UsuarioRepository` (concepto) vs `UsuarioDAO` (implementación)
+
+#### Decisión de Manuel
+> "¡Prefiero análisis puro!"
+
+**Consecuencias metodológicas:**
+- Usar conceptos como `UsuarioRepository` en lugar de `UsuarioDAO`
+- Repository es conceptual, no implica tecnología específica
+- En diseño se decidirán patrones: DAO, JPA, etc.
+
+### Decisión Pedagógica: MVC vs Entity-Boundary-Control
+
+#### Propuesta de Manuel
+> "A mis alumnos les he enseñado (o les voy a enseñar) Modelo, Vista, Controlador en lugar de Entity, Boundary, Control. Es decir, Model, View, Controller. ¿Qué opinas?"
+
+#### Análisis Comparativo
+**Ventajas de Model-View-Controller:**
+- ✅ **Familiar**: Los alumnos ya conocen MVC de otros contextos
+- ✅ **Claro**: Los nombres son autoexplicativos
+- ✅ **Transferible**: Se aplica directamente a tecnologías reales
+- ✅ **Conceptual**: Mantiene el nivel de abstracción del análisis
+
+**Entity-Boundary-Control:**
+- ❌ **Académico**: Terminología específica de RUP/UML
+- ❌ **Abstracto**: Requiere explicar qué es cada estereotipo
+- ❌ **Menos intuitivo**: Boundary no es tan claro como View
+
+#### Decisión Metodológica
+**Adopción de MVC para análisis RUP** con justificación pedagógica:
+- Usa conceptos que los alumnos pueden **conectar inmediatamente** con desarrollo real
+- Mantiene el rigor metodológico de RUP
+- Facilita transferencia de conocimiento a tecnologías específicas
+
+### Metodología Establecida para Análisis
+
+#### Estructura para `iniciarSesion()`
+**Clases Model (naranja #F2AC4E):**
+- `Usuario` (del modelo del dominio)
+- `Sesion` (representa la sesión activa)
+- `UsuarioRepository` (concepto puro, sin DAO)
+
+**Clases View (azul #629EF9):**
+- `LoginView` (derivada del wireframe SALT)
+
+**Clases Controller (verde #b5bd68):**
+- `IniciarSesionController`
+
+**Colaboración (verde claro #CDEBA5):**
+- `:Collaboration MostrarMenu` (siguiente caso de uso)
+
+#### Operaciones Conceptuales
+- `validarCredenciales(usuario, contraseña)` en UsuarioRepository
+- `crearSesion(usuario)` en Sesion
+- `transformarActor()` conceptual en IniciarSesionController
+
+### Valor Didáctico de las Decisiones
+
+#### Metodología Híbrida Efectiva
+- **RUP structure**: Rigor metodológico y completitud
+- **MVC terminology**: Claridad pedagógica y transferibilidad
+- **Análisis puro**: Sin contaminación tecnológica prematura
+
+#### Beneficios para Alumnos
+- **Conceptos familiares**: MVC es conocido y comprensible
+- **Progresión natural**: Análisis → Diseño → Implementación
+- **Aplicabilidad directa**: Se conecta con frameworks reales
+
+### Próximos Pasos
+1. **Crear diagrama de colaboración** para análisis de `iniciarSesion()` (pendiente)
+2. **Aplicar codificación por colores** MVC establecida
+3. **Validar metodología** para casos de uso subsiguientes
+4. **Documentar patrón** de análisis para replicación
 
 ---
 
