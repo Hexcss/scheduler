@@ -17,7 +17,7 @@ Análisis del caso de uso `iniciarSesion()` mediante diagrama de colaboración M
 
 <div align=center>
 
-|![Análisis: iniciarSesion()](/images/01-Inception/analisis/casos-uso/iniciarSesion/colaboracion.svg)|
+|![Análisis iniciarSesion()](/images/RUP/01-analisis/casos-uso/iniciarSesion/iniciarSesion-analisis.svg)|
 |-|
 |**Disciplina**: Análisis RUP<br>**Enfoque**: Diagramas de colaboración MVC|
 
