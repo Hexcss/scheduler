@@ -1,4 +1,4 @@
-# Contexto del proyecto - Coherencia estructural: cuando los README.md están en el lugar equivocado
+# Contexto del proyecto - coherencia estructural: cuando los README.md están en el lugar equivocado
 
 ## Estado del proyecto en el momento de la reflexión
 

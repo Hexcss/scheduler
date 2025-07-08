@@ -1,4 +1,4 @@
-# Algoritmo SigHor - Generador de horarios académicos (1998)
+# Algoritmo SigHor - generador de horarios académicos (1998)
 
 > ***SigHor*** representa un ejemplo de cómo un algoritmo técnicamente excelente puede producir resultados problemáticos. Su diseño e implementación son notables para la época (1998), y las lecciones aprendidas sobre el balance entre optimización matemática y factores humanos siguen siendo relevantes hoy.
 

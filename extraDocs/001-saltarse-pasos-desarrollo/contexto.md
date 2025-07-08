@@ -1,8 +1,8 @@
-# Contexto del proyecto - El problema de saltarse pasos
+# Contexto del proyecto - el problema de saltarse pasos
 
 ## Estado del proyecto en el momento del dilema
 
-### Fase del proyecto: transición Requisitos → Análisis
+### Fase del proyecto: transición requisitos → análisis
 
 **Metodología establecida**: RUP con terminología MVC pedagógica
 **Progreso general**: Primera iteración de casos de uso críticos
@@ -10,7 +10,7 @@
 
 ### Artefactos completados
 
-#### Disciplina de Requisitos - estado consolidado
+#### Disciplina de requisitos - estado consolidado
 
 **Modelo del dominio (v2.0)**:
 - Entidades conceptuales refinadas

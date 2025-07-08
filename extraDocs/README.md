@@ -1,4 +1,4 @@
-# extraDocs - Artículos metodológicos del proyecto pySigHor
+# extraDocs - artículos metodológicos del proyecto pySigHor
 
 Esta carpeta contiene artículos estructurados que documentan reflexiones metodológicas específicas surgidas durante el desarrollo del proyecto, con referencias exactas a commits y contexto del repositorio.
 

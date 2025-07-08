@@ -1,4 +1,4 @@
-# Contexto: Estado del proyecto al decidir el experimento RUP
+# Contexto: estado del proyecto al decidir el experimento RUP
 
 ## Momento de la decisión
 

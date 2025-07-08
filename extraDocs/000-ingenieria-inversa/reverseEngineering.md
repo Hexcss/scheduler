@@ -1,4 +1,4 @@
-# Sistema Generador de Horarios (SigHor) - 1998
+# Sistema generador de horarios (SigHor) - 1998
 
 <div align=right>
 

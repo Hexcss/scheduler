@@ -1,4 +1,4 @@
-# Evidencia - Coherencia estructural: cuando los README.md están en el lugar equivocado
+# Evidencia - coherencia estructural: cuando los README.md están en el lugar equivocado
 
 ## Commit específico
 

@@ -1,4 +1,4 @@
-# Evidencia - El problema de saltarse pasos
+# Evidencia - el problema de saltarse pasos
 
 ## Commit específico
 

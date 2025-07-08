@@ -1,4 +1,4 @@
-# Evidencia: La promesa de RUP - experimento metodológico
+# Evidencia: la promesa de RUP - experimento metodológico
 
 ## Conversación específica
 
@@ -134,14 +134,14 @@ grep -r "✅\|🎯\|❌" RUP/ --include="*.md"
 
 ## Próximas actividades que validarán la hipótesis
 
-### Inmediato: Completar análisis
+### Inmediato: completar análisis
 
 1. **`crearPrograma()`**: Aplicar metodología completa establecida
 2. **Resto CRUD**: Replicar patrón con rigor metodológico
 3. **`generarHorario()`**: Caso más complejo algorítmicamente
 4. **`consultarHorario()`**: Completar conjunto de casos de uso
 
-### Experimental: Implementaciones tecnológicas
+### Experimental: implementaciones tecnológicas
 
 **Orden propuesto para validación**:
 1. **API REST**: Mapeo directo desde análisis MVC
@@ -149,7 +149,7 @@ grep -r "✅\|🎯\|❌" RUP/ --include="*.md"
 3. **Desktop**: Reutilización de lógica en contexto diferente
 4. **Mobile**: Adaptación a restricciones específicas
 
-### Medición: Evidencia de independencia
+### Medición: evidencia de independencia
 
 **Métricas a capturar**:
 - Porcentaje de artefactos de análisis que permanecen inalterados
