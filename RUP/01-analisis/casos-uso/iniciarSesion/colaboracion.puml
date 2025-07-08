@@ -1,44 +1,42 @@
 @startuml iniciarSesion-analisis
 
 actor UsuarioNoRegistrado
-rectangle #629EF9 LoginView
-rectangle #b5bd68 IniciarSesionController
-rectangle #F2AC4E UsuarioRepository
-rectangle #F2AC4E Usuario
-rectangle #F2AC4E Sesion
+package iniciarSesion as "iniciarSesion()" {
+    rectangle #629EF9 LoginView
+    rectangle #b5bd68 IniciarSesionController
+    rectangle #F2AC4E UsuarioRepository
+    rectangle #F2AC4E Usuario
+    rectangle #F2AC4E Sesion
+}
 rectangle #CDEBA5 ":Collaboration MostrarMenu" as MostrarMenu
 
-UsuarioNoRegistrado -right-> LoginView
+UsuarioNoRegistrado -r-> LoginView
 note on link
     iniciarSesion(usuario, contraseña)
 end note
 
-LoginView -right-> IniciarSesionController
+LoginView -d-> IniciarSesionController
 note on link
-    autenticar(usuario, contraseña)
+    autenticar(usuario, contraseña) : Sesion
 end note
 
-IniciarSesionController -down-> UsuarioRepository
+IniciarSesionController --> UsuarioRepository
 note on link
-    validarCredenciales(usuario, contraseña)
+    validarCredenciales(usuario, contraseña) : Usuario
 end note
 
-IniciarSesionController --> Usuario
 UsuarioRepository -- Usuario
 
-IniciarSesionController -down-> Sesion
+IniciarSesionController --> Sesion
 note on link
-    crearSesion(usuario)
+    crearSesion(usuario) : Sesion
 end note
 
-LoginView -up-> MostrarMenu
+LoginView -r-> MostrarMenu
 note on link
     invocar(sesion)
 end note
 
-LoginView --> Sesion
-note on link
-    getSesion()
-end note
+
 
 @enduml
