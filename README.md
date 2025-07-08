@@ -4,7 +4,7 @@ En 1998, en la asignatura de TPD (Taller de procesamiento de datos) de Ing. Indu
 
 > [Ingeniería inversa](/extraDocs/000-ingenieria-inversa/README.md) - [reingenierIA](/RUP/README.md)
 
-## Pantallazos
+## La aplicación
 
 <div align=center>
 
