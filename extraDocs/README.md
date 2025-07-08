@@ -1,4 +1,4 @@
-# extraDocs - Artículos Metodológicos del Proyecto pySigHor
+# extraDocs - Artículos metodológicos del proyecto pySigHor
 
 Esta carpeta contiene artículos estructurados que documentan reflexiones metodológicas específicas surgidas durante el desarrollo del proyecto, con referencias exactas a commits y contexto del repositorio.
 
@@ -10,7 +10,7 @@ Crear material didáctico de primera calidad que combine:
 - **Reflexión estructurada**: Análisis sistemático de lecciones aprendidas
 - **Evidencia concreta**: El código y los artefactos como testimonio de las decisiones
 
-## Estructura de Artículos
+## Estructura de artículos
 
 Cada artículo sigue la estructura:
 ```
@@ -20,13 +20,14 @@ XXX-nombre-del-articulo/
 └── contexto.md      # Estado del proyecto en el momento específico
 ```
 
-## Índice de Artículos
+## Índice de artículos
 
 | # | Título | Commit | Tema |
 |---|--------|--------|------|
 | 001 | [El problema de saltarse pasos: de la ilusión de eficiencia al caos sistemático](001-saltarse-pasos-desarrollo/articulo.md) | [`b5711c76`](https://github.com/mmasias/pySigHor/tree/b5711c76a9b96432252c596b0d0c53815550fdf8) | Disciplina metodológica RUP |
+| 002 | [Coherencia estructural: cuando los README.md están en el lugar equivocado](002-coherencia-estructural-readme/articulo.md) | [Por determinar] | Organización de proyectos |
 
-## Uso Didáctico
+## Uso didáctico
 
 Estos artículos sirven como:
 - **Casos de estudio** para enseñanza de metodologías de software
