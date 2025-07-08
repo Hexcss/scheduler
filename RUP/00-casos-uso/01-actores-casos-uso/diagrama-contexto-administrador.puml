@@ -1,6 +1,7 @@
 @startuml
 
 left to right direction
+skinparam linetype polyline
 
 state "NO_AUTENTICADO" as NoAuth
 state "AUTENTICANDO" as PreMenu

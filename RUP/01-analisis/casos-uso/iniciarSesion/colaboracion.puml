@@ -1,4 +1,5 @@
 @startuml iniciarSesion-analisis
+skinparam linetype polyline
 
 actor UsuarioNoRegistrado
 package iniciarSesion as "iniciarSesion()" {
