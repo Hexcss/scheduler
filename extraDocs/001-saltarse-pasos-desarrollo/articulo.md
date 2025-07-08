@@ -15,7 +15,7 @@ Durante el desarrollo del proyecto pySigHor, se presentó un momento crítico do
 
 **Tentación comprensible**: Al tener la metodología establecida y comprender el patrón MVC, parecía "eficiente" saltar directamente al análisis.
 
-## Anatomía del problema: Por qué los equipos saltan pasos
+## Anatomía del problema: por qué los equipos saltan pasos
 
 ### 1. La ilusión de eficiencia
 

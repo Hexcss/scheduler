@@ -10,7 +10,7 @@
 
 Sistema desarrollado para generar automáticamente horarios académicos universitarios, considerando múltiples restricciones y optimizando el uso de recursos.
 
-## Características Principales
+## Características principales
 
 <div align=center>
 
@@ -20,21 +20,21 @@ Sistema desarrollado para generar automáticamente horarios académicos universi
 
 </div>
 
-### Estructura de Datos
+### Estructura de datos
 
 - **Aulas**: Capacidad y características (representadas como bits)
 - **Profesores**: Preferencias de recursos (ponderadas como R1-R5)
 - **Cursos**: Agrupados en bloques horarios (H1-H8)
 - **Horarios**: Asignación final de aula, curso, día y hora
 
-### Sistema de Bloques Horarios
+### Sistema de bloques horarios
 
 - **H1-H4**: Bloques horarios principales
 - **H5-H8**: Bloques "overflow" (mismo patrón que H1-H4 pero en otro horario)
 - **HE**: Horarios especiales
 - **HV**: Horarios varios
 
-### Sistema de Optimización
+### Sistema de optimización
 
 1. **Optimización de Espacio**
    - Minimiza Z = |Capacidad_Aula - Alumnos_Curso|
@@ -51,7 +51,7 @@ Sistema desarrollado para generar automáticamente horarios académicos universi
    - Propiedades: bits que indican recursos del aula
    - R1-R5: peso/prioridad que el profesor da a cada recurso
 
-## Proceso de Asignación
+## Proceso de asignación
 
 1. **PrepararH()**
    - Valida bloques H iniciales
@@ -72,9 +72,9 @@ Sistema desarrollado para generar automáticamente horarios académicos universi
 4. **IngresoHE()**
    - Maneja los cursos que no pudieron asignarse en bloques normales
 
-## Estructura de la Base de Datos
+## Estructura de la base de datos
 
-### Tablas Maestras (M_)
+### Tablas maestras (M_)
 
 - **M_Aulas**: Recursos físicos y sus características
   - ID, Nombre, Capacidad
@@ -105,7 +105,7 @@ Sistema desarrollado para generar automáticamente horarios académicos universi
   - IDClase, IDCorrelativo
   - Descripcion, Elemento
 
-### Tablas Secundarias (S_)
+### Tablas secundarias (S_)
 
 - **S_CursosHModificado**: Cambios de bloque H
   - IDCurso (FK)
@@ -120,7 +120,7 @@ Sistema desarrollado para generar automáticamente horarios académicos universi
 - **S_Recursos**: 
   - ID, Nombre, Descripcion
 
-### Tablas Temporales (T_)
+### Tablas temporales (T_)
 
 - **T_PreHorario**: Asignaciones preliminares
   - IDAula (FK)
@@ -135,18 +135,18 @@ Sistema desarrollado para generar automáticamente horarios académicos universi
 - **T_AulaOcupada**: Control de disponibilidad
   - ID (FK: IDAula)
 
-### Tablas de Relación (R_)
+### Tablas de relación (R_)
 
 - **R_ProfesorCurso**:
   - IDProfesor (FK)
   - IDCurso (FK)
 
-## Limitaciones Observadas
+## Limitaciones observadas
 
 - La optimización perfecta generaba horarios poco prácticos (concentración excesiva en primeros días)
 - No consideraba aspectos "humanos" en la distribución
 
-## Notas Técnicas
+## Notas técnicas
 
 - Desarrollado en Visual Basic 6
 - Base de datos Access (.mdb)

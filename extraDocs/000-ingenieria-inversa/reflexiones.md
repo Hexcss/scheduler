@@ -1,6 +1,6 @@
-# Análisis del Horario Generado por SigHor
+# Análisis del horario generado por SigHor
 
-## Horario Resultante
+## Horario resultante
 
 |Hora|Lunes|Martes|Miércoles|Jueves|Viernes|Sábado|
 |-|-|-|-|-|-|-|

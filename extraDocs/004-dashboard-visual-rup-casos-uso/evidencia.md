@@ -1,8 +1,8 @@
-# Evidencia Práctica: Dashboard Visual RUP
+# Evidencia práctica: dashboard visual RUP
 
-## Casos de Uso Demostrativos
+## Casos de uso demostrativos
 
-### Caso 1: Estado Inicial del Proyecto
+### Caso 1: estado inicial del proyecto
 
 **Archivo:** `ejemplo-estado-inicial.puml`
 
@@ -21,7 +21,7 @@
 - Visibilidad inmediata del foco actual del proyecto
 - Organización visual del trabajo pendiente
 
-### Caso 2: Estado Intermedio del Proyecto
+### Caso 2: estado intermedio del proyecto
 
 **Archivo:** `ejemplo-estado-intermedio.puml`
 
@@ -43,9 +43,9 @@
 - Flujo de trabajo balanceado
 - Identificación rápida de casos críticos
 
-## Análisis Visual Comparativo
+## Análisis visual comparativo
 
-### Información Instantánea
+### Información instantánea
 
 **De un vistazo se puede determinar:**
 
@@ -63,7 +63,7 @@
    - Dependencias que requieren atención
    - Prioridades de trabajo
 
-### Métricas Derivables
+### Métricas derivables
 
 **Indicadores cuantitativos extraíbles:**
 
@@ -80,16 +80,16 @@
    - Tiempo medio en cada fase
    - Identificación de bloqueos
 
-## Evidencia de Usabilidad
+## Evidencia de usabilidad
 
-### Facilidad de Interpretación
+### Facilidad de interpretación
 
 **Prueba de comprensión rápida:**
 - Personal técnico: Comprensión inmediata
 - Stakeholders no técnicos: Interpretación visual clara
 - Gestores de proyecto: Información de alto nivel accesible
 
-### Mantenimiento del Sistema
+### Mantenimiento del sistema
 
 **Actualizaciones necesarias:**
 - Cambio de color de flecha: `[#azul]` → `[#verde]`
@@ -101,9 +101,9 @@
 - Generación: Instantánea con PlantUML
 - Distribución: Commit a repositorio
 
-## Comparación con Métodos Tradicionales
+## Comparación con métodos tradicionales
 
-### Herramientas Convencionales
+### Herramientas convencionales
 
 **Limitaciones de alternativas:**
 
@@ -122,7 +122,7 @@
    - Pierde contexto de casos de uso
    - Información fragmentada
 
-### Ventajas del Dashboard Visual
+### Ventajas del dashboard visual
 
 **Superioridad demostrada:**
 
@@ -141,9 +141,9 @@
    - Comprensible para todos los niveles
    - Actualizable en tiempo real
 
-## Evidencia de Escalabilidad
+## Evidencia de escalabilidad
 
-### Proyectos Pequeños
+### Proyectos pequeños
 
 **Características:**
 - 5-10 casos de uso
@@ -155,7 +155,7 @@
 - Seguimiento individual efectivo
 - Coordinación de equipo simplificada
 
-### Proyectos Medianos
+### Proyectos medianos
 
 **Características:**
 - 20-50 casos de uso
@@ -167,7 +167,7 @@
 - Coordinación entre equipos
 - Gestión de dependencias
 
-### Proyectos Grandes
+### Proyectos grandes
 
 **Características:**
 - 100+ casos de uso
@@ -179,9 +179,9 @@
 - Dashboards por subsistema
 - Consolidación a nivel ejecutivo
 
-## Evidencia de Adaptabilidad
+## Evidencia de adaptabilidad
 
-### Diferentes Dominios
+### Diferentes dominios
 
 **Aplicabilidad validada:**
 - Sistemas académicos (pySigHor)
@@ -189,16 +189,16 @@
 - Sistemas empresariales
 - Productos de software
 
-### Diferentes Tecnologías
+### Diferentes tecnologías
 
 **Independencia tecnológica:**
 - El dashboard es agnóstico a tecnología
 - Refleja análisis, no implementación
 - Válido para cualquier stack tecnológico
 
-## Resultados Medibles
+## Resultados medibles
 
-### Métricas de Efectividad
+### Métricas de efectividad
 
 **Indicadores de éxito:**
 
@@ -214,7 +214,7 @@
    - Método tradicional: Baja
    - Dashboard visual: Alta
 
-### Retroalimentación Cualitativa
+### Retroalimentación cualitativa
 
 **Reacciones observadas:**
 - Entusiasmo inmediato (`:')`)
@@ -222,22 +222,22 @@
 - Solicitud de implementación inmediata
 - Reconocimiento del valor innovador
 
-## Lecciones Aprendidas
+## Lecciones aprendidas
 
-### Factores Críticos de Éxito
+### Factores críticos de éxito
 
 1. **Leyenda clara:** Esencial para interpretación
 2. **Consistencia visual:** Uso uniforme de colores
 3. **Actualización disciplinada:** Mantenimiento regular
 4. **Herramientas adecuadas:** PlantUML como plataforma
 
-### Limitaciones Identificadas
+### Limitaciones identificadas
 
 1. **Complejidad visual:** Proyectos muy grandes requieren jerarquización
 2. **Dependencia de herramientas:** Necesita PlantUML para generación
 3. **Curva de aprendizaje:** Requiere conocimiento básico de sintaxis
 
-### Potencial de Mejora
+### Potencial de mejora
 
 **Extensiones posibles:**
 - Automatización de actualizaciones
@@ -245,9 +245,9 @@
 - Métricas automáticas derivadas
 - Alertas de cuellos de botella
 
-## Conclusión de la Evidencia
+## Conclusión de la evidencia
 
-### Validación del Concepto
+### Validación del concepto
 
 **La evidencia práctica demuestra:**
 - Viabilidad técnica completa
@@ -255,7 +255,7 @@
 - Escalabilidad a diferentes contextos
 - Superioridad frente a métodos tradicionales
 
-### Impacto Transformador
+### Impacto transformador
 
 **El dashboard visual RUP representa:**
 - Innovación metodológica auténtica
