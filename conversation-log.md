@@ -2182,4 +2182,166 @@ El modelo del dominio es **conceptual, no implementacional**:
 
 ---
 
+## Conversación 22: Creación de extraDocs - Artículos Metodológicos con Trazabilidad Temporal
+**Fecha**: 2025-01-08  
+**Participantes**: Manuel (Usuario) + Claude Code
+
+### Contexto
+Tras detectar y corregir el intento de saltarse pasos metodológicos (ir directo a análisis sin completar requisitos de `crearPrograma()`), surge la necesidad de documentar estas lecciones de forma estructurada para uso didáctico y referencia futura.
+
+### Propuesta Innovadora de Manuel
+
+#### Concepto: Artículos Metodológicos con Evidencia Temporal
+> "además de documentar esto en nuestro log de aprendizaje, en la carpeta extraDocs vamos a poner artículo concretos que contengan de modo estructurado (tal como me lo acabas de decir) las reflexiones que hagamos, asociados a puntos concretos (commits concretos) del repositorio"
+
+#### Valor de la Propuesta
+**Trazabilidad temporal precisa**:
+- Ver el momento exacto donde se presenta el dilema metodológico
+- Entender qué existía y qué faltaba en ese momento específico
+- Decisión específica, no teoría abstracta
+
+**Material didáctico de primera calidad**:
+- Casos reales, no ejemplos inventados
+- Estudiantes ven dilemas reales del desarrollo
+- Evidencia concreta - los commits no mienten
+
+**Metodología de aprendizaje innovadora**:
+- Microhistoria del desarrollo
+- Evidencia versionada demostrable
+- Reflexión estructurada sobre experiencia auténtica
+
+### Estructura Establecida para extraDocs
+
+#### Organización por Artículo
+```
+extraDocs/
+├── README.md                           # Índice de artículos
+├── 001-saltarse-pasos-desarrollo/     # Carpeta por artículo
+│   ├── articulo.md                     # Contenido principal
+│   ├── evidencia.md                    # Enlaces a commits específicos
+│   └── contexto.md                     # Estado del proyecto en ese momento
+```
+
+#### Metodología de Documentación
+**Cada artículo debe**:
+- Estar asociado a un commit específico
+- Proporcionar contexto del estado del proyecto
+- Incluir reflexión estructurada sobre la lección aprendida
+- Mantener trazabilidad con evidencia concreta
+
+### Primer Artículo: "El Problema de Saltarse Pasos"
+
+#### Caso Específico Documentado
+**Commit objetivo**: `b5711c76a9b96432252c596b0d0c53815550fdf8`
+**Situación**: Intento de saltar directamente a análisis MVC sin completar requisitos de `crearPrograma()`
+**Evidencia**: Estado asimétrico del repositorio - `iniciarSesion()` completo vs `crearPrograma()` sin especificar
+
+#### Estructura del Artículo Creado
+
+**articulo.md - Análisis estructurado completo**:
+- Resumen ejecutivo del momento crítico
+- Anatomía del problema: por qué los equipos saltan pasos
+- RUP como disciplina anti-caos
+- Síntomas del equipo que se salta pasos
+- Lecciones aprendidas y aplicabilidad general
+
+**evidencia.md - Trazabilidad verificable**:
+- Hash del commit específico
+- Estado del repositorio en ese momento
+- Conversación exacta donde se detectó el error
+- Comandos para reproducir el contexto
+
+**contexto.md - Estado completo del proyecto**:
+- Fase del proyecto en el momento del dilema
+- Artefactos completados y pendientes
+- Metodología consolidada aplicada
+- Factores que facilitaron la detección del error
+
+### Valor Didáctico y Metodológico
+
+#### Para el Proyecto
+**Registro permanente**: Lecciones no se pierden con el tiempo
+**Referencia futura**: Otros casos similares pueden consultarse
+**Calidad metodológica**: Fuerza reflexión sistemática sobre proceso
+
+#### Para los Estudiantes
+**Autenticidad**: Ven problemas reales, no simulados
+**Causa-efecto**: Entienden POR QUÉ las metodologías existen
+**Transferibilidad**: Reconocerán situaciones similares en proyectos reales
+
+#### Para la Metodología
+**Validación práctica**: RUP no es teoría, sino prevención de problemas concretos
+**Casos de estudio**: Ejemplos específicos de aplicación correcta e incorrecta
+**Evolución documentada**: Cómo el entendimiento metodológico se refina
+
+### Beneficios de la Implementación
+
+#### Microhistoria del Desarrollo
+**Cada artículo cuenta una historia específica**:
+- Momento exacto de decisión metodológica
+- Contexto que llevó al dilema
+- Proceso de detección y corrección
+- Lecciones extraíbles y aplicables
+
+#### Evidencia Versionada Inmutable
+**Los commits como testigos**:
+- Muestran intención real, no revisión histórica
+- Estado exacto del código y artefactos
+- Cronología verificable de decisiones
+- Imposible distorsionar la narrativa
+
+#### Material Educativo Auténtico
+**Superior a ejemplos artificiales**:
+- Dilemas reales que enfrentan desarrolladores
+- Consecuencias observables de decisiones metodológicas
+- Patrones reconocibles en proyectos reales
+- Validación de metodologías a través de casos concretos
+
+### Observación sobre Estilo Editorial
+
+#### Corrección Aplicada
+Manuel señala error en estilo de títulos:
+- **Incorrecto**: "El Problema de Saltarse Pasos: De la Ilusión de Eficiencia..."
+- **Correcto**: "El problema de saltarse pasos: de la ilusión de eficiencia..."
+
+**Rationale**: Aplicación correcta de reglas ortográficas en títulos en español
+**Acción**: Manuel corregirá directamente los archivos generados
+
+### Próximos Pasos
+
+#### Inmediatos
+1. **Corregir estilo editorial** en archivos generados (Manuel)
+2. **Validar contenido** de los artículos creados
+3. **Ajustar formato** si es necesario
+
+#### Para Artículos Futuros
+1. **Aplicar estilo editorial correcto** desde el inicio
+2. **Identificar momentos metodológicos** dignos de documentación
+3. **Mantener calidad** y rigor en reflexiones estructuradas
+4. **Crear índice navegable** conforme crezca la colección
+
+### Conclusiones
+
+#### Innovación Metodológica
+**extraDocs representa**:
+- Evolución natural de conversation-log.md hacia material específico
+- Combinación única de experiencia real + reflexión estructurada + evidencia verificable
+- Herramienta didáctica de calidad superior para enseñanza de metodologías
+
+#### Valor para Proyecto pySigHor
+**Dimensión adicional**:
+- No solo modernización técnica del sistema legacy
+- También documentación de proceso metodológico real
+- Material educativo auténtico sobre aplicación de RUP
+- Demostración práctica de valor de disciplinas de ingeniería de software
+
+#### Replicabilidad
+**Patrón establecido**:
+- Estructura clara para artículos futuros
+- Metodología de documentación definida
+- Proceso integrado con desarrollo normal del proyecto
+- Valor agregado sin overhead significativo
+
+---
+
 *Este registro se actualizará continuamente conforme avance el proyecto*
