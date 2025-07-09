@@ -1,4 +1,4 @@
-# Análisis de contribuciones: Manuel vs Claude Code en el proyecto pySigHor-RUP
+# Análisis de contribuciones: colaboración Manuel + Claude Code en el proyecto pySigHor-RUP
 
 ## Metodología de análisis
 
