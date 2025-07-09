@@ -570,7 +570,7 @@ Claude muestra entendimiento parcial del concepto basándose en el registro de c
 
 ### Ejemplo Educativo Proporcionado
 
-Manuel proporciona archivo ejemplo en `zzzTemp/ejemploDiagramaContexto.puml` para profundizar el entendimiento.
+Manuel proporciona archivo ejemplo en `drafts-temp/ejemploDiagramaContexto.puml` para profundizar el entendimiento.
 
 #### Características del Ejemplo
 - **Estados definidos**: `NO_AUTENTICADO`, `MENU_PRINCIPAL`, `EN_TEST`, `REVISION_TEST`, `GESTION_PAQUETES`, `VISUALIZACION_ESTADISTICAS`
@@ -1457,7 +1457,7 @@ state casoDeUso as "casoDeUso()" {
 **Beneficio**: `skinparam linetype polyline` mejora significativamente la visibilidad de las transiciones entre estados en diagramas de estado complejos, especialmente cuando hay múltiples transiciones y choice points.
 
 **Aplicación**: 
-- ✅ Agregado a `/zzzTemp/ejemploDetalleCasoDeUso.puml` (plantilla)
+- ✅ Agregado a `/drafts-temp/ejemploDetalleCasoDeUso.puml` (plantilla)
 - ✅ Agregado a `/01-Inception/casos-uso-detalle/iniciarSesion.puml` (implementación)
 
 **Estándar actualizado**: Todos los diagramas de estado para especificación detallada de casos de uso deben incluir esta directiva para consistencia visual y legibilidad mejorada.
