@@ -29,10 +29,12 @@ XXX-nombre-del-articulo/
 | 002 | [Coherencia estructural: cuando los README.md están en el lugar equivocado](002-coherencia-estructural-readme/articulo.md) | [Por determinar] | Organización de proyectos |
 | 003 | [La promesa de RUP: análisis independiente de tecnología - experimento metodológico en tiempo real](003-rup-independencia-tecnologica/articulo.md) | [Por determinar] | Experimentación metodológica |
 | 004 | [Dashboard visual RUP: diagrama de contexto como herramienta de gestión de proyecto](004-dashboard-visual-rup-casos-uso/articulo.md) | [Por determinar] | Innovación metodológica |
+| 005 | [Aplicación de etiquetado ético en colaboración humano-IA: caso de estudio pySigHor](005-etiquetado-etico-colaboracion-humano-ia/articulo.md) | [Por determinar] | Ética en colaboración humano-IA |
 
 ## Uso didáctico
 
 Estos artículos sirven como:
+
 - **Casos de estudio** para enseñanza de metodologías de software
 - **Ejemplos concretos** de aplicación práctica de RUP
 - **Lecciones aprendidas** transferibles a otros proyectos
@@ -41,6 +43,7 @@ Estos artículos sirven como:
 ## Contribuciones
 
 Los artículos se generan cuando surge una reflexión metodológica importante durante el desarrollo. Cada uno debe:
+
 - Estar asociado a un commit específico
 - Proporcionar contexto del estado del proyecto
 - Incluir reflexión estructurada sobre la lección aprendida
