@@ -1,0 +1,104 @@
+@startuml mostrarMenu-analisis
+skinparam linetype polyline
+
+actor Administrador
+package mostrarMenu as "mostrarMenu()" {
+    rectangle #629EF9 MenuView
+    rectangle #b5bd68 MostrarMenuController
+    rectangle #F2AC4E PermisosRepository
+    rectangle #F2AC4E OpcionesMenu
+    rectangle #F2AC4E Sesion
+}
+
+rectangle #CDEBA5 ":Collaboration ListarProgramas" as ListarProgramas
+rectangle #CDEBA5 ":Collaboration ListarCursos" as ListarCursos
+rectangle #CDEBA5 ":Collaboration ListarProfesores" as ListarProfesores
+rectangle #CDEBA5 ":Collaboration ListarEdificios" as ListarEdificios
+rectangle #CDEBA5 ":Collaboration ListarAulas" as ListarAulas
+rectangle #CDEBA5 ":Collaboration ListarRecursos" as ListarRecursos
+rectangle #CDEBA5 ":Collaboration AsignarProfesor" as AsignarProfesor
+rectangle #CDEBA5 ":Collaboration GenerarHorario" as GenerarHorario
+rectangle #CDEBA5 ":Collaboration ConsultarHorario" as ConsultarHorario
+rectangle #CDEBA5 ":Collaboration CerrarSesion" as CerrarSesion
+
+Administrador -r-> MenuView
+note on link
+    mostrarMenu()
+end note
+
+MenuView -d-> MostrarMenuController
+note on link
+    prepararMenu(sesion)
+end note
+
+MostrarMenuController --> Sesion
+note on link
+    getUsuario() : Usuario
+end note
+
+MostrarMenuController --> PermisosRepository
+note on link
+    obtenerOpciones(usuario) : List<Opcion>
+end note
+
+MostrarMenuController --> OpcionesMenu
+note on link
+    crearOpciones(opciones) : OpcionesMenu
+end note
+
+MenuView --> OpcionesMenu
+note on link
+    getOpciones() : List<Opcion>
+end note
+
+MenuView --> ListarProgramas
+note on link
+    invocar(sesion)
+end note
+
+MenuView --> ListarCursos
+note on link
+    invocar(sesion)
+end note
+
+MenuView --> ListarProfesores
+note on link
+    invocar(sesion)
+end note
+
+MenuView --> ListarEdificios
+note on link
+    invocar(sesion)
+end note
+
+MenuView --> ListarAulas
+note on link
+    invocar(sesion)
+end note
+
+MenuView --> ListarRecursos
+note on link
+    invocar(sesion)
+end note
+
+MenuView --> AsignarProfesor
+note on link
+    invocar(sesion)
+end note
+
+MenuView --> GenerarHorario
+note on link
+    invocar(sesion)
+end note
+
+MenuView --> ConsultarHorario
+note on link
+    invocar(sesion)
+end note
+
+MenuView --> CerrarSesion
+note on link
+    invocar(sesion)
+end note
+
+@enduml
