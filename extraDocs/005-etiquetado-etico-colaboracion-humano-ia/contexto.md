@@ -38,7 +38,7 @@ El proyecto pySigHor presenta características únicas que lo convierten en un c
 
 ### Inmediatos
 
-1. Analizar el `conversation-log.md` para identificar contribuciones específicas
+1. Analizar el `conversation-log.md` para identificar contribuciones específicas → [Ver análisis completo](analisis-contribuciones.md)
 2. Mapear contribuciones a los roles CRediT adaptados
 3. Documentar la metodología de análisis para replicabilidad
 4. Crear etiquetas de contribución para diferentes artefactos del proyecto
