@@ -20,8 +20,37 @@ Esto a modo de mapa inicial, luego lo refinamos.
 
 |Caso de uso|Detalle & Prototipo|Análisis|Diseño|Desarrollo|Pruebas|
 |-|:-:|:-:|:-:|:-:|:-:|
-|iniciarSesion() |[🗒️](/RUP/00-casos-uso/02-detalle/iniciarSesion/README.md)|[🗒️](/RUP/01-analisis/casos-uso/iniciarSesion/README.md)|⚪|⚪|⚪|
-|mostrarMenu()   |[🗒️](/RUP/00-casos-uso/02-detalle/mostrarMenu/README.md)|[🗒️](/RUP/01-analisis/casos-uso/mostrarMenu/README.md)|⚪|⚪|⚪|
+|**iniciarSesion()** |[🗒️](/RUP/00-casos-uso/02-detalle/iniciarSesion/README.md)|[🗒️](/RUP/01-analisis/casos-uso/iniciarSesion/README.md)|⚪|⚪|⚪|
+|**mostrarMenu()**   |[🗒️](/RUP/00-casos-uso/02-detalle/mostrarMenu/README.md)|[🗒️](/RUP/01-analisis/casos-uso/mostrarMenu/README.md)|⚪|⚪|⚪|
+|**listarProgramas()**|⚪|⚪|⚪|⚪|⚪|
+|**listarCursos()**|⚪|⚪|⚪|⚪|⚪|
+|**listarProfesores()**|⚪|⚪|⚪|⚪|⚪|
+|**listarEdificios()**|⚪|⚪|⚪|⚪|⚪|
+|**listarAulas()**|⚪|⚪|⚪|⚪|⚪|
+|**listarRecursos()**|⚪|⚪|⚪|⚪|⚪|
+|**crearPrograma()**|⚪|⚪|⚪|⚪|⚪|
+|**editarPrograma()**|⚪|⚪|⚪|⚪|⚪|
+|**eliminarPrograma()**|⚪|⚪|⚪|⚪|⚪|
+|**crearCurso()**|⚪|⚪|⚪|⚪|⚪|
+|**editarCurso()**|⚪|⚪|⚪|⚪|⚪|
+|**eliminarCurso()**|⚪|⚪|⚪|⚪|⚪|
+|**crearProfesor()**|⚪|⚪|⚪|⚪|⚪|
+|**editarProfesor()**|⚪|⚪|⚪|⚪|⚪|
+|**eliminarProfesor()**|⚪|⚪|⚪|⚪|⚪|
+|**configurarPreferenciasProfesor()**|⚪|⚪|⚪|⚪|⚪|
+|**crearEdificio()**|⚪|⚪|⚪|⚪|⚪|
+|**editarEdificio()**|⚪|⚪|⚪|⚪|⚪|
+|**eliminarEdificio()**|⚪|⚪|⚪|⚪|⚪|
+|**crearAula()**|⚪|⚪|⚪|⚪|⚪|
+|**editarAula()**|⚪|⚪|⚪|⚪|⚪|
+|**eliminarAula()**|⚪|⚪|⚪|⚪|⚪|
+|**crearRecurso()**|⚪|⚪|⚪|⚪|⚪|
+|**editarRecurso()**|⚪|⚪|⚪|⚪|⚪|
+|**eliminarRecurso()**|⚪|⚪|⚪|⚪|⚪|
+|**asignarProfesorACurso()**|⚪|⚪|⚪|⚪|⚪|
+|**generarHorario()**|⚪|⚪|⚪|⚪|⚪|
+|**consultarHorario()**|⚪|⚪|⚪|⚪|⚪|
+|**cerrarSesion()**|⚪|⚪|⚪|⚪|⚪|
 
 </div>
 
