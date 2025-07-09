@@ -22,7 +22,7 @@ Esto a modo de mapa inicial, luego lo refinamos.
 |-|:-:|:-:|:-:|:-:|:-:|
 |**iniciarSesion()** |[🗒️](/RUP/00-casos-uso/02-detalle/iniciarSesion/README.md)|[🗒️](/RUP/01-analisis/casos-uso/iniciarSesion/README.md)|⚪|⚪|⚪|
 |**mostrarMenu()**   |[🗒️](/RUP/00-casos-uso/02-detalle/mostrarMenu/README.md)|[🗒️](/RUP/01-analisis/casos-uso/mostrarMenu/README.md)|⚪|⚪|⚪|
-|**listarProgramas()**|⚪|⚪|⚪|⚪|⚪|
+|**listarProgramas()**|[🗒️](/RUP/00-casos-uso/02-detalle/listarProgramas/README.md)|⚪|⚪|⚪|⚪|
 |**listarCursos()**|⚪|⚪|⚪|⚪|⚪|
 |**listarProfesores()**|⚪|⚪|⚪|⚪|⚪|
 |**listarEdificios()**|⚪|⚪|⚪|⚪|⚪|

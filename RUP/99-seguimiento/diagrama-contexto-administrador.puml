@@ -59,7 +59,7 @@ Menu -[#black,dotted]-> NoAuth
         cerrarSesion()
     end note
 
-Menu -[#black,dotted]-> ListProgramas
+Menu -[#orange,thickness=2]-> ListProgramas
     note on link
         listarProgramas()
     end note
