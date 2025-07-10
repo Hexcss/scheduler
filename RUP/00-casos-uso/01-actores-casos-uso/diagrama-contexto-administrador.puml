@@ -4,7 +4,6 @@ left to right direction
 skinparam linetype polyline
 
 state "NO_AUTENTICADO" as NoAuth
-state "AUTENTICANDO" as PreMenu
 state "MENU_PRINCIPAL" as Menu
 
 state "PROGRAMAS_ABIERTO" as ListProgramas
@@ -21,25 +20,15 @@ state "AULA_ABIERTA" as EditAula
 state "RECURSOS_ABIERTO" as ListRecursos
 state "RECURSO_ABIERTO" as EditRecurso
 
-state "CONFIGURANDO_ASIGNACIONES" as Asignaciones
-state "GENERANDO_HORARIO" as Generacion
-state "CONSULTANDO_HORARIOS" as Consulta
+state "PROFESOR_ASIGNATURAS_ABIERTO" as Asignaciones
+state "HORARIO_GENERADO" as Generacion
+state "HORARIO_ABIERTO" as Consulta
 
 [*] --> NoAuth
 
-PreMenu --> NoAuth
-    note on link
-        iniciarSesion(error)
-    end note
-
-NoAuth --> PreMenu
+NoAuth --> Menu
     note on link
         iniciarSesion()
-    end note
-
-PreMenu --> Menu
-    note on link
-        mostrarMenu()
     end note
 
 Menu --> NoAuth
@@ -77,9 +66,14 @@ Menu --> ListRecursos
         abrirRecursos()
     end note
 
-Menu --> Asignaciones
+EditProfesor --> Asignaciones
     note on link
         asignarProfesorACurso()
+    end note
+
+Asignaciones --> EditProfesor
+    note on link
+        editarProfesor()
     end note
 
 Menu --> Generacion
@@ -282,10 +276,7 @@ ListRecursos --> Menu
         mostrarMenu()
     end note
 
-Asignaciones --> Menu
-    note on link
-        mostrarMenu()
-    end note
+
 
 Generacion --> Menu
     note on link
