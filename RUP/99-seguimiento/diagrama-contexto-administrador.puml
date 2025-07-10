@@ -64,7 +64,7 @@ Menu -[#orange,thickness=2]-> ListProgramas
         listarProgramas()
     end note
 
-Menu -[#black,dotted]-> ListCursos
+Menu -[#orange,thickness=1]-> ListCursos
     note on link
         listarCursos()
     end note
@@ -149,7 +149,7 @@ EditCurso -[#black,dotted]-> EditCurso
         editarCurso()
     end note
 
-EditCurso -[#black,dotted]-> ListCursos
+EditCurso -[#orange,thickness=1]-> ListCursos
     note on link
         listarCursos()
     end note
