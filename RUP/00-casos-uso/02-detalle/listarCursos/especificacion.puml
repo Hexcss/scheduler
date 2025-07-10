@@ -1,25 +1,25 @@
-@startuml listarProgramas
+@startuml listarCursos
 
 skinparam linetype polyline
 
-state listarProgramas as "listarProgramas()" {
+state listarCursos as "listarCursos()" {
 
     state " " as MostrandoLista
     state " " as FiltrandoLista
 
     [*] -[#green]-> MostrandoLista 
     note on link
-    <b>Administrador</b> solicita listar programas
+    <b>Administrador</b> solicita listar cursos
     end note    
     
     MostrandoLista -[#green]-> FiltrandoLista
     note on link
-    <b>Sistema</b> presenta lista de programas
-    • Código, nombre, descripción de cada programa
+    <b>Sistema</b> presenta lista de cursos
+    • Código, nombre, descripción de cada curso
     • Permite solicitar filtrar lista
-    • Permite solicitar crear programa nuevo
-    • Permite solicitar eliminar programa
-    • Permite solicitar editar programa
+    • Permite solicitar crear curso nuevo
+    • Permite solicitar eliminar curso
+    • Permite solicitar editar curso
     end note
     
     FiltrandoLista -[#green]-> FiltrandoLista
@@ -34,22 +34,22 @@ state listarProgramas as "listarProgramas()" {
     end note
 }
 
-listarProgramas -[#green]-> EDITANDO_PROGRAMA
+listarCursos -[#green]-> EDITANDO_CURSO
 note on link
-editarPrograma()
+editarCurso()
 end note
 
-listarProgramas -[#green]-> EDITANDO_PROGRAMA
+listarCursos -[#green]-> EDITANDO_CURSO
 note on link
-crearPrograma()
+crearCurso()
 end note
 
-listarProgramas -[#green]-> LISTANDO_PROGRAMAS
+listarCursos -[#green]-> LISTANDO_CURSOS
 note on link
-eliminarPrograma()
+eliminarCurso()
 end note
 
-listarProgramas -[#green]-> MENU_PRINCIPAL
+listarCursos -[#green]-> MENU_PRINCIPAL
 note on link
 mostrarMenu()
 end note

@@ -73,9 +73,9 @@ Especificación detallada del caso de uso `listarProgramas()` mediante diagrama 
 |Actor|Acción|Sistema|Respuesta|
 |-|-|-|-|
 |**Administrador**|solicita listar programas||
-||**Sistema**|presenta lista de programas|• Tabla: CODIGO - NOMBRE - DESCRIPCION<br>• Campo de búsqueda<br>• Botón "Crear nuevo"<br>• Botón "Borrar seleccionado"<br>• Botón "Editar" (por fila)|
+||**Sistema**|presenta lista de programas|• Código, nombre, descripción de cada programa<br>• Permite solicitar filtrar lista<br>• Permite solicitar crear programa nuevo<br>• Permite solicitar eliminar programa<br>• Permite solicitar editar programa|
 |**Administrador**|solicita filtrar lista||(opcional)|
-||**Sistema**|presenta lista filtrada|• Misma estructura con resultados filtrados|
+||**Sistema**|presenta lista filtrada|• Misma información con criterio aplicado|
 |**Administrador**|solicita una de las opciones||
 
 ## estados internos del caso de uso
@@ -101,12 +101,12 @@ Especificación detallada del caso de uso `listarProgramas()` mediante diagrama 
 ## opciones de navegación
 
 ### operaciones CRUD
-- **Crear nuevo** → Navegar a `crearPrograma()`
-- **Editar** (por fila) → Navegar a `editarPrograma()`
-- **Borrar seleccionado** → Navegar a `eliminarPrograma()`
+- **Solicitar crear programa** → Navegar a `crearPrograma()`
+- **Solicitar editar programa** → Navegar a `editarPrograma()`
+- **Solicitar eliminar programa** → Navegar a `eliminarPrograma()`
 
 ### navegación del sistema
-- **Volver al menú** → Navegar a `mostrarMenu()`
+- **Solicitar mostrar menú** → Navegar a `mostrarMenu()`
 
 ## conexión con diagrama de contexto
 

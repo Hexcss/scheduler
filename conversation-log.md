@@ -3323,4 +3323,188 @@ Se completó exitosamente la implementación de `listarProgramas()` aplicando la
 
 ---
 
+## Conversación 28: Progreso granular y corrección metodológica sistemática
+**Fecha**: 2025-01-10  
+**Participantes**: Manuel (Usuario) + Claude Code
+
+### Contexto
+Con el dashboard visual RUP implementado y la metodología refinada consolidada, el proyecto avanza hacia el objetivo experimental de completar todo el análisis RUP. Durante este proceso se realizaron ajustes importantes en la tabla de seguimiento y se descubrieron violaciones críticas a las leyes metodológicas establecidas.
+
+### Refinamiento del sistema de seguimiento RUP
+
+#### Separación de columnas en tabla de seguimiento
+**Problema identificado**: La tabla de seguimiento mezclaba dos tipos de progreso diferentes sin distinción clara:
+- **Detalle**: Especificación formal del caso de uso
+- **Prototipo**: Implementación de validación práctica
+
+**Solución implementada**:
+- Separación en columnas independientes para seguimiento granular
+- Posibilidad de avanzar progreso de especificación sin prototipo
+- Demostración de progreso incremental más preciso
+
+#### Implementación de listarCursos() con especificación única
+**Estrategia aplicada**:
+- Desarrollo completo de especificación formal de `listarCursos()`
+- **Deliberadamente sin prototipo** para demostrar progreso granular
+- Validación de que la metodología permite avances independientes por artefacto
+
+**Valor metodológico**:
+- Demuestra flexibilidad del proceso RUP
+- Permite optimización de recursos de desarrollo
+- Facilita seguimiento más preciso del progreso real
+
+### Descubrimiento crítico: Violaciones a las leyes metodológicas
+
+#### Momento del descubrimiento
+Durante la revisión sistemática de casos de uso implementados, se detectaron **violaciones críticas** a las reglas metodológicas establecidas en `/extraDocs/999-leyes-proyecto/CdU.dCdU.md`.
+
+#### Casos de uso afectados
+**Revisión sistemática realizada**:
+1. **`iniciarSesion`** - Violaciones detectadas y corregidas
+2. **`mostrarMenu`** - Violaciones detectadas y corregidas  
+3. **`listarProgramas`** - Violaciones detectadas y corregidas
+4. **`listarCursos`** - Implementado siguiendo reglas estrictas desde inicio
+
+#### Tipos de violaciones corregidas
+**Terminología de interfaz prohibida**:
+- **Antes**: "ventana", "pantalla", "botón", "interfaz"
+- **Después**: "vista", "elemento", "acción", "interacción"
+
+**Rationale**: El documento de leyes metodológicas establece vocabulario específico para mantener el análisis independiente de tecnología de interfaz.
+
+### Proceso de corrección sistemática
+
+#### Metodología de corrección aplicada
+**Pasos seguidos**:
+1. **Identificación**: Búsqueda sistemática de términos prohibidos
+2. **Análisis**: Comprensión del contexto de cada violación
+3. **Corrección**: Aplicación de vocabulario correcto según reglas establecidas
+4. **Validación**: Verificación de coherencia conceptual post-corrección
+
+#### Herramientas utilizadas
+**Referencia metodológica**:
+- `/extraDocs/999-leyes-proyecto/CdU.dCdU.md` como fuente autorizada
+- Aplicación estricta del vocabulario RUP establecido
+- Validación de independencia tecnológica mantenida
+
+### Valor del descubrimiento metodológico
+
+#### Importancia de las leyes metodológicas documentadas
+**Lecciones aprendidas**:
+- **Referencia autorizada**: Documentos de leyes metodológicas son esenciales
+- **Detección tardía**: Errores metodológicos pueden pasar desapercibidos
+- **Corrección sistemática**: Proceso de revisión debe ser metodológico
+- **Validación continua**: Metodología funciona cuando se sigue correctamente
+
+#### Demostración práctica de RUP
+**Validación del proceso**:
+- Las **leyes metodológicas documentadas** permitieron detectar errores
+- La **corrección sistemática** fue posible gracias a reglas claras
+- La **independencia tecnológica** se mantuvo tras correcciones
+- El **vocabulario RUP** demostró su valor práctico
+
+### Impacto en el experimento de independencia tecnológica
+
+#### Preparación mejorada para el experimento
+**Elementos conseguidos**:
+- **Metodología depurada**: Errores sistemáticos identificados y corregidos
+- **Vocabulario consistente**: Terminología RUP aplicada rigurosamente
+- **Proceso validado**: Corrección exitosa demuestra robustez metodológica
+- **Calidad asegurada**: Base sólida para implementaciones tecnológicas múltiples
+
+#### Valor para validación experimental
+**Condiciones mejoradas**:
+- Análisis más puro y independiente de tecnología
+- Terminología consistente que facilitará mapeo a diferentes tecnologías
+- Proceso de corrección documentado para aplicar en futuras implementaciones
+- Evidencia de que la metodología auto-corrige cuando se aplica correctamente
+
+### Lecciones metodológicas consolidadas
+
+#### Sobre documentación de leyes metodológicas
+**Principios validados**:
+- **Documentación autorizada**: Leyes metodológicas deben estar escritas y accesibles
+- **Referencia práctica**: Los documentos se consultan durante desarrollo real
+- **Evolución controlada**: Cambios metodológicos requieren actualización de leyes
+- **Transferencia de conocimiento**: Nuevos miembros pueden aplicar metodología consistentemente
+
+#### Sobre calidad de proceso
+**Mejoras conseguidas**:
+- **Detección sistemática**: Errores metodológicos son identificables
+- **Corrección efectiva**: Proceso de corrección produce resultados consistentes
+- **Validación práctica**: Metodología funciona cuando se sigue correctamente
+- **Mejora continua**: Errores detectados mejoran proceso futuro
+
+#### Sobre independencia tecnológica
+**Fortalecimiento del experimento**:
+- **Vocabulario depurado**: Terminología independiente de tecnología específica
+- **Análisis más puro**: Conceptos libres de contaminación tecnológica
+- **Base sólida**: Fundamento robusto para múltiples implementaciones
+- **Proceso documentado**: Metodología de corrección aplicable a futuras tecnologías
+
+### Estado actual del proyecto
+
+#### Casos de uso completados con calidad validada
+**Implementaciones corregidas**:
+- **`iniciarSesion`** - Especificación + Análisis + Prototipo (corregido)
+- **`mostrarMenu`** - Especificación + Análisis + Prototipo (corregido)  
+- **`listarProgramas`** - Especificación + Análisis + Prototipo (corregido)
+- **`listarCursos`** - Especificación (implementado con reglas estrictas)
+
+#### Progreso del dashboard visual
+**Seguimiento refinado**:
+- Tabla de seguimiento con columnas separadas (Detalle/Prototipo)
+- Progreso granular visible y cuantificable
+- Demostración de flexibilidad metodológica
+
+#### Preparación experimental
+**Elementos consolidados**:
+- Metodología depurada y validada
+- Vocabulario RUP aplicado consistentemente
+- Proceso de corrección documentado
+- Calidad asegurada para experimento de independencia tecnológica
+
+### Próximos pasos
+
+#### Continuación del análisis
+**Casos de uso pendientes**:
+- Completar especificaciones de casos CRUD restantes
+- Aplicar metodología refinada con vocabulario correcto
+- Mantener seguimiento granular del progreso
+
+#### Preparación para experimento
+**Elementos por consolidar**:
+- Completar análisis de todos los casos de uso principales
+- Validar independencia tecnológica en análisis completo
+- Documentar lecciones aprendidas para transferencia
+
+#### Validación metodológica
+**Actividades pendientes**:
+- Confirmar que todos los casos de uso siguen leyes metodológicas
+- Validar coherencia conceptual del análisis completo
+- Preparar base sólida para implementaciones tecnológicas múltiples
+
+### Conclusiones
+
+#### Logro principal
+Se realizó una **corrección metodológica sistemática** que detectó y corrigió violaciones a las leyes metodológicas establecidas, fortaleciendo significativamente la preparación para el experimento de independencia tecnológica.
+
+#### Valor del proceso
+**Demostración práctica**:
+- Las **leyes metodológicas documentadas** son herramientas prácticas efectivas
+- La **detección tardía** de errores es posible con metodología rigurosa
+- La **corrección sistemática** produce resultados consistentes y confiables
+- El **proceso metodológico** se auto-valida cuando se aplica correctamente
+
+#### Preparación experimental mejorada
+**Elementos conseguidos**:
+- Análisis más puro e independiente de tecnología
+- Vocabulario consistente aplicado en todos los artefactos
+- Proceso de corrección documentado y validado
+- Base sólida para demostración práctica de independencia tecnológica RUP
+
+**La corrección metodológica sistemática ha fortalecido significativamente el proyecto, demostrando que RUP no solo funciona cuando se aplica correctamente, sino que también proporciona mecanismos efectivos para detectar y corregir desviaciones del proceso establecido.**
+
+---
+
 *Este registro se actualizará continuamente conforme avance el proyecto*
