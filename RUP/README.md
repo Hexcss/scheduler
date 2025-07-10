@@ -14,39 +14,39 @@ Esto a modo de mapa inicial, luego lo refinamos.
 
 <div align=center>
 
-|Caso de uso|[Detalle & Prototipo](/RUP/00-casos-uso/02-detalle/)|[Análisis](/RUP/01-analisis/casos-uso/)|Diseño|Desarrollo|Pruebas|
-|-|:-:|:-:|:-:|:-:|:-:|
-|**iniciarSesion()** |[🗒️](/RUP/00-casos-uso/02-detalle/iniciarSesion/README.md)|[🗒️](/RUP/01-analisis/casos-uso/iniciarSesion/README.md)|⚪|⚪|⚪|
-|**mostrarMenu()**   |[🗒️](/RUP/00-casos-uso/02-detalle/mostrarMenu/README.md)|[🗒️](/RUP/01-analisis/casos-uso/mostrarMenu/README.md)|⚪|⚪|⚪|
-|**listarProgramas()**|[🗒️](/RUP/00-casos-uso/02-detalle/listarProgramas/README.md)|⚪|⚪|⚪|⚪|
-|**listarCursos()**|⚪|⚪|⚪|⚪|⚪|
-|**listarProfesores()**|⚪|⚪|⚪|⚪|⚪|
-|**listarEdificios()**|⚪|⚪|⚪|⚪|⚪|
-|**listarAulas()**|⚪|⚪|⚪|⚪|⚪|
-|**listarRecursos()**|⚪|⚪|⚪|⚪|⚪|
-|**crearPrograma()**|⚪|⚪|⚪|⚪|⚪|
-|**editarPrograma()**|⚪|⚪|⚪|⚪|⚪|
-|**eliminarPrograma()**|⚪|⚪|⚪|⚪|⚪|
-|**crearCurso()**|⚪|⚪|⚪|⚪|⚪|
-|**editarCurso()**|⚪|⚪|⚪|⚪|⚪|
-|**eliminarCurso()**|⚪|⚪|⚪|⚪|⚪|
-|**crearProfesor()**|⚪|⚪|⚪|⚪|⚪|
-|**editarProfesor()**|⚪|⚪|⚪|⚪|⚪|
-|**eliminarProfesor()**|⚪|⚪|⚪|⚪|⚪|
-|**configurarPreferenciasProfesor()**|⚪|⚪|⚪|⚪|⚪|
-|**crearEdificio()**|⚪|⚪|⚪|⚪|⚪|
-|**editarEdificio()**|⚪|⚪|⚪|⚪|⚪|
-|**eliminarEdificio()**|⚪|⚪|⚪|⚪|⚪|
-|**crearAula()**|⚪|⚪|⚪|⚪|⚪|
-|**editarAula()**|⚪|⚪|⚪|⚪|⚪|
-|**eliminarAula()**|⚪|⚪|⚪|⚪|⚪|
-|**crearRecurso()**|⚪|⚪|⚪|⚪|⚪|
-|**editarRecurso()**|⚪|⚪|⚪|⚪|⚪|
-|**eliminarRecurso()**|⚪|⚪|⚪|⚪|⚪|
-|**asignarProfesorACurso()**|⚪|⚪|⚪|⚪|⚪|
-|**generarHorario()**|⚪|⚪|⚪|⚪|⚪|
-|**consultarHorario()**|⚪|⚪|⚪|⚪|⚪|
-|**cerrarSesion()**|⚪|⚪|⚪|⚪|⚪|
+|Caso de uso|[Detalle](/RUP/00-casos-uso/02-detalle/)|Prototipo|[Análisis](/RUP/01-analisis/casos-uso/)|Diseño|Desarrollo|Pruebas|
+|-|:-:|:-:|:-:|:-:|:-:|:-:|
+|**iniciarSesion()** |[🗒️](/RUP/00-casos-uso/02-detalle/iniciarSesion/README.md#diagrama-de-especificación)|[🗒️](/RUP/00-casos-uso/02-detalle/iniciarSesion/README.md#prototipo-de-interfaz)|[🗒️](/RUP/01-analisis/casos-uso/iniciarSesion/README.md)|⚪|⚪|⚪|
+|**mostrarMenu()**   |[🗒️](/RUP/00-casos-uso/02-detalle/mostrarMenu/README.md#diagrama-de-especificación)|[🗒️](/RUP/00-casos-uso/02-detalle/mostrarMenu/README.md#prototipo-de-interfaz)|[🗒️](/RUP/01-analisis/casos-uso/mostrarMenu/README.md)|⚪|⚪|⚪|
+|**listarProgramas()**|[🗒️](/RUP/00-casos-uso/02-detalle/listarProgramas/README.md#diagrama-de-especificación)|[🗒️](/RUP/00-casos-uso/02-detalle/listarProgramas/README.md#prototipo-de-interfaz)|⚪|⚪|⚪|⚪|
+|**listarCursos()**|⚪|⚪|⚪|⚪|⚪|⚪|
+|**listarProfesores()**|⚪|⚪|⚪|⚪|⚪|⚪|
+|**listarEdificios()**|⚪|⚪|⚪|⚪|⚪|⚪|
+|**listarAulas()**|⚪|⚪|⚪|⚪|⚪|⚪|
+|**listarRecursos()**|⚪|⚪|⚪|⚪|⚪|⚪|
+|**crearPrograma()**|⚪|⚪|⚪|⚪|⚪|⚪|
+|**editarPrograma()**|⚪|⚪|⚪|⚪|⚪|⚪|
+|**eliminarPrograma()**|⚪|⚪|⚪|⚪|⚪|⚪|
+|**crearCurso()**|⚪|⚪|⚪|⚪|⚪|⚪|
+|**editarCurso()**|⚪|⚪|⚪|⚪|⚪|⚪|
+|**eliminarCurso()**|⚪|⚪|⚪|⚪|⚪|⚪|
+|**crearProfesor()**|⚪|⚪|⚪|⚪|⚪|⚪|
+|**editarProfesor()**|⚪|⚪|⚪|⚪|⚪|⚪|
+|**eliminarProfesor()**|⚪|⚪|⚪|⚪|⚪|⚪|
+|**configurarPreferenciasProfesor()**|⚪|⚪|⚪|⚪|⚪|⚪|
+|**crearEdificio()**|⚪|⚪|⚪|⚪|⚪|⚪|
+|**editarEdificio()**|⚪|⚪|⚪|⚪|⚪|⚪|
+|**eliminarEdificio()**|⚪|⚪|⚪|⚪|⚪|⚪|
+|**crearAula()**|⚪|⚪|⚪|⚪|⚪|⚪|
+|**editarAula()**|⚪|⚪|⚪|⚪|⚪|⚪|
+|**eliminarAula()**|⚪|⚪|⚪|⚪|⚪|⚪|
+|**crearRecurso()**|⚪|⚪|⚪|⚪|⚪|⚪|
+|**editarRecurso()**|⚪|⚪|⚪|⚪|⚪|⚪|
+|**eliminarRecurso()**|⚪|⚪|⚪|⚪|⚪|⚪|
+|**asignarProfesorACurso()**|⚪|⚪|⚪|⚪|⚪|⚪|
+|**generarHorario()**|⚪|⚪|⚪|⚪|⚪|⚪|
+|**consultarHorario()**|⚪|⚪|⚪|⚪|⚪|⚪|
+|**cerrarSesion()**|⚪|⚪|⚪|⚪|⚪|⚪|
 
 </div>
 
