@@ -7,19 +7,19 @@ state "NO_AUTENTICADO" as NoAuth
 state "AUTENTICANDO" as PreMenu
 state "MENU_PRINCIPAL" as Menu
 
-state "LISTANDO_PROGRAMAS" as ListProgramas
-state "EDITANDO_PROGRAMA" as EditPrograma
-state "LISTANDO_CURSOS" as ListCursos
-state "EDITANDO_CURSO" as EditCurso
-state "LISTANDO_PROFESORES" as ListProfesores
-state "EDITANDO_PROFESOR" as EditProfesor
-state "EDITANDO_PROFESOR_PREFERENCIAS" as EditProfesorPreferencias
-state "LISTANDO_EDIFICIOS" as ListEdificios
-state "EDITANDO_EDIFICIO" as EditEdificio
-state "LISTANDO_AULAS" as ListAulas
-state "EDITANDO_AULA" as EditAula
-state "LISTANDO_RECURSOS" as ListRecursos
-state "EDITANDO_RECURSO" as EditRecurso
+state "PROGRAMAS_ABIERTO" as ListProgramas
+state "PROGRAMA_ABIERTO" as EditPrograma
+state "CURSOS_ABIERTO" as ListCursos
+state "CURSO_ABIERTO" as EditCurso
+state "PROFESORES_ABIERTO" as ListProfesores
+state "PROFESOR_ABIERTO" as EditProfesor
+state "PROFESOR_PREFERENCIAS_ABIERTO" as EditProfesorPreferencias
+state "EDIFICIOS_ABIERTO" as ListEdificios
+state "EDIFICIO_ABIERTO" as EditEdificio
+state "AULAS_ABIERTO" as ListAulas
+state "AULA_ABIERTA" as EditAula
+state "RECURSOS_ABIERTO" as ListRecursos
+state "RECURSO_ABIERTO" as EditRecurso
 
 state "CONFIGURANDO_ASIGNACIONES" as Asignaciones
 state "GENERANDO_HORARIO" as Generacion
@@ -49,32 +49,32 @@ Menu --> NoAuth
 
 Menu --> ListProgramas
     note on link
-        listarProgramas()
+        abrirProgramas()
     end note
 
 Menu --> ListCursos
     note on link
-        listarCursos()
+        abrirCursos()
     end note
 
 Menu --> ListProfesores
     note on link
-        listarProfesores()
+        abrirProfesores()
     end note
 
 Menu --> ListEdificios
     note on link
-        listarEdificios()
+        abrirEdificios()
     end note
 
 Menu --> ListAulas
     note on link
-        listarAulas()
+        abrirAulas()
     end note
 
 Menu --> ListRecursos
     note on link
-        listarRecursos()
+        abrirRecursos()
     end note
 
 Menu --> Asignaciones
@@ -114,7 +114,7 @@ EditPrograma --> EditPrograma
 
 EditPrograma --> ListProgramas
     note on link
-        listarProgramas()
+        abrirProgramas()
     end note
 
 ListCursos --> EditCurso
@@ -139,7 +139,7 @@ EditCurso --> EditCurso
 
 EditCurso --> ListCursos
     note on link
-        listarCursos()
+        abrirCursos()
     end note
 
 ListProfesores --> EditProfesor
@@ -169,12 +169,12 @@ EditProfesor --> EditProfesorPreferencias
 
 EditProfesorPreferencias --> EditProfesor
     note on link
-        editarProfesor()
+        abrirEdicionProfesor()
     end note
     
 EditProfesor --> ListProfesores
     note on link
-        listarProfesores()
+        abrirProfesores()
     end note
 
 ListEdificios --> EditEdificio
@@ -199,7 +199,7 @@ EditEdificio --> EditEdificio
 
 EditEdificio --> ListEdificios
     note on link
-        listarEdificios()
+        abrirEdificios()
     end note
 
 ListAulas --> EditAula
@@ -224,7 +224,7 @@ EditAula --> EditAula
 
 EditAula --> ListAulas
     note on link
-        listarAulas()
+        abrirAulas()
     end note
 
 ListRecursos --> EditRecurso
@@ -249,7 +249,7 @@ EditRecurso --> EditRecurso
 
 EditRecurso --> ListRecursos
     note on link
-        listarRecursos()
+        abrirRecursos()
     end note
 
 ListProgramas --> Menu
