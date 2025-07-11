@@ -17,43 +17,32 @@ legend top left
     | --- |En trabajo activo|
 end legend
 
-state "NO_AUTENTICADO" as NoAuth
-state "AUTENTICANDO" as PreMenu
-state "MENU_PRINCIPAL" as Menu
+state "SESION_CERRADA" as NoAuth
+state "SISTEMA_DISPONIBLE" as Menu
 
-state "LISTANDO_PROGRAMAS" as ListProgramas
-state "EDITANDO_PROGRAMA" as EditPrograma
-state "LISTANDO_CURSOS" as ListCursos
-state "EDITANDO_CURSO" as EditCurso
-state "LISTANDO_PROFESORES" as ListProfesores
-state "EDITANDO_PROFESOR" as EditProfesor
-state "EDITANDO_PROFESOR_PREFERENCIAS" as EditProfesorPreferencias
-state "LISTANDO_EDIFICIOS" as ListEdificios
-state "EDITANDO_EDIFICIO" as EditEdificio
-state "LISTANDO_AULAS" as ListAulas
-state "EDITANDO_AULA" as EditAula
-state "LISTANDO_RECURSOS" as ListRecursos
-state "EDITANDO_RECURSO" as EditRecurso
+state "PROGRAMAS_ABIERTO" as ListProgramas
+state "PROGRAMA_ABIERTO" as EditPrograma
+state "CURSOS_ABIERTO" as ListCursos
+state "CURSO_ABIERTO" as EditCurso
+state "PROFESORES_ABIERTO" as ListProfesores
+state "PROFESOR_ABIERTO" as EditProfesor
+state "PROFESOR_PREFERENCIAS_ABIERTO" as EditProfesorPreferencias
+state "EDIFICIOS_ABIERTO" as ListEdificios
+state "EDIFICIO_ABIERTO" as EditEdificio
+state "AULAS_ABIERTO" as ListAulas
+state "AULA_ABIERTA" as EditAula
+state "RECURSOS_ABIERTO" as ListRecursos
+state "RECURSO_ABIERTO" as EditRecurso
 
-state "CONFIGURANDO_ASIGNACIONES" as Asignaciones
-state "GENERANDO_HORARIO" as Generacion
-state "CONSULTANDO_HORARIOS" as Consulta
+state "PROFESOR_ASIGNATURAS_ABIERTO" as Asignaciones
+state "HORARIO_GENERADO" as Generacion
+state "HORARIO_ABIERTO" as Consulta
 
 [*] -[#gray,dotted]-> NoAuth
 
-PreMenu -[#darkgoldenrod,thickness=2]-> NoAuth
-    note on link
-        iniciarSesion(error)
-    end note
-
-NoAuth -[#darkgoldenrod,thickness=2]-> PreMenu
+NoAuth -[#darkgoldenrod,thickness=2]-> Menu
     note on link
         iniciarSesion()
-    end note
-
-PreMenu -[#gray,dotted]-> Menu
-    note on link
-        mostrarMenu()
     end note
 
 Menu -[#gray,dotted]-> NoAuth
@@ -63,32 +52,32 @@ Menu -[#gray,dotted]-> NoAuth
 
 Menu -[#red,thickness=2]-> ListProgramas
     note on link
-        listarProgramas()
+        abrirProgramas()
     end note
 
 Menu -[#darkgoldenrod,thickness=2]-> ListCursos
     note on link
-        listarCursos()
+        abrirCursos()
     end note
 
 Menu -[#green,thickness=2]-> ListProfesores
     note on link
-        listarProfesores()
+        abrirProfesores()
     end note
 
 Menu -[#lightblue,thickness=2]-> ListEdificios
     note on link
-        listarEdificios()
+        abrirEdificios()
     end note
 
 Menu -[#blue,thickness=2]-> ListAulas
     note on link
-        listarAulas()
+        abrirAulas()
     end note
 
 Menu -[#black,thickness=2]-> ListRecursos
     note on link
-        listarRecursos()
+        abrirRecursos()
     end note
 
 Menu -[#red,thickness=2]-> Asignaciones
@@ -128,7 +117,7 @@ EditPrograma -[#red,thickness=2]-> EditPrograma
 
 EditPrograma -[#green,thickness=2]-> ListProgramas
     note on link
-        listarProgramas()
+        abrirProgramas()
     end note
 
 ListCursos -[#green,thickness=2]-> EditCurso
@@ -153,7 +142,7 @@ EditCurso -[#darkgoldenrod,thickness=2]-> EditCurso
 
 EditCurso -[#black,thickness=2]-> ListCursos
     note on link
-        listarCursos()
+        abrirCursos()
     end note
 
 ListProfesores -[#lightblue,thickness=2]-> EditProfesor
@@ -188,7 +177,7 @@ EditProfesorPreferencias -[#red,thickness=2]-> EditProfesor
     
 EditProfesor -[#black,thickness=2]-> ListProfesores
     note on link
-        listarProfesores()
+        abrirProfesores()
     end note
 
 ListEdificios -[#blue,thickness=2]-> EditEdificio
@@ -213,7 +202,7 @@ EditEdificio -[#lightblue,thickness=2]-> EditEdificio
 
 EditEdificio -[#red,thickness=2]-> ListEdificios
     note on link
-        listarEdificios()
+        abrirEdificios()
     end note
 
 ListAulas -[#darkgoldenrod,thickness=2]-> EditAula
@@ -238,7 +227,7 @@ EditAula -[#blue,thickness=2]-> EditAula
 
 EditAula -[#darkgoldenrod,thickness=2]-> ListAulas
     note on link
-        listarAulas()
+        abrirAulas()
     end note
 
 ListRecursos -[#green,thickness=2]-> EditRecurso
@@ -263,7 +252,7 @@ EditRecurso -[#black,thickness=2]-> EditRecurso
 
 EditRecurso -[#green,thickness=2]-> ListRecursos
     note on link
-        listarRecursos()
+        abrirRecursos()
     end note
 
 ListProgramas -[#gray,dotted]-> Menu
