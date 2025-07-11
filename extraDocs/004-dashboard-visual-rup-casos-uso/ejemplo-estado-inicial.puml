@@ -6,13 +6,13 @@ skinparam linetype polyline
 legend top left
     **Leyenda de Estados RUP**
     ====
-    |<#black> | Identificado (no iniciado) |
-    |<#orange>| Detalle/Prototipado |
-    |<#blue>  | Análisis |
-    |<#green> | Diseño |
-    |<#purple>| Desarrollo |
-    |<#brown> | Pruebas |
-    |<#black> | Completado |
+    |<#gray>     | Identificado (no iniciado) |
+    |<#red>      | Detalle/Prototipado |
+    |<#darkgoldenrod>| Análisis |
+    |<#green>    | Diseño |
+    |<#lightblue>| Desarrollo |
+    |<#blue>     | Pruebas |
+    |<#black>    | Completado |
     | ... |Identificado|
     | --- |En trabajo activo|
 end legend
@@ -39,272 +39,272 @@ state "CONFIGURANDO_ASIGNACIONES" as Asignaciones
 state "GENERANDO_HORARIO" as Generacion
 state "CONSULTANDO_HORARIOS" as Consulta
 
-PreMenu -[#blue,thickness=2]-> NoAuth
+PreMenu -[#darkgoldenrod,thickness=2]-> NoAuth
     note on link
         iniciarSesion(error)
     end note
 
-NoAuth -[#blue,thickness=2]-> PreMenu
+NoAuth -[#darkgoldenrod,thickness=2]-> PreMenu
     note on link
         iniciarSesion()
     end note
 
-PreMenu -[#black,dotted]-> Menu
+PreMenu -[#gray,dotted]-> Menu
     note on link
         mostrarMenu()
     end note
 
-Menu -[#black,dotted]-> NoAuth
+Menu -[#gray,dotted]-> NoAuth
     note on link
         cerrarSesion()
     end note
 
-Menu -[#black,dotted]-> ListProgramas
+Menu -[#gray,dotted]-> ListProgramas
     note on link
         listarProgramas()
     end note
 
-Menu -[#black,dotted]-> ListCursos
+Menu -[#gray,dotted]-> ListCursos
     note on link
         listarCursos()
     end note
 
-Menu -[#black,dotted]-> ListProfesores
+Menu -[#gray,dotted]-> ListProfesores
     note on link
         listarProfesores()
     end note
 
-Menu -[#black,dotted]-> ListEdificios
+Menu -[#gray,dotted]-> ListEdificios
     note on link
         listarEdificios()
     end note
 
-Menu -[#black,dotted]-> ListAulas
+Menu -[#gray,dotted]-> ListAulas
     note on link
         listarAulas()
     end note
 
-Menu -[#black,dotted]-> ListRecursos
+Menu -[#gray,dotted]-> ListRecursos
     note on link
         listarRecursos()
     end note
 
-Menu -[#black,dotted]-> Asignaciones
+Menu -[#gray,dotted]-> Asignaciones
     note on link
         asignarProfesorACurso()
     end note
 
-Menu -[#black,dotted]-> Generacion
+Menu -[#gray,dotted]-> Generacion
     note on link
         generarHorario()
     end note
 
-Menu -[#black,dotted]-> Consulta
+Menu -[#gray,dotted]-> Consulta
     note on link
         consultarHorario()
     end note
 
-ListProgramas -[#black,dotted]-> EditPrograma
+ListProgramas -[#gray,dotted]-> EditPrograma
     note on link
         crearPrograma()
     end note
 
-ListProgramas -[#black,dotted]-> EditPrograma
+ListProgramas -[#gray,dotted]-> EditPrograma
     note on link
         editarPrograma()
     end note
 
-ListProgramas -[#black,dotted]-> ListProgramas
+ListProgramas -[#gray,dotted]-> ListProgramas
     note on link
         eliminarPrograma()
     end note
 
-EditPrograma -[#black,dotted]-> EditPrograma
+EditPrograma -[#gray,dotted]-> EditPrograma
     note on link
         editarPrograma()
     end note
 
-EditPrograma -[#black,dotted]-> ListProgramas
+EditPrograma -[#gray,dotted]-> ListProgramas
     note on link
         listarProgramas()
     end note
 
-ListCursos -[#black,dotted]-> EditCurso
+ListCursos -[#gray,dotted]-> EditCurso
     note on link
         crearCurso()
     end note
 
-ListCursos -[#black,dotted]-> EditCurso
+ListCursos -[#gray,dotted]-> EditCurso
     note on link
         editarCurso()
     end note
 
-ListCursos -[#black,dotted]-> ListCursos
+ListCursos -[#gray,dotted]-> ListCursos
     note on link
         eliminarCurso()
     end note
 
-EditCurso -[#black,dotted]-> EditCurso
+EditCurso -[#gray,dotted]-> EditCurso
     note on link
         editarCurso()
     end note
 
-EditCurso -[#black,dotted]-> ListCursos
+EditCurso -[#gray,dotted]-> ListCursos
     note on link
         listarCursos()
     end note
 
-ListProfesores -[#black,dotted]-> EditProfesor
+ListProfesores -[#gray,dotted]-> EditProfesor
     note on link
         crearProfesor()
     end note
 
-ListProfesores -[#black,dotted]-> EditProfesor
+ListProfesores -[#gray,dotted]-> EditProfesor
     note on link
         editarProfesor()
     end note
 
-ListProfesores -[#black,dotted]-> ListProfesores
+ListProfesores -[#gray,dotted]-> ListProfesores
     note on link
         eliminarProfesor()
     end note
 
-EditProfesor -[#black,dotted]-> EditProfesor
+EditProfesor -[#gray,dotted]-> EditProfesor
     note on link
         editarProfesor()
     end note
 
-EditProfesor -[#black,dotted]-> EditProfesorPreferencias
+EditProfesor -[#gray,dotted]-> EditProfesorPreferencias
     note on link
         configurarPreferenciasProfesor()
     end note
 
-EditProfesorPreferencias -[#black,dotted]-> EditProfesor
+EditProfesorPreferencias -[#gray,dotted]-> EditProfesor
     note on link
         editarProfesor()
     end note
     
-EditProfesor -[#black,dotted]-> ListProfesores
+EditProfesor -[#gray,dotted]-> ListProfesores
     note on link
         listarProfesores()
     end note
 
-ListEdificios -[#black,dotted]-> EditEdificio
+ListEdificios -[#gray,dotted]-> EditEdificio
     note on link
         crearEdificio()
     end note
 
-ListEdificios -[#black,dotted]-> EditEdificio
+ListEdificios -[#gray,dotted]-> EditEdificio
     note on link
         editarEdificio()
     end note
 
-ListEdificios -[#black,dotted]-> ListEdificios
+ListEdificios -[#gray,dotted]-> ListEdificios
     note on link
         eliminarEdificio()
     end note
 
-EditEdificio -[#black,dotted]-> EditEdificio
+EditEdificio -[#gray,dotted]-> EditEdificio
     note on link
         editarEdificio()
     end note
 
-EditEdificio -[#black,dotted]-> ListEdificios
+EditEdificio -[#gray,dotted]-> ListEdificios
     note on link
         listarEdificios()
     end note
 
-ListAulas -[#black,dotted]-> EditAula
+ListAulas -[#gray,dotted]-> EditAula
     note on link
         crearAula()
     end note
 
-ListAulas -[#black,dotted]-> EditAula
+ListAulas -[#gray,dotted]-> EditAula
     note on link
         editarAula()
     end note
 
-ListAulas -[#black,dotted]-> ListAulas
+ListAulas -[#gray,dotted]-> ListAulas
     note on link
         eliminarAula()
     end note
 
-EditAula -[#black,dotted]-> EditAula
+EditAula -[#gray,dotted]-> EditAula
     note on link
         editarAula()
     end note
 
-EditAula -[#black,dotted]-> ListAulas
+EditAula -[#gray,dotted]-> ListAulas
     note on link
         listarAulas()
     end note
 
-ListRecursos -[#black,dotted]-> EditRecurso
+ListRecursos -[#gray,dotted]-> EditRecurso
     note on link
         crearRecurso()
     end note
 
-ListRecursos -[#black,dotted]-> EditRecurso
+ListRecursos -[#gray,dotted]-> EditRecurso
     note on link
         editarRecurso()
     end note
 
-ListRecursos -[#black,dotted]-> ListRecursos
+ListRecursos -[#gray,dotted]-> ListRecursos
     note on link
         eliminarRecurso()
     end note
 
-EditRecurso -[#black,dotted]-> EditRecurso
+EditRecurso -[#gray,dotted]-> EditRecurso
     note on link
         editarRecurso()
     end note
 
-EditRecurso -[#black,dotted]-> ListRecursos
+EditRecurso -[#gray,dotted]-> ListRecursos
     note on link
         listarRecursos()
     end note
 
-ListProgramas -[#black,dotted]-> Menu
+ListProgramas -[#gray,dotted]-> Menu
     note on link
         mostrarMenu()
     end note
 
-ListCursos -[#black,dotted]-> Menu
+ListCursos -[#gray,dotted]-> Menu
     note on link
         mostrarMenu()
     end note
 
-ListProfesores -[#black,dotted]-> Menu
+ListProfesores -[#gray,dotted]-> Menu
     note on link
         mostrarMenu()
     end note
 
-ListEdificios -[#black,dotted]-> Menu
+ListEdificios -[#gray,dotted]-> Menu
     note on link
         mostrarMenu()
     end note
 
-ListAulas -[#black,dotted]-> Menu
+ListAulas -[#gray,dotted]-> Menu
     note on link
         mostrarMenu()
     end note
 
-ListRecursos -[#black,dotted]-> Menu
+ListRecursos -[#gray,dotted]-> Menu
     note on link
         mostrarMenu()
     end note
 
-Asignaciones -[#black,dotted]-> Menu
+Asignaciones -[#gray,dotted]-> Menu
     note on link
         mostrarMenu()
     end note
 
-Generacion -[#black,dotted]-> Menu
+Generacion -[#gray,dotted]-> Menu
     note on link
         mostrarMenu()
     end note
 
-Consulta -[#black,dotted]-> Menu
+Consulta -[#gray,dotted]-> Menu
     note on link
         mostrarMenu()
     end note

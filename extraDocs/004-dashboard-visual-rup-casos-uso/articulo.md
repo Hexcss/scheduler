@@ -45,13 +45,13 @@ Durante el desarrollo del proyecto pySigHor-RUP, surgió la reflexión: *"¿Podr
 - **Líneas continuas** (grosor 2): Casos de uso en trabajo activo
 
 **Código de Colores por Disciplina RUP:**
-- **Negro punteado**: Identificado (no iniciado)
-- **Naranja**: Detalle/Prototipado
-- **Azul**: Análisis
-- **Verde**: Diseño
-- **Púrpura**: Desarrollo
-- **Marrón**: Pruebas
-- **Negro continuo**: Completado
+- **🔘 Gris punteado**: Identificado (no iniciado)
+- **🔴 Rojo**: Detalle/Prototipado
+- **🟫 Amarillo oscuro**: Análisis
+- **🟢 Verde**: Diseño
+- **🔵 Celeste**: Desarrollo
+- **🔵 Azul**: Pruebas
+- **⚫ Negro continuo**: Completado
 
 ### Implementación técnica
 
@@ -63,7 +63,7 @@ Durante el desarrollo del proyecto pySigHor-RUP, surgió la reflexión: *"¿Podr
 
 **Ejemplo de sintaxis:**
 ```
-NoAuth -[#blue,thickness=2]-> PreMenu
+NoAuth -[#darkgoldenrod,thickness=2]-> PreMenu
     note on link
         iniciarSesion()
     end note
@@ -102,8 +102,8 @@ NoAuth -[#blue,thickness=2]-> PreMenu
 **Situación:** Proyecto recién iniciado con un solo caso de uso en análisis.
 
 **Resultado visual:**
-- Una flecha azul gruesa destaca el trabajo activo
-- Múltiples flechas punteadas organizan el backlog
+- Una flecha amarillo oscuro gruesa destaca el trabajo activo
+- Múltiples flechas grises punteadas organizan el backlog
 - Clara diferenciación entre trabajo activo y pendiente
 
 <div align=center>
@@ -119,9 +119,9 @@ NoAuth -[#blue,thickness=2]-> PreMenu
 **Situación:** Proyecto en desarrollo con seis casos de uso en diferentes fases.
 
 **Resultado visual:**
-- Espectro de colores muestra diversidad de estados
+- Espectro de colores RUP muestra diversidad de estados (rojo, amarillo oscuro, verde, celeste, azul)
 - Distribución balanceada sugiere flujo saludable
-- Fácil identificación de casos críticos en pruebas
+- Fácil identificación de casos críticos en pruebas (azul)
 
 <div align=center>
 
