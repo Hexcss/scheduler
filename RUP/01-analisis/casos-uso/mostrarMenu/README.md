@@ -45,37 +45,35 @@ Análisis del caso de uso `mostrarMenu()` mediante diagrama de colaboración MVC
 ### colaboraciones (verde claro #CDEBA5)
 |Colaboración|Propósito|Invocación|
 |-|-|-|
-|**:Collaboration ListarProgramas**|Invocación del caso de uso de gestión de programas|Según selección|
-|**:Collaboration ListarCursos**|Invocación del caso de uso de gestión de cursos|Según selección|
-|**:Collaboration ListarProfesores**|Invocación del caso de uso de gestión de profesores|Según selección|
-|**:Collaboration ListarEdificios**|Invocación del caso de uso de gestión de edificios|Según selección|
-|**:Collaboration ListarAulas**|Invocación del caso de uso de gestión de aulas|Según selección|
-|**:Collaboration ListarRecursos**|Invocación del caso de uso de gestión de recursos|Según selección|
-|**:Collaboration AsignarProfesor**|Invocación del caso de uso de asignaciones|Según selección|
-|**:Collaboration GenerarHorario**|Invocación del caso de uso de generación|Según selección|
-|**:Collaboration ConsultarHorario**|Invocación del caso de uso de consulta|Según selección|
-|**:Collaboration CerrarSesion**|Invocación del caso de uso de cierre de sesión|Según selección|
+|**:Collaboration AbrirProgramas**|Permite solicitar apertura de gestión de programas|Según selección|
+|**:Collaboration AbrirCursos**|Permite solicitar apertura de gestión de cursos|Según selección|
+|**:Collaboration AbrirProfesores**|Permite solicitar apertura de gestión de profesores|Según selección|
+|**:Collaboration AbrirEdificios**|Permite solicitar apertura de gestión de edificios|Según selección|
+|**:Collaboration AbrirAulas**|Permite solicitar apertura de gestión de aulas|Según selección|
+|**:Collaboration AbrirRecursos**|Permite solicitar apertura de gestión de recursos|Según selección|
+|**:Collaboration AsignarProfesor**|Permite solicitar asignación de profesores|Según selección|
+|**:Collaboration GenerarHorario**|Permite solicitar generación de horarios|Según selección|
+|**:Collaboration ConsultarHorario**|Permite solicitar consulta de horarios|Según selección|
+|**:Collaboration CerrarSesion**|Permite solicitar cierre de sesión|Según selección|
 
 ## mensajes de colaboración
 
 ### flujo principal
 |Origen|Destino|Mensaje|Intención|
 |-|-|-|-|
-|**Administrador**|**MenuView**|`mostrarMenu()`|Solicitar presentación del menú|
-|**MenuView**|**MostrarMenuController**|`prepararMenu(sesion)`|Delegar preparación del menú|
+|**Administrador**|**MenuView**|`disponibilizarSistema()`|Solicitar disponibilizar sistema|
+|**MenuView**|**MostrarMenuController**|`habilitarOpciones(administrador)`|Delegar habilitación de opciones|
 |**MostrarMenuController**|**Sesion**|`getUsuario()`|Obtener información del usuario autenticado|
 |**MostrarMenuController**|**PermisosRepository**|`obtenerOpciones(usuario)`|Obtener opciones disponibles para el usuario|
 |**MostrarMenuController**|**OpcionesMenu**|`crearOpciones(opciones)`|Crear estructura de opciones|
 |**MenuView**|**OpcionesMenu**|`getOpciones()`|Obtener opciones para presentar|
-|**MenuView**|**Administrador**|`presentarOpciones(opciones)`|Mostrar opciones disponibles|
-|**Administrador**|**MenuView**|`seleccionarOpcion(opcion)`|Seleccionar opción específica|
-|**MenuView**|**:Collaboration [OpcionSeleccionada]**|`invocar(sesion)`|Activar caso de uso seleccionado|
+|**MenuView**|**:Collaboration [Según selección]**|`abrirX() / asignarX() / generarX() / etc.`|Invocar colaboración según opción seleccionada|
 
 ## enlaces de dependencia
 - **MenuView** conoce a **MostrarMenuController** (delegación)
 - **MenuView** conoce a **OpcionesMenu** (acceso a opciones)
 - **MenuView** conoce a **Sesion** (acceso a estado)
-- **MenuView** conoce a **todas las colaboraciones** (activación subsiguiente)
+- **MenuView** conoce a **todas las colaboraciones** (invocación según selección)
 - **MostrarMenuController** conoce a **PermisosRepository** (obtención opciones)
 - **MostrarMenuController** conoce a **OpcionesMenu** (creación estructura)
 - **MostrarMenuController** conoce a **Sesion** (acceso a usuario)
@@ -118,7 +116,7 @@ Análisis del caso de uso `mostrarMenu()` mediante diagrama de colaboración MVC
 ## características del análisis
 
 ### responsabilidades identificadas
-- **MenuView**: Presentar opciones y capturar selección del usuario
+- **MenuView**: Habilitar solicitud de opciones y capturar selección del usuario
 - **MostrarMenuController**: Orquestar lógica completa del caso de uso
 - **PermisosRepository**: Proveer acceso conceptual a opciones disponibles
 - **OpcionesMenu**: Representar estructura de opciones disponibles
@@ -128,7 +126,15 @@ Análisis del caso de uso `mostrarMenu()` mediante diagrama de colaboración MVC
 - **Delegación**: Vista delega lógica de negocio al controlador
 - **Acceso**: Controlador accede a repositorio para obtener opciones
 - **Creación**: Controlador crea estructura de opciones
-- **Coordinación**: Vista coordina activación del caso de uso seleccionado
+- **Coordinación**: Vista coordina invocación de la colaboración según selección del usuario
+
+## naturaleza del diagrama de colaboración
+
+### capacidades vs ejecución
+- **Capacidades mostradas**: El diagrama muestra todas las colaboraciones que `MenuView` **puede** invocar
+- **Ejecución real**: En una ejecución específica, solo **una** colaboración es invocada según la selección del usuario
+- **Análisis conceptual**: Se enfoca en responsabilidades y enlaces, no en flujo secuencial específico
+- **Completitud**: Todas las transiciones posibles desde el estado SISTEMA_DISPONIBLE están representadas
 
 ## centralidad del caso de uso
 
@@ -139,7 +145,7 @@ Análisis del caso de uso `mostrarMenu()` mediante diagrama de colaboración MVC
 
 ### gestión de flujo
 - **Control de navegación**: Determina qué opciones están disponibles
-- **Coordinación de casos**: Activa el caso de uso seleccionado
+- **Coordinación de casos**: Invoca la colaboración seleccionada
 - **Mantenimiento de estado**: Preserva la sesión entre navegaciones
 
 ## conexión con disciplinas rup

@@ -45,7 +45,7 @@ Análisis del caso de uso `iniciarSesion()` mediante diagrama de colaboración M
 ### colaboraciones (verde claro #CDEBA5)
 |Colaboración|Propósito|Invocación|
 |-|-|-|
-|**:Collaboration MostrarMenu**|Invocación del siguiente caso de uso|Tras autenticación exitosa|
+|**:Sistema Disponible**|Transición al estado disponible del sistema|Tras autenticación exitosa|
 
 ## mensajes de colaboración
 
@@ -57,12 +57,12 @@ Análisis del caso de uso `iniciarSesion()` mediante diagrama de colaboración M
 |**IniciarSesionController**|**UsuarioRepository**|`validarCredenciales(usuario, contraseña)`|Verificar credenciales contra repositorio|
 |**IniciarSesionController**|**Sesion**|`crearSesion(usuario)`|Establecer sesión activa|
 |**LoginView**|**Sesion**|`getSesion()`|Obtener sesión para siguiente caso|
-|**LoginView**|**:Collaboration MostrarMenu**|`invocar(sesion)`|Activar siguiente caso de uso|
+|**LoginView**|**:Sistema Disponible**|`sistemaDisponible(administrador)`|Transición a sistema disponible|
 
 ## enlaces de dependencia
 - **LoginView** conoce a **IniciarSesionController** (delegación)
 - **LoginView** conoce a **Sesion** (acceso a resultado)
-- **LoginView** conoce a **:Collaboration MostrarMenu** (activación subsiguiente)
+- **LoginView** conoce a **:Sistema Disponible** (transición de estado)
 - **IniciarSesionController** conoce a **UsuarioRepository** (validación)
 - **IniciarSesionController** conoce a **Sesion** (creación estado)
 - **IniciarSesionController** conoce a **Usuario** (manipulación entidad)
@@ -73,7 +73,7 @@ Análisis del caso de uso `iniciarSesion()` mediante diagrama de colaboración M
 ### con especificación detallada
 - **Estados internos** → **Clases de análisis**
 - **Choice point** → **UsuarioRepository.validarCredenciales()**
-- **Transformación actor** → **Sesion.crearSesion()**
+- **Transformación actor** → **UsuarioNoRegistrado → Administrador**
 
 ### con wireframe
 - **Diálogo de login** → **LoginView**
@@ -114,7 +114,7 @@ Análisis del caso de uso `iniciarSesion()` mediante diagrama de colaboración M
 - **Delegación**: Vista delega lógica de negocio al controlador
 - **Acceso**: Controlador accede a repositorio para validación
 - **Creación**: Controlador crea sesión tras validación exitosa
-- **Coordinación**: Vista coordina activación del siguiente caso de uso
+- **Transición**: Vista coordina transición al estado SISTEMA_DISPONIBLE
 
 ## conexión con disciplinas rup
 

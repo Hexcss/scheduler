@@ -10,12 +10,12 @@ package mostrarMenu as "mostrarMenu()" {
     rectangle #F2AC4E Sesion
 }
 
-rectangle #CDEBA5 ":Collaboration ListarProgramas" as ListarProgramas
-rectangle #CDEBA5 ":Collaboration ListarCursos" as ListarCursos
-rectangle #CDEBA5 ":Collaboration ListarProfesores" as ListarProfesores
-rectangle #CDEBA5 ":Collaboration ListarEdificios" as ListarEdificios
-rectangle #CDEBA5 ":Collaboration ListarAulas" as ListarAulas
-rectangle #CDEBA5 ":Collaboration ListarRecursos" as ListarRecursos
+rectangle #CDEBA5 ":Collaboration AbrirProgramas" as AbrirProgramas
+rectangle #CDEBA5 ":Collaboration AbrirCursos" as AbrirCursos
+rectangle #CDEBA5 ":Collaboration AbrirProfesores" as AbrirProfesores
+rectangle #CDEBA5 ":Collaboration AbrirEdificios" as AbrirEdificios
+rectangle #CDEBA5 ":Collaboration AbrirAulas" as AbrirAulas
+rectangle #CDEBA5 ":Collaboration AbrirRecursos" as AbrirRecursos
 rectangle #CDEBA5 ":Collaboration AsignarProfesor" as AsignarProfesor
 rectangle #CDEBA5 ":Collaboration GenerarHorario" as GenerarHorario
 rectangle #CDEBA5 ":Collaboration ConsultarHorario" as ConsultarHorario
@@ -23,12 +23,12 @@ rectangle #CDEBA5 ":Collaboration CerrarSesion" as CerrarSesion
 
 Administrador -r-> MenuView
 note on link
-    mostrarMenu()
+    disponibilizarSistema()
 end note
 
 MenuView -d-> MostrarMenuController
 note on link
-    prepararMenu(sesion)
+    habilitarOpciones(administrador)
 end note
 
 MostrarMenuController --> Sesion
@@ -51,54 +51,64 @@ note on link
     getOpciones() : List<Opcion>
 end note
 
-MenuView --> ListarProgramas
+'Administrador --> MenuView : abrirProgramas()
+MenuView --> AbrirProgramas
 note on link
-    invocar(sesion)
+    abrirProgramas()
 end note
 
-MenuView --> ListarCursos
+'Administrador --> MenuView : abrirCursos()
+MenuView --> AbrirCursos
 note on link
-    invocar(sesion)
+    abrirCursos()
 end note
 
-MenuView --> ListarProfesores
+'Administrador --> MenuView : abrirProfesores()
+MenuView --> AbrirProfesores
 note on link
-    invocar(sesion)
+    abrirProfesores()
 end note
 
-MenuView --> ListarEdificios
+'Administrador --> MenuView : abrirEdificios()
+MenuView --> AbrirEdificios
 note on link
-    invocar(sesion)
+    abrirEdificios()
 end note
 
-MenuView --> ListarAulas
+'Administrador --> MenuView : abrirAulas()
+MenuView --> AbrirAulas
 note on link
-    invocar(sesion)
+    abrirAulas()
 end note
 
-MenuView --> ListarRecursos
+'Administrador --> MenuView : abrirRecursos()
+MenuView --> AbrirRecursos
 note on link
-    invocar(sesion)
+    abrirRecursos()
 end note
 
+'Administrador --> MenuView : asignarProfesorACurso()
 MenuView --> AsignarProfesor
 note on link
-    invocar(sesion)
+    asignarProfesorACurso()
 end note
 
+'Administrador --> MenuView : generarHorario()
 MenuView --> GenerarHorario
 note on link
-    invocar(sesion)
+    generarHorario()
 end note
 
+'Administrador --> MenuView : consultarHorario()
 MenuView --> ConsultarHorario
 note on link
-    invocar(sesion)
+    consultarHorario()
 end note
 
+'Administrador --> MenuView : cerrarSesion()
 MenuView --> CerrarSesion
 note on link
-    invocar(sesion)
+    cerrarSesion()
 end note
 
 @enduml

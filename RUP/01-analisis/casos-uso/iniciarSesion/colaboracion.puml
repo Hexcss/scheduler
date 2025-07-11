@@ -9,7 +9,7 @@ package iniciarSesion as "iniciarSesion()" {
     rectangle #F2AC4E Usuario
     rectangle #F2AC4E Sesion
 }
-rectangle #CDEBA5 ":Collaboration MostrarMenu" as MostrarMenu
+rectangle #CDEBA5 ":Sistema Disponible" as SistemaDisponible
 
 UsuarioNoRegistrado -r-> LoginView
 note on link
@@ -33,9 +33,9 @@ note on link
     crearSesion(usuario) : Sesion
 end note
 
-LoginView -r-> MostrarMenu
+LoginView -r-> SistemaDisponible
 note on link
-    invocar(sesion)
+    sistemaDisponible(administrador)
 end note
 
 
