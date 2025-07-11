@@ -14,16 +14,16 @@ Esto a modo de mapa inicial, luego lo refinamos.
 
 <div align=center>
 
-|Caso de uso|[Detalle](/RUP/00-casos-uso/02-detalle/)|Prototipo|[Análisis](/RUP/01-analisis/casos-uso/)|Diseño|Desarrollo|Pruebas|
-|-|:-:|:-:|:-:|:-:|:-:|:-:|
+|Caso de uso|[Detalle](/RUP/00-casos-uso/02-detalle/)|Prototipo|[Análisis](/RUP/01-analisis/casos-uso/)|Diseño|Desarrollo|Pruebas|Comentario|
+|-|:-:|:-:|:-:|:-:|:-:|:-:|-|
 |**iniciarSesion()** |[🗒️](/RUP/00-casos-uso/02-detalle/iniciarSesion/README.md#diagrama-de-especificación)|[🗒️](/RUP/00-casos-uso/02-detalle/iniciarSesion/README.md#prototipo-de-interfaz)|[🗒️](/RUP/01-analisis/casos-uso/iniciarSesion/README.md)|⚪|⚪|⚪|
-|**mostrarMenu()**   |[🗒️](/RUP/00-casos-uso/02-detalle/mostrarMenu/README.md#diagrama-de-especificación)|[🗒️](/RUP/00-casos-uso/02-detalle/mostrarMenu/README.md#prototipo-de-interfaz)|[🗒️](/RUP/01-analisis/casos-uso/mostrarMenu/README.md)|⚪|⚪|⚪|
-|**listarProgramas()**|[🗒️](/RUP/00-casos-uso/02-detalle/listarProgramas/README.md#diagrama-de-especificación)|[🗒️](/RUP/00-casos-uso/02-detalle/listarProgramas/README.md#prototipo-de-interfaz)|⚪|⚪|⚪|⚪|
-|**listarCursos()**|[🗒️](/RUP/00-casos-uso/02-detalle/listarCursos/README.md#diagrama-de-especificación)|⚪|⚪|⚪|⚪|⚪|
-|**listarProfesores()**|⚪|⚪|⚪|⚪|⚪|⚪|
-|**listarEdificios()**|⚪|⚪|⚪|⚪|⚪|⚪|
-|**listarAulas()**|⚪|⚪|⚪|⚪|⚪|⚪|
-|**listarRecursos()**|⚪|⚪|⚪|⚪|⚪|⚪|
+|***mostrarMenu()***   |[🗒️](/RUP/00-casos-uso/02-detalle/mostrarMenu/README.md#diagrama-de-especificación)|[🗒️](/RUP/00-casos-uso/02-detalle/mostrarMenu/README.md#prototipo-de-interfaz)|[🗒️](/RUP/01-analisis/casos-uso/mostrarMenu/README.md)|⚪|⚪|⚪|*Se mantiene temporalmente*
+|**abrirProgramas()**|[🗒️](/RUP/00-casos-uso/02-detalle/listarProgramas/README.md#diagrama-de-especificación)|[🗒️](/RUP/00-casos-uso/02-detalle/listarProgramas/README.md#prototipo-de-interfaz)|⚪|⚪|⚪|⚪|
+|**abrirCursos()**|[🗒️](/RUP/00-casos-uso/02-detalle/listarCursos/README.md#diagrama-de-especificación)|⚪|⚪|⚪|⚪|⚪|
+|**abrirProfesores()**|⚪|⚪|⚪|⚪|⚪|⚪|
+|**abrirEdificios()**|⚪|⚪|⚪|⚪|⚪|⚪|
+|**abrirAulas()**|⚪|⚪|⚪|⚪|⚪|⚪|
+|**abrirRecursos()**|⚪|⚪|⚪|⚪|⚪|⚪|
 |**crearPrograma()**|⚪|⚪|⚪|⚪|⚪|⚪|
 |**editarPrograma()**|⚪|⚪|⚪|⚪|⚪|⚪|
 |**eliminarPrograma()**|⚪|⚪|⚪|⚪|⚪|⚪|
