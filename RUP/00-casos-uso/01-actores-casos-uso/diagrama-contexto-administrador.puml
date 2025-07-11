@@ -3,8 +3,8 @@
 left to right direction
 skinparam linetype polyline
 
-state "NO_AUTENTICADO" as NoAuth
-state "MENU_PRINCIPAL" as Menu
+state "SESION_CERRADA" as NoAuth
+state "SISTEMA_DISPONIBLE" as Menu
 
 state "PROGRAMAS_ABIERTO" as ListProgramas
 state "PROGRAMA_ABIERTO" as EditPrograma

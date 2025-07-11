@@ -35,62 +35,59 @@ Este documento presenta el diagrama de contexto para el actor "Administrador de 
 
 |Estado|Descripción|Función principal|
 |-|-|-|
-|**NO_AUTENTICADO**|Estado inicial del sistema|Punto de entrada, requiere autenticación|
-|**AUTENTICANDO**|Estado de procesamiento|Validación de credenciales y autenticación|
-|**MENU_PRINCIPAL**|Hub central de navegación|Punto de acceso a todas las funcionalidades|
-|**LISTANDO_PROGRAMAS**|Lista de programas académicos|Visualización y selección de programas|
-|**EDITANDO_PROGRAMA**|Edición de programa|Modificación de datos de programa (crear/editar)|
-|**LISTANDO_CURSOS**|Lista de cursos|Visualización y selección de cursos|
-|**EDITANDO_CURSO**|Edición de curso|Modificación de datos de curso (crear/editar)|
-|**LISTANDO_PROFESORES**|Lista de profesores|Visualización y selección de profesores|
-|**EDITANDO_PROFESOR**|Edición de profesor|Modificación de datos de profesor|
-|**EDITANDO_PROFESOR_PREFERENCIAS**|Configuración de preferencias|Configuración específica de preferencias del profesor|
-|**LISTANDO_EDIFICIOS**|Lista de edificios|Visualización y selección de edificios|
-|**EDITANDO_EDIFICIO**|Edición de edificio|Modificación de datos de edificio|
-|**LISTANDO_AULAS**|Lista de aulas|Visualización y selección de aulas|
-|**EDITANDO_AULA**|Edición de aula|Modificación de datos de aula|
-|**LISTANDO_RECURSOS**|Lista de recursos|Visualización y selección de recursos|
-|**EDITANDO_RECURSO**|Edición de recurso|Modificación de datos de recurso|
-|**CONFIGURANDO_ASIGNACIONES**|Configuración de asignaciones|Asignación de profesores a cursos|
-|**GENERANDO_HORARIO**|Proceso de generación|Ejecución del algoritmo de optimización|
-|**CONSULTANDO_HORARIOS**|Consulta de resultados|Visualización de horarios generados|
+|**SESION_CERRADA**|Estado inicial del sistema|Punto de entrada, requiere autenticación|
+|**SISTEMA_DISPONIBLE**|Hub central de navegación|Punto de acceso a todas las funcionalidades|
+|**PROGRAMAS_ABIERTO**|Lista de programas académicos|Visualización y selección de programas|
+|**PROGRAMA_ABIERTO**|Edición de programa|Modificación de datos de programa (crear/editar)|
+|**CURSOS_ABIERTO**|Lista de cursos|Visualización y selección de cursos|
+|**CURSO_ABIERTO**|Edición de curso|Modificación de datos de curso (crear/editar)|
+|**PROFESORES_ABIERTO**|Lista de profesores|Visualización y selección de profesores|
+|**PROFESOR_ABIERTO**|Edición de profesor|Modificación de datos de profesor|
+|**PROFESOR_PREFERENCIAS_ABIERTO**|Configuración de preferencias|Configuración específica de preferencias del profesor|
+|**EDIFICIOS_ABIERTO**|Lista de edificios|Visualización y selección de edificios|
+|**EDIFICIO_ABIERTO**|Edición de edificio|Modificación de datos de edificio|
+|**AULAS_ABIERTO**|Lista de aulas|Visualización y selección de aulas|
+|**AULA_ABIERTA**|Edición de aula|Modificación de datos de aula|
+|**RECURSOS_ABIERTO**|Lista de recursos|Visualización y selección de recursos|
+|**RECURSO_ABIERTO**|Edición de recurso|Modificación de datos de recurso|
+|**PROFESOR_ASIGNATURAS_ABIERTO**|Configuración de asignaciones|Asignación de profesores a cursos|
+|**HORARIO_GENERADO**|Proceso de generación|Ejecución del algoritmo de optimización|
+|**HORARIO_ABIERTO**|Consulta de resultados|Visualización de horarios generados|
 
 ## Transiciones principales
 
 ### Autenticación y navegación al menú
-- `iniciarSesion()`: NO_AUTENTICADO → AUTENTICANDO (proceso de autenticación)
-- `iniciarSesion(error)`: AUTENTICANDO → NO_AUTENTICADO (credenciales inválidas)
-- `mostrarMenu()`: AUTENTICANDO → MENU_PRINCIPAL (tras autenticación exitosa)
-- `cerrarSesion()`: MENU_PRINCIPAL → NO_AUTENTICADO
+- `iniciarSesion()`: SESION_CERRADA → SISTEMA_DISPONIBLE (proceso de autenticación exitoso)
+- `cerrarSesion()`: SISTEMA_DISPONIBLE → SESION_CERRADA
 
 ### Navegación a estados de listado
-- `listarProgramas()`: MENU_PRINCIPAL → LISTANDO_PROGRAMAS
-- `listarCursos()`: MENU_PRINCIPAL → LISTANDO_CURSOS
-- `listarProfesores()`: MENU_PRINCIPAL → LISTANDO_PROFESORES
-- `listarEdificios()`: MENU_PRINCIPAL → LISTANDO_EDIFICIOS
-- `listarAulas()`: MENU_PRINCIPAL → LISTANDO_AULAS
-- `listarRecursos()`: MENU_PRINCIPAL → LISTANDO_RECURSOS
-- `asignarProfesorACurso()`: MENU_PRINCIPAL → CONFIGURANDO_ASIGNACIONES
-- `generarHorario()`: MENU_PRINCIPAL → GENERANDO_HORARIO
-- `consultarHorario()`: MENU_PRINCIPAL → CONSULTANDO_HORARIOS
+- `abrirProgramas()`: SISTEMA_DISPONIBLE → PROGRAMAS_ABIERTO
+- `abrirCursos()`: SISTEMA_DISPONIBLE → CURSOS_ABIERTO
+- `abrirProfesores()`: SISTEMA_DISPONIBLE → PROFESORES_ABIERTO
+- `abrirEdificios()`: SISTEMA_DISPONIBLE → EDIFICIOS_ABIERTO
+- `abrirAulas()`: SISTEMA_DISPONIBLE → AULAS_ABIERTO
+- `abrirRecursos()`: SISTEMA_DISPONIBLE → RECURSOS_ABIERTO
+- `asignarProfesorACurso()`: SISTEMA_DISPONIBLE → PROFESOR_ASIGNATURAS_ABIERTO
+- `generarHorario()`: SISTEMA_DISPONIBLE → HORARIO_GENERADO
+- `consultarHorario()`: SISTEMA_DISPONIBLE → HORARIO_ABIERTO
 
 ### Patrón granular optimizado con transiciones separadas
 
 **Para entidades estándar (Programas, Cursos, Edificios, Aulas, Recursos)**:
-- **LISTANDO_X → crearX() → EDITANDO_X** (transición separada)
-- **LISTANDO_X → editarX() → EDITANDO_X** (transición separada)
-- **LISTANDO_X → eliminarX() → LISTANDO_X** (operación in situ)
-- **EDITANDO_X → editarX() → EDITANDO_X** (edición continua)
-- **EDITANDO_X → listarX() → LISTANDO_X** (retorno a lista)
+- **X_ABIERTO → crearX() → X_ABIERTO** (transición separada)
+- **X_ABIERTO → editarX() → X_ABIERTO** (transición separada)
+- **X_ABIERTO → eliminarX() → X_ABIERTO** (operación in situ)
+- **X_ABIERTO → editarX() → X_ABIERTO** (edición continua)
+- **X_ABIERTO → abrirX() → X_ABIERTO** (retorno a lista)
 
 **Para entidad Profesores (patrón extendido)**:
-- **LISTANDO_PROFESORES → crearProfesor() → EDITANDO_PROFESOR** (transición separada)
-- **LISTANDO_PROFESORES → editarProfesor() → EDITANDO_PROFESOR** (transición separada)
-- **LISTANDO_PROFESORES → eliminarProfesor() → LISTANDO_PROFESORES** (operación in situ)
-- **EDITANDO_PROFESOR → editarProfesor() → EDITANDO_PROFESOR** (edición continua)
-- **EDITANDO_PROFESOR → configurarPreferenciasProfesor() → EDITANDO_PROFESOR_PREFERENCIAS** (funcionalidad específica)
-- **EDITANDO_PROFESOR_PREFERENCIAS → editarProfesor() → EDITANDO_PROFESOR** (retorno a edición general)
-- **EDITANDO_PROFESOR → listarProfesores() → LISTANDO_PROFESORES** (retorno a lista)
+- **PROFESORES_ABIERTO → crearProfesor() → PROFESOR_ABIERTO** (transición separada)
+- **PROFESORES_ABIERTO → editarProfesor() → PROFESOR_ABIERTO** (transición separada)
+- **PROFESORES_ABIERTO → eliminarProfesor() → PROFESORES_ABIERTO** (operación in situ)
+- **PROFESOR_ABIERTO → editarProfesor() → PROFESOR_ABIERTO** (edición continua)
+- **PROFESOR_ABIERTO → configurarPreferenciasProfesor() → PROFESOR_PREFERENCIAS_ABIERTO** (funcionalidad específica)
+- **PROFESOR_PREFERENCIAS_ABIERTO → abrirEdicionProfesor() → PROFESOR_ABIERTO** (retorno a edición general)
+- **PROFESOR_ABIERTO → abrirProfesores() → PROFESORES_ABIERTO** (retorno a lista)
 
 ### Flujo natural crear-editar
 - **Crear**: Datos mínimos → redirige inmediatamente a edición
@@ -101,19 +98,17 @@ Este documento presenta el diagrama de contexto para el actor "Administrador de 
 
 ### Autenticación requerida
 El diagrama hace explícito que para acceder a cualquier funcionalidad del sistema, el administrador debe:
-1. Pasar por proceso de autenticación (NO_AUTENTICADO → AUTENTICANDO)
-2. Completar autenticación exitosa (AUTENTICANDO → MENU_PRINCIPAL)
-3. Manejo de errores: credenciales inválidas regresan a NO_AUTENTICADO
+1. Completar autenticación exitosa (SESION_CERRADA → SISTEMA_DISPONIBLE)
 
 ### Navegación centralizada desde menú
-El acceso a estados de listado requiere pasar por MENU_PRINCIPAL.
+El acceso a estados de listado requiere pasar por SISTEMA_DISPONIBLE.
 
 ### Navegación granular entre estados CRUD
-Los estados LISTANDO y EDITANDO tienen navegación directa entre sí, optimizando el flujo de trabajo.
+Los estados X_ABIERTO tienen navegación directa entre sus modos de visualización y edición, optimizando el flujo de trabajo.
 
 ### Secuencialidad obligatoria
 Para realizar cualquier operación CRUD:
-`NO_AUTENTICADO` → `iniciarSesion()` → `AUTENTICANDO` → `mostrarMenu()` → `MENU_PRINCIPAL` → `listarX()` → `LISTANDO_X` → `crearX()` o `editarX()` → `EDITANDO_X`
+`SESION_CERRADA` → `iniciarSesion()` → `SISTEMA_DISPONIBLE` → `abrirX()` → `X_ABIERTO` → `crearX()` o `editarX()` → `X_ABIERTO`
 
 ## Validación de casos de uso
 
@@ -122,42 +117,41 @@ Todos los casos de uso identificados para el Administrador de Horarios aparecen 
 - **32 casos de uso CRUD estándar**: 5 entidades × (crear + editar + eliminar + listar + editar continua + retorno) = 30 transiciones
 - **8 casos de uso CRUD profesores**: Patrón extendido con estado adicional para preferencias
 - **3 casos de uso especiales**: asignarProfesorACurso(), generarHorario(), consultarHorario()
-- **6 casos de uso de navegación inicial**: listarX() desde MENU_PRINCIPAL  
-- **4 casos de uso de autenticación/navegación**: iniciarSesion(), iniciarSesion(error), mostrarMenu(), cerrarSesion()
-- **9 casos de uso de retorno al menú**: mostrarMenu() desde estados LISTANDO y especiales
+- **6 casos de uso de navegación inicial**: abrirX() desde SISTEMA_DISPONIBLE  
+- **2 casos de uso de autenticación/navegación**: iniciarSesion(), cerrarSesion()
+- **9 casos de uso de retorno al menú**: mostrarMenu() desde estados X_ABIERTO y especiales
 
 ### Casos de uso de navegación granular
 El patrón granular y la optimización aplicada revelan:
-- **Estados LISTANDO**: Casos de uso listarX() desde MENU_PRINCIPAL y desde EDITANDO_X
+- **Estados X_ABIERTO**: Casos de uso abrirX() desde SISTEMA_DISPONIBLE y navegación interna
 - **Navegación unificada**: mostrarMenu() como caso de uso único para retorno al menú
-- **Separación de responsabilidades**: iniciarSesion() solo autentica, mostrarMenu() solo navega
+- **Separación de responsabilidades**: iniciarSesion() autentica y da acceso al sistema, mostrarMenu() navega desde cualquier estado
 
 ### Optimización del flujo
-- **Eliminación in situ**: eliminarX() permanece en LISTANDO_X (sin cambio de estado)
-- **Edición continua**: editarX() autorreflexivo en EDITANDO_X
-- **Estado especializado**: EDITANDO_PROFESOR_PREFERENCIAS para configuración específica
-- **Navegación bidireccional**: Entre EDITANDO_PROFESOR y EDITANDO_PROFESOR_PREFERENCIAS
+- **Eliminación in situ**: eliminarX() permanece en X_ABIERTO (sin cambio de estado)
+- **Edición continua**: editarX() autorreflexivo en X_ABIERTO
+- **Estado especializado**: PROFESOR_PREFERENCIAS_ABIERTO para configuración específica
+- **Navegación bidireccional**: Entre PROFESOR_ABIERTO y PROFESOR_PREFERENCIAS_ABIERTO
 - **Caso de uso unificado**: mostrarMenu() reemplaza volverAlMenu() y complementa iniciarSesion()
 
 ## Características del diseño
 
 ### Patrón hub central
-El MENU_PRINCIPAL actúa como punto central de navegación para acceso inicial a funcionalidades.
+El SISTEMA_DISPONIBLE actúa como punto central de navegación para acceso inicial a funcionalidades.
 
 ### Granularidad optimizada
-Estados separados para LISTANDO y EDITANDO proporcionan flujos naturales de trabajo.
+Estados X_ABIERTO proporcionan flujos naturales de trabajo con modos integrados de visualización y edición.
 
 ### Estados autorreflexivos
-Los estados EDITANDO permiten edición continua sin cambios de contexto.
+Los estados X_ABIERTO permiten edición continua sin cambios de contexto.
 
 ### Separación de responsabilidades
-- **Estados LISTANDO**: Visualización y selección
-- **Estados EDITANDO**: Modificación de datos (crear/editar)
-- **Estado EDITANDO_PROFESOR_PREFERENCIAS**: Configuración específica de preferencias
+- **Estados X_ABIERTO**: Visualización, selección y modificación de datos integradas
+- **Estado PROFESOR_PREFERENCIAS_ABIERTO**: Configuración específica de preferencias
 - **Estados especiales**: Procesos únicos (generación, asignaciones, consulta)
 
 ### Extensibilidad
-El diseño permite agregar nuevas entidades siguiendo el patrón LISTANDO/EDITANDO establecido.
+El diseño permite agregar nuevas entidades siguiendo el patrón X_ABIERTO establecido.
 
 ## Consideraciones de análisis
 
@@ -178,18 +172,15 @@ El diseño permite agregar nuevas entidades siguiendo el patrón LISTANDO/EDITAN
 - **Navegación unificada**: mostrarMenu() como punto único de acceso al menú principal
 
 ### Separación de responsabilidades optimizada
-- **iniciarSesion()**: Solo proceso de autenticación
-- **iniciarSesion(error)**: Manejo de credenciales inválidas
-- **mostrarMenu()**: Solo navegación al menú principal
-- **Estado intermedio**: AUTENTICANDO separa validación de navegación
+- **iniciarSesion()**: Proceso de autenticación y acceso al sistema
+- **mostrarMenu()**: Navegación al sistema disponible desde cualquier estado
 - **Reutilización**: mostrarMenu() desde múltiples contextos
 
 ### Rigor metodológico aplicado
 - **Transiciones separadas**: crear/editar como decisiones independientes del usuario (aplicado a todas las 6 entidades)
 - **Sin ambigüedad semántica**: Cada transición representa una acción específica
 - **UML estándar**: No implica secuencialidad entre casos de uso alternativos
-- **Manejo de errores**: Flujos explícitos para casos de fallo en autenticación
-- **Estados especializados**: EDITANDO_PROFESOR_PREFERENCIAS para funcionalidad específica
+- **Estados especializados**: PROFESOR_PREFERENCIAS_ABIERTO para funcionalidad específica
 - **Consistencia base**: Patrón uniforme aplicado a 5 entidades estándar
 - **Extensión controlada**: Profesores con patrón extendido para preferencias
 
