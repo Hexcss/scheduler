@@ -263,37 +263,37 @@ ListCursos -[#darkgoldenrod,thickness=2]-> Menu
         mostrarMenu()
     end note
 
-ListProfesores -[#gray,dotted]-> Menu
+ListProfesores -[#darkgoldenrod,thickness=2]-> Menu
     note on link
         mostrarMenu()
     end note
 
-ListEdificios -[#gray,dotted]-> Menu
+ListEdificios -[#darkgoldenrod,thickness=2]-> Menu
     note on link
         mostrarMenu()
     end note
 
-ListAulas -[#gray,dotted]-> Menu
+ListAulas -[#darkgoldenrod,thickness=2]-> Menu
     note on link
         mostrarMenu()
     end note
 
-ListRecursos -[#gray,dotted]-> Menu
+ListRecursos -[#darkgoldenrod,thickness=2]-> Menu
     note on link
         mostrarMenu()
     end note
 
-Asignaciones -[#gray,dotted]-> Menu
+Asignaciones -[#darkgoldenrod,thickness=2]-> Menu
     note on link
         mostrarMenu()
     end note
 
-Generacion -[#gray,dotted]-> Menu
+Generacion -[#darkgoldenrod,thickness=2]-> Menu
     note on link
         mostrarMenu()
     end note
 
-Consulta -[#gray,dotted]-> Menu
+Consulta -[#darkgoldenrod,thickness=2]-> Menu
     note on link
         mostrarMenu()
     end note
