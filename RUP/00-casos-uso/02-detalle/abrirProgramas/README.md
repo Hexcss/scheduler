@@ -1,4 +1,4 @@
-# SigHor - Caso de uso detallado: listarProgramas()
+# SigHor - Caso de uso detallado: abrirProgramas()
 
 ## información del artefacto
 
@@ -11,13 +11,13 @@
 
 ## propósito
 
-Especificación detallada del caso de uso `listarProgramas()` mediante diagrama de estado, mostrando la conversación completa entre el Administrador y el Sistema para la gestión de programas académicos.
+Especificación detallada del caso de uso `abrirProgramas()` mediante diagrama de estado, mostrando la conversación completa entre el Administrador y el Sistema para la gestión de programas académicos.
 
 ## información del caso de uso
 
 |Atributo|Valor|
 |-|-|
-|**Nombre**|listarProgramas()|
+|**Nombre**|abrirProgramas()|
 |**Actor primario**|Administrador|
 |**Objetivo**|Presentar lista de programas académicos con capacidad de filtrado y navegación a operaciones CRUD|
 |**Tipo**|Primario, esencial|
@@ -30,7 +30,7 @@ Especificación detallada del caso de uso `listarProgramas()` mediante diagrama 
 
 <div align=center>
 
-|![Caso de uso: listarProgramas()](/images/RUP/00-casos-uso/02-detalle/listarProgramas/listarProgramas.svg)|
+|![Caso de uso: abrirProgramas()](/images/RUP/00-casos-uso/02-detalle/abrirProgramas/abrirProgramas.svg)|
 |-|
 |Código fuente: [especificacion.puml](especificacion.puml)|
 
@@ -46,7 +46,7 @@ Especificación detallada del caso de uso `listarProgramas()` mediante diagrama 
 #### pantalla 1: gestión de programas académicos
 <div align=center>
 
-|![Wireframe: Gestión de programas](/images/RUP/00-casos-uso/02-detalle/listarProgramas/listarProgramas-wireframe.svg)|
+|![Wireframe: Gestión de programas](/images/RUP/00-casos-uso/02-detalle/abrirProgramas/abrirProgramas-wireframe.svg)|
 |-|
 |**Estado**: MostrandoLista / FiltrandoLista|
 
@@ -88,7 +88,7 @@ Especificación detallada del caso de uso `listarProgramas()` mediante diagrama 
 ## funcionalidad unificada: listar = filtrar = buscar
 
 ### concepto clave
-- **listarProgramas()** es un caso de uso que abarca:
+- **abrirProgramas()** es un caso de uso que abarca:
   - **Listar** (sin criterio) → muestra todos los programas
   - **Filtrar/Buscar** (con criterio) → muestra programas que coinciden
 
@@ -111,7 +111,7 @@ Especificación detallada del caso de uso `listarProgramas()` mediante diagrama 
 ## conexión con diagrama de contexto
 
 Este caso de uso corresponde a la transición:
-- **MENU_PRINCIPAL** → `listarProgramas()` → **LISTANDO_PROGRAMAS**
+- **SISTEMA_DISPONIBLE** → `abrirProgramas()` → **PROGRAMAS_ABIERTO**
 
 Y las transiciones de salida:
 - **LISTANDO_PROGRAMAS** → `crearPrograma()` → **EDITANDO_PROGRAMA**

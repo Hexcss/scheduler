@@ -38,8 +38,8 @@ Este dashboard visual muestra el progreso del proyecto de modernización de SigH
 
 #### Gestión de datos maestros
 
-- **listarProgramas()** - Listado de programas académicos
-- **listarCursos()** - Listado de cursos
+- **abrirProgramas()** - Apertura de gestión de programas académicos
+- **abrirCursos()** - Apertura de gestión de cursos
 - **listarProfesores()** - Listado de profesores
 - **listarEdificios()** - Listado de edificios
 - **listarAulas()** - Listado de aulas
@@ -76,9 +76,9 @@ Este dashboard visual muestra el progreso del proyecto de modernización de SigH
 
 Los siguientes casos de uso son candidatos para la próxima iteración:
 
-1. **listarProgramas()** - Como base para toda la gestión de datos maestros
+1. **abrirProgramas()** - Como base para toda la gestión de datos maestros
 2. **cerrarSesion()** - Para completar el flujo de autenticación
-3. **listarCursos()** - Continuación de la gestión de datos maestros
+3. **abrirCursos()** - Continuación de la gestión de datos maestros
 
 ## Metodología
 

@@ -1130,7 +1130,7 @@ Con `iniciarSesion()` como caso de estudio completo, se establece el patrón est
 #### Casos de uso candidatos para siguiente iteración
 - **mostrarMenu()**: Funcionalidad fundamental de navegación
 - **generarHorario()**: Funcionalidad core del sistema
-- **listarProgramas()**: Representativo de operaciones de consulta
+- **abrirProgramas()**: Representativo de operaciones de consulta
 
 #### Estrategia de escalamiento
 - **Aplicar patrón establecido**: Metodología probada con `iniciarSesion()`
@@ -1605,12 +1605,12 @@ La innovación representa más que una mejora técnica: es una **demostración d
 
 ---
 
-## Conversación 27: Implementación completa de listarProgramas() - Metodología refinada
+## Conversación 27: Implementación completa de abrirProgramas() - Metodología refinada
 **Fecha**: 2025-01-09  
 **Participantes**: Manuel (Usuario) + Claude Code
 
 ### Contexto
-Con el dashboard visual RUP implementado y validado, el proyecto continúa con la implementación de casos de uso aplicando la metodología refinada. Se aborda el caso de uso `listarProgramas()` siguiendo el patrón establecido de especificación → análisis → prototipado.
+Con el dashboard visual RUP implementado y validado, el proyecto continúa con la implementación de casos de uso aplicando la metodología refinada. Se aborda el caso de uso `abrirProgramas()` siguiendo el patrón establecido de especificación → análisis → prototipado.
 
 ### Trabajo realizado en mostrarMenu()
 
@@ -1627,10 +1627,10 @@ Con el dashboard visual RUP implementado y validado, el proyecto continúa con l
 - **Prototipo**: Interfaz funcional con navegación clara
 - **Documentación**: Explicaciones técnicas apropiadas
 
-### Implementación completa de listarProgramas()
+### Implementación completa de abrirProgramas()
 
 #### Especificación detallada desarrollada
-**Archivo**: `RUP/00-casos-uso/02-detalle/listarProgramas/especificacion.puml`
+**Archivo**: `RUP/00-casos-uso/02-detalle/abrirProgramas/especificacion.puml`
 
 **Elementos implementados**:
 - **Precondiciones**: Usuario autenticado en menu principal
@@ -1640,7 +1640,7 @@ Con el dashboard visual RUP implementado y validado, el proyecto continúa con l
 - **Estados específicos**: `RequiriendoLista`, `CargandoListado`, `ListaMostrada`
 
 #### Análisis MVC desarrollado
-**Archivo**: `RUP/01-analisis/casos-uso/listarProgramas/colaboracion.puml`
+**Archivo**: `RUP/01-analisis/casos-uso/abrirProgramas/colaboracion.puml`
 
 **Componentes identificados**:
 - **Modelo**: `RepositorioProgramas`, `Programa`
@@ -1653,7 +1653,7 @@ Con el dashboard visual RUP implementado y validado, el proyecto continúa con l
 - Manejo de casos de error y lista vacía
 
 #### Prototipo funcional implementado
-**Archivo**: `RUP/00-casos-uso/02-detalle/listarProgramas/prototipo.puml`
+**Archivo**: `RUP/00-casos-uso/02-detalle/abrirProgramas/prototipo.puml`
 
 **Interfaces desarrolladas**:
 - **Pantalla principal**: Lista de programas con acciones disponibles
@@ -1677,7 +1677,7 @@ Con el dashboard visual RUP implementado y validado, el proyecto continúa con l
 ### Observaciones sobre eficiencia metodológica
 
 #### Velocidad incrementada
-Con la metodología madura, la implementación de `listarProgramas()` fue significativamente más eficiente que casos anteriores:
+Con la metodología madura, la implementación de `abrirProgramas()` fue significativamente más eficiente que casos anteriores:
 - **Proceso establecido**: Pasos claros y probados
 - **Plantillas disponibles**: Estructura base reutilizable
 - **Estándares definidos**: Criterios de calidad claros
@@ -1699,7 +1699,7 @@ A pesar de la mayor velocidad, la calidad se mantuvo o mejoró:
 - **Escalabilidad confirmada**: Proceso aplicable a cualquier caso de uso
 
 #### Dashboard actualizado
-Con `listarProgramas()` completado, el dashboard visual RUP refleja:
+Con `abrirProgramas()` completado, el dashboard visual RUP refleja:
 - **Progreso visible**: Casos completados marcados apropiadamente
 - **Estado del proyecto**: Visualización clara del avance
 - **Planificación**: Identificación de próximos pasos
@@ -1708,7 +1708,7 @@ Con `listarProgramas()` completado, el dashboard visual RUP refleja:
 
 #### Completitud metodológica
 - **mostrarMenu()**: Validado como completo
-- **listarProgramas()**: Implementado completamente
+- **abrirProgramas()**: Implementado completamente
 - **Metodología**: Refinada y probada para escalamiento
 
 #### Preparación experimental
@@ -1735,12 +1735,12 @@ Con `listarProgramas()` completado, el dashboard visual RUP refleja:
 **Participantes**: Manuel (Usuario) + Claude Code
 
 ### Contexto
-Durante la implementación de `listarCursos()`, Manuel detecta violaciones sistemáticas al vocabulario RUP establecido, lo que desencadena una corrección metodológica profunda aplicando las "leyes metodológicas" documentadas previamente.
+Durante la implementación de `abrirCursos()`, Manuel detecta violaciones sistemáticas al vocabulario RUP establecido, lo que desencadena una corrección metodológica profunda aplicando las "leyes metodológicas" documentadas previamente.
 
 ### Detección de violaciones metodológicas
 
 #### Problema identificado por Manuel
-En la especificación de `listarCursos()`, Manuel detecta uso de terminología inadecuada:
+En la especificación de `abrirCursos()`, Manuel detecta uso de terminología inadecuada:
 - **Violación**: Uso de "mostrar", "pantalla", "formulario"
 - **Problema**: Vocabulario tecnológicamente sesgado
 - **Impacto**: Compromete independencia tecnológica del análisis
@@ -1764,7 +1764,7 @@ Manuel refiere a las **leyes metodológicas** establecidas en extraDocs (artícu
 
 ### Casos de uso corregidos
 
-#### listarCursos() corregido
+#### abrirCursos() corregido
 - **Especificación**: Vocabulario RUP aplicado consistentemente
 - **Análisis**: Terminología independiente de tecnología
 - **Prototipo**: Interfaces descritas apropiadamente
@@ -1774,7 +1774,7 @@ Manuel refiere a las **leyes metodológicas** establecidas en extraDocs (artícu
 **Casos de uso anteriores revisados**:
 - **iniciarSesion()**: Vocabulario correcto confirmado
 - **mostrarMenu()**: Terminología apropiada validada
-- **listarProgramas()**: Estándares cumplidos apropiadamente
+- **abrirProgramas()**: Estándares cumplidos apropiadamente
 
 ### Impacto de la corrección metodológica
 
@@ -1820,8 +1820,8 @@ Manuel refiere a las **leyes metodológicas** establecidas en extraDocs (artícu
 **Implementaciones corregidas**:
 - **`iniciarSesion`** - Especificación + Análisis + Prototipo (corregido)
 - **`mostrarMenu`** - Especificación + Análisis + Prototipo (corregido)  
-- **`listarProgramas`** - Especificación + Análisis + Prototipo (corregido)
-- **`listarCursos`** - Especificación (implementado con reglas estrictas)
+- **`abrirProgramas`** - Especificación + Análisis + Prototipo (corregido)
+- **`abrirCursos`** - Especificación (implementado con reglas estrictas)
 
 #### Progreso del dashboard visual
 **Seguimiento refinado**:
@@ -1890,7 +1890,7 @@ Manuel identifica un problema fundamental de nomenclatura en el diagrama de cont
 
 #### Inconsistencia semántica
 Manuel detecta que los casos de uso que llevan a estados `LISTANDO_XX` tienen nombres inadecuados:
-- **Problema**: `listarProgramas()` no puede llevar a un estado `LISTANDO_PROGRAMAS`
+- **Problema**: `abrirProgramas()` no puede llevar a un estado `LISTANDO_PROGRAMAS`
 - **Incoherencia**: Un caso de uso que "lista" no puede resultar en "estar listando"
 - **Implicación**: Confusión conceptual entre acción y resultado
 
@@ -1922,8 +1922,8 @@ Los estados usan **gerundios** (acciones en progreso) cuando deberían usar **pa
 Siguiendo la sugerencia del Prof. Luis Fernández, los casos de uso se corrigen para reflejar intenciones reales:
 
 **Casos de listado**:
-- `listarProgramas()` → `abrirProgramas()`
-- `listarCursos()` → `abrirCursos()`
+- `abrirProgramas()` → `abrirProgramas()`
+- `abrirCursos()` → `abrirCursos()`
 - `listarProfesores()` → `abrirProfesores()`
 
 **Casos de edición diferenciados**:
@@ -1935,7 +1935,7 @@ Siguiendo la sugerencia del Prof. Luis Fernández, los casos de uso se corrigen 
 
 #### Filosofía de casos de uso centrados en usuario
 Los casos de uso deben reflejar **intenciones reales** del usuario, no navegaciones genéricas:
-- **Antes**: `listarProgramas()` - genérico e impreciso
+- **Antes**: `abrirProgramas()` - genérico e impreciso
 - **Después**: `abrirProgramas()` - específico y preciso
 - **Beneficio**: Claridad sobre qué quiere hacer el usuario realmente
 

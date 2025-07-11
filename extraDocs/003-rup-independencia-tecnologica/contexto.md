@@ -169,8 +169,8 @@
 
 ### CRUD completo por entidad
 
-**Programas académicos**: `crearPrograma()`, `editarPrograma()`, `eliminarPrograma()`, `listarProgramas()`
-**Cursos**: `crearCurso()`, `editarCurso()`, `eliminarCurso()`, `listarCursos()`
+**Programas académicos**: `crearPrograma()`, `editarPrograma()`, `eliminarPrograma()`, `abrirProgramas()`
+**Cursos**: `crearCurso()`, `editarCurso()`, `eliminarCurso()`, `abrirCursos()`
 **Profesores**: `crearProfesor()`, `editarProfesor()`, `eliminarProfesor()`, `listarProfesores()`, `configurarPreferenciasProfesor()`
 **Edificios**: `crearEdificio()`, `editarEdificio()`, `eliminarEdificio()`, `listarEdificios()`
 **Aulas**: `crearAula()`, `editarAula()`, `eliminarAula()`, `listarAulas()`

@@ -1,15 +1,15 @@
-@startuml listarCursos
+@startuml abrirCursos
 
 skinparam linetype polyline
 
-state listarCursos as "listarCursos()" {
+state abrirCursos as "abrirCursos()" {
 
     state " " as MostrandoLista
     state " " as FiltrandoLista
 
     [*] -[#green]-> MostrandoLista 
     note on link
-    <b>Administrador</b> solicita listar cursos
+    <b>Administrador</b> solicita abrir cursos
     end note    
     
     MostrandoLista -[#green]-> FiltrandoLista
@@ -34,22 +34,22 @@ state listarCursos as "listarCursos()" {
     end note
 }
 
-listarCursos -[#green]-> EDITANDO_CURSO
+abrirCursos -[#green]-> CURSO_ABIERTO
 note on link
 editarCurso()
 end note
 
-listarCursos -[#green]-> EDITANDO_CURSO
+abrirCursos -[#green]-> CURSO_ABIERTO
 note on link
 crearCurso()
 end note
 
-listarCursos -[#green]-> LISTANDO_CURSOS
+abrirCursos -[#green]-> CURSOS_ABIERTO
 note on link
 eliminarCurso()
 end note
 
-listarCursos -[#green]-> MENU_PRINCIPAL
+abrirCursos -[#green]-> SISTEMA_DISPONIBLE
 note on link
 mostrarMenu()
 end note

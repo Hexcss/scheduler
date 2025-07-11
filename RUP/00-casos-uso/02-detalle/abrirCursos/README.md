@@ -1,4 +1,4 @@
-# SigHor - Caso de uso detallado: listarCursos()
+# SigHor - Caso de uso detallado: abrirCursos()
 
 ## información del artefacto
 
@@ -11,18 +11,18 @@
 
 ## propósito
 
-Especificación detallada del caso de uso `listarCursos()` mediante diagrama de estado, mostrando la conversación completa entre el Administrador y el Sistema para la gestión de cursos académicos.
+Especificación detallada del caso de uso `abrirCursos()` mediante diagrama de estado, mostrando la conversación completa entre el Administrador y el Sistema para la gestión de cursos académicos.
 
 ## información del caso de uso
 
 |Atributo|Valor|
 |-|-|
-|**Nombre**|listarCursos()|
+|**Nombre**|abrirCursos()|
 |**Actor primario**|Administrador|
 |**Objetivo**|Presentar lista de cursos académicos con capacidad de filtrado y navegación a operaciones CRUD|
 |**Tipo**|Primario, esencial|
 |**Nivel**|Objetivo de usuario|
-|**Precondición**|Usuario autenticado como Administrador en estado MENU_PRINCIPAL|
+|**Precondición**|Usuario autenticado como Administrador en estado SISTEMA_DISPONIBLE|
 |**Postcondición exitosa**|Lista de cursos mostrada, usuario puede filtrar, crear, editar, eliminar o volver al menú|
 |**Postcondición de fallo**|N/A - caso de uso sin condiciones de fallo|
 
@@ -30,7 +30,7 @@ Especificación detallada del caso de uso `listarCursos()` mediante diagrama de 
 
 <div align=center>
 
-|![Caso de uso: listarCursos()](/images/RUP/00-casos-uso/02-detalle/listarCursos/listarCursos.svg)|
+|![Caso de uso: abrirCursos()](/images/RUP/00-casos-uso/02-detalle/abrirCursos/abrirCursos.svg)|
 |-|
 |Código fuente: [especificacion.puml](especificacion.puml)|
 
@@ -52,7 +52,7 @@ Especificación detallada del caso de uso `listarCursos()` mediante diagrama de 
 
 |Actor|Acción|Sistema|Respuesta|
 |-|-|-|-|
-|**Administrador**|solicita listar cursos||
+|**Administrador**|solicita abrir cursos||
 ||**Sistema**|presenta lista de cursos|• Código, nombre, descripción de cada curso<br>• Permite solicitar filtrar lista<br>• Permite solicitar crear curso nuevo<br>• Permite solicitar eliminar curso<br>• Permite solicitar editar curso|
 |**Administrador**|solicita filtrar lista||(opcional)|
 ||**Sistema**|presenta lista filtrada|• Misma información con criterio aplicado|
@@ -68,7 +68,7 @@ Especificación detallada del caso de uso `listarCursos()` mediante diagrama de 
 ## funcionalidad unificada: listar = filtrar = buscar
 
 ### concepto clave
-- **listarCursos()** es un caso de uso que abarca:
+- **abrirCursos()** es un caso de uso que abarca:
   - **Listar** (sin criterio) → muestra todos los cursos
   - **Filtrar/Buscar** (con criterio) → muestra cursos que coinciden
 
@@ -91,13 +91,13 @@ Especificación detallada del caso de uso `listarCursos()` mediante diagrama de 
 ## conexión con diagrama de contexto
 
 Este caso de uso corresponde a la transición:
-- **MENU_PRINCIPAL** → `listarCursos()` → **LISTANDO_CURSOS**
+- **SISTEMA_DISPONIBLE** → `abrirCursos()` → **CURSOS_ABIERTO**
 
 Y las transiciones de salida:
-- **LISTANDO_CURSOS** → `crearCurso()` → **EDITANDO_CURSO**
-- **LISTANDO_CURSOS** → `editarCurso()` → **EDITANDO_CURSO**
-- **LISTANDO_CURSOS** → `eliminarCurso()` → **LISTANDO_CURSOS**
-- **LISTANDO_CURSOS** → `mostrarMenu()` → **MENU_PRINCIPAL**
+- **CURSOS_ABIERTO** → `crearCurso()` → **CURSO_ABIERTO**
+- **CURSOS_ABIERTO** → `editarCurso()` → **CURSO_ABIERTO**
+- **CURSOS_ABIERTO** → `eliminarCurso()` → **CURSOS_ABIERTO**
+- **CURSOS_ABIERTO** → `mostrarMenu()` → **SISTEMA_DISPONIBLE**
 
 ## vocabulario utilizado
 
@@ -141,5 +141,5 @@ Y las transiciones de salida:
 - [Diagrama de contexto - Administrador](../../01-actores-casos-uso/diagrama-contexto-administrador.md)
 - [Modelo del dominio](../../00-modelo-del-dominio/modelo-dominio.md)
 - [mostrarMenu()](../mostrarMenu/README.md) - Caso de uso previo
-- [listarProgramas()](../listarProgramas/README.md) - Caso de uso similar
+- [abrirProgramas()](../abrirProgramas/README.md) - Caso de uso similar
 - [conversation-log.md](../../../../conversation-log.md) - Metodología de especificación detallada

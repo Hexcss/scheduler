@@ -19,11 +19,11 @@ Especificación detallada del caso de uso `mostrarMenu()` mediante diagrama de e
 |-|-|
 |**Nombre**|mostrarMenu()|
 |**Actor primario**|Administrador|
-|**Objetivo**|Presentar menú principal con opciones de navegación a todas las funcionalidades del sistema|
+|**Objetivo**|Disponibilizar sistema con capacidad de solicitar todas las funcionalidades|
 |**Tipo**|Primario, esencial|
 |**Nivel**|Objetivo de usuario|
 |**Precondición**|Usuario autenticado como Administrador|
-|**Postcondición exitosa**|Menú principal mostrado, usuario puede navegar a cualquier funcionalidad|
+|**Postcondición exitosa**|Sistema disponibilizado, usuario puede solicitar cualquier funcionalidad|
 |**Postcondición de fallo**|N/A - caso de uso sin condiciones de fallo|
 
 ## diagrama de especificación
@@ -70,8 +70,8 @@ Especificación detallada del caso de uso `mostrarMenu()` mediante diagrama de e
 
 |Actor|Acción|Sistema|Respuesta|
 |-|-|-|-|
-|**Administrador**|solicita mostrar menú||
-||**Sistema**|presenta menú principal|• listarProgramas()<br>• listarCursos()<br>• listarProfesores()<br>• listarEdificios()<br>• listarAulas()<br>• listarRecursos()<br>• asignarProfesorACurso()<br>• generarHorario()<br>• consultarHorario()<br>• cerrarSesion()|
+|**Administrador**|solicita disponibilizar sistema||
+||**Sistema**|permite solicitar|• abrirProgramas()<br>• abrirCursos()<br>• abrirProfesores()<br>• abrirEdificios()<br>• abrirAulas()<br>• abrirRecursos()<br>• asignarProfesorACurso()<br>• generarHorario()<br>• consultarHorario()<br>• cerrarSesion()|
 |**Administrador**|solicita una de las opciones||
 
 ## estados internos del caso de uso
@@ -84,12 +84,12 @@ Especificación detallada del caso de uso `mostrarMenu()` mediante diagrama de e
 ## opciones del menú
 
 ### gestión de datos maestros
-- **Gestionar Programas**: Navegar a `listarProgramas()`
-- **Gestionar Cursos**: Navegar a `listarCursos()`
-- **Gestionar Profesores**: Navegar a `listarProfesores()`
-- **Gestionar Edificios**: Navegar a `listarEdificios()`
-- **Gestionar Aulas**: Navegar a `listarAulas()`
-- **Gestionar Recursos**: Navegar a `listarRecursos()`
+- **Gestionar Programas**: Navegar a `abrirProgramas()`
+- **Gestionar Cursos**: Navegar a `abrirCursos()`
+- **Gestionar Profesores**: Navegar a `abrirProfesores()`
+- **Gestionar Edificios**: Navegar a `abrirEdificios()`
+- **Gestionar Aulas**: Navegar a `abrirAulas()`
+- **Gestionar Recursos**: Navegar a `abrirRecursos()`
 
 ### funcionalidades especiales
 - **Asignar Profesores**: Navegar a `asignarProfesorACurso()`
@@ -102,20 +102,20 @@ Especificación detallada del caso de uso `mostrarMenu()` mediante diagrama de e
 ## conexión con diagrama de contexto
 
 Este caso de uso corresponde a la transición:
-- **AUTENTICANDO** → `mostrarMenu()` → **MENU_PRINCIPAL**
+- **SISTEMA_DISPONIBLE** → `mostrarMenu()` → **SISTEMA_DISPONIBLE** (autorreflexivo)
 
 Y también a todas las transiciones de retorno desde estados específicos:
-- **LISTANDO_PROGRAMAS** → `mostrarMenu()` → **MENU_PRINCIPAL**
-- **LISTANDO_CURSOS** → `mostrarMenu()` → **MENU_PRINCIPAL**
-- **LISTANDO_PROFESORES** → `mostrarMenu()` → **MENU_PRINCIPAL**
-- **LISTANDO_EDIFICIOS** → `mostrarMenu()` → **MENU_PRINCIPAL**
-- **LISTANDO_AULAS** → `mostrarMenu()` → **MENU_PRINCIPAL**
-- **LISTANDO_RECURSOS** → `mostrarMenu()` → **MENU_PRINCIPAL**
-- **CONFIGURANDO_ASIGNACIONES** → `mostrarMenu()` → **MENU_PRINCIPAL**
-- **GENERANDO_HORARIO** → `mostrarMenu()` → **MENU_PRINCIPAL**
-- **CONSULTANDO_HORARIOS** → `mostrarMenu()` → **MENU_PRINCIPAL**
+- **PROGRAMAS_ABIERTO** → `mostrarMenu()` → **SISTEMA_DISPONIBLE**
+- **CURSOS_ABIERTO** → `mostrarMenu()` → **SISTEMA_DISPONIBLE**
+- **PROFESORES_ABIERTO** → `mostrarMenu()` → **SISTEMA_DISPONIBLE**
+- **EDIFICIOS_ABIERTO** → `mostrarMenu()` → **SISTEMA_DISPONIBLE**
+- **AULAS_ABIERTO** → `mostrarMenu()` → **SISTEMA_DISPONIBLE**
+- **RECURSOS_ABIERTO** → `mostrarMenu()` → **SISTEMA_DISPONIBLE**
+- **PROFESOR_ASIGNATURAS_ABIERTO** → `mostrarMenu()` → **SISTEMA_DISPONIBLE**
+- **HORARIO_GENERADO** → `mostrarMenu()` → **SISTEMA_DISPONIBLE**
+- **HORARIO_ABIERTO** → `mostrarMenu()` → **SISTEMA_DISPONIBLE**
 
-La especificación detalla el interior del estado **MENU_PRINCIPAL** del diagrama de contexto del Administrador de Horarios.
+La especificación detalla el interior del estado **SISTEMA_DISPONIBLE** del diagrama de contexto del Administrador de Horarios.
 
 ## vocabulario utilizado
 
@@ -125,7 +125,7 @@ La especificación detalla el interior del estado **MENU_PRINCIPAL** del diagram
 - **selecciona**: elige una opción específica del menú
 
 ### sistema
-- **presenta**: muestra de forma organizada las opciones disponibles
+- **permite**: habilita la capacidad de solicitar funcionalidades
 
 ## características metodológicas
 

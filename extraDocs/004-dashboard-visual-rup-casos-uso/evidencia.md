@@ -32,8 +32,8 @@
 
 **Elementos visuales:**
 - **Negro grueso** (`iniciarSesion`): Completado
-- **Naranja grueso** (`listarProgramas`): En detalle/prototipado
-- **Azul grueso** (`listarCursos`): En análisis
+- **Naranja grueso** (`abrirProgramas`): En detalle/prototipado
+- **Azul grueso** (`abrirCursos`): En análisis
 - **Verde grueso** (`listarProfesores`): En diseño
 - **Púrpura grueso** (`asignarProfesorACurso`): En desarrollo
 - **Marrón grueso** (`generarHorario`): En pruebas

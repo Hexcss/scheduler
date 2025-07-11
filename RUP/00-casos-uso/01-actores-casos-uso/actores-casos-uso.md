@@ -48,8 +48,8 @@ Este documento identifica los actores del sistema y sus casos de uso correspondi
 
 |Entidad|Casos de uso CRUD|Casos de uso especiales|
 |-|-|-|
-|**Programa**|crearPrograma(), listarProgramas(), editarPrograma(), eliminarPrograma()|
-|**Curso**|crearCurso(), listarCursos(), editarCurso(), eliminarCurso()|
+|**Programa**|crearPrograma(), abrirProgramas(), editarPrograma(), eliminarPrograma()|
+|**Curso**|crearCurso(), abrirCursos(), editarCurso(), eliminarCurso()|
 |**Profesor**|crearProfesor(), listarProfesores(), editarProfesor(), eliminarProfesor()|configurarPreferenciasProfesor()
 |**Edificio**|crearEdificio(), listarEdificios(), editarEdificio(), eliminarEdificio()|
 |**Aula**|crearAula(), listarAulas(), editarAula(), eliminarAula()|
@@ -70,13 +70,13 @@ Este documento identifica los actores del sistema y sus casos de uso correspondi
 
 #### Programas académicos
 - **crearPrograma()**: Registra nuevo programa académico en el sistema
-- **listarProgramas()**: Muestra todos los programas registrados
+- **abrirProgramas()**: Abre la gestión de programas académicos registrados
 - **editarPrograma()**: Modifica información de programa existente
 - **eliminarPrograma()**: Elimina programa del sistema
 
 #### Cursos
 - **crearCurso()**: Registra nueva asignatura con su información académica
-- **listarCursos()**: Muestra todos los cursos del sistema
+- **abrirCursos()**: Abre la gestión de cursos académicos registrados
 - **editarCurso()**: Modifica información de curso existente
 - **eliminarCurso()**: Elimina curso del sistema
 

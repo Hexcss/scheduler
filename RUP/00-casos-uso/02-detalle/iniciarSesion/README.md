@@ -23,7 +23,7 @@ Especificación detallada del caso de uso `iniciarSesion()` mediante diagrama de
 |**Tipo**|Primario, esencial|
 |**Nivel**|Objetivo de usuario|
 |**Precondición**|Usuario no está autenticado en el sistema|
-|**Postcondición exitosa**|UsuarioNoRegistrado se convierte en Administrador, sistema listo para mostrar menú principal|
+|**Postcondición exitosa**|UsuarioNoRegistrado se convierte en Administrador, sistema disponible para funcionalidades|
 |**Postcondición de fallo**|Usuario no autenticado, sistema permanece en estado inicial|
 
 ## diagrama de especificación
@@ -115,9 +115,9 @@ Especificación detallada del caso de uso `iniciarSesion()` mediante diagrama de
 ## conexión con diagrama de contexto
 
 Este caso de uso corresponde a la transición:
-- **NO_AUTENTICADO** → `iniciarSesion()` → **AUTENTICANDO** → `mostrarMenu()` → **MENU_PRINCIPAL**
+- **SESION_CERRADA** → `iniciarSesion()` → **SISTEMA_DISPONIBLE**
 
-La especificación detalla el interior del estado **AUTENTICANDO** del diagrama de contexto del Administrador de Horarios.
+La especificación detalla la transición desde **SESION_CERRADA** hacia **SISTEMA_DISPONIBLE** del diagrama de contexto del Administrador de Horarios.
 
 ## vocabulario utilizado
 

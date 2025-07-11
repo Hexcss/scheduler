@@ -38,7 +38,7 @@ state iniciarSesion as "iniciarSesion()" {
     end note
 }
 
-iniciarSesion -[#green]-> MENU_PRINCIPAL
+iniciarSesion -[#green]-> SISTEMA_DISPONIBLE
 note on link
 UsuarioNoRegistrado → Administrador
 mostrarMenu()
