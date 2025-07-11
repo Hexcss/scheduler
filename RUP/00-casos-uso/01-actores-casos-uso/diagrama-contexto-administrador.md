@@ -4,9 +4,10 @@
 
 - **Proyecto**: pySigHor - Modernización del Sistema Generador de Horarios
 - **Fase RUP**: Inception (Inicio)
-- **Versión**: 5.0
-- **Fecha**: 2025-01-05
+- **Versión**: 6.0
+- **Fecha**: 2025-01-11
 - **Autor**: Equipo de desarrollo
+- **Cambios principales**: Corrección semántica fundamental de nomenclatura (gerundios → participios, casos de uso centrados en usuario, eliminación de sesgo tecnológico)
 
 ## Introducción
 

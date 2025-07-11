@@ -2008,4 +2008,138 @@ La corrección establece bases sólidas para:
 
 ---
 
+## Conversación 30: Refinamiento final de nomenclatura de estados iniciales
+**Fecha**: 2025-01-11  
+**Participantes**: Manuel (Usuario) + Claude Code
+
+### Contexto
+Continuación de las correcciones de nomenclatura en el diagrama de contexto, enfocándose en los estados iniciales que aún conservaban sesgo tecnológico.
+
+### Corrección de estados iniciales identificada por Manuel
+
+#### Problema detectado
+Manuel identifica que los estados iniciales aún violaban el principio de independencia tecnológica:
+- **`NO_AUTENTICADO`**: Aceptable pero no óptimo
+- **`MENU_PRINCIPAL`**: Claramente tecnológicamente sesgado (asume interfaz con menús)
+
+#### Sugerencia del Prof. Luis Fernández aplicada
+> "El hecho de llamar MENU_x a un estado ya lo 'acoplaba' a una percepción tecnológica"
+
+### Corrección implementada
+
+#### Estados iniciales corregidos
+- **`NO_AUTENTICADO`** → **`SESION_CERRADA`**
+- **`MENU_PRINCIPAL`** → **`SISTEMA_DISPONIBLE`**
+
+#### Rationale de la corrección
+**`SESION_CERRADA`**:
+- Participio que indica estado resultante
+- Independiente de tecnología
+- Coherente con casos de uso de autenticación
+
+**`SISTEMA_DISPONIBLE`**:
+- Refleja el estado real: sistema accesible para el usuario
+- No asume paradigma de interfaz específico
+- Escalable a interfaces móviles, conversacionales, por comandos
+- Participio implícito: sistema que ha sido "puesto disponible"
+
+### Actualización sistemática aplicada
+
+#### Propagación completa realizada
+1. **Diagrama PlantUML**: Actualización de estados base
+2. **Documentación markdown**: Corrección sistemática de 19 referencias
+3. **Información del artefacto**: Versión 6.0, fecha actualizada, cambios documentados
+
+#### Correcciones metodológicas detectadas y aplicadas
+**Eliminación de estado inexistente**:
+- Manuel detecta referencias a estado `AUTENTICANDO` que no existe en el diagrama
+- Corrección de flujos de autenticación: transición directa `SESION_CERRADA` → `SISTEMA_DISPONIBLE`
+- Simplificación de documentación eliminando complejidad innecesaria
+
+**Coherencia con casos de uso**:
+- `iniciarSesion()`: Lleva de `SESION_CERRADA` a `SISTEMA_DISPONIBLE`
+- `mostrarMenu()`: Lleva desde estados `X_ABIERTO` a `SISTEMA_DISPONIBLE`
+- `cerrarSesion()`: Lleva de `SISTEMA_DISPONIBLE` a `SESION_CERRADA`
+
+### Proceso de trabajo metodológico
+
+#### Trazabilidad mantenida
+Manuel enfatiza importancia de propagación sistemática paso a paso:
+1. **Diagrama PlantUML**: Base técnica corregida primero
+2. **Documentación**: Actualización completa y coherente
+3. **Información del artefacto**: Versionado y documentación de cambios
+4. **Conversation-log**: Registro para futuras sesiones
+
+#### Calidad de revisión demostrada
+- **Auto-detección**: Claude identifica problemas en implementación propia
+- **Supervisión experta**: Manuel detecta errores que Claude omite
+- **Corrección iterativa**: Múltiples pasadas mejoran calidad significativamente
+
+### Trabajo pendiente identificado
+
+#### Propagación sistemática requerida
+- **Especificaciones detalladas**: Actualizar casos de uso individuales
+- **Análisis MVC**: Ajustar terminología en diagramas de colaboración
+- **Prototipos**: Modificar interfaces según nueva nomenclatura
+- **Dashboard visual**: Actualizar seguimiento con nombres corregidos
+
+### Lecciones metodológicas consolidadas
+
+#### Sobre independencia tecnológica RUP
+- **Vigilancia constante**: Sesgos tecnológicos pueden filtrarse sutilmente
+- **Nomenclatura crítica**: Nombres de estados deben ser tecnológicamente neutros
+- **Principios transferibles**: Correcciones aplicables a cualquier proyecto RUP
+- **Calidad incremental**: Revisiones continuas mejoran independencia tecnológica
+
+#### Sobre proceso colaborativo
+- **Detección complementaria**: Humano y AI detectan diferentes tipos de problemas
+- **Iteración valiosa**: Correcciones múltiples producen excelencia
+- **Trazabilidad esencial**: Registro paso a paso facilita futuras sesiones
+- **Supervisión crítica**: Experiencia humana detecta problemas conceptuales fundamentales
+
+### Calidad del resultado conseguido
+
+#### Nomenclatura completamente depurada
+- **Estados**: Participios independientes de tecnología
+- **Casos de uso**: Centrados en intención real del usuario
+- **Coherencia semántica**: Estados y transiciones lógicamente consistentes
+- **Escalabilidad**: Base sólida para cualquier implementación tecnológica
+
+#### Preparación experimental fortalecida
+La corrección mejora significativamente las condiciones para el experimento de independencia tecnológica:
+- **Análisis más puro**: Terminología verdaderamente independiente
+- **Base conceptual sólida**: Estados y casos de uso semánticamente correctos
+- **Proceso documentado**: Metodología de corrección aplicable a futuras tecnologías
+
+### Próximos pasos acordados
+
+#### Propagación sistemática
+- **Especificaciones detalladas**: Aplicar cambios a casos de uso individuales
+- **Análisis MVC**: Actualizar terminología en todos los diagramas
+- **Prototipos**: Ajustar interfaces según nueva nomenclatura
+- **Validación**: Verificar coherencia en todos los artefactos
+
+#### Preparación experimental
+- **Base consolidada**: Fundamento robusto para múltiples implementaciones
+- **Metodología validada**: Proceso de corrección probado y documentado
+- **Calidad asegurada**: Estándares apropiados para experimento de independencia tecnológica
+
+### Observaciones sobre el progreso
+
+#### Madurez metodológica demostrada
+- **Proceso autocorrectivo**: Metodología detecta y corrige sus propias desviaciones
+- **Calidad incremental**: Cada corrección mejora base para trabajo futuro
+- **Rigor mantenido**: Estándares altos aplicados consistentemente
+- **Innovación controlada**: Mejoras que respetan principios metodológicos fundamentales
+
+#### Preparación para escalamiento
+- **Fundamentos sólidos**: Base conceptual robusta y depurada
+- **Proceso eficiente**: Metodología de corrección sistemática establecida
+- **Calidad asegurada**: Estándares apropiados para crecimiento del proyecto
+- **Trazabilidad completa**: Registro detallado para continuidad futura
+
+**La corrección de nomenclatura de estados iniciales completa un ciclo fundamental de depuración metodológica, estableciendo una base conceptualmente sólida y tecnológicamente independiente que fortalece significativamente la preparación para el experimento de validación de independencia tecnológica RUP.**
+
+---
+
 *Este registro se actualizará continuamente conforme avance el proyecto*
