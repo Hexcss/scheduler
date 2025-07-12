@@ -4,7 +4,7 @@ En 1998, en la asignatura de TPD (Taller de procesamiento de datos) de Ing. Indu
 
 **Proyecto de modernización**: Aplicación completa de metodología RUP para reingeniería del sistema legacy, con énfasis en pureza metodológica y trazabilidad sistemática.
 
-> **Navegación**: [🔄Metodología RUP](/RUP/README.md) ••• [📊Estado actual](/RUP/99-seguimiento/) ••• [💡Reflexiones metodológicas](/extraDocs/README.md) ••• [📋Ingeniería inversa previa](/extraDocs/000-ingenieria-inversa/README.md)
+> **Navegación**:<br>[🔄Metodología RUP](/RUP/README.md) ••• [📊Estado actual](/RUP/99-seguimiento/) ••• [💡Reflexiones metodológicas](/extraDocs/README.md) ••• [📋Ingeniería inversa previa](/extraDocs/000-ingenieria-inversa/README.md)
 
 
 ## La aplicación
