@@ -52,61 +52,61 @@ note on link
 end note
 
 'Administrador --> MenuView : abrirProgramas()
-MenuView --> AbrirProgramas
+MenuView ..> AbrirProgramas
 note on link
     abrirProgramas()
 end note
 
 'Administrador --> MenuView : abrirCursos()
-MenuView --> AbrirCursos
+MenuView ..> AbrirCursos
 note on link
     abrirCursos()
 end note
 
 'Administrador --> MenuView : abrirProfesores()
-MenuView --> AbrirProfesores
+MenuView ..> AbrirProfesores
 note on link
     abrirProfesores()
 end note
 
 'Administrador --> MenuView : abrirEdificios()
-MenuView --> AbrirEdificios
+MenuView ..> AbrirEdificios
 note on link
     abrirEdificios()
 end note
 
 'Administrador --> MenuView : abrirAulas()
-MenuView --> AbrirAulas
+MenuView ..> AbrirAulas
 note on link
     abrirAulas()
 end note
 
 'Administrador --> MenuView : abrirRecursos()
-MenuView --> AbrirRecursos
+MenuView ..> AbrirRecursos
 note on link
     abrirRecursos()
 end note
 
 'Administrador --> MenuView : asignarProfesorACurso()
-MenuView --> AsignarProfesor
+MenuView ..> AsignarProfesor
 note on link
     asignarProfesorACurso()
 end note
 
 'Administrador --> MenuView : generarHorario()
-MenuView --> GenerarHorario
+MenuView ..> GenerarHorario
 note on link
     generarHorario()
 end note
 
 'Administrador --> MenuView : consultarHorario()
-MenuView --> ConsultarHorario
+MenuView ..> ConsultarHorario
 note on link
     consultarHorario()
 end note
 
 'Administrador --> MenuView : cerrarSesion()
-MenuView --> CerrarSesion
+MenuView ..> CerrarSesion
 note on link
     cerrarSesion()
 end note
