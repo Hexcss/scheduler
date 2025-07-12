@@ -1,4 +1,5 @@
 @startuml
+left to right direction
 !theme plain
 skinparam state {
   BackgroundColor #F8F9FA
@@ -7,24 +8,14 @@ skinparam state {
   FontSize 10
 }
 
-title Diagrama de Contexto Conceptual Puro\nAdministrador de Horarios - Independiente de Tecnología
+title Diagrama de Contexto Conceptual Puro\nAdministrador de Horarios - Casos de Uso Atómicos
 
-[*] --> SISTEMA_INACTIVO
+[*] --> NoAuth
 
-state SISTEMA_INACTIVO {
-  SISTEMA_INACTIVO : Sin sesión activa
-  SISTEMA_INACTIVO : Capacidades no disponibles
+state NoAuth {
+  NoAuth : Sistema sin autenticar
+  NoAuth : Usuario no ha iniciado sesión
 }
-
-SISTEMA_INACTIVO --> AUTENTICANDO : iniciarSesion()
-
-state AUTENTICANDO {
-  AUTENTICANDO : Validando credenciales
-  AUTENTICANDO : Verificando permisos
-}
-
-AUTENTICANDO --> SISTEMA_DISPONIBLE : [credenciales válidas]
-AUTENTICANDO --> SISTEMA_INACTIVO : [credenciales inválidas]
 
 state SISTEMA_DISPONIBLE {
   SISTEMA_DISPONIBLE : Sesión activa establecida
@@ -32,81 +23,111 @@ state SISTEMA_DISPONIBLE {
   SISTEMA_DISPONIBLE : Usuario puede solicitar cualquier funcionalidad
 }
 
-SISTEMA_DISPONIBLE --> GESTIONANDO_PROGRAMAS : gestionarProgramas()
-SISTEMA_DISPONIBLE --> GESTIONANDO_CURSOS : gestionarCursos()
-SISTEMA_DISPONIBLE --> GESTIONANDO_PROFESORES : gestionarProfesores()
-SISTEMA_DISPONIBLE --> GESTIONANDO_EDIFICIOS : gestionarEdificios()
-SISTEMA_DISPONIBLE --> GESTIONANDO_AULAS : gestionarAulas()
-SISTEMA_DISPONIBLE --> GESTIONANDO_RECURSOS : gestionarRecursos()
-SISTEMA_DISPONIBLE --> ASIGNANDO_PROFESORES : asignarProfesoresACursos()
-SISTEMA_DISPONIBLE --> PROCESANDO_HORARIOS : generarHorario()
-SISTEMA_DISPONIBLE --> CONSULTANDO_HORARIOS : consultarHorario()
-
-state GESTIONANDO_PROGRAMAS {
-  GESTIONANDO_PROGRAMAS : Capacidad de gestión de programas activa
-  GESTIONANDO_PROGRAMAS : Operaciones CRUD disponibles
+state ProgramasDisponibles {
+  ProgramasDisponibles : Contexto de programas académicos
+  ProgramasDisponibles : Operaciones CRUD específicas disponibles
 }
 
-state GESTIONANDO_CURSOS {
-  GESTIONANDO_CURSOS : Capacidad de gestión de cursos activa
-  GESTIONANDO_CURSOS : Operaciones CRUD disponibles
+state CursosDisponibles {
+  CursosDisponibles : Contexto de cursos
+  CursosDisponibles : Gestión de asignaturas disponible
 }
 
-state GESTIONANDO_PROFESORES {
-  GESTIONANDO_PROFESORES : Capacidad de gestión de profesores activa
-  GESTIONANDO_PROFESORES : Operaciones CRUD disponibles
+state ProfesoresDisponibles {
+  ProfesoresDisponibles : Contexto de profesores
+  ProfesoresDisponibles : Gestión de personal docente disponible
 }
 
-state GESTIONANDO_EDIFICIOS {
-  GESTIONANDO_EDIFICIOS : Capacidad de gestión de edificios activa
-  GESTIONANDO_EDIFICIOS : Operaciones CRUD disponibles
+state EdificiosDisponibles {
+  EdificiosDisponibles : Contexto de edificios
+  EdificiosDisponibles : Gestión de infraestructura disponible
 }
 
-state GESTIONANDO_AULAS {
-  GESTIONANDO_AULAS : Capacidad de gestión de aulas activa
-  GESTIONANDO_AULAS : Operaciones CRUD disponibles
+state AulasDisponibles {
+  AulasDisponibles : Contexto de aulas
+  AulasDisponibles : Gestión de espacios académicos disponible
 }
 
-state GESTIONANDO_RECURSOS {
-  GESTIONANDO_RECURSOS : Capacidad de gestión de recursos activa
-  GESTIONANDO_RECURSOS : Operaciones CRUD disponibles
+state RecursosDisponibles {
+  RecursosDisponibles : Contexto de recursos
+  RecursosDisponibles : Gestión de equipamiento disponible
 }
 
-state ASIGNANDO_PROFESORES {
-  ASIGNANDO_PROFESORES : Capacidad de asignación activa
-  ASIGNANDO_PROFESORES : Relaciones profesor-curso disponibles
+state AsignacionActiva {
+  AsignacionActiva : Proceso de asignación en curso
+  AsignacionActiva : Vinculación profesor-curso activa
 }
 
-state PROCESANDO_HORARIOS {
-  PROCESANDO_HORARIOS : Algoritmo de generación en ejecución
-  PROCESANDO_HORARIOS : Optimización de recursos activa
+state GeneracionActiva {
+  GeneracionActiva : Proceso de optimización en ejecución
+  GeneracionActiva : Algoritmo de horarios trabajando
 }
 
-state CONSULTANDO_HORARIOS {
-  CONSULTANDO_HORARIOS : Capacidad de consulta activa
-  CONSULTANDO_HORARIOS : Visualización de resultados disponible
+state ConsultaActiva {
+  ConsultaActiva : Capacidad de consulta en uso
+  ConsultaActiva : Visualización de resultados disponible
 }
 
-GESTIONANDO_PROGRAMAS --> SISTEMA_DISPONIBLE : completarGestion()
-GESTIONANDO_CURSOS --> SISTEMA_DISPONIBLE : completarGestion()
-GESTIONANDO_PROFESORES --> SISTEMA_DISPONIBLE : completarGestion()
-GESTIONANDO_EDIFICIOS --> SISTEMA_DISPONIBLE : completarGestion()
-GESTIONANDO_AULAS --> SISTEMA_DISPONIBLE : completarGestion()
-GESTIONANDO_RECURSOS --> SISTEMA_DISPONIBLE : completarGestion()
-ASIGNANDO_PROFESORES --> SISTEMA_DISPONIBLE : completarAsignacion()
-PROCESANDO_HORARIOS --> SISTEMA_DISPONIBLE : completarProceso()
-CONSULTANDO_HORARIOS --> SISTEMA_DISPONIBLE : completarConsulta()
+NoAuth --> SISTEMA_DISPONIBLE : iniciarSesion()
+SISTEMA_DISPONIBLE --> ProgramasDisponibles : abrirProgramas()
+SISTEMA_DISPONIBLE --> CursosDisponibles : abrirCursos()
+SISTEMA_DISPONIBLE --> ProfesoresDisponibles : abrirProfesores()
+SISTEMA_DISPONIBLE --> EdificiosDisponibles : abrirEdificios()
+SISTEMA_DISPONIBLE --> AulasDisponibles : abrirAulas()
+SISTEMA_DISPONIBLE --> RecursosDisponibles : abrirRecursos()
+SISTEMA_DISPONIBLE --> AsignacionActiva : iniciarAsignacion()
+SISTEMA_DISPONIBLE --> GeneracionActiva : generarHorario()
+SISTEMA_DISPONIBLE --> ConsultaActiva : consultarHorario()
 
-SISTEMA_DISPONIBLE --> SISTEMA_INACTIVO : cerrarSesion()
+ProgramasDisponibles --> ProgramasDisponibles : crearPrograma()
+ProgramasDisponibles --> ProgramasDisponibles : editarPrograma()
+ProgramasDisponibles --> ProgramasDisponibles : eliminarPrograma()
+
+CursosDisponibles --> CursosDisponibles : crearCurso()
+CursosDisponibles --> CursosDisponibles : editarCurso()
+CursosDisponibles --> CursosDisponibles : eliminarCurso()
+
+ProfesoresDisponibles --> ProfesoresDisponibles : crearProfesor()
+ProfesoresDisponibles --> ProfesoresDisponibles : editarProfesor()
+ProfesoresDisponibles --> ProfesoresDisponibles : eliminarProfesor()
+
+EdificiosDisponibles --> EdificiosDisponibles : crearEdificio()
+EdificiosDisponibles --> EdificiosDisponibles : editarEdificio()
+EdificiosDisponibles --> EdificiosDisponibles : eliminarEdificio()
+
+AulasDisponibles --> AulasDisponibles : crearAula()
+AulasDisponibles --> AulasDisponibles : editarAula()
+AulasDisponibles --> AulasDisponibles : eliminarAula()
+
+RecursosDisponibles --> RecursosDisponibles : crearRecurso()
+RecursosDisponibles --> RecursosDisponibles : editarRecurso()
+RecursosDisponibles --> RecursosDisponibles : eliminarRecurso()
+
+AsignacionActiva --> AsignacionActiva : asignarProfesor()
+AsignacionActiva --> AsignacionActiva : desasignarProfesor()
+
+ProgramasDisponibles --> SISTEMA_DISPONIBLE : completarGestion()
+CursosDisponibles --> SISTEMA_DISPONIBLE : completarGestion()
+ProfesoresDisponibles --> SISTEMA_DISPONIBLE : completarGestion()
+EdificiosDisponibles --> SISTEMA_DISPONIBLE : completarGestion()
+AulasDisponibles --> SISTEMA_DISPONIBLE : completarGestion()
+RecursosDisponibles --> SISTEMA_DISPONIBLE : completarGestion()
+AsignacionActiva --> SISTEMA_DISPONIBLE : completarAsignacion()
+GeneracionActiva --> SISTEMA_DISPONIBLE : completarProceso()
+ConsultaActiva --> SISTEMA_DISPONIBLE : completarConsulta()
+
+SISTEMA_DISPONIBLE --> NoAuth : cerrarSesion()
 
 note bottom
-  **Características del Diagrama Conceptual Puro:**
+  **Características del Diagrama Conceptual Puro Corregido:**
   
-  • Estados expresan **capacidades de negocio**
-  • Transiciones representan **cambios de contexto funcional**
-  • Nombres **agnósticos tecnológicamente**
-  • Base para **análisis RUP independiente**
+  • **Atomicidad preservada**: Cada transición es un caso de uso específico
+  • Estados expresan **capacidades de negocio**, no agrupamientos
+  • Transiciones representan **conversaciones específicas** con resultados observables
+  • Nombres **agnósticos tecnológicamente** pero **semánticamente precisos**
+  • Base para **análisis RUP ortodoxo**
   • **Sin sesgo** hacia paradigmas de interfaz específicos
+  • **Trazabilidad directa** hacia implementaciones tecnológicas
 end note
 
 @enduml

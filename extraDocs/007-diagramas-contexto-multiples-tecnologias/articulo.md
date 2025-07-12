@@ -34,8 +34,11 @@ PROGRAMAS_ABIERTO → mostrarMenu() → SISTEMA_DISPONIBLE
 
 #### Análisis del sesgo tecnológico:
 - `PROGRAMAS_ABIERTO` implica paradigma de "ventanas abiertas" (GUI-centric)
-- `abrirProgramas()` sugiere apertura persistente de interfaces
-- `mostrarMenu()` acopla a tecnología específica de menús
+- Nomenclatura sugiere apertura persistente de interfaces
+- Estados condicionados por tecnología específica de ventanas
+
+#### Principio metodológico violado:
+**Los casos de uso atómicos son correctos** (`abrirProgramas()`, `crearPrograma()`, `editarPrograma()`), pero **los estados reflejan sesgo tecnológico** hacia paradigmas GUI de ventanas.
 
 #### Problemas de implementación multiplataforma:
 
@@ -51,8 +54,8 @@ PROGRAMAS_ABIERTO → mostrarMenu() → SISTEMA_DISPONIBLE
 ### Concepto central
 
 #### Separación de Responsabilidades:
-1. **Diagrama Conceptual Puro** → Base para análisis RUP
-2. **Diagramas Tecnológicos Específicos** → Guía para implementación
+1. **Diagrama Conceptual Puro** → Casos de uso atómicos con estados agnósticos tecnológicamente
+2. **Diagramas Tecnológicos Específicos** → Agrupamiento y estados específicos por paradigma de interfaz
 
 ### Arquitectura propuesta
 
@@ -61,9 +64,9 @@ PROGRAMAS_ABIERTO → mostrarMenu() → SISTEMA_DISPONIBLE
 │     Diagrama Conceptual Puro    │
 │       (Análisis RUP Puro)       │
 │                                 │
-│ Estados: GESTIONANDO_PROGRAMAS  │
-│         PROCESANDO_HORARIOS     │
-│         CONFIGURANDO_SISTEMA    │
+│ Estados: PROGRAMAS_DISPONIBLES  │
+│         PROGRAMA_SIENDO_CREADO  │
+│         GENERACION_ACTIVA       │
 └─────────────┬───────────────────┘
               │ (refinamiento tecnológico)
               ▼
@@ -79,25 +82,63 @@ PROGRAMAS_ABIERTO → mostrarMenu() → SISTEMA_DISPONIBLE
 ### Diagrama conceptual puro
 
 #### Características:
-- Estados expresan **capacidades de negocio**, no implementación
-- Transiciones representan **cambios de contexto funcional**
-- Nombres **agnósticos tecnológicamente**
+- **Mantiene atomicidad** de casos de uso RUP (una conversación = un resultado)
+- Estados expresan **capacidades de negocio**, no paradigmas de interfaz
+- Transiciones representan **casos de uso atómicos** específicos
+- Nombres **agnósticos tecnológicamente** pero **semánticamente precisos**
 
 #### Ejemplo de estados conceptuales:
 ```puml
 @startuml
-[*] --> SISTEMA_INACTIVO
-SISTEMA_INACTIVO --> AUTENTICANDO : iniciarSesion()
-AUTENTICANDO --> SISTEMA_DISPONIBLE : [credenciales válidas]
-AUTENTICANDO --> SISTEMA_INACTIVO : [credenciales inválidas]
+!define LIGHTBLUE #E6F3FF
+!define LIGHTGREEN #E6FFE6
+!define LIGHTYELLOW #FFFACD
 
-SISTEMA_DISPONIBLE --> GESTIONANDO_PROGRAMAS : gestionarProgramas()
-SISTEMA_DISPONIBLE --> GESTIONANDO_CURSOS : gestionarCursos()
-SISTEMA_DISPONIBLE --> PROCESANDO_HORARIOS : generarHorario()
+[*] --> NoAuth
 
-GESTIONANDO_PROGRAMAS --> SISTEMA_DISPONIBLE : completarGestion()
-GESTIONANDO_CURSOS --> SISTEMA_DISPONIBLE : completarGestion()
-PROCESANDO_HORARIOS --> SISTEMA_DISPONIBLE : completarProceso()
+state NoAuth {
+    NoAuth : Sistema sin autenticar
+    NoAuth : Usuario no ha iniciado sesión
+}
+
+state Menu {
+    Menu : Sistema disponible
+    Menu : Usuario autenticado con acceso completo
+}
+
+state ProgramasDisponibles {
+    ProgramasDisponibles : Contexto de programas académicos
+    ProgramasDisponibles : Operaciones CRUD disponibles
+}
+
+state CursosDisponibles {
+    CursosDisponibles : Contexto de cursos
+    CursosDisponibles : Gestión de asignaturas disponible
+}
+
+state GeneracionActiva {
+    GeneracionActiva : Proceso de optimización en ejecución
+    GeneracionActiva : Algoritmo de horarios trabajando
+}
+
+NoAuth --> Menu : iniciarSesion()
+Menu --> ProgramasDisponibles : abrirProgramas()
+Menu --> CursosDisponibles : abrirCursos()
+Menu --> GeneracionActiva : generarHorario()
+
+ProgramasDisponibles --> ProgramasDisponibles : crearPrograma()
+ProgramasDisponibles --> ProgramasDisponibles : editarPrograma()
+ProgramasDisponibles --> ProgramasDisponibles : eliminarPrograma()
+
+CursosDisponibles --> CursosDisponibles : crearCurso()
+CursosDisponibles --> CursosDisponibles : editarCurso()
+CursosDisponibles --> CursosDisponibles : eliminarCurso()
+
+ProgramasDisponibles --> Menu : mostrarMenu()
+CursosDisponibles --> Menu : mostrarMenu()
+GeneracionActiva --> Menu : [proceso completado]
+
+Menu --> NoAuth : cerrarSesion()
 @enduml
 ```
 
@@ -166,14 +207,16 @@ PANTALLA_PROGRAMAS --> PANTALLA_DASHBOARD : botonAtras()
 ## Metodología de aplicación
 
 ### Fase 1: Análisis puro
-1. **Crear diagrama conceptual puro** basado en capacidades de negocio
-2. **Derivar clases de análisis** del diagrama conceptual únicamente
-3. **Especificar casos de uso** usando vocabulario agnóstico tecnológicamente
+1. **Crear diagrama conceptual puro** manteniendo atomicidad de casos de uso RUP
+2. **Usar estados agnósticos** de paradigmas de interfaz específicos
+3. **Derivar clases de análisis** del diagrama conceptual únicamente
+4. **Especificar casos de uso** atómicos usando vocabulario de negocio
 
 ### Fase 2: Diseño tecnológico
 1. **Seleccionar tecnología objetivo** (GUI, Web, CLI, Móvil)
-2. **Crear diagrama tecnológico específico** refinando el conceptual
-3. **Adaptar clases de análisis** a patrones tecnológicos específicos
+2. **Crear diagrama tecnológico específico** agrupando casos de uso atómicos según paradigma
+3. **Adaptar estados** a capacidades y limitaciones tecnológicas específicas
+4. **Mantener trazabilidad** uno-a-uno con casos de uso del diagrama conceptual
 
 ### Fase 3: Validación cruzada
 1. **Verificar cobertura completa** entre diagrama conceptual y tecnológicos
@@ -212,10 +255,10 @@ PANTALLA_PROGRAMAS --> PANTALLA_DASHBOARD : botonAtras()
 - Análisis condicionado por paradigmas de interfaz
 
 #### Aplicación de la propuesta:
-1. **Rediseñar diagrama conceptual** con estados puros (`GESTIONANDO_PROGRAMAS`)
-2. **Renombrar casos de uso** tecnológicamente neutrales (`abrirSistema`)
-3. **Crear diagramas tecnológicos** para implementaciones objetivo
-4. **Rederivación del análisis** desde base conceptual pura
+1. **Mantener atomicidad** en diagrama conceptual (`abrirProgramas()`, `crearPrograma()`, `editarPrograma()`)
+2. **Renombrar estados** tecnológicamente neutrales (`PROGRAMAS_DISPONIBLES` en lugar de `PROGRAMAS_ABIERTO`)
+3. **Crear diagramas tecnológicos** que agrupen casos de uso atómicos según paradigma de interfaz
+4. **Preservar trazabilidad** desde casos de uso atómicos hasta implementaciones específicas
 
 ### Otros Proyectos
 
@@ -262,8 +305,9 @@ RUP/
 La propuesta de **diagramas de contexto múltiples por tecnología** resuelve efectivamente la tensión entre pureza metodológica y practicidad implementativa en proyectos RUP.
 
 #### Principios clave:
+- **Atomicidad de casos de uso preservada** en todos los niveles de diagrama
 - **Separación de responsabilidades** entre análisis puro e implementación específica
-- **Trazabilidad mantenida** desde conceptos de negocio hasta código
+- **Trazabilidad mantenida** desde casos de uso atómicos hasta código
 - **Escalabilidad arquitectónica** para múltiples tecnologías
 - **Preservación de la integridad** metodológica de RUP
 
