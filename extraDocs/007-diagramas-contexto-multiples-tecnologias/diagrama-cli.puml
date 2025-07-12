@@ -1,0 +1,143 @@
+@startuml
+!theme plain
+skinparam state {
+  BackgroundColor #E8F5E8
+  BorderColor #4CAF50
+  FontName "Courier New"
+  FontSize 10
+}
+
+title Diagrama de Contexto CLI\nAdministrador de Horarios - Implementación para Command Line Interface
+
+[*] --> TERMINAL_IDLE
+
+state TERMINAL_IDLE {
+  TERMINAL_IDLE : Shell sin aplicación activa
+  TERMINAL_IDLE : Prompt del sistema visible
+}
+
+TERMINAL_IDLE --> SHELL_SIGHOR : ejecutar_sighor_cli
+
+state SHELL_SIGHOR {
+  SHELL_SIGHOR : Aplicación CLI iniciada
+  SHELL_SIGHOR : Banner de bienvenida mostrado
+  SHELL_SIGHOR : Prompt: sighor>
+}
+
+SHELL_SIGHOR --> PROMPT_LOGIN : comando_login
+
+state PROMPT_LOGIN {
+  PROMPT_LOGIN : Solicitando credenciales
+  PROMPT_LOGIN : Input de usuario/password
+  PROMPT_LOGIN : Prompt: login>
+}
+
+PROMPT_LOGIN --> PROMPT_LOGIN : [credenciales inválidas]
+PROMPT_LOGIN --> SHELL_AUTENTICADO : [credenciales válidas]
+
+state SHELL_AUTENTICADO {
+  SHELL_AUTENTICADO : Sesión establecida
+  SHELL_AUTENTICADO : Prompt: sighor[usuario]>
+  SHELL_AUTENTICADO : Help disponible con 'help'
+  SHELL_AUTENTICADO : Tab completion habilitado
+}
+
+SHELL_AUTENTICADO --> CONTEXTO_PROGRAMAS : comando_programas
+SHELL_AUTENTICADO --> CONTEXTO_CURSOS : comando_cursos
+SHELL_AUTENTICADO --> CONTEXTO_PROFESORES : comando_profesores
+SHELL_AUTENTICADO --> CONTEXTO_EDIFICIOS : comando_edificios
+SHELL_AUTENTICADO --> CONTEXTO_AULAS : comando_aulas
+SHELL_AUTENTICADO --> CONTEXTO_RECURSOS : comando_recursos
+SHELL_AUTENTICADO --> CONTEXTO_ASIGNACION : comando_asignar
+SHELL_AUTENTICADO --> PROCESO_GENERAR : comando_generar
+SHELL_AUTENTICADO --> CONTEXTO_CONSULTA : comando_consultar
+
+state CONTEXTO_PROGRAMAS {
+  CONTEXTO_PROGRAMAS : Subcomandos de programas activos
+  CONTEXTO_PROGRAMAS : Prompt: programas>
+  CONTEXTO_PROGRAMAS : Comandos: list, add, edit, delete, show
+}
+
+state CONTEXTO_CURSOS {
+  CONTEXTO_CURSOS : Subcomandos de cursos activos
+  CONTEXTO_CURSOS : Prompt: cursos>
+  CONTEXTO_CURSOS : Comandos: list, add, edit, delete, search
+}
+
+state CONTEXTO_PROFESORES {
+  CONTEXTO_PROFESORES : Subcomandos de profesores activos
+  CONTEXTO_PROFESORES : Prompt: profesores>
+  CONTEXTO_PROFESORES : Comandos: list, add, edit, delete, show
+}
+
+state CONTEXTO_EDIFICIOS {
+  CONTEXTO_EDIFICIOS : Subcomandos de edificios activos
+  CONTEXTO_EDIFICIOS : Prompt: edificios>
+  CONTEXTO_EDIFICIOS : Comandos: list, add, edit, tree
+}
+
+state CONTEXTO_AULAS {
+  CONTEXTO_AULAS : Subcomandos de aulas activos
+  CONTEXTO_AULAS : Prompt: aulas>
+  CONTEXTO_AULAS : Comandos: list, add, edit, show-recursos
+}
+
+state CONTEXTO_RECURSOS {
+  CONTEXTO_RECURSOS : Subcomandos de recursos activos
+  CONTEXTO_RECURSOS : Prompt: recursos>
+  CONTEXTO_RECURSOS : Comandos: list, add, edit, catalog
+}
+
+state CONTEXTO_ASIGNACION {
+  CONTEXTO_ASIGNACION : Subcomandos de asignación activos
+  CONTEXTO_ASIGNACION : Prompt: asignacion>
+  CONTEXTO_ASIGNACION : Comandos: list, assign, unassign, bulk
+}
+
+state PROCESO_GENERAR {
+  PROCESO_GENERAR : Proceso de generación en ejecución
+  PROCESO_GENERAR : Barra de progreso ASCII
+  PROCESO_GENERAR : Log de progreso en tiempo real
+}
+
+state CONTEXTO_CONSULTA {
+  CONTEXTO_CONSULTA : Subcomandos de consulta activos
+  CONTEXTO_CONSULTA : Prompt: consulta>
+  CONTEXTO_CONSULTA : Comandos: show, export, print, stats
+}
+
+' Retorno al shell autenticado
+CONTEXTO_PROGRAMAS --> SHELL_AUTENTICADO : exit
+CONTEXTO_CURSOS --> SHELL_AUTENTICADO : exit
+CONTEXTO_PROFESORES --> SHELL_AUTENTICADO : exit
+CONTEXTO_EDIFICIOS --> SHELL_AUTENTICADO : exit
+CONTEXTO_AULAS --> SHELL_AUTENTICADO : exit
+CONTEXTO_RECURSOS --> SHELL_AUTENTICADO : exit
+CONTEXTO_ASIGNACION --> SHELL_AUTENTICADO : exit
+PROCESO_GENERAR --> SHELL_AUTENTICADO : [proceso completado]
+CONTEXTO_CONSULTA --> SHELL_AUTENTICADO : exit
+
+' Cambio directo entre contextos
+CONTEXTO_PROGRAMAS --> CONTEXTO_CURSOS : comando_cursos
+CONTEXTO_CURSOS --> CONTEXTO_PROFESORES : comando_profesores
+
+' Comandos globales desde cualquier contexto
+CONTEXTO_PROGRAMAS --> SHELL_AUTENTICADO : home
+CONTEXTO_CURSOS --> SHELL_AUTENTICADO : home
+
+SHELL_AUTENTICADO --> SHELL_SIGHOR : logout
+SHELL_SIGHOR --> TERMINAL_IDLE : exit
+
+note bottom
+  **Características específicas CLI:**
+  
+  • **Comandos secuenciales** sin persistencia visual
+  • **Estados = contextos de comandos** disponibles
+  • **Prompts diferenciados** por contexto
+  • **Tab completion** y help contextual
+  • **Pipes y redirección** para automatización
+  • **Barras de progreso ASCII** para procesos largos
+  • **Logs estructurados** para debugging
+end note
+
+@enduml

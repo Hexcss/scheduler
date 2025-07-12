@@ -1,0 +1,112 @@
+@startuml
+!theme plain
+skinparam state {
+  BackgroundColor #F8F9FA
+  BorderColor #6C757D
+  FontName Arial
+  FontSize 10
+}
+
+title Diagrama de Contexto Conceptual Puro\nAdministrador de Horarios - Independiente de Tecnología
+
+[*] --> SISTEMA_INACTIVO
+
+state SISTEMA_INACTIVO {
+  SISTEMA_INACTIVO : Sin sesión activa
+  SISTEMA_INACTIVO : Capacidades no disponibles
+}
+
+SISTEMA_INACTIVO --> AUTENTICANDO : iniciarSesion()
+
+state AUTENTICANDO {
+  AUTENTICANDO : Validando credenciales
+  AUTENTICANDO : Verificando permisos
+}
+
+AUTENTICANDO --> SISTEMA_DISPONIBLE : [credenciales válidas]
+AUTENTICANDO --> SISTEMA_INACTIVO : [credenciales inválidas]
+
+state SISTEMA_DISPONIBLE {
+  SISTEMA_DISPONIBLE : Sesión activa establecida
+  SISTEMA_DISPONIBLE : Todas las capacidades disponibles
+  SISTEMA_DISPONIBLE : Usuario puede solicitar cualquier funcionalidad
+}
+
+SISTEMA_DISPONIBLE --> GESTIONANDO_PROGRAMAS : gestionarProgramas()
+SISTEMA_DISPONIBLE --> GESTIONANDO_CURSOS : gestionarCursos()
+SISTEMA_DISPONIBLE --> GESTIONANDO_PROFESORES : gestionarProfesores()
+SISTEMA_DISPONIBLE --> GESTIONANDO_EDIFICIOS : gestionarEdificios()
+SISTEMA_DISPONIBLE --> GESTIONANDO_AULAS : gestionarAulas()
+SISTEMA_DISPONIBLE --> GESTIONANDO_RECURSOS : gestionarRecursos()
+SISTEMA_DISPONIBLE --> ASIGNANDO_PROFESORES : asignarProfesoresACursos()
+SISTEMA_DISPONIBLE --> PROCESANDO_HORARIOS : generarHorario()
+SISTEMA_DISPONIBLE --> CONSULTANDO_HORARIOS : consultarHorario()
+
+state GESTIONANDO_PROGRAMAS {
+  GESTIONANDO_PROGRAMAS : Capacidad de gestión de programas activa
+  GESTIONANDO_PROGRAMAS : Operaciones CRUD disponibles
+}
+
+state GESTIONANDO_CURSOS {
+  GESTIONANDO_CURSOS : Capacidad de gestión de cursos activa
+  GESTIONANDO_CURSOS : Operaciones CRUD disponibles
+}
+
+state GESTIONANDO_PROFESORES {
+  GESTIONANDO_PROFESORES : Capacidad de gestión de profesores activa
+  GESTIONANDO_PROFESORES : Operaciones CRUD disponibles
+}
+
+state GESTIONANDO_EDIFICIOS {
+  GESTIONANDO_EDIFICIOS : Capacidad de gestión de edificios activa
+  GESTIONANDO_EDIFICIOS : Operaciones CRUD disponibles
+}
+
+state GESTIONANDO_AULAS {
+  GESTIONANDO_AULAS : Capacidad de gestión de aulas activa
+  GESTIONANDO_AULAS : Operaciones CRUD disponibles
+}
+
+state GESTIONANDO_RECURSOS {
+  GESTIONANDO_RECURSOS : Capacidad de gestión de recursos activa
+  GESTIONANDO_RECURSOS : Operaciones CRUD disponibles
+}
+
+state ASIGNANDO_PROFESORES {
+  ASIGNANDO_PROFESORES : Capacidad de asignación activa
+  ASIGNANDO_PROFESORES : Relaciones profesor-curso disponibles
+}
+
+state PROCESANDO_HORARIOS {
+  PROCESANDO_HORARIOS : Algoritmo de generación en ejecución
+  PROCESANDO_HORARIOS : Optimización de recursos activa
+}
+
+state CONSULTANDO_HORARIOS {
+  CONSULTANDO_HORARIOS : Capacidad de consulta activa
+  CONSULTANDO_HORARIOS : Visualización de resultados disponible
+}
+
+GESTIONANDO_PROGRAMAS --> SISTEMA_DISPONIBLE : completarGestion()
+GESTIONANDO_CURSOS --> SISTEMA_DISPONIBLE : completarGestion()
+GESTIONANDO_PROFESORES --> SISTEMA_DISPONIBLE : completarGestion()
+GESTIONANDO_EDIFICIOS --> SISTEMA_DISPONIBLE : completarGestion()
+GESTIONANDO_AULAS --> SISTEMA_DISPONIBLE : completarGestion()
+GESTIONANDO_RECURSOS --> SISTEMA_DISPONIBLE : completarGestion()
+ASIGNANDO_PROFESORES --> SISTEMA_DISPONIBLE : completarAsignacion()
+PROCESANDO_HORARIOS --> SISTEMA_DISPONIBLE : completarProceso()
+CONSULTANDO_HORARIOS --> SISTEMA_DISPONIBLE : completarConsulta()
+
+SISTEMA_DISPONIBLE --> SISTEMA_INACTIVO : cerrarSesion()
+
+note bottom
+  **Características del Diagrama Conceptual Puro:**
+  
+  • Estados expresan **capacidades de negocio**
+  • Transiciones representan **cambios de contexto funcional**
+  • Nombres **agnósticos tecnológicamente**
+  • Base para **análisis RUP independiente**
+  • **Sin sesgo** hacia paradigmas de interfaz específicos
+end note
+
+@enduml

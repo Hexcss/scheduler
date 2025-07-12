@@ -1,0 +1,143 @@
+@startuml
+!theme plain
+skinparam state {
+  BackgroundColor #FFF3E0
+  BorderColor #F57C00
+  FontName Arial
+  FontSize 10
+}
+
+title Diagrama de Contexto Web/SPA\nAdministrador de Horarios - Implementación para Single Page Application
+
+[*] --> BROWSER_IDLE
+
+state BROWSER_IDLE {
+  BROWSER_IDLE : Navegador sin aplicación cargada
+  BROWSER_IDLE : URL no visitada
+}
+
+BROWSER_IDLE --> LOADING_APP : navegarAURL()
+
+state LOADING_APP {
+  LOADING_APP : Descargando bundle JavaScript
+  LOADING_APP : Spinner de carga visible
+}
+
+LOADING_APP --> PAGINA_LOGIN : [carga completa]
+
+state PAGINA_LOGIN {
+  PAGINA_LOGIN : Ruta: /login
+  PAGINA_LOGIN : Formulario de autenticación visible
+  PAGINA_LOGIN : Componente LoginForm montado
+}
+
+PAGINA_LOGIN --> PAGINA_LOGIN : [credenciales inválidas]
+PAGINA_LOGIN --> PAGINA_DASHBOARD : [autenticación exitosa]
+
+state PAGINA_DASHBOARD {
+  PAGINA_DASHBOARD : Ruta: /dashboard
+  PAGINA_DASHBOARD : Componente Dashboard montado
+  PAGINA_DASHBOARD : Navegación lateral visible
+  PAGINA_DASHBOARD : Cards de opciones disponibles
+}
+
+PAGINA_DASHBOARD --> PAGINA_PROGRAMAS : navegarAProgramas()
+PAGINA_DASHBOARD --> PAGINA_CURSOS : navegarACursos()
+PAGINA_DASHBOARD --> PAGINA_PROFESORES : navegarAProfesores()
+PAGINA_DASHBOARD --> PAGINA_EDIFICIOS : navegarAEdificios()
+PAGINA_DASHBOARD --> PAGINA_AULAS : navegarAAulas()
+PAGINA_DASHBOARD --> PAGINA_RECURSOS : navegarARecursos()
+PAGINA_DASHBOARD --> PAGINA_ASIGNACION : navegarAAsignacion()
+PAGINA_DASHBOARD --> PAGINA_GENERAR : navegarAGenerar()
+PAGINA_DASHBOARD --> PAGINA_CONSULTA : navegarAConsulta()
+
+state PAGINA_PROGRAMAS {
+  PAGINA_PROGRAMAS : Ruta: /programas
+  PAGINA_PROGRAMAS : Componente ProgramasList montado
+  PAGINA_PROGRAMAS : DataTable con paginación visible
+  PAGINA_PROGRAMAS : Toolbar con acciones CRUD
+}
+
+state PAGINA_CURSOS {
+  PAGINA_CURSOS : Ruta: /cursos
+  PAGINA_CURSOS : Componente CursosList montado
+  PAGINA_CURSOS : Filtros y búsqueda en sidebar
+}
+
+state PAGINA_PROFESORES {
+  PAGINA_PROFESORES : Ruta: /profesores
+  PAGINA_PROFESORES : Componente ProfesoresList montado
+  PAGINA_PROFESORES : Vista maestro-detalle responsiva
+}
+
+state PAGINA_EDIFICIOS {
+  PAGINA_EDIFICIOS : Ruta: /edificios
+  PAGINA_EDIFICIOS : Componente EdificiosTree montado
+  PAGINA_EDIFICIOS : TreeView interactivo
+}
+
+state PAGINA_AULAS {
+  PAGINA_AULAS : Ruta: /aulas
+  PAGINA_AULAS : Componente AulasList montado
+  PAGINA_AULAS : Grid con tooltips de recursos
+}
+
+state PAGINA_RECURSOS {
+  PAGINA_RECURSOS : Ruta: /recursos
+  PAGINA_RECURSOS : Componente RecursosCatalog montado
+  PAGINA_RECURSOS : Vista de cards con imágenes
+}
+
+state PAGINA_ASIGNACION {
+  PAGINA_ASIGNACION : Ruta: /asignacion
+  PAGINA_ASIGNACION : Componente AsignacionDragDrop montado
+  PAGINA_ASIGNACION : Interface drag-and-drop HTML5
+}
+
+state PAGINA_GENERAR {
+  PAGINA_GENERAR : Ruta: /generar
+  PAGINA_GENERAR : Componente GenerarHorario montado
+  PAGINA_GENERAR : Formulario de parámetros visible
+  PAGINA_GENERAR : WebSocket para progreso en tiempo real
+}
+
+state PAGINA_CONSULTA {
+  PAGINA_CONSULTA : Ruta: /consulta
+  PAGINA_CONSULTA : Componente ConsultaHorarios montado
+  PAGINA_CONSULTA : Vista de calendario interactiva
+}
+
+' Navegación de retorno al dashboard
+PAGINA_PROGRAMAS --> PAGINA_DASHBOARD : navegarADashboard()
+PAGINA_CURSOS --> PAGINA_DASHBOARD : navegarADashboard()
+PAGINA_PROFESORES --> PAGINA_DASHBOARD : navegarADashboard()
+PAGINA_EDIFICIOS --> PAGINA_DASHBOARD : navegarADashboard()
+PAGINA_AULAS --> PAGINA_DASHBOARD : navegarADashboard()
+PAGINA_RECURSOS --> PAGINA_DASHBOARD : navegarADashboard()
+PAGINA_ASIGNACION --> PAGINA_DASHBOARD : navegarADashboard()
+PAGINA_GENERAR --> PAGINA_DASHBOARD : navegarADashboard()
+PAGINA_CONSULTA --> PAGINA_DASHBOARD : navegarADashboard()
+
+' Navegación directa entre páginas (breadcrumbs)
+PAGINA_CURSOS --> PAGINA_PROFESORES : [navegación directa]
+PAGINA_PROFESORES --> PAGINA_ASIGNACION : [navegación directa]
+
+' Navegación por browser back/forward
+PAGINA_DASHBOARD --> PAGINA_PROGRAMAS : [browser history]
+PAGINA_PROGRAMAS --> PAGINA_DASHBOARD : [browser back]
+
+PAGINA_DASHBOARD --> BROWSER_IDLE : cerrarPestana()
+
+note bottom
+  **Características específicas Web/SPA:**
+  
+  • **Una sola página activa** por vez
+  • **Estados = rutas URL** específicas
+  • **Componentes montados/desmontados** dinámicamente
+  • **Navegación por router** (React Router, Vue Router)
+  • **Browser history** integrado
+  • **Responsive design** considerado
+  • **WebSockets** para tiempo real
+end note
+
+@enduml

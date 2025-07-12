@@ -1,0 +1,130 @@
+@startuml
+!theme plain
+skinparam state {
+  BackgroundColor #E3F2FD
+  BorderColor #1976D2
+  FontName Arial
+  FontSize 10
+}
+
+title Diagrama de Contexto GUI/Desktop\nAdministrador de Horarios - Implementación para Aplicación de Escritorio
+
+[*] --> APLICACION_CERRADA
+
+state APLICACION_CERRADA {
+  APLICACION_CERRADA : Ninguna ventana visible
+  APLICACION_CERRADA : Sistema no cargado en memoria
+}
+
+APLICACION_CERRADA --> SPLASH_SCREEN : ejecutarAplicacion()
+
+state SPLASH_SCREEN {
+  SPLASH_SCREEN : Pantalla de carga visible
+  SPLASH_SCREEN : Inicializando componentes
+}
+
+SPLASH_SCREEN --> VENTANA_LOGIN_ABIERTA : [carga completa]
+
+state VENTANA_LOGIN_ABIERTA {
+  VENTANA_LOGIN_ABIERTA : Formulario de login visible
+  VENTANA_LOGIN_ABIERTA : Usuario puede introducir credenciales
+}
+
+VENTANA_LOGIN_ABIERTA --> VENTANA_LOGIN_ABIERTA : [credenciales inválidas]
+VENTANA_LOGIN_ABIERTA --> MENU_PRINCIPAL_ACTIVO : [autenticación exitosa]
+
+state MENU_PRINCIPAL_ACTIVO {
+  MENU_PRINCIPAL_ACTIVO : Ventana principal visible con menús
+  MENU_PRINCIPAL_ACTIVO : Barra de herramientas disponible
+  MENU_PRINCIPAL_ACTIVO : Usuario puede abrir múltiples ventanas
+}
+
+MENU_PRINCIPAL_ACTIVO --> VENTANA_PROGRAMAS_ABIERTA : abrirVentanaProgramas()
+MENU_PRINCIPAL_ACTIVO --> VENTANA_CURSOS_ABIERTA : abrirVentanaCursos()
+MENU_PRINCIPAL_ACTIVO --> VENTANA_PROFESORES_ABIERTA : abrirVentanaProfesores()
+MENU_PRINCIPAL_ACTIVO --> VENTANA_EDIFICIOS_ABIERTA : abrirVentanaEdificios()
+MENU_PRINCIPAL_ACTIVO --> VENTANA_AULAS_ABIERTA : abrirVentanaAulas()
+MENU_PRINCIPAL_ACTIVO --> VENTANA_RECURSOS_ABIERTA : abrirVentanaRecursos()
+MENU_PRINCIPAL_ACTIVO --> VENTANA_ASIGNACION_ABIERTA : abrirVentanaAsignacion()
+MENU_PRINCIPAL_ACTIVO --> DIALOG_GENERAR_HORARIO : abrirDialogGenerarHorario()
+MENU_PRINCIPAL_ACTIVO --> VENTANA_CONSULTA_ABIERTA : abrirVentanaConsulta()
+
+state VENTANA_PROGRAMAS_ABIERTA {
+  VENTANA_PROGRAMAS_ABIERTA : Ventana MDI hija visible
+  VENTANA_PROGRAMAS_ABIERTA : Grid de programas cargado
+  VENTANA_PROGRAMAS_ABIERTA : Botones CRUD habilitados
+}
+
+state VENTANA_CURSOS_ABIERTA {
+  VENTANA_CURSOS_ABIERTA : Ventana MDI hija visible
+  VENTANA_CURSOS_ABIERTA : Grid de cursos cargado
+  VENTANA_CURSOS_ABIERTA : Filtros y búsqueda disponibles
+}
+
+state VENTANA_PROFESORES_ABIERTA {
+  VENTANA_PROFESORES_ABIERTA : Ventana MDI hija visible
+  VENTANA_PROFESORES_ABIERTA : Lista de profesores cargada
+  VENTANA_PROFESORES_ABIERTA : Panel de detalles visible
+}
+
+state VENTANA_EDIFICIOS_ABIERTA {
+  VENTANA_EDIFICIOS_ABIERTA : Ventana MDI hija visible
+  VENTANA_EDIFICIOS_ABIERTA : Árbol de edificios desplegado
+}
+
+state VENTANA_AULAS_ABIERTA {
+  VENTANA_AULAS_ABIERTA : Ventana MDI hija visible
+  VENTANA_AULAS_ABIERTA : Grid de aulas con recursos
+}
+
+state VENTANA_RECURSOS_ABIERTA {
+  VENTANA_RECURSOS_ABIERTA : Ventana MDI hija visible
+  VENTANA_RECURSOS_ABIERTA : Catálogo de recursos disponible
+}
+
+state VENTANA_ASIGNACION_ABIERTA {
+  VENTANA_ASIGNACION_ABIERTA : Ventana MDI hija visible
+  VENTANA_ASIGNACION_ABIERTA : Interface drag-and-drop activa
+}
+
+state DIALOG_GENERAR_HORARIO {
+  DIALOG_GENERAR_HORARIO : Dialog modal abierto
+  DIALOG_GENERAR_HORARIO : Parámetros de generación visibles
+  DIALOG_GENERAR_HORARIO : Barra de progreso disponible
+}
+
+state VENTANA_CONSULTA_ABIERTA {
+  VENTANA_CONSULTA_ABIERTA : Ventana MDI hija visible
+  VENTANA_CONSULTA_ABIERTA : Vista de horarios cargada
+  VENTANA_CONSULTA_ABIERTA : Controles de impresión habilitados
+}
+
+' Transiciones de retorno al menú principal
+VENTANA_PROGRAMAS_ABIERTA --> MENU_PRINCIPAL_ACTIVO : cerrarVentana()
+VENTANA_CURSOS_ABIERTA --> MENU_PRINCIPAL_ACTIVO : cerrarVentana()
+VENTANA_PROFESORES_ABIERTA --> MENU_PRINCIPAL_ACTIVO : cerrarVentana()
+VENTANA_EDIFICIOS_ABIERTA --> MENU_PRINCIPAL_ACTIVO : cerrarVentana()
+VENTANA_AULAS_ABIERTA --> MENU_PRINCIPAL_ACTIVO : cerrarVentana()
+VENTANA_RECURSOS_ABIERTA --> MENU_PRINCIPAL_ACTIVO : cerrarVentana()
+VENTANA_ASIGNACION_ABIERTA --> MENU_PRINCIPAL_ACTIVO : cerrarVentana()
+DIALOG_GENERAR_HORARIO --> MENU_PRINCIPAL_ACTIVO : cerrarDialog()
+VENTANA_CONSULTA_ABIERTA --> MENU_PRINCIPAL_ACTIVO : cerrarVentana()
+
+' Ventanas pueden activarse entre sí
+VENTANA_PROGRAMAS_ABIERTA --> VENTANA_CURSOS_ABIERTA : [múltiples ventanas]
+VENTANA_CURSOS_ABIERTA --> VENTANA_PROFESORES_ABIERTA : [múltiples ventanas]
+
+MENU_PRINCIPAL_ACTIVO --> APLICACION_CERRADA : cerrarAplicacion()
+
+note bottom
+  **Características específicas GUI/Desktop:**
+  
+  • **Ventanas múltiples simultáneas** (MDI)
+  • **Estados "abierto"** = ventana visible en pantalla
+  • **Menús y barras de herramientas** tradicionales
+  • **Dialogs modales** para procesos especiales
+  • **Transiciones por activación** de ventanas
+  • **Paradigma point-and-click** establecido
+end note
+
+@enduml
