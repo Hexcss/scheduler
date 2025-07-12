@@ -18,11 +18,11 @@ Este dashboard visual muestra el progreso del proyecto de modernización de SigH
 |Color|Fase|Descripción|
 |-|-|-|
 |🔘 **Gris**|Identificado|Caso de uso identificado pero no iniciado|
-|🟠 **Naranja**|Detalle/prototipado|Especificación detallada y prototipado|
-|🔵 **Azul**|Análisis|Análisis MVC y colaboraciones|
+|🔴 **Rojo**|Detalle/prototipado|Especificación detallada y prototipado|
+|🟫 **Amarillo oscuro**|Análisis|Análisis MVC y colaboraciones|
 |🟢 **Verde**|Diseño|Diseño arquitectónico y detallado|
-|🟣 **Púrpura**|Desarrollo|Implementación del código|
-|🟤 **Marrón**|Pruebas|Testing y validación|
+|🔵 **Celeste**|Desarrollo|Implementación del código|
+|🔵 **Azul**|Pruebas|Testing y validación|
 |⚫ **Negro**|Completado|Caso de uso completamente terminado|
 
 ## Progreso actual
