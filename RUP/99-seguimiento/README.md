@@ -32,7 +32,7 @@ Este dashboard visual muestra el progreso del proyecto de modernización de SigH
 #### Fase de análisis (🔵 Azul)
 
 - **iniciarSesion()** - Autenticación de usuarios
-- **mostrarMenu()** - Presentación del menú principal
+- **completarGestion()** - Presentación del menú principal
 
 ### Casos de uso identificados (🔘 Gris)
 

@@ -51,7 +51,7 @@ end note
 
 abrirProgramas -[#green]-> SISTEMA_DISPONIBLE
 note on link
-mostrarMenu()
+completarGestion()
 end note
 
 @enduml

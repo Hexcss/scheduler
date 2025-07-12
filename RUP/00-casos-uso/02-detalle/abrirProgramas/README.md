@@ -106,7 +106,7 @@ Especificación detallada del caso de uso `abrirProgramas()` mediante diagrama d
 - **Solicitar eliminar programa** → Navegar a `eliminarPrograma()`
 
 ### navegación del sistema
-- **Solicitar mostrar menú** → Navegar a `mostrarMenu()`
+- **Solicitar salir** → Navegar a `completarGestion()`
 
 ## conexión con diagrama de contexto
 
@@ -117,7 +117,7 @@ Y las transiciones de salida:
 - **LISTANDO_PROGRAMAS** → `crearPrograma()` → **EDITANDO_PROGRAMA**
 - **LISTANDO_PROGRAMAS** → `editarPrograma()` → **EDITANDO_PROGRAMA**
 - **LISTANDO_PROGRAMAS** → `eliminarPrograma()` → **LISTANDO_PROGRAMAS**
-- **LISTANDO_PROGRAMAS** → `mostrarMenu()` → **MENU_PRINCIPAL**
+- **LISTANDO_PROGRAMAS** → `completarGestion()` → **MENU_PRINCIPAL**
 
 ## vocabulario utilizado
 
@@ -160,5 +160,5 @@ Y las transiciones de salida:
 
 - [Diagrama de contexto - Administrador](../../01-actores-casos-uso/diagrama-contexto-administrador.md)
 - [Modelo del dominio](../../00-modelo-del-dominio/modelo-dominio.md)
-- [mostrarMenu()](../mostrarMenu/README.md) - Caso de uso previo
+- [completarGestion()](../mostrarMenu/README.md) - Caso de uso previo
 - [conversation-log.md](../../../../conversation-log.md) - Metodología de especificación detallada

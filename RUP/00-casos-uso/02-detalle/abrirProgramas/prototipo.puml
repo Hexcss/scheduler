@@ -2,7 +2,7 @@
 { 
 <b>GESTIÓN DE PROGRAMAS ACADÉMICOS</b>  
 ===
-{+  CODIGO PROGRAMA | NOMBRE PROGRAMA | DESCRIPCION PROGRAMA | ACCIÓN
+{+  CODIGO | NOMBRE | DESCRIPCION | ACCIÓN
   --|--|--|--
   GII | Ingeniería Informática | Grado en Ingeniería Informática | [Editar]
   GIOI | Ingeniería en Organización Industrial | Grado en Ingeniería en Organización Industrial | [Editar]
@@ -11,7 +11,7 @@
   ~~
   {<b>BUSCAR:</b> [                                       ] | [Filtrar]}
   ~~
-  {[Crear nuevo] | [Borrar seleccionado] | [Volver al menú]}
+  {[Crear nuevo] | [Borrar seleccionado] | [Salir]}
 }
 
 @endsalt

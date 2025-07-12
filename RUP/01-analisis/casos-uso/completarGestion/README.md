@@ -1,4 +1,4 @@
-# SigHor - Análisis del caso de uso: mostrarMenu()
+# SigHor - Análisis del caso de uso: completarGestion()
 
 ## información del artefacto
 
@@ -11,13 +11,28 @@
 
 ## propósito
 
-Análisis del caso de uso `mostrarMenu()` mediante diagrama de colaboración MVC, identificando clases de análisis y sus interacciones conceptuales para realizar el caso de uso.
+Análisis del caso de uso `completarGestion()` mediante diagrama de colaboración MVC, identificando clases de análisis y sus interacciones conceptuales para realizar el caso de uso.
+
+### rol metodológico del caso de uso
+
+`completarGestion()` es el **caso de uso de convergencia** del sistema SigHor, funcionando como:
+
+- **Hub central de navegación**: Punto de retorno común desde todas las funcionalidades específicas
+- **Coordinador de capacidades**: Presenta al usuario todas las opciones disponibles según sus permisos
+- **Mantenedor de contexto**: Preserva la sesión activa mientras permite acceso a cualquier funcionalidad
+
+**Invocación**: Este caso de uso es invocado por:
+1. **`iniciarSesion()`** - Al establecer sesión exitosa inicialmente
+2. **Todos los casos de uso de gestión** - Al completar operaciones CRUD (`abrirProgramas()`, `abrirCursos()`, etc.)
+3. **Casos de uso de proceso** - Al finalizar procesos específicos (`generarHorario()`, `consultarHorario()`, etc.)
+
+**Resultado**: Mantiene al sistema en estado `SISTEMA_DISPONIBLE`, permitiendo solicitar cualquier funcionalidad del diagrama de contexto.
 
 ## diagrama de colaboración
 
 <div align=center>
 
-|![Análisis mostrarMenu()](/images/RUP/01-analisis/casos-uso/mostrarMenu/mostrarMenu-analisis.svg)|
+|![Análisis completarGestion()](/images/RUP/01-analisis/casos-uso/completarGestion/completarGestion-analisis.svg)|
 |-|
 |**Disciplina**: Análisis RUP<br>**Enfoque**: Diagramas de colaboración MVC|
 
@@ -35,12 +50,12 @@ Análisis del caso de uso `mostrarMenu()` mediante diagrama de colaboración MVC
 ### clases view (azul #629EF9)
 |Clase|Responsabilidad|Derivación|
 |-|-|-|
-|**MenuView**|Ventana principal de navegación del sistema|Wireframe SALT|
+|**GestionView**|Ventana principal de navegación del sistema|Wireframe SALT|
 
 ### clases controller (verde #b5bd68)
 |Clase|Responsabilidad|Caso de uso|
 |-|-|-|
-|**MostrarMenuController**|Control y coordinación completa del caso de uso|mostrarMenu()|
+|**CompletarGestionController**|Control y coordinación completa del caso de uso|completarGestion()|
 
 ### colaboraciones (verde claro #CDEBA5)
 |Colaboración|Propósito|Invocación|
@@ -61,36 +76,36 @@ Análisis del caso de uso `mostrarMenu()` mediante diagrama de colaboración MVC
 ### flujo principal
 |Origen|Destino|Mensaje|Intención|
 |-|-|-|-|
-|**Administrador**|**MenuView**|`disponibilizarSistema()`|Solicitar disponibilizar sistema|
-|**MenuView**|**MostrarMenuController**|`habilitarOpciones(administrador)`|Delegar habilitación de opciones|
-|**MostrarMenuController**|**Sesion**|`getUsuario()`|Obtener información del usuario autenticado|
-|**MostrarMenuController**|**PermisosRepository**|`obtenerOpciones(usuario)`|Obtener opciones disponibles para el usuario|
-|**MostrarMenuController**|**OpcionesMenu**|`crearOpciones(opciones)`|Crear estructura de opciones|
-|**MenuView**|**OpcionesMenu**|`getOpciones()`|Obtener opciones para presentar|
-|**MenuView**|**:Collaboration [Según selección]**|`abrirX() / asignarX() / generarX() / etc.`|Invocar colaboración según opción seleccionada|
+|**:Sistema Disponible**|**GestionView**|`disponibilizarSistema()`|Resultado de iniciarSesion() invoca completarGestion()|
+|**GestionView**|**CompletarGestionController**|`habilitarOpciones(administrador)`|Delegar habilitación de opciones|
+|**CompletarGestionController**|**Sesion**|`getUsuario()`|Obtener información del usuario autenticado|
+|**CompletarGestionController**|**PermisosRepository**|`obtenerOpciones(usuario)`|Obtener opciones disponibles para el usuario|
+|**CompletarGestionController**|**OpcionesMenu**|`crearOpciones(opciones)`|Crear estructura de opciones|
+|**GestionView**|**OpcionesMenu**|`getOpciones()`|Obtener opciones para presentar|
+|**GestionView**|**:Collaboration [Según selección]**|`abrirX() / asignarX() / generarX() / etc.`|Invocar colaboración según opción seleccionada|
 
 ## enlaces de dependencia
-- **MenuView** conoce a **MostrarMenuController** (delegación)
-- **MenuView** conoce a **OpcionesMenu** (acceso a opciones)
-- **MenuView** conoce a **Sesion** (acceso a estado)
-- **MenuView** conoce a **todas las colaboraciones** (invocación según selección)
-- **MostrarMenuController** conoce a **PermisosRepository** (obtención opciones)
-- **MostrarMenuController** conoce a **OpcionesMenu** (creación estructura)
-- **MostrarMenuController** conoce a **Sesion** (acceso a usuario)
+- **GestionView** conoce a **CompletarGestionController** (delegación)
+- **GestionView** conoce a **OpcionesMenu** (acceso a opciones)
+- **GestionView** conoce a **Sesion** (acceso a estado)
+- **GestionView** conoce a **todas las colaboraciones** (invocación según selección)
+- **CompletarGestionController** conoce a **PermisosRepository** (obtención opciones)
+- **CompletarGestionController** conoce a **OpcionesMenu** (creación estructura)
+- **CompletarGestionController** conoce a **Sesion** (acceso a usuario)
 - **PermisosRepository** conoce a **OpcionesMenu** (gestión opciones)
 
 ## trazabilidad con artefactos previos
 
 ### con especificación detallada
 - **Estados internos** → **Clases de análisis**
-- **PresentandoMenu** → **MenuView.presentarOpciones()**
-- **EsperandoSeleccion** → **MenuView.seleccionarOpcion()**
+- **PresentandoMenu** → **GestionView.presentarOpciones()**
+- **EsperandoSeleccion** → **GestionView.seleccionarOpcion()**
 - **Opciones del menú** → **OpcionesMenu**
 
 ### con wireframe
-- **Menú principal** → **MenuView**
+- **Menú principal** → **GestionView**
 - **Categorías de opciones** → **OpcionesMenu.organizarPorCategoria()**
-- **Botones de selección** → **MenuView.seleccionarOpcion()**
+- **Botones de selección** → **GestionView.seleccionarOpcion()**
 
 ### con modelo del dominio
 - **Usuario** (entidad) → **Sesion.getUsuario()**
@@ -99,8 +114,8 @@ Análisis del caso de uso `mostrarMenu()` mediante diagrama de colaboración MVC
 ## principios de análisis aplicados
 
 ### patrón mvc
-- **Un controlador por caso de uso**: MostrarMenuController
-- **Vista derivada de prototipo**: MenuView desde wireframe SALT
+- **Un controlador por caso de uso**: CompletarGestionController
+- **Vista derivada de prototipo**: GestionView desde wireframe SALT
 - **Modelo del dominio**: OpcionesMenu con trazabilidad directa
 
 ### diagramas de colaboración
@@ -110,14 +125,14 @@ Análisis del caso de uso `mostrarMenu()` mediante diagrama de colaboración MVC
 
 ### análisis puro
 - **Sin tecnología**: PermisosRepository es concepto, no implementación
-- **Sin detalles de UI**: MenuView es interfaz conceptual
+- **Sin detalles de UI**: GestionView es interfaz conceptual
 - **Sin implementación**: mensajes expresan intención de negocio
 
 ## características del análisis
 
 ### responsabilidades identificadas
-- **MenuView**: Habilitar solicitud de opciones y capturar selección del usuario
-- **MostrarMenuController**: Orquestar lógica completa del caso de uso
+- **GestionView**: Habilitar solicitud de opciones y capturar selección del usuario
+- **CompletarGestionController**: Orquestar lógica completa del caso de uso
 - **PermisosRepository**: Proveer acceso conceptual a opciones disponibles
 - **OpcionesMenu**: Representar estructura de opciones disponibles
 - **Sesion**: Mantener estado de autenticación y información del usuario
@@ -131,7 +146,7 @@ Análisis del caso de uso `mostrarMenu()` mediante diagrama de colaboración MVC
 ## naturaleza del diagrama de colaboración
 
 ### capacidades vs ejecución
-- **Capacidades mostradas**: El diagrama muestra todas las colaboraciones que `MenuView` **puede** invocar
+- **Capacidades mostradas**: El diagrama muestra todas las colaboraciones que `GestionView` **puede** invocar
 - **Ejecución real**: En una ejecución específica, solo **una** colaboración es invocada según la selección del usuario
 - **Análisis conceptual**: Se enfoca en responsabilidades y enlaces, no en flujo secuencial específico
 - **Completitud**: Todas las transiciones posibles desde el estado SISTEMA_DISPONIBLE están representadas
@@ -139,9 +154,9 @@ Análisis del caso de uso `mostrarMenu()` mediante diagrama de colaboración MVC
 ## centralidad del caso de uso
 
 ### hub de navegación
-- **Punto de convergencia**: Todos los casos de uso regresan al menú
-- **Punto de divergencia**: Desde el menú se accede a todas las funcionalidades
-- **Multiplicidad de colaboraciones**: Conecta con todos los casos de uso del sistema
+- **Punto de convergencia**: Todos los casos de uso regresan al estado `SISTEMA_DISPONIBLE` vía `completarGestion()`
+- **Punto de divergencia**: Desde aquí se accede a todas las funcionalidades del sistema
+- **Multiplicidad de colaboraciones**: Conecta con todos los casos de uso según el patrón metodológico establecido
 
 ### gestión de flujo
 - **Control de navegación**: Determina qué opciones están disponibles
@@ -164,6 +179,6 @@ Análisis del caso de uso `mostrarMenu()` mediante diagrama de colaboración MVC
 
 ## referencias
 
-- [Especificación detallada](../../00-casos-uso/02-detalle/mostrarMenu/README.md)
+- [Especificación detallada](../../00-casos-uso/02-detalle/completarGestion/README.md)
 - [Modelo del dominio](../../00-casos-uso/00-modelo-del-dominio/modelo-dominio.md)
 - [conversation-log.md](../../../../conversation-log.md) - Metodología de análisis RUP

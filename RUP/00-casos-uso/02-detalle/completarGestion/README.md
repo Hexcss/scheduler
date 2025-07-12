@@ -1,4 +1,4 @@
-# SigHor - Caso de uso detallado: mostrarMenu()
+# SigHor - Caso de uso detallado: completarGestion()
 
 ## información del artefacto
 
@@ -11,13 +11,13 @@
 
 ## propósito
 
-Especificación detallada del caso de uso `mostrarMenu()` mediante diagrama de estado, mostrando la conversación completa entre el Administrador y el Sistema para la presentación del menú principal.
+Especificación detallada del caso de uso `completarGestion()` mediante diagrama de estado, mostrando la conversación completa entre el Administrador y el Sistema para la presentación del sistema principal.
 
 ## información del caso de uso
 
 |Atributo|Valor|
 |-|-|
-|**Nombre**|mostrarMenu()|
+|**Nombre**|completarGestion()|
 |**Actor primario**|Administrador|
 |**Objetivo**|Disponibilizar sistema con capacidad de solicitar todas las funcionalidades|
 |**Tipo**|Primario, esencial|
@@ -30,7 +30,7 @@ Especificación detallada del caso de uso `mostrarMenu()` mediante diagrama de e
 
 <div align=center>
 
-|![Caso de uso: mostrarMenu()](/images/RUP/00-casos-uso/02-detalle/mostrarMenu/mostrarMenu.svg)|
+|![Caso de uso: completarGestion()](/images/RUP/00-casos-uso/02-detalle/completarGestion/completarGestion.svg)|
 |-|
 |Código fuente: [especificacion.puml](especificacion.puml)|
 
@@ -43,21 +43,21 @@ Especificación detallada del caso de uso `mostrarMenu()` mediante diagrama de e
 
 ### wireframes
 
-#### pantalla 1: menú principal
+#### pantalla 1: sistema principal
 <div align=center>
 
-|![Wireframe: Menú principal](/images/RUP/00-casos-uso/02-detalle/mostrarMenu/mostrarMenu-wireframe.svg)|
+|![Wireframe: Panel principal](/images/RUP/00-casos-uso/02-detalle/completarGestion/completarGestion-wireframe.svg)|
 |-|
 |**Estado**: PresentandoMenu|
 
 </div>
 
 **Correspondencia con especificación:**
-- Sistema "presenta menú principal"
+- Sistema "presenta panel principal"
 - Actor "visualiza opciones disponibles"
 
 ### validaciones del wireframe
-- ¿El menú refleja correctamente todas las opciones del diagrama de contexto?
+- ¿El sistema refleja correctamente todas las opciones del diagrama de contexto?
 - ¿Es clara la organización de las opciones por categorías?
 - ¿La terminología es consistente con otros casos de uso?
 - ¿Faltan elementos en la especificación que el wireframe revela?
@@ -78,10 +78,10 @@ Especificación detallada del caso de uso `mostrarMenu()` mediante diagrama de e
 
 |Estado|Descripción|Responsabilidad|
 |-|-|-|
-|**PresentandoMenu**|Estado donde se muestra el menú principal con todas las opciones|Sistema debe presentar todas las opciones de navegación|
+|**PresentandoMenu**|Estado donde se muestra el sistema principal con todas las opciones|Sistema debe presentar todas las opciones de navegación|
 |**EsperandoSeleccion**|Usuario está evaluando opciones disponibles|Sistema permanece disponible para recibir selección|
 
-## opciones del menú
+## opciones del sistema
 
 ### gestión de datos maestros
 - **Gestionar Programas**: Navegar a `abrirProgramas()`
@@ -102,18 +102,18 @@ Especificación detallada del caso de uso `mostrarMenu()` mediante diagrama de e
 ## conexión con diagrama de contexto
 
 Este caso de uso corresponde a la transición:
-- **SISTEMA_DISPONIBLE** → `mostrarMenu()` → **SISTEMA_DISPONIBLE** (autorreflexivo)
+- **SISTEMA_DISPONIBLE** → `completarGestion()` → **SISTEMA_DISPONIBLE** (autorreflexivo)
 
 Y también a todas las transiciones de retorno desde estados específicos:
-- **PROGRAMAS_ABIERTO** → `mostrarMenu()` → **SISTEMA_DISPONIBLE**
-- **CURSOS_ABIERTO** → `mostrarMenu()` → **SISTEMA_DISPONIBLE**
-- **PROFESORES_ABIERTO** → `mostrarMenu()` → **SISTEMA_DISPONIBLE**
-- **EDIFICIOS_ABIERTO** → `mostrarMenu()` → **SISTEMA_DISPONIBLE**
-- **AULAS_ABIERTO** → `mostrarMenu()` → **SISTEMA_DISPONIBLE**
-- **RECURSOS_ABIERTO** → `mostrarMenu()` → **SISTEMA_DISPONIBLE**
-- **PROFESOR_ASIGNATURAS_ABIERTO** → `mostrarMenu()` → **SISTEMA_DISPONIBLE**
-- **HORARIO_GENERADO** → `mostrarMenu()` → **SISTEMA_DISPONIBLE**
-- **HORARIO_ABIERTO** → `mostrarMenu()` → **SISTEMA_DISPONIBLE**
+- **PROGRAMAS_ABIERTO** → `completarGestion()` → **SISTEMA_DISPONIBLE**
+- **CURSOS_ABIERTO** → `completarGestion()` → **SISTEMA_DISPONIBLE**
+- **PROFESORES_ABIERTO** → `completarGestion()` → **SISTEMA_DISPONIBLE**
+- **EDIFICIOS_ABIERTO** → `completarGestion()` → **SISTEMA_DISPONIBLE**
+- **AULAS_ABIERTO** → `completarGestion()` → **SISTEMA_DISPONIBLE**
+- **RECURSOS_ABIERTO** → `completarGestion()` → **SISTEMA_DISPONIBLE**
+- **PROFESOR_ASIGNATURAS_ABIERTO** → `completarGestion()` → **SISTEMA_DISPONIBLE**
+- **HORARIO_GENERADO** → `completarGestion()` → **SISTEMA_DISPONIBLE**
+- **HORARIO_ABIERTO** → `completarGestion()` → **SISTEMA_DISPONIBLE**
 
 La especificación detalla el interior del estado **SISTEMA_DISPONIBLE** del diagrama de contexto del Administrador de Horarios.
 
@@ -122,7 +122,7 @@ La especificación detalla el interior del estado **SISTEMA_DISPONIBLE** del dia
 ### actor (Administrador)
 - **necesita**: expresa la intención de realizar una acción
 - **visualiza**: observa y comprende las opciones presentadas
-- **selecciona**: elige una opción específica del menú
+- **selecciona**: elige una opción específica del sistema
 
 ### sistema
 - **permite**: habilita la capacidad de solicitar funcionalidades

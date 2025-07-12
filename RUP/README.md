@@ -17,7 +17,7 @@ Esto a modo de mapa inicial, luego lo refinamos.
 |Caso de uso|[Detalle](/RUP/00-casos-uso/02-detalle/)|Prototipo|[Análisis](/RUP/01-analisis/casos-uso/)|Diseño|Desarrollo|Pruebas|Comentario|
 |-|:-:|:-:|:-:|:-:|:-:|:-:|-|
 |**iniciarSesion()** |[🗒️](/RUP/00-casos-uso/02-detalle/iniciarSesion/README.md#diagrama-de-especificación)|[🗒️](/RUP/00-casos-uso/02-detalle/iniciarSesion/README.md#prototipo-de-interfaz)|[🗒️](/RUP/01-analisis/casos-uso/iniciarSesion/README.md)|⚪|⚪|⚪|
-|***mostrarMenu()***   |[🗒️](/RUP/00-casos-uso/02-detalle/mostrarMenu/README.md#diagrama-de-especificación)|[🗒️](/RUP/00-casos-uso/02-detalle/mostrarMenu/README.md#prototipo-de-interfaz)|[🗒️](/RUP/01-analisis/casos-uso/mostrarMenu/README.md)|⚪|⚪|⚪|*Se mantiene temporalmente*
+|***completarGestion()***   |[🗒️](/RUP/00-casos-uso/02-detalle/completarGestion/README.md#diagrama-de-especificación)|[🗒️](/RUP/00-casos-uso/02-detalle/completarGestion/README.md#prototipo-de-interfaz)|[🗒️](/RUP/01-analisis/casos-uso/completarGestion/README.md)|⚪|⚪|⚪|*Nomenclatura actualizada*
 |**abrirProgramas()**|[🗒️](/RUP/00-casos-uso/02-detalle/abrirProgramas/README.md#diagrama-de-especificación)|[🗒️](/RUP/00-casos-uso/02-detalle/abrirProgramas/README.md#prototipo-de-interfaz)|⚪|⚪|⚪|⚪|
 |**abrirCursos()**|[🗒️](/RUP/00-casos-uso/02-detalle/abrirCursos/README.md#diagrama-de-especificación)|⚪|⚪|⚪|⚪|⚪|
 |**abrirProfesores()**|⚪|⚪|⚪|⚪|⚪|⚪|

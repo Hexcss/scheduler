@@ -11,32 +11,17 @@ package iniciarSesion as "iniciarSesion()" {
 }
 rectangle #CDEBA5 ":Sistema Disponible" as SistemaDisponible
 
-UsuarioNoRegistrado -r-> LoginView
-note on link
-    iniciarSesion(usuario, contraseña)
-end note
+UsuarioNoRegistrado -r-> LoginView: iniciarSesion(usuario, contraseña)
 
-LoginView -d-> IniciarSesionController
-note on link
-    autenticar(usuario, contraseña) : Sesion
-end note
+LoginView -d-> IniciarSesionController: autenticar(usuario, contraseña) : Sesion
 
-IniciarSesionController --> UsuarioRepository
-note on link
-    validarCredenciales(usuario, contraseña) : Usuario
-end note
+IniciarSesionController --> UsuarioRepository: validarCredenciales(usuario, contraseña) : Usuario
 
 UsuarioRepository -- Usuario
 
-IniciarSesionController --> Sesion
-note on link
-    crearSesion(usuario) : Sesion
-end note
+IniciarSesionController --> Sesion: crearSesion(usuario) : Sesion
 
-LoginView -r-> SistemaDisponible
-note on link
-    sistemaDisponible(administrador)
-end note
+LoginView -r-> SistemaDisponible: sistemaDisponible(administrador)
 
 
 

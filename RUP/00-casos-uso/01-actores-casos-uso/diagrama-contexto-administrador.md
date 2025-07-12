@@ -120,20 +120,20 @@ Todos los casos de uso identificados para el Administrador de Horarios aparecen 
 - **3 casos de uso especiales**: asignarProfesorACurso(), generarHorario(), consultarHorario()
 - **6 casos de uso de navegación inicial**: abrirX() desde SISTEMA_DISPONIBLE  
 - **2 casos de uso de autenticación/navegación**: iniciarSesion(), cerrarSesion()
-- **9 casos de uso de retorno al menú**: mostrarMenu() desde estados X_ABIERTO y especiales
+- **9 casos de uso de retorno al menú**: completarGestion() desde estados X_ABIERTO y especiales
 
 ### Casos de uso de navegación granular
 El patrón granular y la optimización aplicada revelan:
 - **Estados X_ABIERTO**: Casos de uso abrirX() desde SISTEMA_DISPONIBLE y navegación interna
-- **Navegación unificada**: mostrarMenu() como caso de uso único para retorno al menú
-- **Separación de responsabilidades**: iniciarSesion() autentica y da acceso al sistema, mostrarMenu() navega desde cualquier estado
+- **Navegación unificada**: completarGestion() como caso de uso único para retorno al menú
+- **Separación de responsabilidades**: iniciarSesion() autentica y da acceso al sistema, completarGestion() navega desde cualquier estado
 
 ### Optimización del flujo
 - **Eliminación in situ**: eliminarX() permanece en X_ABIERTO (sin cambio de estado)
 - **Edición continua**: editarX() autorreflexivo en X_ABIERTO
 - **Estado especializado**: PROFESOR_PREFERENCIAS_ABIERTO para configuración específica
 - **Navegación bidireccional**: Entre PROFESOR_ABIERTO y PROFESOR_PREFERENCIAS_ABIERTO
-- **Caso de uso unificado**: mostrarMenu() reemplaza volverAlMenu() y complementa iniciarSesion()
+- **Caso de uso unificado**: completarGestion() reemplaza volverAlMenu() y complementa iniciarSesion()
 
 ## Características del diseño
 
@@ -170,12 +170,12 @@ El diseño permite agregar nuevas entidades siguiendo el patrón X_ABIERTO estab
 - **Crear mínimo → editar**: Flujo natural de creación
 - **Edición continua**: Optimización de experiencia de trabajo
 - **Eliminación in situ**: Operación sin cambio de contexto
-- **Navegación unificada**: mostrarMenu() como punto único de acceso al menú principal
+- **Navegación unificada**: completarGestion() como punto único de acceso al menú principal
 
 ### Separación de responsabilidades optimizada
 - **iniciarSesion()**: Proceso de autenticación y acceso al sistema
-- **mostrarMenu()**: Navegación al sistema disponible desde cualquier estado
-- **Reutilización**: mostrarMenu() desde múltiples contextos
+- **completarGestion()**: Navegación al sistema disponible desde cualquier estado
+- **Reutilización**: completarGestion() desde múltiples contextos
 
 ### Rigor metodológico aplicado
 - **Transiciones separadas**: crear/editar como decisiones independientes del usuario (aplicado a todas las 6 entidades)

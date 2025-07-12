@@ -1,8 +1,8 @@
-@startuml mostrarMenu
+@startuml completarGestion
 
 skinparam linetype polyline
 
-state mostrarMenu as "mostrarMenu()" {
+state completarGestion as "completarGestion()" {
 
     state " " as PresentandoMenu
     state " " as EsperandoSeleccion
@@ -33,52 +33,52 @@ state mostrarMenu as "mostrarMenu()" {
     end note
 }
 
-mostrarMenu -[#green]-> PROGRAMAS_ABIERTO
+completarGestion -[#green]-> PROGRAMAS_ABIERTO
 note on link
 abrirProgramas()
 end note
 
-mostrarMenu -[#green]-> CURSOS_ABIERTO
+completarGestion -[#green]-> CURSOS_ABIERTO
 note on link
 abrirCursos()
 end note
 
-mostrarMenu -[#green]-> PROFESORES_ABIERTO
+completarGestion -[#green]-> PROFESORES_ABIERTO
 note on link
 abrirProfesores()
 end note
 
-mostrarMenu -[#green]-> EDIFICIOS_ABIERTO
+completarGestion -[#green]-> EDIFICIOS_ABIERTO
 note on link
 abrirEdificios()
 end note
 
-mostrarMenu -[#green]-> AULAS_ABIERTO
+completarGestion -[#green]-> AULAS_ABIERTO
 note on link
 abrirAulas()
 end note
 
-mostrarMenu -[#green]-> RECURSOS_ABIERTO
+completarGestion -[#green]-> RECURSOS_ABIERTO
 note on link
 abrirRecursos()
 end note
 
-mostrarMenu -[#green]-> PROFESOR_ASIGNATURAS_ABIERTO
+completarGestion -[#green]-> PROFESOR_ASIGNATURAS_ABIERTO
 note on link
 asignarProfesorACurso()
 end note
 
-mostrarMenu -[#green]-> HORARIO_GENERADO
+completarGestion -[#green]-> HORARIO_GENERADO
 note on link
 generarHorario()
 end note
 
-mostrarMenu -[#green]-> HORARIO_ABIERTO
+completarGestion -[#green]-> HORARIO_ABIERTO
 note on link
 consultarHorario()
 end note
 
-mostrarMenu -[#green]-> SESION_CERRADA
+completarGestion -[#green]-> SESION_CERRADA
 note on link
 cerrarSesion()
 end note

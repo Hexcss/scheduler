@@ -86,7 +86,7 @@ Especificación detallada del caso de uso `abrirCursos()` mediante diagrama de e
 - **Solicitar eliminar curso** → Navegar a `eliminarCurso()`
 
 ### navegación del sistema
-- **Solicitar mostrar menú** → Navegar a `mostrarMenu()`
+- **Solicitar mostrar menú** → Navegar a `completarGestion()`
 
 ## conexión con diagrama de contexto
 
@@ -97,7 +97,7 @@ Y las transiciones de salida:
 - **CURSOS_ABIERTO** → `crearCurso()` → **CURSO_ABIERTO**
 - **CURSOS_ABIERTO** → `editarCurso()` → **CURSO_ABIERTO**
 - **CURSOS_ABIERTO** → `eliminarCurso()` → **CURSOS_ABIERTO**
-- **CURSOS_ABIERTO** → `mostrarMenu()` → **SISTEMA_DISPONIBLE**
+- **CURSOS_ABIERTO** → `completarGestion()` → **SISTEMA_DISPONIBLE**
 
 ## vocabulario utilizado
 
@@ -140,6 +140,6 @@ Y las transiciones de salida:
 
 - [Diagrama de contexto - Administrador](../../01-actores-casos-uso/diagrama-contexto-administrador.md)
 - [Modelo del dominio](../../00-modelo-del-dominio/modelo-dominio.md)
-- [mostrarMenu()](../mostrarMenu/README.md) - Caso de uso previo
+- [completarGestion()](../mostrarMenu/README.md) - Caso de uso previo
 - [abrirProgramas()](../abrirProgramas/README.md) - Caso de uso similar
 - [conversation-log.md](../../../../conversation-log.md) - Metodología de especificación detallada

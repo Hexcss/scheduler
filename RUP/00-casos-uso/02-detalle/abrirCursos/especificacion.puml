@@ -51,7 +51,7 @@ end note
 
 abrirCursos -[#green]-> SISTEMA_DISPONIBLE
 note on link
-mostrarMenu()
+completarGestion()
 end note
 
 @enduml

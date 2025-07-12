@@ -41,7 +41,7 @@ state iniciarSesion as "iniciarSesion()" {
 iniciarSesion -[#green]-> SISTEMA_DISPONIBLE
 note on link
 UsuarioNoRegistrado → Administrador
-mostrarMenu()
+completarGestion()
 end note
 
 @enduml
