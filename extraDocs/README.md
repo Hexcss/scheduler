@@ -30,6 +30,7 @@ XXX-nombre-del-articulo/
 | 003 | [La promesa de RUP: análisis independiente de tecnología - experimento metodológico en tiempo real](003-rup-independencia-tecnologica/articulo.md) | [Por determinar] | Experimentación metodológica |
 | 004 | [Dashboard visual RUP: diagrama de contexto como herramienta de gestión de proyecto](004-dashboard-visual-rup-casos-uso/articulo.md) | [Por determinar] | Innovación metodológica |
 | 005 | [Aplicación de etiquetado ético en colaboración humano-IA: caso de estudio pySigHor](005-etiquetado-etico-colaboracion-humano-ia/articulo.md) | [Por determinar] | Ética en colaboración humano-IA |
+| 006 | [Reflexión metodológica: delimitación del alcance en diagramas de colaboración RUP](006-reflexion-alcance-casos-uso-colaboracion/articulo.md) | [`b8f36ca`](https://github.com/mmasias/pySigHor/tree/b8f36ca7fd409c16fb03be9e3f21058ee78df985) | Análisis RUP y alcance de casos de uso |
 
 ## Uso didáctico
 

@@ -2142,4 +2142,211 @@ La corrección mejora significativamente las condiciones para el experimento de 
 
 ---
 
+## Conversación 22: Dashboard Visual RUP y Reflexión sobre Alcance de Casos de Uso
+**Fecha**: 2025-01-12  
+**Participantes**: Manuel (Usuario) + Claude Code
+
+### Contexto de la Sesión
+
+#### Estado inicial del proyecto
+- **Dashboard visual implementado**: Sistema de colores en diagrama de contexto funcional
+- **Progreso RUP consolidado**: 
+  - `iniciarSesion()` y `mostrarMenu()` con análisis MVC completo
+  - `abrirProgramas()` con especificación y prototipo completos
+  - `abrirCursos()` con especificación detallada
+
+#### Error crítico detectado
+Manuel identifica modificación incorrecta del diagrama de contexto oficial:
+> "No!!!!!!!!!!!!!!! No tocamos el diagrama de contexto oficial! Tenemos la carpeta de 99-seguimiento donde está el dashboard :(<"
+
+### Corrección del Error
+
+#### Problema identificado
+- **Archivo modificado incorrectamente**: `/RUP/00-casos-uso/01-actores-casos-uso/diagrama-contexto-administrador.puml`
+- **Principio violado**: Separación entre artefactos oficiales y seguimiento
+- **Solución requerida**: Revertir cambios oficiales, actualizar solo dashboard
+
+#### Acciones correctivas ejecutadas
+1. **Reversión completa**: `git restore` del diagrama oficial
+2. **Actualización correcta**: Dashboard en `99-seguimiento/` con estados reales
+3. **Verificación**: Confirmación de que archivos oficiales permanecen intactos
+
+### Análisis del Estado Real del Proyecto
+
+#### Exploración sistemática de artefactos RUP
+Análisis exhaustivo de `/RUP/` para determinar estado real:
+
+**Casos de uso completados hasta Análisis:**
+- ✅ **`iniciarSesion()`**: Especificación + Prototipos + Análisis MVC
+- ✅ **`mostrarMenu()`**: Especificación + Prototipo + Análisis MVC
+
+**Casos de uso en Detalle/Prototipado:**
+- 🟠 **`abrirProgramas()`**: Especificación + Prototipo (listo para análisis)
+- 🟡 **`abrirCursos()`**: Solo especificación (requiere prototipo)
+
+**Casos de uso solo identificados:**
+- ⚪ **45 casos restantes**: Solo presentes en diagrama de contexto
+
+#### Actualización del dashboard con estados reales
+Dashboard actualizado refleja progreso auténtico:
+- **Análisis completado** (darkgoldenrod, thickness=2): `iniciarSesion()`, `mostrarMenu()`
+- **Detalle completado** (red, thickness=2): `abrirProgramas()`
+- **Detalle parcial** (red, thickness=1): `abrirCursos()`
+- **Solo identificados** (gray, dotted): Resto de casos de uso
+
+### Reflexión Metodológica Crítica sobre `mostrarMenu()`
+
+#### Cuestionamiento fundamental planteado
+Manuel identifica tensión conceptual importante:
+> "Me estoy cuestionando que el diagrama de colaboración (en análisis) de mostrarMenu() deba indicar las salidas... Por eso teníamos el debate de si mostrar dos veces al actor. Creo que se lleva al sistema a un estado, pero lo que siga ya no le corresponde (y no deberia modelarse)."
+
+#### Evolución del entendimiento
+**Malentendido inicial aclarado:**
+- Manuel se refería al **diagrama de colaboración**, no al diagrama de contexto
+- Análisis del cambio real: Líneas sólidas → líneas punteadas en colaboraciones externas
+- Problema identificado: Representación "contractual" incorrecta
+
+### Análisis del Problema de Alcance
+
+#### Estado original problemático
+```plantuml
+MenuView --> AbrirProgramas : abrirProgramas()
+MenuView --> AbrirCursos : abrirCursos()
+```
+
+**Problemas identificados:**
+- **Exceso de responsabilidad**: `mostrarMenu()` parecía ejecutar navegaciones automáticamente
+- **Naturaleza "contractual" errónea**: Implicaba comportamiento determinístico
+- **Confusión de alcances**: Mezclaba "mostrar opciones" con "procesar selecciones"
+- **Flujo de control incorrecto**: Sistema vs usuario decidiendo navegaciones
+
+#### Solución implementada
+```plantuml
+MenuView ..> AbrirProgramas : abrirProgramas()
+MenuView ..> AbrirCursos : abrirCursos()
+```
+
+**Mejoras conceptuales:**
+- **Líneas punteadas**: Indican disponibilidad, no ejecución automática
+- **Semántica correcta**: Capacidades disponibles vs ejecuciones automáticas
+- **Responsabilidad delimitada**: `mostrarMenu()` se limita a presentar opciones
+- **Independencia preservada**: Cada colaboración mantiene autonomía conceptual
+
+### Documentación de la Reflexión Metodológica
+
+#### Creación de artículo estructurado
+**Artículo 006 creado**: `extraDocs/006-reflexion-alcance-casos-uso-colaboracion/`
+
+**Estructura completa:**
+- **`articulo.md`**: Reflexión metodológica integral con enlaces a commits
+- **`contexto.md`**: Documentación del proceso de descubrimiento
+- **`evidencia.md`**: Comparación técnica y evidencias del refinamiento
+
+#### Contenido del artículo
+**Análisis del problema:**
+- Estado inicial con conexiones "contractuales" problemáticas
+- Tensión conceptual identificada durante revisión
+- Cuestionamiento del alcance real de `mostrarMenu()`
+
+**Solución refinada:**
+- Cambio de semántica visual (sólidas → punteadas)
+- Delimitación clara de responsabilidades
+- Preservación de independencia conceptual
+
+**Principios metodológicos extraídos:**
+1. **Responsabilidad única en casos de uso**
+2. **Diferenciación entre capacidad y ejecución**
+3. **Preservación de autonomía conceptual**
+4. **Representación honesta del flujo de control**
+
+### Documentación Conceptual Agregada
+
+#### Explicación explícita en diagrama
+> **Colaboraciones externas activables a partir de este caso de uso (no parte del caso de uso mostrarMenu()):**
+> 
+> El caso de uso mostrarMenu() tiene como propósito principal presentar al usuario las opciones disponibles en función de sus permisos. Una vez mostrado el menú, el usuario puede seleccionar cualquiera de estas opciones, las cuales activan otros casos de uso del sistema.
+>
+> Estas colaboraciones representan puntos de continuación que no forman parte del flujo interno de mostrarMenu(), pero que pueden ser iniciadas inmediatamente después por decisión del actor.
+
+### Trazabilidad Completa
+
+#### Enlaces a commits específicos
+**Versión original (problemática):**
+- Código: [b499616](https://github.com/mmasias/pySigHor/blob/b4996160b77a633d4a21453bcf5f8ea6597ed1e8/RUP/01-analisis/casos-uso/mostrarMenu/colaboracion.puml)
+- SVG: [mostrarMenu-analisis.svg](https://github.com/mmasias/pySigHor/blob/b4996160b77a633d4a21453bcf5f8ea6597ed1e8/images/RUP/01-analisis/casos-uso/mostrarMenu/mostrarMenu-analisis.svg)
+
+**Versión refinada (correcta):**
+- Código: [b8f36ca](https://github.com/mmasias/pySigHor/blob/b8f36ca7fd409c16fb03be9e3f21058ee78df985/RUP/01-analisis/casos-uso/mostrarMenu/colaboracion.puml)
+- SVG: [mostrarMenu-analisis.svg](https://github.com/mmasias/pySigHor/blob/b8f36ca7fd409c16fb03be9e3f21058ee78df985/images/RUP/01-analisis/casos-uso/mostrarMenu/mostrarMenu-analisis.svg)
+
+### Corrección de Estados en Dashboard
+
+#### Inconsistencia detectada
+Manuel identifica que no todas las transiciones `mostrarMenu()` estaban actualizadas:
+> "por qué no has actualizado en el diagrama todos los mostrarMenu()?"
+
+#### Corrección sistemática aplicada
+- **9 transiciones `mostrarMenu()` identificadas**: Todas actualizadas a estado de análisis completado
+- **Coherencia restaurada**: Dashboard refleja que `mostrarMenu()` tiene análisis completo
+- **Consistencia metodológica**: Todas las invocaciones del caso de uso muestran su estado real
+
+### Impacto en la Calidad del Proyecto
+
+#### Mejoras en precisión conceptual
+- **Diagramas más precisos**: Semántica UML correcta aplicada
+- **Responsabilidades claras**: Delimitación exacta entre casos de uso
+- **Trazabilidad mejorada**: Facilita transición a fases de diseño e implementación
+- **Precedente establecido**: Criterios claros para análisis futuros
+
+#### Preparación para casos de uso futuros
+**Aplicabilidad de principios:**
+- `iniciarSesion()`: Revisar flujos posteriores al login
+- `abrirProgramas()`: Delimitar navegación vs operaciones CRUD
+- Casos complejos futuros: Aplicar criterios de delimitación
+
+### Lecciones Metodológicas Fundamentales
+
+#### Sobre análisis RUP
+- **Iteración reflexiva esencial**: Cuestionamiento constante mejora calidad
+- **Semántica UML crítica**: Representaciones visuales tienen implicaciones profundas
+- **Delimitación precisa beneficiosa**: Responsabilidades claras facilitan fases posteriores
+- **Documentación del proceso valiosa**: Registro de pensamiento metodológico
+
+#### Sobre gestión de proyecto
+- **Separación de concerns**: Artefactos oficiales vs herramientas de seguimiento
+- **Trazabilidad completa**: Enlaces a commits específicos para evidencia
+- **Reflexión estructurada**: Documentación de lecciones aprendidas
+- **Aplicabilidad**: Principios transferibles a otros contextos
+
+### Calidad del Resultado Final
+
+#### Dashboard visual refinado
+- **Estados auténticos**: Refleja progreso real del proyecto
+- **Consistencia total**: Todas las transiciones `mostrarMenu()` actualizadas
+- **Separación correcta**: Oficial vs seguimiento respetada
+- **Utilidad demostrada**: Herramienta efectiva de gestión de proyecto
+
+#### Análisis metodológico documentado
+- **Artículo estructurado**: Reflexión completa con evidencia
+- **Principios extraídos**: Aplicables a análisis futuros
+- **Precedente establecido**: Estándar de calidad para refinamiento conceptual
+- **Material didáctico**: Valor educativo para enseñanza de RUP
+
+### Preparación para Próximas Iteraciones
+
+#### Casos de uso candidatos
+- **`iniciarSesion()`**: Aplicar mismos principios de delimitación
+- **`abrirProgramas()`**: Avanzar a fase de análisis con criterios claros
+- **Navegaciones complejas**: Usar principios establecidos
+
+#### Estándares consolidados
+- **Criterios de delimitación**: ¿Quién decide? ¿Sistema o usuario?
+- **Semántica UML**: Líneas sólidas vs punteadas para diferentes relaciones
+- **Documentación**: Registro de reflexiones metodológicas importantes
+- **Trazabilidad**: Enlaces específicos a commits para evidencia
+
+**Esta sesión marca un hito importante en la madurez metodológica del proyecto, donde la reflexión crítica sobre representaciones iniciales lleva a refinamientos conceptuales que fortalecen significativamente la base para fases posteriores del desarrollo RUP.**
+
+---
+
 *Este registro se actualizará continuamente conforme avance el proyecto*
