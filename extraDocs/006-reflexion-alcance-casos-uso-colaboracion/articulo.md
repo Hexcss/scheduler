@@ -10,7 +10,10 @@ Esta reflexión surgió al crear el diagrama de colaboración para `mostrarMenu(
 
 ### Estado inicial del diagrama
 
-En la primera versión del diagrama de colaboración ([commit b499616](https://github.com/usuario/pySigHor/blob/b499616/RUP/01-analisis/casos-uso/mostrarMenu/colaboracion.puml)), las conexiones entre `MenuView` y las colaboraciones externas eran representadas con flechas sólidas:
+En la primera versión del diagrama de colaboración, las conexiones entre `MenuView` y las colaboraciones externas eran representadas con flechas sólidas:
+
+|![commit b499616](https://raw.githubusercontent.com/mmasias/pySigHor/b4996160b77a633d4a21453bcf5f8ea6597ed1e8/images/RUP/01-analisis/casos-uso/mostrarMenu/mostrarMenu-analisis.svg)
+|-
 
 ```plantuml
 MenuView --> AbrirProgramas
@@ -54,9 +57,14 @@ Las colaboraciones `AbrirProgramas`, `AbrirCursos`, etc., representan **puntos d
 
 ### Cambio en la representación visual
 
-En la versión refinada del diagrama ([commit b8f36ca](https://github.com/usuario/pySigHor/blob/b8f36ca/RUP/01-analisis/casos-uso/mostrarMenu/colaboracion.puml)), modificamos las conexiones:
+En la versión refinada del diagrama, modificamos las conexiones:
 
-```plantuml
+|![](https://raw.githubusercontent.com/mmasias/pySigHor/b8f36ca7fd409c16fb03be9e3f21058ee78df985/images/RUP/01-analisis/casos-uso/mostrarMenu/mostrarMenu-analisis.svg)
+|-
+
+
+
+```
 MenuView ..> AbrirProgramas : abrirProgramas()
 MenuView ..> AbrirCursos : abrirCursos()
 MenuView ..> AbrirProfesores : abrirProfesores()
