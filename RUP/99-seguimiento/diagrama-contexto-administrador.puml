@@ -3,7 +3,7 @@
 left to right direction
 skinparam linetype polyline
 
-legend top left
+legend bottom right
     **Leyenda de Estados RUP**
     ====
     |<#gray>     | Identificado (no iniciado) |
@@ -38,264 +38,59 @@ state "PROFESOR_ASIGNATURAS_ABIERTO" as Asignaciones
 state "HORARIO_GENERADO" as Generacion
 state "HORARIO_ABIERTO" as Consulta
 
-NoAuth -[#darkgoldenrod,thickness=2]-> Menu
-    note on link
-        iniciarSesion()
-    end note
+NoAuth -[#darkgoldenrod,thickness=2]-> Menu: iniciarSesion()
 
-Menu -[#gray,dotted]-> NoAuth
-    note on link
-        cerrarSesion()
-    end note
+Menu -[#gray,dotted]-> NoAuth: cerrarSesion()
+Menu -[#red,thickness=2]-> ListProgramas: abrirProgramas()
+Menu -[#red,thickness=1]-> ListCursos: abrirCursos()
+Menu -[#gray,dotted]-> ListProfesores: abrirProfesores()
+Menu -[#gray,dotted]-> ListEdificios: abrirEdificios()
+Menu -[#gray,dotted]-> ListAulas: abrirAulas()
+Menu -[#gray,dotted]-> ListRecursos: abrirRecursos()
+Menu -[#gray,dotted]-> Generacion: generarHorario()
+Menu -[#gray,dotted]-> Consulta: consultarHorario()
 
-Menu -[#red,thickness=2]-> ListProgramas
-    note on link
-        abrirProgramas()
-    end note
+EditProfesor -[#gray,dotted]-> Asignaciones: asignarProfesorACurso()
 
-Menu -[#red,thickness=1]-> ListCursos
-    note on link
-        abrirCursos()
-    end note
-
-Menu -[#gray,dotted]-> ListProfesores
-    note on link
-        abrirProfesores()
-    end note
-
-Menu -[#gray,dotted]-> ListEdificios
-    note on link
-        abrirEdificios()
-    end note
-
-Menu -[#gray,dotted]-> ListAulas
-    note on link
-        abrirAulas()
-    end note
-
-Menu -[#gray,dotted]-> ListRecursos
-    note on link
-        abrirRecursos()
-    end note
-
-Menu -[#gray,dotted]-> Asignaciones
-    note on link
-        asignarProfesorACurso()
-    end note
-
-Menu -[#gray,dotted]-> Generacion
-    note on link
-        generarHorario()
-    end note
-
-Menu -[#gray,dotted]-> Consulta
-    note on link
-        consultarHorario()
-    end note
-
-ListProgramas -[#gray,dotted]-> EditPrograma
-    note on link
-        crearPrograma()
-    end note
-
-ListProgramas -[#gray,dotted]-> EditPrograma
-    note on link
-        editarPrograma()
-    end note
-
-ListProgramas -[#gray,dotted]-> ListProgramas
-    note on link
-        eliminarPrograma()
-    end note
-
-EditPrograma -[#gray,dotted]-> EditPrograma
-    note on link
-        editarPrograma()
-    end note
-
-EditPrograma -[#gray,dotted]-> ListProgramas
-    note on link
-        abrirProgramas()
-    end note
-
-ListCursos -[#gray,dotted]-> EditCurso
-    note on link
-        crearCurso()
-    end note
-
-ListCursos -[#gray,dotted]-> EditCurso
-    note on link
-        editarCurso()
-    end note
-
-ListCursos -[#gray,dotted]-> ListCursos
-    note on link
-        eliminarCurso()
-    end note
-
-EditCurso -[#gray,dotted]-> EditCurso
-    note on link
-        editarCurso()
-    end note
-
-EditCurso -[#gray,dotted]-> ListCursos
-    note on link
-        abrirCursos()
-    end note
-
-ListProfesores -[#gray,dotted]-> EditProfesor
-    note on link
-        crearProfesor()
-    end note
-
-ListProfesores -[#gray,dotted]-> EditProfesor
-    note on link
-        editarProfesor()
-    end note
-
-ListProfesores -[#gray,dotted]-> ListProfesores
-    note on link
-        eliminarProfesor()
-    end note
-
-EditProfesor -[#gray,dotted]-> EditProfesor
-    note on link
-        editarProfesor()
-    end note
-
-EditProfesor -[#gray,dotted]-> EditProfesorPreferencias
-    note on link
-        configurarPreferenciasProfesor()
-    end note
-
-EditProfesorPreferencias -[#gray,dotted]-> EditProfesor
-    note on link
-        editarProfesor()
-    end note
-    
-EditProfesor -[#gray,dotted]-> ListProfesores
-    note on link
-        abrirProfesores()
-    end note
-
-ListEdificios -[#gray,dotted]-> EditEdificio
-    note on link
-        crearEdificio()
-    end note
-
-ListEdificios -[#gray,dotted]-> EditEdificio
-    note on link
-        editarEdificio()
-    end note
-
-ListEdificios -[#gray,dotted]-> ListEdificios
-    note on link
-        eliminarEdificio()
-    end note
-
-EditEdificio -[#gray,dotted]-> EditEdificio
-    note on link
-        editarEdificio()
-    end note
-
-EditEdificio -[#gray,dotted]-> ListEdificios
-    note on link
-        abrirEdificios()
-    end note
-
-ListAulas -[#gray,dotted]-> EditAula
-    note on link
-        crearAula()
-    end note
-
-ListAulas -[#gray,dotted]-> EditAula
-    note on link
-        editarAula()
-    end note
-
-ListAulas -[#gray,dotted]-> ListAulas
-    note on link
-        eliminarAula()
-    end note
-
-EditAula -[#gray,dotted]-> EditAula
-    note on link
-        editarAula()
-    end note
-
-EditAula -[#gray,dotted]-> ListAulas
-    note on link
-        abrirAulas()
-    end note
-
-ListRecursos -[#gray,dotted]-> EditRecurso
-    note on link
-        crearRecurso()
-    end note
-
-ListRecursos -[#gray,dotted]-> EditRecurso
-    note on link
-        editarRecurso()
-    end note
-
-ListRecursos -[#gray,dotted]-> ListRecursos
-    note on link
-        eliminarRecurso()
-    end note
-
-EditRecurso -[#gray,dotted]-> EditRecurso
-    note on link
-        editarRecurso()
-    end note
-
-EditRecurso -[#gray,dotted]-> ListRecursos
-    note on link
-        abrirRecursos()
-    end note
-
-ListProgramas -[#darkgoldenrod,thickness=2]-> Menu
-    note on link
-        mostrarMenu()
-    end note
-
-ListCursos -[#darkgoldenrod,thickness=2]-> Menu
-    note on link
-        mostrarMenu()
-    end note
-
-ListProfesores -[#darkgoldenrod,thickness=2]-> Menu
-    note on link
-        mostrarMenu()
-    end note
-
-ListEdificios -[#darkgoldenrod,thickness=2]-> Menu
-    note on link
-        mostrarMenu()
-    end note
-
-ListAulas -[#darkgoldenrod,thickness=2]-> Menu
-    note on link
-        mostrarMenu()
-    end note
-
-ListRecursos -[#darkgoldenrod,thickness=2]-> Menu
-    note on link
-        mostrarMenu()
-    end note
-
-Asignaciones -[#darkgoldenrod,thickness=2]-> Menu
-    note on link
-        mostrarMenu()
-    end note
-
-Generacion -[#darkgoldenrod,thickness=2]-> Menu
-    note on link
-        mostrarMenu()
-    end note
-
-Consulta -[#darkgoldenrod,thickness=2]-> Menu
-    note on link
-        mostrarMenu()
-    end note
-
+Asignaciones -[#gray,dotted]-> EditProfesor: editarProfesor()
+ListProgramas -[#gray,dotted]-> EditPrograma: crearPrograma()
+ListProgramas -[#gray,dotted]-> EditPrograma: editarPrograma()
+ListProgramas -[#gray,dotted]-> ListProgramas: eliminarPrograma()
+EditPrograma -[#gray,dotted]-> EditPrograma: editarPrograma()
+EditPrograma -[#gray,dotted]-> ListProgramas: abrirProgramas()
+ListCursos -[#gray,dotted]-> EditCurso: crearCurso()
+ListCursos -[#gray,dotted]-> EditCurso: editarCurso()
+ListCursos -[#gray,dotted]-> ListCursos: eliminarCurso()
+EditCurso -[#gray,dotted]-> EditCurso: editarCurso()
+EditCurso -[#gray,dotted]-> ListCursos: abrirCursos()
+ListProfesores -[#gray,dotted]-> EditProfesor: crearProfesor()
+ListProfesores -[#gray,dotted]-> EditProfesor: editarProfesor()
+ListProfesores -[#gray,dotted]-> ListProfesores: eliminarProfesor()
+EditProfesor -[#gray,dotted]-> EditProfesor: editarProfesor()
+EditProfesor -[#gray,dotted]-> EditProfesorPreferencias: configurarPreferenciasProfesor()
+EditProfesor -[#gray,dotted]-> ListProfesores: abrirProfesores()
+EditProfesorPreferencias -[#gray,dotted]-> EditProfesor: abrirEdicionProfesor()
+ListEdificios -[#gray,dotted]-> EditEdificio: crearEdificio()
+ListEdificios -[#gray,dotted]-> EditEdificio: editarEdificio()
+ListEdificios -[#gray,dotted]-> ListEdificios: eliminarEdificio()
+EditEdificio -[#gray,dotted]-> EditEdificio: editarEdificio()
+EditEdificio -[#gray,dotted]-> ListEdificios: abrirEdificios()
+ListAulas -[#gray,dotted]-> EditAula: crearAula()
+ListAulas -[#gray,dotted]-> EditAula: editarAula()
+ListAulas -[#gray,dotted]-> ListAulas: eliminarAula()
+EditAula -[#gray,dotted]-> EditAula: editarAula()
+EditAula -[#gray,dotted]-> ListAulas: abrirAulas()
+ListRecursos -[#gray,dotted]-> EditRecurso: crearRecurso()
+ListRecursos -[#gray,dotted]-> EditRecurso: editarRecurso()
+ListRecursos -[#gray,dotted]-> ListRecursos: eliminarRecurso()
+EditRecurso -[#gray,dotted]-> EditRecurso: editarRecurso()
+EditRecurso -[#gray,dotted]-> ListRecursos: abrirRecursos()
+ListProgramas -[#darkgoldenrod,thickness=2]-> Menu: mostrarMenu()
+ListCursos -[#darkgoldenrod,thickness=2]-> Menu: mostrarMenu()
+ListProfesores -[#darkgoldenrod,thickness=2]-> Menu: mostrarMenu()
+ListEdificios -[#darkgoldenrod,thickness=2]-> Menu: mostrarMenu()
+ListAulas -[#darkgoldenrod,thickness=2]-> Menu: mostrarMenu()
+ListRecursos -[#darkgoldenrod,thickness=2]-> Menu: mostrarMenu()
+Generacion -[#darkgoldenrod,thickness=2]-> Menu: mostrarMenu()
+Consulta -[#darkgoldenrod,thickness=2]-> Menu: mostrarMenu()
 @enduml

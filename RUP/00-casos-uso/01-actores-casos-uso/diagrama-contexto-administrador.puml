@@ -26,266 +26,76 @@ state "HORARIO_ABIERTO" as Consulta
 
 [*] --> NoAuth
 
-NoAuth --> Menu
-    note on link
-        iniciarSesion()
-    end note
+NoAuth --> Menu : iniciarSesion()
 
-Menu --> NoAuth
-    note on link
-        cerrarSesion()
-    end note
+Menu --> NoAuth : cerrarSesion()
+Menu --> ListProgramas: abrirProgramas()
+Menu --> ListCursos: abrirCursos()
+Menu --> ListProfesores: abrirProfesores()
+Menu --> ListEdificios: abrirEdificios()
+Menu --> ListAulas: abrirAulas()
+Menu --> ListRecursos: abrirRecursos()
+Menu --> Generacion: generarHorario()
+Menu --> Consulta: consultarHorario()
 
-Menu --> ListProgramas
-    note on link
-        abrirProgramas()
-    end note
+EditProfesor --> Asignaciones: asignarProfesorACurso()
 
-Menu --> ListCursos
-    note on link
-        abrirCursos()
-    end note
-
-Menu --> ListProfesores
-    note on link
-        abrirProfesores()
-    end note
-
-Menu --> ListEdificios
-    note on link
-        abrirEdificios()
-    end note
-
-Menu --> ListAulas
-    note on link
-        abrirAulas()
-    end note
-
-Menu --> ListRecursos
-    note on link
-        abrirRecursos()
-    end note
-
-EditProfesor --> Asignaciones
-    note on link
-        asignarProfesorACurso()
-    end note
-
-Asignaciones --> EditProfesor
-    note on link
-        editarProfesor()
-    end note
-
-Menu --> Generacion
-    note on link
-        generarHorario()
-    end note
-
-Menu --> Consulta
-    note on link
-        consultarHorario()
-    end note
-
-ListProgramas --> EditPrograma
-    note on link
-        crearPrograma()
-    end note
-
-ListProgramas --> EditPrograma
-    note on link
-        editarPrograma()
-    end note
-
-ListProgramas --> ListProgramas
-    note on link
-        eliminarPrograma()
-    end note
-
-EditPrograma --> EditPrograma
-    note on link
-        editarPrograma()
-    end note
-
-EditPrograma --> ListProgramas
-    note on link
-        abrirProgramas()
-    end note
-
-ListCursos --> EditCurso
-    note on link
-        crearCurso()
-    end note
-
-ListCursos --> EditCurso
-    note on link
-        editarCurso()
-    end note
-
-ListCursos --> ListCursos
-    note on link
-        eliminarCurso()
-    end note
-
-EditCurso --> EditCurso
-    note on link
-        editarCurso()
-    end note
-
-EditCurso --> ListCursos
-    note on link
-        abrirCursos()
-    end note
-
-ListProfesores --> EditProfesor
-    note on link
-        crearProfesor()
-    end note
-
-ListProfesores --> EditProfesor
-    note on link
-        editarProfesor()
-    end note
-
-ListProfesores --> ListProfesores
-    note on link
-        eliminarProfesor()
-    end note
-
-EditProfesor --> EditProfesor
-    note on link
-        editarProfesor()
-    end note
-
-EditProfesor --> EditProfesorPreferencias
-    note on link
-        configurarPreferenciasProfesor()
-    end note
-
-EditProfesorPreferencias --> EditProfesor
-    note on link
-        abrirEdicionProfesor()
-    end note
-    
-EditProfesor --> ListProfesores
-    note on link
-        abrirProfesores()
-    end note
-
-ListEdificios --> EditEdificio
-    note on link
-        crearEdificio()
-    end note
-
-ListEdificios --> EditEdificio
-    note on link
-        editarEdificio()
-    end note
-
-ListEdificios --> ListEdificios
-    note on link
-        eliminarEdificio()
-    end note
-
-EditEdificio --> EditEdificio
-    note on link
-        editarEdificio()
-    end note
-
-EditEdificio --> ListEdificios
-    note on link
-        abrirEdificios()
-    end note
-
-ListAulas --> EditAula
-    note on link
-        crearAula()
-    end note
-
-ListAulas --> EditAula
-    note on link
-        editarAula()
-    end note
-
-ListAulas --> ListAulas
-    note on link
-        eliminarAula()
-    end note
-
-EditAula --> EditAula
-    note on link
-        editarAula()
-    end note
-
-EditAula --> ListAulas
-    note on link
-        abrirAulas()
-    end note
-
-ListRecursos --> EditRecurso
-    note on link
-        crearRecurso()
-    end note
-
-ListRecursos --> EditRecurso
-    note on link
-        editarRecurso()
-    end note
-
-ListRecursos --> ListRecursos
-    note on link
-        eliminarRecurso()
-    end note
-
-EditRecurso --> EditRecurso
-    note on link
-        editarRecurso()
-    end note
-
-EditRecurso --> ListRecursos
-    note on link
-        abrirRecursos()
-    end note
-
-ListProgramas --> Menu
-    note on link
-        mostrarMenu()
-    end note
-
-ListCursos --> Menu
-    note on link
-        mostrarMenu()
-    end note
-
-ListProfesores --> Menu
-    note on link
-        mostrarMenu()
-    end note
-
-ListEdificios --> Menu
-    note on link
-        mostrarMenu()
-    end note
-
-ListAulas --> Menu
-    note on link
-        mostrarMenu()
-    end note
-
-ListRecursos --> Menu
-    note on link
-        mostrarMenu()
-    end note
+Asignaciones --> EditProfesor: editarProfesor()
 
 
+ListProgramas --> EditPrograma: crearPrograma()
+ListProgramas --> EditPrograma: editarPrograma()
+ListProgramas --> ListProgramas: eliminarPrograma()
 
-Generacion --> Menu
-    note on link
-        mostrarMenu()
-    end note
+EditPrograma --> EditPrograma: editarPrograma()
+EditPrograma --> ListProgramas: abrirProgramas()
 
-Consulta --> Menu
-    note on link
-        mostrarMenu()
-    end note
+ListCursos --> EditCurso: crearCurso()
+ListCursos --> EditCurso: editarCurso()
+ListCursos --> ListCursos: eliminarCurso()
+
+EditCurso --> EditCurso: editarCurso()
+EditCurso --> ListCursos: abrirCursos()
+
+ListProfesores --> EditProfesor: crearProfesor()
+ListProfesores --> EditProfesor: editarProfesor()
+ListProfesores --> ListProfesores: eliminarProfesor()
+
+EditProfesor --> EditProfesor: editarProfesor()
+EditProfesor --> EditProfesorPreferencias: configurarPreferenciasProfesor()
+EditProfesor --> ListProfesores: abrirProfesores()
+
+EditProfesorPreferencias --> EditProfesor: abrirEdicionProfesor()
+
+
+ListEdificios --> EditEdificio: crearEdificio()
+ListEdificios --> EditEdificio: editarEdificio()
+ListEdificios --> ListEdificios: eliminarEdificio()
+EditEdificio --> EditEdificio: editarEdificio()
+
+EditEdificio --> ListEdificios: abrirEdificios()
+
+ListAulas --> EditAula: crearAula()
+ListAulas --> EditAula: editarAula()
+ListAulas --> ListAulas: eliminarAula()
+
+EditAula --> EditAula: editarAula()
+EditAula --> ListAulas: abrirAulas()
+
+ListRecursos --> EditRecurso: crearRecurso()
+ListRecursos --> EditRecurso: editarRecurso()
+ListRecursos --> ListRecursos: eliminarRecurso()
+
+EditRecurso --> EditRecurso: editarRecurso()
+EditRecurso --> ListRecursos: abrirRecursos()
+
+ListProgramas --> Menu: mostrarMenu()
+ListCursos --> Menu: mostrarMenu()
+ListProfesores --> Menu: mostrarMenu()
+ListEdificios --> Menu: mostrarMenu()
+ListAulas --> Menu: mostrarMenu()
+ListRecursos --> Menu: mostrarMenu()
+Generacion --> Menu: mostrarMenu()
+Consulta --> Menu: mostrarMenu()
 
 @enduml
