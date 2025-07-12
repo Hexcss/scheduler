@@ -2,6 +2,15 @@
 
 Este archivo proporciona orientación a Claude Code (claude.ai/code) cuando trabaja con código en este repositorio.
 
+## IMPORTANTE: Inicio de Sesión
+
+**SIEMPRE que inicies una nueva sesión de trabajo en este repositorio, DEBES leer los siguientes archivos para obtener el contexto completo:**
+
+1. **`conversation-log.md`** - Historial completo de conversaciones, decisiones tomadas, y estado actual del proyecto
+2. **`extraDocs/999-leyes-proyecto/`** - Reglas discretas y principios específicos que deben seguirse durante el desarrollo
+
+Estos archivos contienen la trazabilidad completa del proyecto RUP y las reglas establecidas, siendo esenciales para mantener continuidad y coherencia entre sesiones.
+
 ## Resumen del Proyecto
 
 **pySigHor** es un proyecto de arqueología de software histórico centrado en el análisis y documentación de SigHor (Sistema Generador de Horarios), un sistema de programación de horarios universitarios desarrollado en Visual Basic 3.0 en 1998 para la Universidad de Piura. El proyecto demuestra algoritmos avanzados de investigación de operaciones aplicados a problemas de programación de horarios académicos.
