@@ -27,23 +27,24 @@ Este dashboard visual muestra el progreso del proyecto de modernización de SigH
 
 ## Progreso actual
 
-### Casos de uso completados
+### Casos de uso en fase de análisis (🟫 Amarillo oscuro)
 
-#### Fase de análisis (🔵 Azul)
+- **iniciarSesion()** - Autenticación de usuarios (especificación + prototipo + análisis)
+- **completarGestion()** - Hub de convergencia del sistema (especificación + prototipo + análisis)
 
-- **iniciarSesion()** - Autenticación de usuarios
-- **completarGestion()** - Presentación del menú principal
+### Casos de uso con especificación detallada (🔴 Rojo)
 
-### Casos de uso identificados (🔘 Gris)
+- **abrirProgramas()** - Apertura de gestión de programas académicos (especificación + prototipo)
+- **abrirCursos()** - Apertura de gestión de cursos (especificación únicamente)
+
+### Casos de uso identificados únicamente (🔘 Gris)
 
 #### Gestión de datos maestros
 
-- **abrirProgramas()** - Apertura de gestión de programas académicos
-- **abrirCursos()** - Apertura de gestión de cursos
-- **listarProfesores()** - Listado de profesores
-- **listarEdificios()** - Listado de edificios
-- **listarAulas()** - Listado de aulas
-- **listarRecursos()** - Listado de recursos
+- **abrirProfesores()** - Apertura de gestión de profesores
+- **abrirEdificios()** - Apertura de gestión de edificios
+- **abrirAulas()** - Apertura de gestión de aulas
+- **abrirRecursos()** - Apertura de gestión de recursos
 
 #### Operaciones CRUD
 
