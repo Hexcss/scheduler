@@ -46,7 +46,7 @@ Esto a modo de mapa inicial, luego lo refinamos.
 |**asignarProfesorACurso()**|⚪|⚪|⚪|⚪|⚪|⚪|
 |**generarHorario()**|⚪|⚪|⚪|⚪|⚪|⚪|
 |**consultarHorario()**|⚪|⚪|⚪|⚪|⚪|⚪|
-|**cerrarSesion()**|⚪|⚪|⚪|⚪|⚪|⚪|
+|**cerrarSesion()**|[🗒️](/RUP/00-casos-uso/02-detalle/cerrarSesion/README.md#diagrama-de-especificación)|[🗒️](/RUP/00-casos-uso/02-detalle/cerrarSesion/README.md#prototipo-de-interfaz)|[🗒️](/RUP/01-analisis/casos-uso/cerrarSesion/README.md)|⚪|⚪|⚪|*Nomenclatura corregida*
 
 </div>
 
