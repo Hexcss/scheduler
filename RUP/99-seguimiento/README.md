@@ -31,6 +31,7 @@ Este dashboard visual muestra el progreso del proyecto de modernización de SigH
 
 - **iniciarSesion()** - Autenticación de usuarios (especificación + prototipo + análisis)
 - **completarGestion()** - Hub de convergencia del sistema (especificación + prototipo + análisis)
+- **cerrarSesion()** - Cierre de sesión (especificación + prototipo + análisis)
 
 ### Casos de uso con especificación detallada (🔴 Rojo)
 
@@ -64,22 +65,22 @@ Este dashboard visual muestra el progreso del proyecto de modernización de SigH
 
 #### Sistema
 
-- **cerrarSesion()** - Cierre de sesión
+(Todos los casos de uso del sistema están en análisis o superior)
 
 ## Estadísticas del proyecto
 
 - **Total de casos de uso**: 32
-- **Casos de uso en análisis**: 2 (6.25%)
-- **Casos de uso identificados**: 30 (93.75%)
-- **Progreso general**: 6.25%
+- **Casos de uso en análisis**: 3 (9.375%)
+- **Casos de uso identificados**: 29 (90.625%)
+- **Progreso general**: 9.375%
 
 ## Próximos pasos
 
 Los siguientes casos de uso son candidatos para la próxima iteración:
 
 1. **abrirProgramas()** - Como base para toda la gestión de datos maestros
-2. **cerrarSesion()** - Para completar el flujo de autenticación
-3. **abrirCursos()** - Continuación de la gestión de datos maestros
+2. **abrirCursos()** - Continuación de la gestión de datos maestros
+3. **abrirProfesores()** - Siguiendo la secuencia de datos maestros
 
 ## Metodología
 
