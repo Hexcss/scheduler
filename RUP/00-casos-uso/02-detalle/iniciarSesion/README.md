@@ -109,7 +109,8 @@ Especificación detallada del caso de uso `iniciarSesion()` mediante diagrama de
 
 |Validación|Criterio|Resultado|
 |-|-|-|
-|**Credenciales válidas**|usuario:contraseña válida|Continuar con completarGestion()|
+|**Credenciales válidas**|usuario:contraseña válida|Se cambia de rol de UsuarioNoRegistrado a Administrador|
+|||Continuar con completarGestion()|
 |**Credenciales inválidas**|usuario:contraseña no válida|Regresar a SolicitandoAcceso|
 
 ## conexión con diagrama de contexto
