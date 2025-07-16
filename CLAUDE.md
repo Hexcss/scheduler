@@ -25,11 +25,32 @@ pySigHor/
 │   ├── *.FRM              # Formularios de interfaz de usuario
 │   ├── DATOS/             # Archivos de base de datos Microsoft Access
 │   └── Reporte/           # Archivos de Crystal Reports
-├── modelosUML/            # Diagramas UML (formato PlantUML)
+├── RUP/                   # Estructura del proyecto RUP
+│   ├── 00-casos-uso/      # Casos de uso (requisitos)
+│   │   ├── 00-modelo-del-dominio/
+│   │   ├── 01-actores-casos-uso/
+│   │   └── 02-detalle/
+│   ├── 01-analisis/       # Análisis y diseño
+│   │   └── casos-uso/
+│   └── 99-seguimiento/    # Dashboard y seguimiento
 ├── images/                # Capturas de pantalla y assets de documentación
+│   ├── RUP/              # Imágenes generadas de diagramas RUP
+│   └── extraDocs/        # Imágenes de documentación adicional
+├── extraDocs/             # Documentación adicional y análisis
+│   ├── 000-ingenieria-inversa/
+│   ├── 001-saltarse-pasos-desarrollo/
+│   ├── 002-coherencia-estructural-readme/
+│   ├── 003-rup-independencia-tecnologica/
+│   ├── 004-dashboard-visual-rup-casos-uso/
+│   ├── 005-etiquetado-etico-colaboracion-humano-ia/
+│   ├── 006-reflexion-alcance-casos-uso-colaboracion/
+│   ├── 007-diagramas-contexto-multiples-tecnologias/
+│   └── 999-leyes-proyecto/
 ├── extraFiles/            # Archivos de licencias y configuración legacy
-├── *.md                   # Archivos de documentación y análisis
-└── README.md              # Resumen del proyecto
+├── drafts-temp/          # Borradores y archivos temporales
+├── conversation-log.md   # Registro completo de conversaciones del proyecto
+├── *.md                  # Archivos de documentación y análisis
+└── README.md             # Resumen del proyecto
 ```
 
 ## Componentes Clave
