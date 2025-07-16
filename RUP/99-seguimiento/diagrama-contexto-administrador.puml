@@ -41,9 +41,9 @@ state "HORARIO_ABIERTO" as Consulta
 NoAuth -[#darkgoldenrod,thickness=2]-> Menu: iniciarSesion()
 
 Menu -[#darkgoldenrod,thickness=2]-> NoAuth: cerrarSesion()
-Menu -[#red,thickness=2]-> ListProgramas: abrirProgramas()
-Menu -[#red,thickness=1]-> ListCursos: abrirCursos()
-Menu -[#gray,dotted]-> ListProfesores: abrirProfesores()
+Menu -[#darkgoldenrod,thickness=2]-> ListProgramas: abrirProgramas()
+Menu -[#darkgoldenrod,thickness=2]-> ListCursos: abrirCursos()
+Menu -[#darkgoldenrod,thickness=2]-> ListProfesores: abrirProfesores()
 Menu -[#gray,dotted]-> ListEdificios: abrirEdificios()
 Menu -[#gray,dotted]-> ListAulas: abrirAulas()
 Menu -[#gray,dotted]-> ListRecursos: abrirRecursos()
