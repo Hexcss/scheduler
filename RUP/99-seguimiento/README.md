@@ -7,7 +7,7 @@ Este dashboard visual muestra el progreso del proyecto de modernización de SigH
 <div align=center>
 
 |![Dashboard RUP - Diagrama de Contexto](/images/RUP/99-seguimiento/diagrama-contexto-administrador.svg)|
-|-|
+|:-:|
 |**Dashboard de seguimiento del proyecto pySigHor**|
 |Código fuente: [diagrama-contexto-administrador.puml](diagrama-contexto-administrador.puml)|
 
@@ -31,18 +31,14 @@ Este dashboard visual muestra el progreso del proyecto de modernización de SigH
 
 - **iniciarSesion()** - Autenticación de usuarios (especificación + prototipo + análisis)
 - **completarGestion()** - Hub de convergencia del sistema (especificación + prototipo + análisis)
+- **abrirProgramas()** - Apertura de gestión de programas académicos (especificación + prototipo + análisis)
+- **abrirCursos()** - Apertura de gestión de cursos (especificación + prototipo + análisis)
+- **abrirProfesores()** - Apertura de gestión de profesores (especificación + prototipo + análisis)
 - **cerrarSesion()** - Cierre de sesión (especificación + prototipo + análisis)
-
-### Casos de uso con especificación detallada (🔴 Rojo)
-
-- **abrirProgramas()** - Apertura de gestión de programas académicos (especificación + prototipo)
-- **abrirCursos()** - Apertura de gestión de cursos (especificación únicamente)
 
 ### Casos de uso identificados únicamente (🔘 Gris)
 
 #### Gestión de datos maestros
-
-- **abrirProfesores()** - Apertura de gestión de profesores
 - **abrirEdificios()** - Apertura de gestión de edificios
 - **abrirAulas()** - Apertura de gestión de aulas
 - **abrirRecursos()** - Apertura de gestión de recursos
@@ -70,17 +66,17 @@ Este dashboard visual muestra el progreso del proyecto de modernización de SigH
 ## Estadísticas del proyecto
 
 - **Total de casos de uso**: 32
-- **Casos de uso en análisis**: 3 (9.375%)
-- **Casos de uso identificados**: 29 (90.625%)
-- **Progreso general**: 9.375%
+- **Casos de uso en análisis**: 6 (18.75%)
+- **Casos de uso identificados**: 26 (81.25%)
+- **Progreso general**: 18.75%
 
 ## Próximos pasos
 
 Los siguientes casos de uso son candidatos para la próxima iteración:
 
-1. **abrirProgramas()** - Como base para toda la gestión de datos maestros
-2. **abrirCursos()** - Continuación de la gestión de datos maestros
-3. **abrirProfesores()** - Siguiendo la secuencia de datos maestros
+1. **abrirEdificios()** - Continuación de la gestión de datos maestros
+2. **abrirAulas()** - Gestión de espacios físicos
+3. **abrirRecursos()** - Completar datos maestros del sistema
 
 ## Metodología
 
