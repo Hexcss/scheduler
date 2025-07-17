@@ -3252,6 +3252,34 @@ EditPrograma → abrirProgramas() → ListProgramas
 
 **Esta conversación establece una innovación metodológica significativa en el diseño de casos de uso CRUD, demostrando cómo la experiencia de usuario moderna puede informar y mejorar metodologías clásicas de desarrollo de software, manteniendo la pureza conceptual mientras se optimiza la experiencia práctica.**
 
+### Decisión Metodológica: Orden de Implementación C→U
+
+#### Planteamiento Estratégico
+Claude plantea la pregunta: ¿crearPrograma() o editarPrograma() primero?
+
+#### Análisis Metodológico
+**Razones para empezar con editarPrograma()**:
+1. **"El gordo" define todo**: Contiene funcionalidad completa, formulario, validaciones
+2. **Dependencia lógica**: crearPrograma() transfiere a estado que editarPrograma() maneja
+3. **Evita circularidad**: No puede especificar crearPrograma() sin saber qué recibe editarPrograma()
+4. **Coherencia con legacy**: En SigHor original, formulario de edición es donde ocurre toda la lógica
+
+#### Confirmación del Usuario
+Manuel confirma totalmente:
+> "va de la mano del RUP más exquisito que plantea abordar primero los de mayor complejidad"
+
+#### Decisión Acordada
+**Orden de implementación**:
+1. **editarPrograma()** - Define vocabulario completo del dominio, formulario, validaciones
+2. **crearPrograma()** - Caso simple que transfiere al estado ya definido
+
+#### Valor Metodológico RUP
+- **Principio RUP**: Abordar primero casos de mayor complejidad y riesgo
+- **Arquitectura primero**: Definir estructuras complejas antes que las simples
+- **Iteración riesgo-dirigida**: Resolver incertidumbres metodológicas primero
+
+**Esta decisión demuestra aplicación rigurosa de principios RUP fundamentales, donde la gestión de riesgos y complejidad guía el orden de implementación, asegurando que las dependencias conceptuales se resuelvan en el orden correcto.**
+
 ---
 
 *Este registro se actualizará continuamente conforme avance el proyecto*

@@ -32,7 +32,7 @@ Emojis para fases futuras:
 |**abrirAulas()**|[📋](/RUP/00-casos-uso/02-detalle/abrirAulas/README.md#diagrama-de-especificación)|[🎨](/RUP/00-casos-uso/02-detalle/abrirAulas/README.md#wireframes)|[🔍](/RUP/01-analisis/casos-uso/abrirAulas/README.md)|⚪|⚪|⚪|
 |**abrirRecursos()**|[📋](/RUP/00-casos-uso/02-detalle/abrirRecursos/README.md#diagrama-de-especificación)|[🎨](/RUP/00-casos-uso/02-detalle/abrirRecursos/README.md#wireframes)|[🔍](/RUP/01-analisis/casos-uso/abrirRecursos/README.md)|⚪|⚪|⚪|
 |**crearPrograma()**|⚪|⚪|⚪|⚪|⚪|⚪|
-|**editarPrograma()**|⚪|⚪|⚪|⚪|⚪|⚪|
+|**editarPrograma()**|[📋](/RUP/00-casos-uso/02-detalle/editarPrograma/README.md#diagrama-de-especificación)|[🎨](/RUP/00-casos-uso/02-detalle/editarPrograma/README.md#wireframes)|[🔍](/RUP/01-analisis/casos-uso/editarPrograma/README.md)|⚪|⚪|⚪|*Aplicando filosofía C→U*
 |**eliminarPrograma()**|⚪|⚪|⚪|⚪|⚪|⚪|
 |**crearCurso()**|⚪|⚪|⚪|⚪|⚪|⚪|
 |**editarCurso()**|⚪|⚪|⚪|⚪|⚪|⚪|

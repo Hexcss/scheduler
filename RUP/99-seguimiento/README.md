@@ -37,6 +37,7 @@ Este dashboard visual muestra el progreso del proyecto de modernización de SigH
 - **abrirEdificios()** - Apertura de gestión de edificios (especificación + prototipo + análisis)
 - **abrirAulas()** - Apertura de gestión de aulas (especificación + prototipo + análisis)
 - **abrirRecursos()** - Apertura de gestión de recursos (especificación + prototipo + análisis)
+- **editarPrograma()** - Edición de programas académicos aplicando filosofía C→U (especificación + prototipo + análisis)
 - **cerrarSesion()** - Cierre de sesión (especificación + prototipo + análisis)
 
 ### Casos de uso identificados únicamente (🔘 Gris)
@@ -46,7 +47,7 @@ Este dashboard visual muestra el progreso del proyecto de modernización de SigH
 
 #### Operaciones CRUD
 
-- **crearPrograma()** / **editarPrograma()** / **eliminarPrograma()**
+- **crearPrograma()** / **eliminarPrograma()**
 - **crearCurso()** / **editarCurso()** / **eliminarCurso()**
 - **crearProfesor()** / **editarProfesor()** / **eliminarProfesor()**
 - **crearEdificio()** / **editarEdificio()** / **eliminarEdificio()**
@@ -67,9 +68,9 @@ Este dashboard visual muestra el progreso del proyecto de modernización de SigH
 ## Estadísticas del proyecto
 
 - **Total de casos de uso**: 32
-- **Casos de uso en análisis**: 9 (28.13%)
-- **Casos de uso identificados**: 23 (71.87%)
-- **Progreso general**: 28.13%
+- **Casos de uso en análisis**: 10 (31.25%)
+- **Casos de uso identificados**: 22 (68.75%)
+- **Progreso general**: 31.25%
 
 ## Próximos pasos
 
