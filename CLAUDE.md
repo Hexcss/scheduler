@@ -11,6 +11,18 @@ Este archivo proporciona orientación a Claude Code (claude.ai/code) cuando trab
 
 Estos archivos contienen la trazabilidad completa del proyecto RUP y las reglas establecidas, siendo esenciales para mantener continuidad y coherencia entre sesiones.
 
+## IMPORTANTE: Idioma Vehicular del Proyecto
+
+**ESPAÑOL como idioma obligatorio en TODO el proyecto:**
+
+- **Documentación**: Todos los archivos .md, comentarios y especificaciones en español
+- **Commits**: Mensajes de commit obligatoriamente en español
+- **Código**: Comentarios, nombres de variables y funciones en español cuando sea posible
+- **Comunicación**: Toda interacción con Claude Code debe ser en español
+- **Artefactos RUP**: Diagramas, especificaciones y análisis en español
+
+**Excepción**: Código fuente legacy original (Visual Basic 3.0) se mantiene tal como está para preservar integridad histórica.
+
 ## Resumen del Proyecto
 
 **pySigHor** es un proyecto de arqueología de software histórico centrado en el análisis y documentación de SigHor (Sistema Generador de Horarios), un sistema de programación de horarios universitarios desarrollado en Visual Basic 3.0 en 1998 para la Universidad de Piura. El proyecto demuestra algoritmos avanzados de investigación de operaciones aplicados a problemas de programación de horarios académicos.
