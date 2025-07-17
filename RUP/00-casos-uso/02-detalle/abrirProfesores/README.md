@@ -9,7 +9,7 @@
 - **Fase RUP**: Inception (Inicio)
 - **Disciplina**: Requisitos
 - **Versión**: 1.0
-- **Fecha**: 2025-01-16
+- **Fecha**: 2025-07-17
 - **Autor**: Equipo de desarrollo
 
 ## propósito
@@ -25,8 +25,8 @@ Especificación detallada del caso de uso `abrirProfesores()` mediante diagrama 
 |**Objetivo**|Presentar lista de profesores con capacidad de filtrado y navegación a operaciones CRUD|
 |**Tipo**|Primario, esencial|
 |**Nivel**|Objetivo de usuario|
-|**Precondición**|Usuario autenticado como Administrador en estado MENU_PRINCIPAL|
-|**Postcondición exitosa**|Lista de profesores mostrada, usuario puede filtrar, crear, editar, eliminar o volver al menú|
+|**Precondición**|Usuario autenticado como Administrador en estado SISTEMA_DISPONIBLE|
+|**Postcondición exitosa**|Lista de profesores mostrada, usuario puede filtrar, crear, editar, eliminar o volver al sistema|
 |**Postcondición de fallo**|N/A - caso de uso sin condiciones de fallo|
 
 ## diagrama de especificación
@@ -117,10 +117,10 @@ Este caso de uso corresponde a la transición:
 - **SISTEMA_DISPONIBLE** → `abrirProfesores()` → **PROFESORES_ABIERTO**
 
 Y las transiciones de salida:
-- **LISTANDO_PROFESORES** → `crearProfesor()` → **EDITANDO_PROFESOR**
-- **LISTANDO_PROFESORES** → `editarProfesor()` → **EDITANDO_PROFESOR**
-- **LISTANDO_PROFESORES** → `eliminarProfesor()` → **LISTANDO_PROFESORES**
-- **LISTANDO_PROFESORES** → `completarGestion()` → **MENU_PRINCIPAL**
+- **PROFESORES_ABIERTO** → `crearProfesor()` → **PROFESOR_ABIERTO**
+- **PROFESORES_ABIERTO** → `editarProfesor()` → **PROFESOR_ABIERTO**
+- **PROFESORES_ABIERTO** → `eliminarProfesor()` → **PROFESORES_ABIERTO**
+- **PROFESORES_ABIERTO** → `completarGestion()` → **SISTEMA_DISPONIBLE**
 
 ## vocabulario utilizado
 
@@ -150,7 +150,7 @@ Y las transiciones de salida:
 - Termina con selección de acción específica
 
 ### rol del actor
-- **Entrada**: Administrador (desde menú principal)
+- **Entrada**: Administrador (desde sistema disponible)
 - **Salida**: Administrador (con conocimiento de profesores disponibles)
 - **Estado**: Permanece como Administrador durante toda la conversación
 
