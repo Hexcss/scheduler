@@ -15,6 +15,13 @@ legend bottom right
     |<#black>    | Completado |
     | ... |Identificado|
     | --- |En trabajo activo|
+    ----
+    **Enlaces de Navegación**
+    ====
+    Los casos de uso analizados incluyen 3 enlaces:
+    📋 Especificación detallada
+    🎨 Prototipado/Wireframes  
+    🔍 Análisis MVC
 end legend
 
 state "SESION_CERRADA" as NoAuth
@@ -38,15 +45,15 @@ state "PROFESOR_ASIGNATURAS_ABIERTO" as Asignaciones
 state "HORARIO_GENERADO" as Generacion
 state "HORARIO_ABIERTO" as Consulta
 
-NoAuth -[#darkgoldenrod,thickness=2]-> Menu: iniciarSesion()
+NoAuth -[#darkgoldenrod,thickness=2]-> Menu: [[../00-casos-uso/02-detalle/iniciarSesion/README.md iniciarSesion()]] [[../00-casos-uso/02-detalle/iniciarSesion/prototipo.puml 🎨]]      [[../01-analisis/casos-uso/iniciarSesion/README.md 🔍]]
 
-Menu -[#darkgoldenrod,thickness=2]-> NoAuth: cerrarSesion()
-Menu -[#darkgoldenrod,thickness=2]-> ListProgramas: abrirProgramas()
-Menu -[#darkgoldenrod,thickness=2]-> ListCursos: abrirCursos()
-Menu -[#darkgoldenrod,thickness=2]-> ListProfesores: abrirProfesores()
-Menu -[#darkgoldenrod]-> ListEdificios: abrirEdificios()
-Menu -[#darkgoldenrod]-> ListAulas: abrirAulas()
-Menu -[#darkgoldenrod]-> ListRecursos: abrirRecursos()
+Menu -[#darkgoldenrod,thickness=2]-> NoAuth: [[../00-casos-uso/02-detalle/cerrarSesion/README.md cerrarSesion()]] [[../00-casos-uso/02-detalle/cerrarSesion/prototipo.puml 🎨]]      [[../01-analisis/casos-uso/cerrarSesion/README.md 🔍]]
+Menu -[#darkgoldenrod,thickness=2]-> ListProgramas: [[../00-casos-uso/02-detalle/abrirProgramas/README.md abrirProgramas()]] [[../00-casos-uso/02-detalle/abrirProgramas/prototipo.puml 🎨]]      [[../01-analisis/casos-uso/abrirProgramas/README.md 🔍]]
+Menu -[#darkgoldenrod,thickness=2]-> ListCursos: [[../00-casos-uso/02-detalle/abrirCursos/README.md abrirCursos()]] [[../00-casos-uso/02-detalle/abrirCursos/prototipo.puml 🎨]]      [[../01-analisis/casos-uso/abrirCursos/README.md 🔍]]
+Menu -[#darkgoldenrod,thickness=2]-> ListProfesores: [[../00-casos-uso/02-detalle/abrirProfesores/README.md abrirProfesores()]] [[../00-casos-uso/02-detalle/abrirProfesores/prototipo.puml 🎨]]      [[../01-analisis/casos-uso/abrirProfesores/README.md 🔍]]
+Menu -[#darkgoldenrod]-> ListEdificios: [[../00-casos-uso/02-detalle/abrirEdificios/README.md abrirEdificios()]] [[../00-casos-uso/02-detalle/abrirEdificios/prototipo.puml 🎨]]      [[../01-analisis/casos-uso/abrirEdificios/README.md 🔍]]
+Menu -[#darkgoldenrod]-> ListAulas: [[../00-casos-uso/02-detalle/abrirAulas/README.md abrirAulas()]] [[../00-casos-uso/02-detalle/abrirAulas/prototipo.puml 🎨]]      [[../01-analisis/casos-uso/abrirAulas/README.md 🔍]]
+Menu -[#darkgoldenrod]-> ListRecursos: [[../00-casos-uso/02-detalle/abrirRecursos/README.md abrirRecursos()]] [[../00-casos-uso/02-detalle/abrirRecursos/prototipo.puml 🎨]]      [[../01-analisis/casos-uso/abrirRecursos/README.md 🔍]]
 Menu -[#gray,dotted]-> Generacion: generarHorario()
 Menu -[#gray,dotted]-> Consulta: consultarHorario()
 
@@ -74,23 +81,23 @@ ListEdificios -[#gray,dotted]-> EditEdificio: crearEdificio()
 ListEdificios -[#gray,dotted]-> EditEdificio: editarEdificio()
 ListEdificios -[#gray,dotted]-> ListEdificios: eliminarEdificio()
 EditEdificio -[#gray,dotted]-> EditEdificio: editarEdificio()
-EditEdificio -[#darkgoldenrod]-> ListEdificios: abrirEdificios()
+EditEdificio -[#darkgoldenrod]-> ListEdificios: [[../00-casos-uso/02-detalle/abrirEdificios/README.md abrirEdificios()]] [[../00-casos-uso/02-detalle/abrirEdificios/prototipo.puml 🎨]]      [[../01-analisis/casos-uso/abrirEdificios/README.md 🔍]]
 ListAulas -[#gray,dotted]-> EditAula: crearAula()
 ListAulas -[#gray,dotted]-> EditAula: editarAula()
 ListAulas -[#gray,dotted]-> ListAulas: eliminarAula()
 EditAula -[#gray,dotted]-> EditAula: editarAula()
-EditAula -[#darkgoldenrod]-> ListAulas: abrirAulas()
+EditAula -[#darkgoldenrod]-> ListAulas: [[../00-casos-uso/02-detalle/abrirAulas/README.md abrirAulas()]] [[../00-casos-uso/02-detalle/abrirAulas/prototipo.puml 🎨]]      [[../01-analisis/casos-uso/abrirAulas/README.md 🔍]]
 ListRecursos -[#gray,dotted]-> EditRecurso: crearRecurso()
 ListRecursos -[#gray,dotted]-> EditRecurso: editarRecurso()
 ListRecursos -[#gray,dotted]-> ListRecursos: eliminarRecurso()
 EditRecurso -[#gray,dotted]-> EditRecurso: editarRecurso()
-EditRecurso -[#darkgoldenrod]-> ListRecursos: abrirRecursos()
-ListProgramas -[#darkgoldenrod,thickness=2]-> Menu: completarGestion()
-ListCursos -[#darkgoldenrod,thickness=2]-> Menu: completarGestion()
-ListProfesores -[#darkgoldenrod,thickness=2]-> Menu: completarGestion()
-ListEdificios -[#darkgoldenrod]-> Menu: completarGestion()
-ListAulas -[#darkgoldenrod]-> Menu: completarGestion()
-ListRecursos -[#darkgoldenrod]-> Menu: completarGestion()
+EditRecurso -[#darkgoldenrod]-> ListRecursos: [[../00-casos-uso/02-detalle/abrirRecursos/README.md abrirRecursos()]] [[../00-casos-uso/02-detalle/abrirRecursos/prototipo.puml 🎨]]      [[../01-analisis/casos-uso/abrirRecursos/README.md 🔍]]
+ListProgramas -[#darkgoldenrod,thickness=2]-> Menu: [[../00-casos-uso/02-detalle/completarGestion/README.md completarGestion()]] [[../00-casos-uso/02-detalle/completarGestion/prototipo.puml 🎨]]      [[../01-analisis/casos-uso/completarGestion/README.md 🔍]]
+ListCursos -[#darkgoldenrod,thickness=2]-> Menu: [[../00-casos-uso/02-detalle/completarGestion/README.md completarGestion()]] [[../00-casos-uso/02-detalle/completarGestion/prototipo.puml 🎨]]      [[../01-analisis/casos-uso/completarGestion/README.md 🔍]]
+ListProfesores -[#darkgoldenrod,thickness=2]-> Menu: [[../00-casos-uso/02-detalle/completarGestion/README.md completarGestion()]] [[../00-casos-uso/02-detalle/completarGestion/prototipo.puml 🎨]]      [[../01-analisis/casos-uso/completarGestion/README.md 🔍]]
+ListEdificios -[#darkgoldenrod]-> Menu: [[../00-casos-uso/02-detalle/completarGestion/README.md completarGestion()]] [[../00-casos-uso/02-detalle/completarGestion/prototipo.puml 🎨]]      [[../01-analisis/casos-uso/completarGestion/README.md 🔍]]
+ListAulas -[#darkgoldenrod]-> Menu: [[../00-casos-uso/02-detalle/completarGestion/README.md completarGestion()]] [[../00-casos-uso/02-detalle/completarGestion/prototipo.puml 🎨]]      [[../01-analisis/casos-uso/completarGestion/README.md 🔍]]
+ListRecursos -[#darkgoldenrod]-> Menu: [[../00-casos-uso/02-detalle/completarGestion/README.md completarGestion()]] [[../00-casos-uso/02-detalle/completarGestion/prototipo.puml 🎨]]      [[../01-analisis/casos-uso/completarGestion/README.md 🔍]]
 Generacion -[#darkgoldenrod,thickness=2]-> Menu: completarProceso()
 Consulta -[#darkgoldenrod,thickness=2]-> Menu: completarConsulta()
 @enduml
