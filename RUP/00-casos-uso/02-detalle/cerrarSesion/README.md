@@ -1,8 +1,7 @@
 # SigHor - Caso de uso detallado: cerrarSesion()
 
-> |cerrarSesion()|||||
-> |-|-|-|-|-|
-> |**Detalle**|[Análisis](/RUP/01-analisis/casos-uso/cerrarSesion/README.md)|Diseño|Desarrollo|Pruebas|
+> |[🏠️](/RUP/README.md)|Detalle|[Análisis](/RUP/01-analisis/casos-uso/cerrarSesion/README.md)|Diseño|Desarrollo|Pruebas|
+> |-|-|-|-|-|-|
 
 ## información del artefacto
 

@@ -1,8 +1,7 @@
 # SigHor - Caso de uso detallado: completarGestion()
 
-> |completarGestion()|||||
-> |-|-|-|-|-|
-> |**Detalle**|[Análisis](/RUP/01-analisis/casos-uso/completarGestion/README.md)|Diseño|Desarrollo|Pruebas|
+> |[🏠️](/RUP/README.md)|Detalle|[Análisis](/RUP/01-analisis/casos-uso/completarGestion/README.md)|Diseño|Desarrollo|Pruebas|
+> |-|-|-|-|-|-|
 
 ## información del artefacto
 

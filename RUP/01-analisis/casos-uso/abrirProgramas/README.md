@@ -1,8 +1,7 @@
 # SigHor - Análisis de colaboración: abrirProgramas()
 
-> |abrirProgramas()|||||
-> |-|-|-|-|-|
-> |[Detalle](/RUP/00-casos-uso/02-detalle/abrirProgramas/README.md)|**Análisis**|Diseño|Desarrollo|Pruebas|
+> |[🏠️](/RUP/README.md)|[Detalle](/RUP/00-casos-uso/02-detalle/abrirProgramas/README.md)|Análisis|Diseño|Desarrollo|Pruebas|
+> |-|-|-|-|-|-|
 
 ## información del artefacto
 
