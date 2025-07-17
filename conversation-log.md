@@ -3098,4 +3098,160 @@ CasoUso() → [[enlace CasoUso()]] [[enlace 🎨]]      [[enlace 🔍]]
 
 ---
 
+## Conversación 18: Desarrollo de Filosofía C→U para Casos de Uso CRUD
+**Fecha**: 2025-07-17  
+**Participantes**: Manuel (Usuario) + Claude Code
+
+### Contexto de la Sesión
+
+#### Situación Inicial
+- **Estado del proyecto**: 9 casos de uso en análisis (28.13% de progreso)
+- **Casos completados**: Todo los casos de uso "abrir" (consulta/navegación) terminados
+- **Siguiente paso**: Abordar casos de uso CRUD (Create, Read, Update, Delete)
+- **Descubrimiento**: Usuario trabajó en otro ordenador, necesidad de sincronización
+
+#### Sincronización de Avances
+**Commits internalizados**:
+- Enlaces de navegación interactivos en diagrama de contexto
+- Metodología de enlaces documentada en conversation-log
+- Mejoras en la navegación con tooltips funcionales
+
+### Análisis Metodológico Profundo
+
+#### Preparación para CRUD
+Claude realizó análisis exhaustivo de casos de uso previos:
+
+**Patrones identificados**:
+1. **Estructura README.md**: 8 secciones estándar completamente estandarizadas
+2. **PlantUML**: Sintaxis específica (`@startuml` para especificaciones, `@startsalt` para wireframes)
+3. **Conversación detallada**: Tabla Actor|Acción|Sistema|Respuesta con vocabulario específico
+4. **Tipos diferenciados**: Casos de "abrir" vs autenticación vs gestión
+
+**Diferencias metodológicas por tipo**:
+- **Casos "abrir"**: Estados `MostrandoLista` ↔ `FiltrandoLista`, navegación CRUD
+- **Casos autenticación**: Choice points, transformación de actor
+- **Casos gestión**: Hub central, múltiples transiciones de salida
+
+### Innovación Metodológica: Filosofía C→U
+
+#### Presentación del Concepto
+Manuel introduce filosofía revolucionaria:
+
+> "En mi mente, C y U están íntimamente relacionados. C es un caso de uso que crea un elemento con el mínimo de características e inmediatamente pasa la pelota a la U, que es el 'gordo'. Es como cuando creas un nuevo documento en Google Docs: se abre un documento vacío, pero ya estás editando."
+
+#### Análisis Metodológico de Claude
+**Ventajas identificadas**:
+- **Simplicidad de C**: Caso de uso "delgado" con objetivo claro
+- **U como "el gordo"**: Caso completo con toda la funcionalidad
+- **Coherencia UX**: Alineado con experiencia moderna (Google Docs, Notion)
+- **Reutilización**: Mismo caso U para nuevos y existentes
+
+#### Implicaciones Técnicas
+**En diagrama de contexto**:
+```
+ListProgramas → crearPrograma() → EditPrograma
+ListProgramas → editarPrograma() → EditPrograma  
+EditPrograma → abrirProgramas() → ListProgramas
+```
+
+**Estados resultantes**:
+- **crearPrograma()**: `PROGRAMAS_ABIERTO` → `PROGRAMA_ABIERTO` (con programa nuevo)
+- **editarPrograma()**: `PROGRAMAS_ABIERTO` → `PROGRAMA_ABIERTO` (con programa existente)
+
+### Documentación Metodológica
+
+#### Creación de Artículo 008
+**Archivo creado**: `/extraDocs/008-filosofia-crud-creacion-edicion/README.md`
+
+**Contenido del artículo**:
+1. **Problema metodológico**: Limitaciones CRUD tradicional
+2. **Filosofía C→U propuesta**: "La creación es solo el primer paso de la edición"
+3. **Implementación metodológica**: Casos "delgado" y "gordo"
+4. **Beneficios**: Simplicidad, UX coherente, reutilización, mantenibilidad
+5. **Aplicación práctica**: Casos específicos en pySigHor
+
+#### Registro en extraDocs
+**Actualización del README padre**: Artículo 008 agregado al índice con categoría "Metodología CRUD y experiencia de usuario"
+
+### Valor Metodológico de la Innovación
+
+#### Originalidad del Concepto
+- **Enfoque novedoso**: C→U no es estándar en literatura RUP/UML
+- **Inspiración UX moderna**: Traslade patrones de aplicaciones contemporáneas
+- **Coherencia metodológica**: Mantiene pureza RUP mientras mejora experiencia
+
+#### Aplicabilidad Universal
+**Recomendado para**:
+- ✅ Entidades con formularios complejos
+- ✅ Casos donde creación es seguida de edición
+- ✅ Sistemas con UX moderna
+
+**No recomendado para**:
+- ❌ Entidades de configuración simple
+- ❌ Operaciones de creación en lote
+- ❌ Creación terminal sin edición posterior
+
+#### Impacto en pySigHor
+**Casos de uso afectados**:
+- crearPrograma() → editarPrograma()
+- crearCurso() → editarCurso()
+- crearProfesor() → editarProfesor()
+- crearAula() → editarAula()
+
+### Proceso Colaborativo
+
+#### Metodología de Trabajo
+1. **Análisis profundo**: Claude estudió patrones existentes exhaustivamente
+2. **Presentación conceptual**: Manuel compartió filosofía C→U
+3. **Análisis técnico**: Claude evaluó implicaciones metodológicas
+4. **Documentación formal**: Creación de artículo metodológico completo
+5. **Integración**: Actualización de índice para trazabilidad
+
+#### Calidad del Resultado
+- **Documentación completa**: Artículo estructurado con análisis profundo
+- **Trazabilidad**: Integrado en sistema de documentación del proyecto
+- **Aplicabilidad**: Listo para implementación práctica
+- **Transferibilidad**: Metodología aplicable a otros proyectos
+
+### Preparación para Implementación
+
+#### Estado Actual
+- **Filosofía definida**: C→U completamente documentada
+- **Patrones identificados**: Metodología de casos previos internalizada
+- **Artículo creado**: Documentación formal disponible
+- **Siguiente paso**: Implementar crearPrograma() aplicando filosofía C→U
+
+#### Fundamentos Establecidos
+- **Principio fundamental**: "La creación es solo el primer paso de la edición"
+- **Casos resultantes**: crearPrograma() "delgado" + editarPrograma() "gordo"
+- **Beneficio clave**: UX moderna con reutilización de funcionalidad
+
+### Lecciones Aprendidas
+
+#### Sobre Innovación Metodológica
+- **Inspiración práctica**: UX moderna puede informar metodologías clásicas
+- **Documentación necesaria**: Innovaciones requieren formalización para transferencia
+- **Análisis profundo**: Entender patrones existentes antes de proponer cambios
+
+#### Sobre Colaboración Humano-IA
+- **Complementariedad**: Usuario aporta visión, IA aporta análisis sistemático
+- **Iteración efectiva**: Concepto → análisis → documentación → preparación
+- **Calidad emergente**: Resultado supera suma de las partes individuales
+
+### Valor Didáctico Conseguido
+
+#### Material Pedagógico
+- **Caso de estudio**: Innovación metodológica en tiempo real
+- **Proceso completo**: Desde concepto hasta documentación formal
+- **Aplicación práctica**: Listo para implementación en casos reales
+
+#### Aporte a la Comunidad
+- **Metodología nueva**: Filosofía C→U como contribución original
+- **Documentación completa**: Proceso y resultado disponibles
+- **Replicabilidad**: Patrón aplicable a otros proyectos RUP
+
+**Esta conversación establece una innovación metodológica significativa en el diseño de casos de uso CRUD, demostrando cómo la experiencia de usuario moderna puede informar y mejorar metodologías clásicas de desarrollo de software, manteniendo la pureza conceptual mientras se optimiza la experiencia práctica.**
+
+---
+
 *Este registro se actualizará continuamente conforme avance el proyecto*
