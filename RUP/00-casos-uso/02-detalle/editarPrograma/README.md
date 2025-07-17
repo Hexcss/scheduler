@@ -26,7 +26,7 @@ Especificación detallada del caso de uso `editarPrograma()` mediante diagrama d
 |**Tipo**|Primario, esencial|
 |**Nivel**|Objetivo de usuario|
 |**Precondición**|Programa seleccionado desde abrirProgramas() o programa recién creado desde crearPrograma()|
-|**Postcondición exitosa**|Programa modificado guardado, usuario puede continuar editando o volver al sistema|
+|**Postcondición exitosa**|Programa modificado guardado, usuario puede continuar editando en PROGRAMA_ABIERTO o volver al sistema|
 |**Postcondición de fallo**|N/A - caso de uso sin condiciones de fallo|
 
 ## diagrama de especificación
@@ -79,7 +79,7 @@ Especificación detallada del caso de uso `editarPrograma()` mediante diagrama d
 |Actor|Acción|Sistema|Respuesta|
 |-|-|-|-|
 |**Administrador**|solicita editar programa||
-||**Sistema**|presenta formulario de edición|• Código, nombre, descripción del programa<br>• Permite solicitar modificar campos<br>• Permite solicitar guardar programa<br>• Permite solicitar cancelar edición|
+||**Sistema**|presenta formulario de edición|• Código, nombre, descripción del programa<br>• Permite solicitar modificar campos<br>• Permite solicitar guardar programa<br>• Permite solicitar guardar y salir<br>• Permite solicitar cancelar edición|
 |**Administrador**|solicita modificar campos||(opcional)|
 ||**Sistema**|permite modificar información|• Campos editables habilitados|
 |**Administrador**|solicita una de las opciones||
@@ -111,12 +111,14 @@ Especificación detallada del caso de uso `editarPrograma()` mediante diagrama d
 
 ### operaciones de programa
 
-- **Solicitar guardar programa** → Navegar a `abrirProgramas()`
+- **Solicitar guardar programa** → Permanecer en `editarPrograma()` (continuar editando)
+- **Solicitar guardar y salir** → Navegar a `abrirProgramas()`
 - **Solicitar cancelar edición** → Navegar a `abrirProgramas()`
 
 ### navegación del sistema
 
-- **Solicitar salir** → Navegar a `abrirProgramas()`
+- **Continuar editando** → Permanecer en estado `PROGRAMA_ABIERTO`
+- **Finalizar edición** → Navegar a `abrirProgramas()`
 
 ## conexión con diagrama de contexto
 

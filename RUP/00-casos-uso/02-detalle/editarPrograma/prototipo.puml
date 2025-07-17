@@ -15,7 +15,7 @@
     
     ~~
     
-    {[Guardar programa] | [Cancelar edición]}
+    {[Guardar] | [Guardar y salir] | [Cancelar edición]}
 }
 
 @endsalt
