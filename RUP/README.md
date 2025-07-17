@@ -1,6 +1,6 @@
 # Reingeniería usando RUP
 
-Esto a modo de mapa inicial, luego lo refinamos.
+Esto a modo de mapa inicial, luego lo refinamos. También hay una [propuesta de dashboard de seguimiento](99-seguimiento/README.md). y el [seguimiento de toda la interacción](../conversation-log.md).
 
 ## Disciplinas RUP
 
@@ -57,7 +57,3 @@ Emojis para fases futuras:
 
 </div>
 
-## Además
-
-- Seguimiento de [toda la interacción](../conversation-log.md).
-- Propuesta de [dashboard de seguimiento](99-seguimiento/README.md).
