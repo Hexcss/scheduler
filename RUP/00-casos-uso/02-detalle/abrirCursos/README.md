@@ -1,8 +1,8 @@
 # SigHor - Caso de uso detallado: abrirCursos()
 
-> |abrirCursos()|||||
-> |-|-|-|-|-|
-> |**Detalle**|[Análisis](/RUP/01-analisis/casos-uso/abrirCursos/README.md)|Diseño|Desarrollo|Pruebas|
+> |[🏠️](/RUP/README.md)|Detalle|[Análisis](/RUP/01-analisis/casos-uso/abrirCursos/README.md)|Diseño|Desarrollo|Pruebas|
+> |-|-|-|-|-|-|
+
 
 ## información del artefacto
 
