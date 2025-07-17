@@ -1,5 +1,9 @@
 # SigHor - Caso de uso detallado: cerrarSesion()
 
+> |cerrarSesion()|||||
+> |-|-|-|-|-|
+> |**Detalle**|[Análisis](/RUP/01-analisis/casos-uso/cerrarSesion/README.md)|Diseño|Desarrollo|Pruebas|
+
 ## información del artefacto
 
 - **Proyecto**: pySigHor - Modernización del Sistema Generador de Horarios

@@ -1,5 +1,10 @@
 # SigHor - Análisis de colaboración: abrirCursos()
 
+> |abrirCursos()|||||
+> |-|-|-|-|-|
+> |[Detalle](/RUP/00-casos-uso/02-detalle/abrirCursos/README.md)|**Análisis**|Diseño|Desarrollo|Pruebas|
+
+
 ## información del artefacto
 
 - **Proyecto**: pySigHor - Modernización del Sistema Generador de Horarios

@@ -1,5 +1,9 @@
 # SigHor - Análisis de colaboración: abrirProfesores()
 
+> |abrirProfesores()|||||
+> |-|-|-|-|-|
+> |[Detalle](/RUP/00-casos-uso/02-detalle/abrirProfesores/README.md)|**Análisis**|Diseño|Desarrollo|Pruebas|
+
 ## información del artefacto
 
 - **Proyecto**: pySigHor - Modernización del Sistema Generador de Horarios

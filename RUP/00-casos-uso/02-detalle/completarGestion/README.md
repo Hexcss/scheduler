@@ -1,5 +1,9 @@
 # SigHor - Caso de uso detallado: completarGestion()
 
+> |completarGestion()|||||
+> |-|-|-|-|-|
+> |**Detalle**|[Análisis](/RUP/01-analisis/casos-uso/completarGestion/README.md)|Diseño|Desarrollo|Pruebas|
+
 ## información del artefacto
 
 - **Proyecto**: pySigHor - Modernización del Sistema Generador de Horarios

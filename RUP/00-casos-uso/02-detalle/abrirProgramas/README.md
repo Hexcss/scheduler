@@ -1,5 +1,9 @@
 # SigHor - Caso de uso detallado: abrirProgramas()
 
+> |abrirProgramas()|||||
+> |-|-|-|-|-|
+> |**Detalle**|[Análisis](/RUP/01-analisis/casos-uso/abrirProgramas/README.md)|Diseño|Desarrollo|Pruebas|
+
 ## información del artefacto
 
 - **Proyecto**: pySigHor - Modernización del Sistema Generador de Horarios

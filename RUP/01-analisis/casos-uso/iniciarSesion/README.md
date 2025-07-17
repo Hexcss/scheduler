@@ -1,5 +1,9 @@
 # SigHor - Análisis del caso de uso: iniciarSesion()
 
+> |iniciarSesion()|||||
+> |-|-|-|-|-|
+> |[Detalle](/RUP/00-casos-uso/02-detalle/iniciarSesion/README.md)|**Análisis**|Diseño|Desarrollo|Pruebas|
+
 ## información del artefacto
 
 - **Proyecto**: pySigHor - Modernización del Sistema Generador de Horarios
