@@ -25,6 +25,12 @@ Este dashboard visual muestra el progreso del proyecto de modernización de SigH
 |🔵 **Azul**|Pruebas|Testing y validación|
 |⚫ **Negro**|Completado|Caso de uso completamente terminado|
 
+## Navegación del diagrama
+
+Los casos de uso analizados incluyen **2 enlaces** de navegación:
+- **[nombreCasoUso]** - Especificación detallada
+- **[A]** - Análisis MVC
+
 ## Progreso actual
 
 ### Casos de uso en fase de análisis (🟫 Amarillo oscuro)
