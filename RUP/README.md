@@ -28,7 +28,7 @@ Emojis para fases futuras:
 |**abrirProgramas()**|[📋](/RUP/00-casos-uso/02-detalle/abrirProgramas/README.md#diagrama-de-especificación)|[🎨](/RUP/00-casos-uso/02-detalle/abrirProgramas/README.md#wireframes)|[🔍](/RUP/01-analisis/casos-uso/abrirProgramas/README.md)|⚪|⚪|⚪|
 |**abrirCursos()**|[📋](/RUP/00-casos-uso/02-detalle/abrirCursos/README.md#diagrama-de-especificación)|[🎨](/RUP/00-casos-uso/02-detalle/abrirCursos/README.md#wireframes)|[🔍](/RUP/01-analisis/casos-uso/abrirCursos/README.md)|⚪|⚪|⚪|
 |**abrirProfesores()**|[📋](/RUP/00-casos-uso/02-detalle/abrirProfesores/README.md#diagrama-de-especificación)|[🎨](/RUP/00-casos-uso/02-detalle/abrirProfesores/README.md#wireframes)|[🔍](/RUP/01-analisis/casos-uso/abrirProfesores/README.md)|⚪|⚪|⚪|
-|**abrirEdificios()**|⚪|⚪|⚪|⚪|⚪|⚪|
+|**abrirEdificios()**|[📋](/RUP/00-casos-uso/02-detalle/abrirEdificios/README.md#diagrama-de-especificación)|[🎨](/RUP/00-casos-uso/02-detalle/abrirEdificios/README.md#wireframes)|[🔍](/RUP/01-analisis/casos-uso/abrirEdificios/README.md)|⚪|⚪|⚪|
 |**abrirAulas()**|⚪|⚪|⚪|⚪|⚪|⚪|
 |**abrirRecursos()**|⚪|⚪|⚪|⚪|⚪|⚪|
 |**crearPrograma()**|⚪|⚪|⚪|⚪|⚪|⚪|
