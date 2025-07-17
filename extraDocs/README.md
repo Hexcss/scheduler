@@ -32,7 +32,8 @@ XXX-nombre-del-articulo/
 | 005 | [Aplicación de etiquetado ético en colaboración humano-IA: caso de estudio pySigHor](005-etiquetado-etico-colaboracion-humano-ia/articulo.md) | [Por determinar] | Ética en colaboración humano-IA |
 | 006 | [Reflexión metodológica: delimitación del alcance en diagramas de colaboración RUP](006-reflexion-alcance-casos-uso-colaboracion/articulo.md) | [`b8f36ca`](https://github.com/mmasias/pySigHor/tree/b8f36ca7fd409c16fb03be9e3f21058ee78df985) | Análisis RUP y alcance de casos de uso |
 | 007 | [Diagramas de contexto múltiples por tecnología: pureza metodológica vs implementación práctica](007-diagramas-contexto-multiples-tecnologias/articulo.md) | [`7975ac6`](https://github.com/mmasias/pySigHor/tree/7975ac6) | Arquitectura multiplataforma y pureza RUP |
-| 008 | [Filosofía C→U: Integración de Creación y Edición en Casos de Uso CRUD](008-filosofia-crud-creacion-edicion/README.md) | [Por determinar] | Metodología CRUD y experiencia de usuario |
+| 008 | [Filosofía C→U: Integración de Creación y Edición en Casos de Uso CRUD](008-filosofia-crud-creacion-edicion/README.md) | [`69c0f68`](https://github.com/mmasias/pySigHor/tree/69c0f681227d1a0aad86ea8fa21313db09d570d7) | Metodología CRUD y experiencia de usuario |
+| 009 | [Valoración de un tercer LLM (ChatGPT) de la interacción](009-opinion-tercer-llm/articulo.md) | [`69c0f68`](https://github.com/mmasias/pySigHor/tree/69c0f681227d1a0aad86ea8fa21313db09d570d7) | Análisis externo de colaboración humano-IA |
 
 ## Uso didáctico
 
