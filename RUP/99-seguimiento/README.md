@@ -38,6 +38,7 @@ Este dashboard visual muestra el progreso del proyecto de modernización de SigH
 - **abrirAulas()** - Apertura de gestión de aulas (especificación + prototipo + análisis)
 - **abrirRecursos()** - Apertura de gestión de recursos (especificación + prototipo + análisis)
 - **editarPrograma()** - Edición de programas académicos aplicando filosofía C→U (especificación + prototipo + análisis)
+- **crearPrograma()** - Creación de programas académicos como "el delgado" C→U (especificación + prototipo + análisis)
 - **cerrarSesion()** - Cierre de sesión (especificación + prototipo + análisis)
 
 ### Casos de uso identificados únicamente (🔘 Gris)
@@ -47,7 +48,7 @@ Este dashboard visual muestra el progreso del proyecto de modernización de SigH
 
 #### Operaciones CRUD
 
-- **crearPrograma()** / **eliminarPrograma()**
+- **eliminarPrograma()**
 - **crearCurso()** / **editarCurso()** / **eliminarCurso()**
 - **crearProfesor()** / **editarProfesor()** / **eliminarProfesor()**
 - **crearEdificio()** / **editarEdificio()** / **eliminarEdificio()**
@@ -68,17 +69,17 @@ Este dashboard visual muestra el progreso del proyecto de modernización de SigH
 ## Estadísticas del proyecto
 
 - **Total de casos de uso**: 32
-- **Casos de uso en análisis**: 10 (31.25%)
-- **Casos de uso identificados**: 22 (68.75%)
-- **Progreso general**: 31.25%
+- **Casos de uso en análisis**: 11 (34.38%)
+- **Casos de uso identificados**: 21 (65.62%)
+- **Progreso general**: 34.38%
 
 ## Próximos pasos
 
 Los siguientes casos de uso son candidatos para la próxima iteración:
 
-1. **crearPrograma()** - Operaciones CRUD para programas académicos
-2. **crearCurso()** - Operaciones CRUD para cursos
-3. **crearProfesor()** - Operaciones CRUD para profesores
+1. **eliminarPrograma()** - Completar CRUD de programas académicos
+2. **crearCurso()** / **editarCurso()** - Aplicar filosofía C→U a cursos
+3. **crearProfesor()** / **editarProfesor()** - Aplicar filosofía C→U a profesores
 
 ## Metodología
 

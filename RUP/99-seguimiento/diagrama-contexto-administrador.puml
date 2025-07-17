@@ -60,7 +60,7 @@ Menu -[#gray,dotted]-> Consulta: consultarHorario()
 EditProfesor -[#gray,dotted]-> Asignaciones: asignarProfesorACurso()
 
 Asignaciones -[#gray,dotted]-> EditProfesor: editarProfesor()
-ListProgramas -[#gray,dotted]-> EditPrograma: crearPrograma()
+ListProgramas -[#darkgoldenrod,thickness=2]-> EditPrograma: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/crearPrograma/README.md crearPrograma()]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/crearPrograma/prototipo.puml P]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/crearPrograma/README.md A]]
 ListProgramas -[#darkgoldenrod,thickness=2]-> EditPrograma: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/editarPrograma/README.md editarPrograma()]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/editarPrograma/prototipo.puml P]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/editarPrograma/README.md A]]
 ListProgramas -[#gray,dotted]-> ListProgramas: eliminarPrograma()
 EditPrograma -[#darkgoldenrod,thickness=2]-> ListProgramas: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/abrirProgramas/README.md abrirProgramas()]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/abrirProgramas/prototipo.puml P]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/abrirProgramas/README.md A]]
