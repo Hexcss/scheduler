@@ -35,12 +35,12 @@ Este dashboard visual muestra el progreso del proyecto de modernización de SigH
 - **abrirCursos()** - Apertura de gestión de cursos (especificación + prototipo + análisis)
 - **abrirProfesores()** - Apertura de gestión de profesores (especificación + prototipo + análisis)
 - **abrirEdificios()** - Apertura de gestión de edificios (especificación + prototipo + análisis)
+- **abrirAulas()** - Apertura de gestión de aulas (especificación + prototipo + análisis)
 - **cerrarSesion()** - Cierre de sesión (especificación + prototipo + análisis)
 
 ### Casos de uso identificados únicamente (🔘 Gris)
 
 #### Gestión de datos maestros
-- **abrirAulas()** - Apertura de gestión de aulas
 - **abrirRecursos()** - Apertura de gestión de recursos
 
 #### Operaciones CRUD
@@ -66,17 +66,17 @@ Este dashboard visual muestra el progreso del proyecto de modernización de SigH
 ## Estadísticas del proyecto
 
 - **Total de casos de uso**: 32
-- **Casos de uso en análisis**: 7 (21.88%)
-- **Casos de uso identificados**: 25 (78.12%)
-- **Progreso general**: 21.88%
+- **Casos de uso en análisis**: 8 (25.00%)
+- **Casos de uso identificados**: 24 (75.00%)
+- **Progreso general**: 25.00%
 
 ## Próximos pasos
 
 Los siguientes casos de uso son candidatos para la próxima iteración:
 
-1. **abrirAulas()** - Gestión de espacios físicos
-2. **abrirRecursos()** - Completar datos maestros del sistema
-3. **crearEdificio()** - Operaciones CRUD para edificios
+1. **abrirRecursos()** - Completar datos maestros del sistema
+2. **crearEdificio()** - Operaciones CRUD para edificios
+3. **crearAula()** - Operaciones CRUD para aulas
 
 ## Metodología
 
