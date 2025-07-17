@@ -3,7 +3,7 @@
 left to right direction
 skinparam linetype polyline
 
-legend bottom right
+legend top left
     **Leyenda de Estados RUP**
     ====
     |<#gray>     | Identificado (no iniciado) |
@@ -68,13 +68,13 @@ ListCursos -[#gray,dotted]-> EditCurso: crearCurso()
 ListCursos -[#gray,dotted]-> EditCurso: editarCurso()
 ListCursos -[#gray,dotted]-> ListCursos: eliminarCurso()
 EditCurso -[#gray,dotted]-> EditCurso: editarCurso()
-EditCurso -[#gray,dotted]-> ListCursos: abrirCursos()
+EditCurso -[#darkgoldenrod,thickness=2]-> ListCursos: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/abrirCursos/README.md abrirCursos()]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/abrirCursos/prototipo.puml P]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/abrirCursos/README.md A]]
 ListProfesores -[#gray,dotted]-> EditProfesor: crearProfesor()
 ListProfesores -[#gray,dotted]-> EditProfesor: editarProfesor()
 ListProfesores -[#gray,dotted]-> ListProfesores: eliminarProfesor()
 EditProfesor -[#gray,dotted]-> EditProfesor: editarProfesor()
 EditProfesor -[#gray,dotted]-> EditProfesorPreferencias: configurarPreferenciasProfesor()
-EditProfesor -[#gray,dotted]-> ListProfesores: abrirProfesores()
+EditProfesor -[#darkgoldenrod,thickness=2]-> ListProfesores: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/abrirProfesores/README.md abrirProfesores()]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/abrirProfesores/prototipo.puml P]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/abrirProfesores/README.md A]]
 EditProfesorPreferencias -[#gray,dotted]-> EditProfesor: abrirEdicionProfesor()
 ListEdificios -[#gray,dotted]-> EditEdificio: crearEdificio()
 ListEdificios -[#gray,dotted]-> EditEdificio: editarEdificio()
