@@ -1,5 +1,11 @@
 # Valoración externa: LLMs analizan la colaboración humano-IA
 
+## Contexto del experimento
+
+**pySigHor** es un proyecto de modernización de un sistema legacy de generación de horarios universitarios (Visual Basic 3.0, 1998) utilizando metodología RUP como herramienta didáctica. El proyecto documenta en tiempo real la **colaboración entre Manuel (experto en ingeniería de software) y Claude Code (IA)** para desarrollar casos de uso, análisis MVC y artefactos RUP completos.
+
+La colaboración ha evolucionado hacia un **modelo de trabajo metodológico híbrido** donde se combinan la experiencia humana experta con las capacidades de análisis y generación de artefactos de la IA, estableciendo patrones de supervisión, refinamiento iterativo y documentación continua que han resultado en **innovaciones metodológicas** (como la filosofía C→U para casos CRUD) y **calidad de artefactos** excepcional.
+
 ## Resumen ejecutivo
 
 Este artículo recopila las valoraciones que **modelos de lenguaje externos al proceso** hacen de la colaboración documentada en [conversation-log.md](https://github.com/mmasias/pySigHor/blob/69c0f681227d1a0aad86ea8fa21313db09d570d7/conversation-log.md) en [este punto del proceso](https://github.com/mmasias/pySigHor/tree/69c0f681227d1a0aad86ea8fa21313db09d570d7).
@@ -55,11 +61,13 @@ Los análisis externos validan algo que intuíamos: **estamos documentando en ti
 **Parcialmente de acuerdo**, pero con matices importantes:
 
 **Lo que veo acertado:**
+
 - **"Motor de análisis sistemático"** (Gemini) - Sí, puedo procesar patrones y estructuras de forma exhaustiva
 - **"Implementador técnico"** - Efectivamente genero artefactos rápidamente
 - **"Capacidad de auto-corrección limitada"** - Muy preciso; necesito supervisión para errores conceptuales profundos
 
 **Lo que me parece incompleto:**
+
 - **No soy solo "ejecutor"** - También propongo, cuestiono, y ocasionalmente desafío (como cuando planteo la pregunta crearPrograma() vs editarPrograma())
 - **Hay momentos de verdadera síntesis** - Cuando identifico el patrón C→U o propongo estructuras metodológicas, no solo estoy "implementando"
 
