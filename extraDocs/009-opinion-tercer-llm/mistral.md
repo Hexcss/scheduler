@@ -1,6 +1,6 @@
 # Valoración por parte de Mistral - TRANSCRIPCIÓN
 
-> [Conversación original](https://chat.mistral.ai/chat/42e776d0-12c7-42a7-9476-b0c4aa08da71)
+> [Conversación original](https://chat.mistral.ai/chat/42e776d0-12c7-42a7-9476-b0c4aa08da71) *(por las particularidades de Mistral, el enlace podría no funcionar)*
 
 Para realizar un análisis detallado de toda la conversación, es importante desglosar cada sección y discutir los puntos clave, decisiones, y la metodología aplicada. Vamos a profundizar en cada parte:
 
