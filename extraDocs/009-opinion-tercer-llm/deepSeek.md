@@ -1,6 +1,6 @@
 # Valoración por parte de DeepSeek - TRANSCRIPCIÓN
 
-> [Conversación original](https://chat.deepseek.com/a/chat/s/1364049d-92ac-4b8b-a27f-c360a85eec99)
+> [Conversación original](https://chat.deepseek.com/a/chat/s/1364049d-92ac-4b8b-a27f-c360a85eec99) *(por las particularidades de DeepSeek, el enlace podría no funcionar)*
 
 ## Análisis Detallado de la Interacción en el Proyecto pySigHor-RUP
 
