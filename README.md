@@ -2,14 +2,13 @@
 
 En 1998, en la asignatura de TPD (Taller de procesamiento de datos) de Ing. Industrial y de Sistemas de la Universidad de Piura, impartida por el prof. Roberto Castro, aplicamos lo que habíamos aprendido en [Investigación de Operaciones](https://es.wikipedia.org/wiki/Programaci%C3%B3n_lineal) para desarrollar SIGHOR, sistema generador de horarios. ¡Una joyita en Visual Basic 3!
 
-**Proyecto de modernización**: Aplicación completa de metodología RUP para reingeniería del sistema legacy, con énfasis en pureza metodológica y trazabilidad sistemática.
-
-
 <div align=center>
 
-|**Navegación**
-|:-:
-|[🔄 Metodología RUP](/RUP/README.md) / [📊 Estado actual](https://raw.githubusercontent.com/mmasias/pySigHor/main/images/RUP/99-seguimiento/diagrama-contexto-administrador.svg) / [💡 Reflexiones metodológicas](/extraDocs/README.md) / [📋 Ingeniería inversa inicial](/extraDocs/000-ingenieria-inversa/README.md) 
+|El proyecto||
+|-|-
+|[Proceso(s)](/RUP/README.md)|Aplicación de la metodología RUP para la reingeniería del sistema, con énfasis en pureza metodológica y trazabilidad sistemática.
+|[Estado actual](https://raw.githubusercontent.com/mmasias/pySigHor/main/images/RUP/99-seguimiento/diagrama-contexto-administrador.svg)|Propuesta de artefacto dinámico de seguimiento
+|[Reflexiones...](/extraDocs/README.md)|Artículos de reflexión a partir de la dinámica de trabajo
 
 </div>
 
