@@ -10,7 +10,7 @@ consultor <|-up- admin
 
 package "Gestión de Profesores" {
     usecase crearProfesor as "crearProfesor()"
-    usecase listarProfesores as "listarProfesores()"
+    usecase abrirProfesores as "abrirProfesores()"
     usecase editarProfesor as "editarProfesor()"
     usecase eliminarProfesor as "eliminarProfesor()"
     usecase configurarPreferenciasProfesor as "configurarPreferenciasProfesor()"
@@ -30,7 +30,7 @@ package "Asignaciones" {
 
 
 (crearProfesor) <-- admin
-(listarProfesores) <-- admin
+(abrirProfesores) <-- admin
 (editarProfesor) <-- admin
 (eliminarProfesor) <-- admin
 (configurarPreferenciasProfesor) <-- admin
@@ -40,5 +40,6 @@ consultor --> (consultarHorario)
 admin --> (asignarProfesorACurso)
 admin --> (generarHorario)
 
+eliminarProfesor .> abrirProfesores : <<include>>
 
 @enduml

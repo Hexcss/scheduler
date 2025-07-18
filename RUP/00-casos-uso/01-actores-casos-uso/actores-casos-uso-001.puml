@@ -6,28 +6,29 @@ actor "Administrador de Horarios" as admin
 
 package "Gestión de Programas" {
     usecase crearPrograma as "crearPrograma()"
-    usecase listarProgramas as "listarProgramas()"
+    usecase abrirProgramas as "abrirProgramas()"
     usecase editarPrograma as "editarPrograma()"
     usecase eliminarPrograma as "eliminarPrograma()"
 }
 
 package "Gestión de Cursos" {
     usecase crearCurso as "crearCurso()"
-    usecase listarCursos as "listarCursos()"
+    usecase abrirCursos as "abrirCursos()"
     usecase editarCurso as "editarCurso()"
     usecase eliminarCurso as "eliminarCurso()"
 }
 
 admin --> (crearPrograma)
-admin --> (listarProgramas)
+admin --> (abrirProgramas)
 admin --> (editarPrograma)
 admin --> (eliminarPrograma)
 
 (crearCurso) <-- admin
-(listarCursos) <-- admin
+(abrirCursos) <-- admin
 (editarCurso) <-- admin
 (eliminarCurso) <-- admin
 
-
+eliminarCurso .> abrirCursos : <<include>>
+eliminarPrograma .> abrirProgramas : <<include>>
 
 @enduml
