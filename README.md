@@ -9,7 +9,7 @@ En 1998, en la asignatura de TPD (Taller de procesamiento de datos) de Ing. Indu
 
 |**Navegación**
 |:-:
-|[🔄 Metodología RUP](/RUP/README.md) / [📊 Estado actual](/RUP/99-seguimiento/) / [💡 Reflexiones metodológicas](/extraDocs/README.md) / [📋 Ingeniería inversa inicial](/extraDocs/000-ingenieria-inversa/README.md) 
+|[🔄 Metodología RUP](/RUP/README.md) / [📊 Estado actual](https://raw.githubusercontent.com/mmasias/pySigHor/main/images/RUP/99-seguimiento/diagrama-contexto-administrador.svg) / [💡 Reflexiones metodológicas](/extraDocs/README.md) / [📋 Ingeniería inversa inicial](/extraDocs/000-ingenieria-inversa/README.md) 
 
 </div>
 
