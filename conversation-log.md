@@ -18,7 +18,7 @@ Este archivo mantiene un registro cronológico de todas las conversaciones, deci
 
 #### Planteamiento del Usuario
 Manuel propone:
-> "El proyecto a largo plazo sería reescribir este proyecto en un lenguaje actual (podría ser java, podría ser algo web, ya lo veremos). Pero, para esto, quisiera seguir la metodología RUP, de modo que el proyecto además me sirva como herramienta didáctica"
+> *"El proyecto a largo plazo sería reescribir este proyecto en un lenguaje actual (podría ser java, podría ser algo web, ya lo veremos). Pero, para esto, quisiera seguir la metodología RUP, de modo que el proyecto además me sirva como herramienta didáctica"*
 
 #### Reflexión Estratégica
 Claude propone reflexionar paso a paso sobre:
@@ -126,7 +126,7 @@ Manuel solicita:
 
 ### Establecimiento de Protocolo de Validación
 Manuel establece una regla metodológica fundamental:
-> "primero, antes de abordar la generación de cualquier artefacto, siempre lo debatiremos antes"
+> *"primero, antes de abordar la generación de cualquier artefacto, siempre lo debatiremos antes"*
 
 #### Beneficios del protocolo
 - **Control de calidad**: Evita trabajo innecesario
@@ -167,7 +167,7 @@ Manuel valida la propuesta y sugiere comenzar con el **modelo de dominio** como 
 
 ### Solicitud de Manuel
 Manuel solicita comenzar con el análisis de casos de uso y propone el enfoque específico:
-> "empecemos por el análisis de los casos de uso"
+> *"empecemos por el análisis de los casos de uso"*
 
 ### Propuesta Metodológica de Claude
 Claude propone una secuencia estructurada:
@@ -358,7 +358,7 @@ Manuel retorna después de revisar el modelo de dominio actualizado y confirma l
 
 ### Error Crítico Detectado
 Manuel identifica un error conceptual grave en la propuesta inicial de actores:
-> "¡Sistema de archivos no es un actor! Es un error gravísimo"
+> *"¡Sistema de archivos no es un actor! Es un error gravísimo"*
 
 #### Naturaleza del error
 - **Confusión conceptual**: Sistema externo vs Actor
@@ -479,7 +479,7 @@ Después de completar actores y casos de uso, surge la necesidad de una represen
 
 ### Insight Metodológico de Manuel
 Manuel introduce un concepto innovador:
-> "El diagrama de contexto lo uso para relacionar los casos de uso de un actor como un todo"
+> *"El diagrama de contexto lo uso para relacionar los casos de uso de un actor como un todo"*
 
 #### Conceptualización
 - **Diagrama de contexto**: No solo casos de uso estáticos
@@ -579,7 +579,7 @@ Manuel detecta problemas que Claude no vio:
 ### Optimización Metodológica Descubierta
 
 #### Insight de Manuel
-> "todos los volverAlMenu() son realmente mostrarMenu()"
+> *"todos los volverAlMenu() son realmente mostrarMenu()"*
 
 #### Implicación
 - **Simplificación conceptual**: Un solo caso de uso para retornar al menú
@@ -818,7 +818,7 @@ Manuel identifica mejora técnica significativa:
 
 #### Corrección metodológica aplicada
 Manuel identifica y corrige violación de vocabulario RUP:
-> "no se pueden usar los términos 'formulario, botón, clic, selección, etc'"
+> *"no se pueden usar los términos 'formulario, botón, clic, selección, etc'"*
 
 #### Vocabulario corregido
 - **"formulario"** → **"interfaz de autenticación"**
@@ -856,7 +856,7 @@ Manuel valida la especificación detallada de `iniciarSesion()`:
 ### Conceptualización del Prototipado
 
 #### Definición metodológica clave de Manuel
-> "un prototipo sirve para que te digan que no lo antes posible y evitar trabajar en vano"
+> *"un prototipo sirve para que te digan que no lo antes posible y evitar trabajar en vano"*
 
 #### Filosofía del prototipado
 - **Validación temprana**: Detectar problemas antes de desarrollo completo
@@ -925,7 +925,7 @@ Con `iniciarSesion()` completamente especificado (especificación + prototipo), 
 
 #### Decisión de Manuel: MVC
 **Rationale pedagógico**:
-> "Para propósitos didácticos, MVC es más ampliamente conocido y aplicable"
+> *"Para propósitos didácticos, MVC es más ampliamente conocido y aplicable"*
 
 #### Ventajas de MVC en contexto didáctico
 - **Reconocimiento**: Ampliamente conocido en la industria
@@ -1256,7 +1256,7 @@ Surge de la experiencia real del proyecto donde la tentación de saltar directam
 Durante una pausa en el trabajo técnico, Manuel comparte una reflexión metodológica importante sobre la ubicación de archivos README.md en el proyecto.
 
 #### Observación inicial
-> "¿Has notado que los README.md que están dentro de las carpetas están bien, pero los README.md que están en la raíz de las carpetas no aportan nada?"
+> *"¿Has notado que los README.md que están dentro de las carpetas están bien, pero los README.md que están en la raíz de las carpetas no aportan nada?"*
 
 #### Análisis del problema
 - **README.md internos**: Proporcionan contexto específico y valioso
@@ -1389,7 +1389,7 @@ Con varios casos de uso analizados usando MVC y metodología madura, surge una o
 ### Conceptualización del Experimento
 
 #### Promesa de RUP a validar
-> **"El análisis independiente de tecnología permite implementar en cualquier plataforma"**
+> *"El análisis independiente de tecnología permite implementar en cualquier plataforma"*
 
 #### Diseño experimental
 - **Hipótesis**: El análisis MVC realizado es verdaderamente independiente de tecnología
@@ -1473,7 +1473,7 @@ Con el proyecto en estado de madurez metodológica, Manuel reflexiona sobre el p
 ### Reflexión inicial de Manuel
 
 #### Identificación del problema fundamental
-> "Una de los puntos clave de RUP se convierte también en un talón de aquiles, al menos en lo que respecta al seguimiento (sin usar herramientas particulares que por otro lado tienen un costo excesivo). Al dividir el problema en dos dimensiones, tanto en los artefactos que se utilizan para construir la solución como en las actividades que gestionan la construcción de estos artefactos (y, por ende, la solución), el numero de elementos se hace enorme."
+> *"Una de los puntos clave de RUP se convierte también en un talón de aquiles, al menos en lo que respecta al seguimiento (sin usar herramientas particulares que por otro lado tienen un costo excesivo). Al dividir el problema en dos dimensiones, tanto en los artefactos que se utilizan para construir la solución como en las actividades que gestionan la construcción de estos artefactos (y, por ende, la solución), el numero de elementos se hace enorme."*
 
 #### Evolución hacia la solución
 Manuel identifica que la matriz de **artefactos × actividades × disciplinas × fases** crea una complejidad de seguimiento que requiere herramientas especializadas costosas, pero propone usar los propios artefactos RUP como herramienta de gestión.
@@ -1481,7 +1481,7 @@ Manuel identifica que la matriz de **artefactos × actividades × disciplinas ×
 ### Momento del insight
 
 #### Identificación del artefacto ideal
-> "el mapa más cercano a lo que será la solución lo da el diagrama de contexto. Ahi tenemos casos de uso que han de ir transicionando por detalle, prototipado, analisis, diseño, desarrollo, pruebas, etc... Si podemos incluir -con una clave de colores, por ejemplo- el estado de cada uno de los elementos, tendríamos la posibilidad de 'ver' por dónde vamos, y como vamos por dónde vamos"
+> *"el mapa más cercano a lo que será la solución lo da el diagrama de contexto. Ahi tenemos casos de uso que han de ir transicionando por detalle, prototipado, analisis, diseño, desarrollo, pruebas, etc... Si podemos incluir -con una clave de colores, por ejemplo- el estado de cada uno de los elementos, tendríamos la posibilidad de 'ver' por dónde vamos, y como vamos por dónde vamos"*
 
 #### Refinamiento del concepto
 La idea evoluciona hacia un sistema sofisticado:
@@ -2023,7 +2023,7 @@ Manuel identifica que los estados iniciales aún violaban el principio de indepe
 - **`MENU_PRINCIPAL`**: Claramente tecnológicamente sesgado (asume interfaz con menús)
 
 #### Sugerencia del Prof. Luis Fernández aplicada
-> "El hecho de llamar MENU_x a un estado ya lo 'acoplaba' a una percepción tecnológica"
+> *"El hecho de llamar MENU_x a un estado ya lo 'acoplaba' a una percepción tecnológica"*
 
 ### Corrección implementada
 
@@ -2157,7 +2157,7 @@ La corrección mejora significativamente las condiciones para el experimento de 
 
 #### Error crítico detectado
 Manuel identifica modificación incorrecta del diagrama de contexto oficial:
-> "No!!!!!!!!!!!!!!! No tocamos el diagrama de contexto oficial! Tenemos la carpeta de 99-seguimiento donde está el dashboard :(<"
+> *"No!!!!!!!!!!!!!!! No tocamos el diagrama de contexto oficial! Tenemos la carpeta de 99-seguimiento donde está el dashboard :(<"*
 
 ### Corrección del Error
 
@@ -2198,7 +2198,7 @@ Dashboard actualizado refleja progreso auténtico:
 
 #### Cuestionamiento fundamental planteado
 Manuel identifica tensión conceptual importante:
-> "Me estoy cuestionando que el diagrama de colaboración (en análisis) de mostrarMenu() deba indicar las salidas... Por eso teníamos el debate de si mostrar dos veces al actor. Creo que se lleva al sistema a un estado, pero lo que siga ya no le corresponde (y no deberia modelarse)."
+> *"Me estoy cuestionando que el diagrama de colaboración (en análisis) de mostrarMenu() deba indicar las salidas... Por eso teníamos el debate de si mostrar dos veces al actor. Creo que se lleva al sistema a un estado, pero lo que siga ya no le corresponde (y no deberia modelarse)."*
 
 #### Evolución del entendimiento
 **Malentendido inicial aclarado:**
@@ -2262,11 +2262,11 @@ MenuView ..> AbrirCursos : abrirCursos()
 ### Documentación Conceptual Agregada
 
 #### Explicación explícita en diagrama
-> **Colaboraciones externas activables a partir de este caso de uso (no parte del caso de uso mostrarMenu()):**
+> *Colaboraciones externas activables a partir de este caso de uso (no parte del caso de uso mostrarMenu()):*
 > 
-> El caso de uso mostrarMenu() tiene como propósito principal presentar al usuario las opciones disponibles en función de sus permisos. Una vez mostrado el menú, el usuario puede seleccionar cualquiera de estas opciones, las cuales activan otros casos de uso del sistema.
+> *El caso de uso mostrarMenu() tiene como propósito principal presentar al usuario las opciones disponibles en función de sus permisos. Una vez mostrado el menú, el usuario puede seleccionar cualquiera de estas opciones, las cuales activan otros casos de uso del sistema.*
 >
-> Estas colaboraciones representan puntos de continuación que no forman parte del flujo interno de mostrarMenu(), pero que pueden ser iniciadas inmediatamente después por decisión del actor.
+> *Estas colaboraciones representan puntos de continuación que no forman parte del flujo interno de mostrarMenu(), pero que pueden ser iniciadas inmediatamente después por decisión del actor.*
 
 ### Trazabilidad Completa
 
@@ -2283,7 +2283,7 @@ MenuView ..> AbrirCursos : abrirCursos()
 
 #### Inconsistencia detectada
 Manuel identifica que no todas las transiciones `mostrarMenu()` estaban actualizadas:
-> "por qué no has actualizado en el diagrama todos los mostrarMenu()?"
+> *"por qué no has actualizado en el diagrama todos los mostrarMenu()?"*
 
 #### Corrección sistemática aplicada
 - **9 transiciones `mostrarMenu()` identificadas**: Todas actualizadas a estado de análisis completado
@@ -2362,7 +2362,7 @@ Manuel identifica que no todas las transiciones `mostrarMenu()` estaban actualiz
 
 #### Oportunidad de mejora identificada
 Manuel observa mejora sustancial en diagrama oficial y propone aplicar mismo enfoque al dashboard:
-> "Si esto está mejor, entonces ajustemos nuestro diagrama de contexto 'dashboard' para que siga este formato más limpio y se vea mejor el sistema de colores"
+> *"Si esto está mejor, entonces ajustemos nuestro diagrama de contexto 'dashboard' para que siga este formato más limpio y se vea mejor el sistema de colores"*
 
 ### Evolución del Diagrama Oficial
 
@@ -2406,7 +2406,7 @@ Dashboard actualizado siguiendo formato limpio del diagrama oficial:
 
 #### Propuesta exploratoria
 Manuel sugiere experimentar con colores en textos:
-> "¿Se pueden poner colores en los texto de los casos de uso?"
+> *"¿Se pueden poner colores en los texto de los casos de uso?"*
 
 #### Implementación de prueba
 **Sintaxis aplicada:**
@@ -2430,7 +2430,7 @@ Menu -[#gray,dotted]-> ListProfesores: <color:gray>abrirProfesores()</color>
 
 #### Reflexión sobre sobrecarga visual
 Manuel evalúa resultado y toma decisión estratégica:
-> "No lo sé: me parece ya demasiado 'cromito' y el color puede distraer. Quizá mejor dejarlo solo en las flechas, y los textos en negro están bien"
+> *"No lo sé: me parece ya demasiado 'cromito' y el color puede distraer. Quizá mejor dejarlo solo en las flechas, y los textos en negro están bien"*
 
 #### Principios de diseño aplicados
 **Análisis de usabilidad:**
@@ -2595,7 +2595,7 @@ SISTEMA_DISPONIBLE --> GESTIONANDO_PROGRAMAS : gestionarProgramas()
 
 #### Comparación con diagrama oficial
 **Manuel observa**:
-> "Pues, curiosamente, ahora que tenemos este diagrama conceptual puro, el que tenemos oficialmente en el proyecto es prácticamente idéntico a este (salvo por el nombre del caso de uso mostrarMenu()). Verifícalo!"
+> *"Pues, curiosamente, ahora que tenemos este diagrama conceptual puro, el que tenemos oficialmente en el proyecto es prácticamente idéntico a este (salvo por el nombre del caso de uso mostrarMenu()). Verifícalo!"*
 
 #### Análisis comparativo
 
@@ -2681,7 +2681,7 @@ Tras completar la transformación `mostrarMenu()` → `completarGestion()`, Manu
 
 #### Problema identificado: Desconexión entre casos de uso
 **Manuel observa**:
-> "en los diagramas de colaboracion, la salida de iniciarSesion deberia ser la entrada de completarGestion"
+> *"en los diagramas de colaboracion, la salida de iniciarSesion deberia ser la entrada de completarGestion"*
 
 **Problema metodológico**: Los diagramas de colaboración no reflejaban la secuencia correcta establecida en el diagrama de contexto.
 
@@ -2707,7 +2707,7 @@ La secuencia de casos de uso debe reflejar exactamente el diagrama de contexto:
 ### Establecimiento de Patrón Metodológico Universal
 
 #### Observación estratégica de Manuel
-> "Entonces, a futuro, cuando hagamos el resto de diagramas de colaboración, la salida de estos diagramas será la invocación a :Sistema Disponible usando sistemaDisponible(administrador). ¿Lo confirmas? ¿Lo desmientes? ¿Lo complementas?"
+> *"Entonces, a futuro, cuando hagamos el resto de diagramas de colaboración, la salida de estos diagramas será la invocación a :Sistema Disponible usando sistemaDisponible(administrador). ¿Lo confirmas? ¿Lo desmientes? ¿Lo complementas?"*
 
 #### Patrón metodológico confirmado
 
@@ -2972,7 +2972,7 @@ state state2 [[http://plantuml.com/state{tooltip y enlace}]]
 
 #### Fase 2: Refinamiento Conceptual
 **Insight brillante de Manuel**:
-> "un caso de uso puede estar en diversos estados, y nos puede interesar ir a diversos artefactos... podríamos hacer algo así como:
+> *"un caso de uso puede estar en diversos estados, y nos puede interesar ir a diversos artefactos... podríamos hacer algo así como:*
 > 
 > [nombreCasoUso]() [📋]() [🎨]() [🔍]()
 > 
@@ -2992,7 +2992,7 @@ NoAuth -[#darkgoldenrod,thickness=2]-> Menu: [[../00-casos-uso/02-detalle/inicia
 
 #### Fase 4: Descubrimiento de Optimización Visual
 **Observación técnica crítica de Manuel**:
-> "los íconos para no pisarse necesitan un espacio de seis caracteres entre ellos (cosa que no pasa con el texto 'normal')"
+> *"los íconos para no pisarse necesitan un espacio de seis caracteres entre ellos (cosa que no pasa con el texto 'normal')"*
 
 **Solución aplicada**:
 ```plantuml
@@ -3137,7 +3137,7 @@ Claude realizó análisis exhaustivo de casos de uso previos:
 #### Presentación del Concepto
 Manuel introduce filosofía revolucionaria:
 
-> "En mi mente, C y U están íntimamente relacionados. C es un caso de uso que crea un elemento con el mínimo de características e inmediatamente pasa la pelota a la U, que es el 'gordo'. Es como cuando creas un nuevo documento en Google Docs: se abre un documento vacío, pero ya estás editando."
+> *"En mi mente, C y U están íntimamente relacionados. C es un caso de uso que crea un elemento con el mínimo de características e inmediatamente pasa la pelota a la U, que es el 'gordo'. Es como cuando creas un nuevo documento en Google Docs: se abre un documento vacío, pero ya estás editando."*
 
 #### Análisis Metodológico de Claude
 **Ventajas identificadas**:
@@ -3266,7 +3266,7 @@ Claude plantea la pregunta: ¿crearPrograma() o editarPrograma() primero?
 
 #### Confirmación del Usuario
 Manuel confirma totalmente:
-> "va de la mano del RUP más exquisito que plantea abordar primero los de mayor complejidad"
+> *"va de la mano del RUP más exquisito que plantea abordar primero los de mayor complejidad"*
 
 #### Decisión Acordada
 **Orden de implementación**:
@@ -3345,7 +3345,7 @@ eliminarPrograma() {
 
 #### 1. Ajuste de Nomenclatura
 Manuel inicialmente sugirió "listarX()" pero corrigió inmediatamente:
-> "No puede ser listar, porque no sabemos si lo implementaremos en una interfaz que muestre los elementos como una lista!"
+> *"No puede ser listar, porque no sabemos si lo implementaremos en una interfaz que muestre los elementos como una lista!"*
 
 **Principio confirmado**: "abrirX()" respeta independencia tecnológica RUP.
 
