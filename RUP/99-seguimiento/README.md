@@ -43,8 +43,12 @@ Los casos de uso analizados incluyen **2 enlaces** de navegación:
 - **abrirEdificios()** - Apertura de gestión de edificios (especificación + prototipo + análisis)
 - **abrirAulas()** - Apertura de gestión de aulas (especificación + prototipo + análisis)
 - **abrirRecursos()** - Apertura de gestión de recursos (especificación + prototipo + análisis)
-- **editarPrograma()** - Edición de programas académicos aplicando filosofía C→U (especificación + prototipo + análisis)
 - **crearPrograma()** - Creación de programas académicos como "el delgado" C→U (especificación + prototipo + análisis)
+- **editarPrograma()** - Edición de programas académicos aplicando filosofía C→U (especificación + prototipo + análisis)
+- **eliminarPrograma()** - Eliminación segura de programas con confirmación (especificación + prototipo + análisis)
+- **crearCurso()** - Creación de cursos como "el delgado" C→U (especificación + prototipo + análisis + secuencia)
+- **editarCurso()** - Edición de cursos como "el gordo" con edición continua (especificación + prototipo + análisis + secuencia)
+- **eliminarCurso()** - Eliminación segura de cursos con confirmación (especificación + prototipo + análisis)
 - **cerrarSesion()** - Cierre de sesión (especificación + prototipo + análisis)
 
 ### Casos de uso identificados únicamente (🔘 Gris)
@@ -54,8 +58,6 @@ Los casos de uso analizados incluyen **2 enlaces** de navegación:
 
 #### Operaciones CRUD
 
-- **eliminarPrograma()**
-- **crearCurso()** / **editarCurso()** / **eliminarCurso()**
 - **crearProfesor()** / **editarProfesor()** / **eliminarProfesor()**
 - **crearEdificio()** / **editarEdificio()** / **eliminarEdificio()**
 - **crearAula()** / **editarAula()** / **eliminarAula()**
@@ -75,17 +77,18 @@ Los casos de uso analizados incluyen **2 enlaces** de navegación:
 ## Estadísticas del proyecto
 
 - **Total de casos de uso**: 32
-- **Casos de uso en análisis**: 11 (34.38%)
-- **Casos de uso identificados**: 21 (65.62%)
-- **Progreso general**: 34.38%
+- **Casos de uso en análisis**: 15 (46.88%)
+- **Casos de uso identificados**: 17 (53.12%)
+- **Progreso general**: 46.88%
 
 ## Próximos pasos
 
 Los siguientes casos de uso son candidatos para la próxima iteración:
 
-1. **eliminarPrograma()** - Completar CRUD de programas académicos
-2. **crearCurso()** / **editarCurso()** - Aplicar filosofía C→U a cursos
-3. **crearProfesor()** / **editarProfesor()** - Aplicar filosofía C→U a profesores
+1. **crearProfesor()** / **editarProfesor()** / **eliminarProfesor()** - Aplicar patrón CRUD validado a profesores
+2. **crearAula()** / **editarAula()** / **eliminarAula()** - Aplicar patrón CRUD validado a aulas
+3. **crearEdificio()** / **editarEdificio()** / **eliminarEdificio()** - Aplicar patrón CRUD validado a edificios
+4. **crearRecurso()** / **editarRecurso()** / **eliminarRecurso()** - Aplicar patrón CRUD validado a recursos
 
 ## Metodología
 

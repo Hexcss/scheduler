@@ -1,0 +1,28 @@
+@startuml crearCurso-analisis
+skinparam linetype polyline
+
+rectangle #CDEBA5 ":Cursos Abierto" as CursosAbierto
+rectangle #CDEBA5 ":Collaboration EditarCurso" as EditarCurso
+
+package crearCurso as "crearCurso()" {
+    rectangle #629EF9 CrearCursoView
+    rectangle #b5bd68 CursoController
+    rectangle #F2AC4E CursoRepository
+    rectangle #F2AC4E Curso
+}
+
+CursosAbierto --> CrearCursoView: crearCurso()
+
+CrearCursoView -d-> CursoController: validarDatosMínimos(nombre) : boolean
+
+CursoController --> CursoRepository: verificarUnicidad(nombre) : boolean
+
+CrearCursoView --> CursoController: crearCurso(nombre) : Curso
+
+CursoController --> CursoRepository: crear(nombre) : Curso
+
+CursoRepository -- Curso
+
+CrearCursoView ..> EditarCurso: <<include>> editarCurso(cursoNuevo)
+
+@enduml

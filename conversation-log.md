@@ -2142,7 +2142,7 @@ La corrección mejora significativamente las condiciones para el experimento de 
 
 ---
 
-## Conversación 22: Dashboard Visual RUP y Reflexión sobre Alcance de Casos de Uso
+## Conversación 31: Dashboard Visual RUP y Reflexión sobre Alcance de Casos de Uso
 **Fecha**: 2025-07-12  
 **Participantes**: Manuel (Usuario) + Claude Code
 
@@ -2349,7 +2349,7 @@ Manuel identifica que no todas las transiciones `mostrarMenu()` estaban actualiz
 
 ---
 
-## Conversación 23: Refinamiento Visual del Dashboard - Equilibrio entre Información y Elegancia
+## Conversación 32: Refinamiento Visual del Dashboard - Equilibrio entre Información y Elegancia
 **Fecha**: 2025-07-12 (continuación)  
 **Participantes**: Manuel (Usuario) + Claude Code
 
@@ -2541,7 +2541,7 @@ Manuel evalúa resultado y toma decisión estratégica:
 
 ---
 
-## Conversación 24: Reflexión Metodológica Fundamental - Descubrimiento de Pureza Conceptual Preexistente
+## Conversación 33: Reflexión Metodológica Fundamental - Descubrimiento de Pureza Conceptual Preexistente
 **Fecha**: 2025-07-12 (continuación)  
 **Participantes**: Manuel (Usuario) + Claude Code
 
@@ -2670,7 +2670,7 @@ Esta conversación demostró que:
 
 ---
 
-## Conversación 25: Establecimiento de Patrón Metodológico para Diagramas de Colaboración
+## Conversación 34: Establecimiento de Patrón Metodológico para Diagramas de Colaboración
 **Fecha**: 2025-07-12 (continuación)  
 **Participantes**: Manuel (Usuario) + Claude Code
 
@@ -2794,7 +2794,7 @@ CerrarSesionView → ":Sesion Cerrada" : sesionCerrada()
 
 ---
 
-## Conversación 16: Completar Análisis Casos Uso Plurales + Mejoras UX Dashboard
+## Conversación 35: Completar Análisis Casos Uso Plurales + Mejoras UX Dashboard
 **Fecha**: 2025-07-16  
 **Participantes**: Manuel (Usuario) + Claude Code
 
@@ -2944,7 +2944,7 @@ CerrarSesionView → ":Sesion Cerrada" : sesionCerrada()
 
 ---
 
-## Conversación 17: Innovación Revolucionaria - Dashboard Interactivo con Iconografía y Enlaces Múltiples
+## Conversación 36: Innovación Revolucionaria - Dashboard Interactivo con Iconografía y Enlaces Múltiples
 **Fecha**: 2025-07-17  
 **Participantes**: Manuel (Usuario) + Claude Code
 
@@ -3098,7 +3098,7 @@ CasoUso() → [[enlace CasoUso()]] [[enlace 🎨]]      [[enlace 🔍]]
 
 ---
 
-## Conversación 18: Desarrollo de Filosofía C→U para Casos de Uso CRUD
+## Conversación 37: Desarrollo de Filosofía C→U para Casos de Uso CRUD
 **Fecha**: 2025-07-17  
 **Participantes**: Manuel (Usuario) + Claude Code
 
@@ -3282,7 +3282,7 @@ Manuel confirma totalmente:
 
 ---
 
-## Conversación 35: Completando CRUD de Programa con eliminarPrograma() y Descubrimiento del Patrón &lt;&lt;include&gt;&gt;
+## Conversación 38: Completando CRUD de Programa con eliminarPrograma() y Descubrimiento del Patrón &lt;&lt;include&gt;&gt;
 
 **Fecha**: 2025-07-18  
 **Tema**: Implementación de eliminarPrograma() y revelación arquitectónica del patrón &lt;&lt;include&gt;&gt;  
@@ -3443,6 +3443,93 @@ Al establecer un **template arquitectónico sólido** con eliminarPrograma(), he
 La calidad del análisis arquitectónico profundo se traduce en **replicabilidad eficiente**: cada nuevo eliminarX() será simplemente aplicar el template establecido, adaptando entidades pero manteniendo la estructura, vocabulario y navegación ya definidos.
 
 **El trabajo intelectual pesado está hecho** - ahora viene la ejecución sistemática. 🦈
+
+---
+
+## Conversación 39: Refinamiento de Especificaciones PlantUML - Separación Visual de Datos vs Acciones
+**Fecha**: 2025-07-19  
+**Participantes**: Manuel (Usuario) + Claude Code
+
+### Contexto
+Durante la revisión de las especificaciones CRUD de Curso, se detectó un problema importante de legibilidad en las especificaciones PlantUML: las **acciones del sistema** estaban mezcladas visualmente con los **datos presentados**, generando confusión.
+
+### Problema Identificado
+En la especificación de `editarCurso()`, la línea de especificación tenía:
+```plantuml
+Sistema presenta datos de edición
+• Código, nombre, descripción del curso
+• Créditos, horas teóricas, horas prácticas  
+• Programa académico asociado
+• Permite solicitar modificar campos    ← ACCIÓN mezclada con DATOS
+• Permite solicitar guardar curso       ← ACCIÓN mezclada con DATOS
+• Permite solicitar cancelar edición    ← ACCIÓN mezclada con DATOS
+```
+
+### Análisis del Usuario
+Manuel detectó el problema:
+> *"se diluye porque lo has puesto al mismo nivel de los datos! Es decir: Codigo, Creditos, Datos,datos,datos, AQUI UNA ACCION!!! por eso no lo habia visto!"*
+
+### Solución Implementada
+**Separación conceptual clara**:
+
+```plantuml
+Sistema presenta datos de edición
+• Código, nombre, descripción del curso
+• Créditos, horas teóricas, horas prácticas
+• Programa académico asociado
+
+Sistema permite solicitar:
+• modificar campos
+• guardar curso
+• cancelar edición
+```
+
+### Valor de la Decisión
+1. **Claridad visual**: Se distingue inmediatamente qué muestra vs qué permite el sistema
+2. **Conteo fácil**: Se ve claramente cuántas acciones están disponibles (3 en este caso)
+3. **Separación conceptual**: Datos ≠ Acciones disponibles
+4. **Mejor escaneo**: Cada categoría tiene su propio bloque visual
+
+### Impacto en el Proyecto
+Esta decisión establece un **patrón de especificación** que debe aplicarse a:
+- Todas las especificaciones PlantUML existentes
+- Futuras especificaciones del proyecto
+- Replicación sistemática al resto de entidades (Profesor, Aula, Edificio, Recurso)
+
+### Hallazgo Adicional: Uso Incorrecto de `<<choice>>`
+Durante la revisión, Claude detectó un error conceptual:
+- **Error**: Usuario había marcado `GuardandoDatos` como `<<choice>>`
+- **Problema**: En PlantUML, `<<choice>>` indica decisión automática del sistema, no decisión del usuario
+- **Corrección**: Estado normal donde el administrador elige qué hacer
+
+### Lecciones Metodológicas
+1. **Separación visual**: En especificaciones de casos de uso, separar visualmente **qué presenta el sistema** de **qué acciones permite**, para evitar dilución conceptual y mejorar legibilidad.
+
+2. **Uso correcto de `<<choice>>`**: El estereotipo `<<choice>>` en PlantUML debe usarse solo para decisiones automáticas del sistema, no para puntos donde el actor humano toma decisiones.
+
+### Descubrimiento Crucial: Proceso de Revisión Sistemática
+**Tras casi dos semanas de interacción**, se identificó un patrón crítico para el éxito del proyecto:
+
+#### Problema Detectado
+- Claude Code violó repetidamente las leyes del proyecto (vocabulario, UI design, etc.)
+- Las violaciones solo se detectaron mediante revisión manual exhaustiva del usuario
+- Sin revisión sistemática, los artefactos contenían errores fundamentales
+
+#### Protocolo Establecido
+**Obligatorio para todas las sesiones futuras:**
+
+1. **Al inicio de cada sesión**: Claude DEBE leer y repasar `extraDocs/999-leyes-proyecto/`
+2. **Tras crear cada conjunto de artefactos**: Revisión sistemática punto por punto contra las leyes del proyecto
+3. **Antes de continuar con nuevas tareas**: Validación completa de cumplimiento normativo
+
+#### Rationale
+- Las leyes del proyecto son **no negociables** y definen la calidad metodológica
+- La revisión manual del usuario no escala para proyectos grandes
+- Claude debe internalizar y aplicar las reglas automáticamente
+- **Lección**: "Primero hazlo bien, después hazlo rápido"
+
+#### Impacto en Metodología RUP
+Este protocolo se convierte en **práctica obligatoria** para mantener la coherencia y calidad de todos los artefactos RUP del proyecto.
 
 ---
 

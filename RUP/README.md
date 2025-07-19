@@ -34,9 +34,9 @@ Emojis para fases futuras:
 |**crearPrograma()**|[📋](/RUP/00-casos-uso/02-detalle/crearPrograma/README.md#diagrama-de-especificación)|[🎨](/RUP/00-casos-uso/02-detalle/crearPrograma/README.md#wireframes)|[🔍](/RUP/01-analisis/casos-uso/crearPrograma/README.md)|⚪|⚪|⚪|*"El delgado" filosofía C→U*
 |**editarPrograma()**|[📋](/RUP/00-casos-uso/02-detalle/editarPrograma/README.md#diagrama-de-especificación)|[🎨](/RUP/00-casos-uso/02-detalle/editarPrograma/README.md#wireframes)|[🔍](/RUP/01-analisis/casos-uso/editarPrograma/README.md)|⚪|⚪|⚪|*Aplicando filosofía C→U*
 |**eliminarPrograma()**|[📋](/RUP/00-casos-uso/02-detalle/eliminarPrograma/README.md#diagrama-de-especificación)|[🎨](/RUP/00-casos-uso/02-detalle/eliminarPrograma/README.md#wireframes)|[🔍](/RUP/01-analisis/casos-uso/eliminarPrograma/README.md)|⚪|⚪|⚪|*Eliminación segura con confirmación*
-|**crearCurso()**|⚪|⚪|⚪|⚪|⚪|⚪|
-|**editarCurso()**|⚪|⚪|⚪|⚪|⚪|⚪|
-|**eliminarCurso()**|⚪|⚪|⚪|⚪|⚪|⚪|
+|**crearCurso()**|[📋](/RUP/00-casos-uso/02-detalle/crearCurso/README.md#diagrama-de-especificación)|[🎨](/RUP/00-casos-uso/02-detalle/crearCurso/README.md#wireframes)|[🔍](/RUP/01-analisis/casos-uso/crearCurso/README.md)|⚪|⚪|⚪|*"El delgado" filosofía C→U completa*
+|**editarCurso()**|[📋](/RUP/00-casos-uso/02-detalle/editarCurso/README.md#diagrama-de-especificación)|[🎨](/RUP/00-casos-uso/02-detalle/editarCurso/README.md#wireframes)|[🔍](/RUP/01-analisis/casos-uso/editarCurso/README.md)|⚪|⚪|⚪|*"El gordo" con edición continua completa*
+|**eliminarCurso()**|[📋](/RUP/00-casos-uso/02-detalle/eliminarCurso/README.md#diagrama-de-especificación)|[🎨](/RUP/00-casos-uso/02-detalle/eliminarCurso/README.md#wireframes)|[🔍](/RUP/01-analisis/casos-uso/eliminarCurso/README.md)|⚪|⚪|⚪|*Eliminación segura con confirmación completa*
 |**crearProfesor()**|⚪|⚪|⚪|⚪|⚪|⚪|
 |**editarProfesor()**|⚪|⚪|⚪|⚪|⚪|⚪|
 |**eliminarProfesor()**|⚪|⚪|⚪|⚪|⚪|⚪|
