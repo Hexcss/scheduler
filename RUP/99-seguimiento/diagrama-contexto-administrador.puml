@@ -3,25 +3,30 @@
 left to right direction
 skinparam linetype polyline
 
-legend bottom right
-    **Leyenda de Estados RUP**
-    ====
-    |<#gray>     | Identificado (no iniciado) |
-    |<#red>      | Detalle/Prototipado |
-    |<#darkgoldenrod>| Análisis |
-    |<#green>    | Diseño |
-    |<#lightblue>| Desarrollo |
-    |<#blue>     | Pruebas |
-    |<#black>    | Completado |
-    | ... |Identificado|
-    | --- |En trabajo activo|
-    ----
-    **Enlaces de Navegación**
-    ====
-    Los casos de uso analizados incluyen 2 enlaces:
-    [nombreCasoUso] Especificación detallada
-    [A] Análisis MVC
+<style>
+legend {
+  BackGroundColor #f0f0f0;
+  'Margin 30
+  Padding 10
+}
+footer {
+  HorizontalAlignment left
+}
+
+</style>
+
+legend top
+    **DASHBOARD DE CONTEXTO** - <i>Casos de uso</i>
+    '====
+    |<#gray>     | Identificado |<#red>     | Requisitado |<#darkgoldenrod>     | Analizado |<#green>     | Diseñado |<#lightblue>     |Desarrollado|<#blue>     | Probado |<#black>     | Completado |
+    '====
+    '[**nombreCasoUso()**] -> Especificación detallada / [**A**] -> Análisis MVC
+    '====
 end legend
+
+footer
+**<i>[[https://github.com/mmasias/pySigHor << Volver al repo]]</i>** 
+end footer
 
 state "SESION_CERRADA" as NoAuth
 state "SISTEMA_DISPONIBLE" as Menu
