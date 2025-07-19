@@ -42,7 +42,7 @@ Análisis de colaboración del caso de uso `eliminarPrograma()` mediante el patr
 **Colaboraciones**:
 - **Entrada**: Recibe `eliminarPrograma(programaId)` desde `:Programas Abierto` o `:Programa Abierto`
 - **Control**: Se comunica con `ProgramaController`
-- **Salida**: **<<include>>** `:Collaboration AbrirProgramas` para mostrar lista actualizada
+- **Salida**: **&lt;&lt;include&gt;&gt;** `:Collaboration AbrirProgramas` para mostrar lista actualizada
 
 ### clases de control
 
@@ -94,7 +94,7 @@ Análisis de colaboración del caso de uso `eliminarPrograma()` mediante el patr
 5. **Confirmación**: Administrador confirma o cancela en `EliminarProgramaView`
 6. **Eliminación**: `EliminarProgramaView` → `ProgramaController.eliminarPrograma(programaId)`
 7. **Persistencia**: `ProgramaController` → `ProgramaRepository.eliminar(programaId)`
-8. **Finalización**: `EliminarProgramaView` → **<<include>>** `:Collaboration AbrirProgramas.abrirProgramas()`
+8. **Finalización**: `EliminarProgramaView` → **&lt;&lt;include&gt;&gt;** `:Collaboration AbrirProgramas.abrirProgramas()`
 
 ## patrón de eliminación segura
 
@@ -149,7 +149,7 @@ El diseño permite que `ProgramaController` sea reutilizado:
 ### patrón include para navegación
 
 - **Separación de responsabilidades**: eliminarPrograma() se enfoca en eliminar
-- **Reutilización**: **<<include>>** abrirProgramas() evita duplicar funcionalidad de listado
+- **Reutilización**: **&lt;&lt;include&gt;&gt;** abrirProgramas() evita duplicar funcionalidad de listado
 - **Doble entrada**: Funciona desde `:Programas Abierto` o `:Programa Abierto`
 
 ### flexibilidad de eliminación

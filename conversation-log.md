@@ -3282,10 +3282,10 @@ Manuel confirma totalmente:
 
 ---
 
-## Conversación 35: Completando CRUD de Programa con eliminarPrograma() y Descubrimiento del Patrón <<include>>
+## Conversación 35: Completando CRUD de Programa con eliminarPrograma() y Descubrimiento del Patrón &lt;&lt;include&gt;&gt;
 
 **Fecha**: 2025-07-18  
-**Tema**: Implementación de eliminarPrograma() y revelación arquitectónica del patrón <<include>>  
+**Tema**: Implementación de eliminarPrograma() y revelación arquitectónica del patrón &lt;&lt;include&gt;&gt;  
 **Enfoque**: Análisis arquitectónico, respeto a leyes del proyecto y establecimiento de patrones sistemáticos
 
 ### Contexto de Inicio
@@ -3310,7 +3310,7 @@ La sesión comenzó con Manuel regresando de trabajo en la oficina y actualizaci
 - ❌ "presenta datos" → ✅ "presenta información" 
 - ❌ "diálogo", "botones" → ✅ Términos sin sesgo de interfaz
 
-### Revelación Arquitectónica: Patrón <<include>>
+### Revelación Arquitectónica: Patrón &lt;&lt;include&gt;&gt;
 
 #### El Descubrimiento
 Manuel planteó una pregunta crucial: "¿Desde un programa abierto, deberíamos poder eliminarlo?"
@@ -3321,25 +3321,25 @@ Manuel planteó una pregunta crucial: "¿Desde un programa abierto, deberíamos 
 - Sistemas ERP: Desde formulario → eliminar entidad
 
 #### La Reflexión Profunda
-Manuel identificó que eliminarPrograma() **ya debería incluir** abrirProgramas() como <<include>>, porque siempre vuelve al estado PROGRAMAS_ABIERTO.
+Manuel identificó que eliminarPrograma() **ya debería incluir** abrirProgramas() como &lt;&lt;include&gt;&gt;, porque siempre vuelve al estado PROGRAMAS_ABIERTO.
 
 **Razonamiento arquitectónico**:
 ```
 eliminarPrograma() {
   - confirma eliminación
   - procesa eliminación  
-  - <<include>> abrirProgramas() → PROGRAMAS_ABIERTO
+  - &lt;&lt;include&gt;&gt; abrirProgramas() → PROGRAMAS_ABIERTO
 }
 ```
 
 #### Patrón Universal Identificado
 **Todos los eliminarX() incluyen abrirXs()**:
-- eliminarPrograma() **<<include>>** abrirProgramas()
-- eliminarCurso() **<<include>>** abrirCursos()
-- eliminarProfesor() **<<include>>** abrirProfesores()
-- eliminarEdificio() **<<include>>** abrirEdificios()
-- eliminarAula() **<<include>>** abrirAulas()
-- eliminarRecurso() **<<include>>** abrirRecursos()
+- eliminarPrograma() **&lt;&lt;include&gt;&gt;** abrirProgramas()
+- eliminarCurso() **&lt;&lt;include&gt;&gt;** abrirCursos()
+- eliminarProfesor() **&lt;&lt;include&gt;&gt;** abrirProfesores()
+- eliminarEdificio() **&lt;&lt;include&gt;&gt;** abrirEdificios()
+- eliminarAula() **&lt;&lt;include&gt;&gt;** abrirAulas()
+- eliminarRecurso() **&lt;&lt;include&gt;&gt;** abrirRecursos()
 
 ### Correcciones Arquitectónicas Implementadas
 
@@ -3352,8 +3352,8 @@ Manuel inicialmente sugirió "listarX()" pero corrigió inmediatamente:
 #### 2. Actualización de Diagramas de Casos de Uso
 Manuel ajustó actores-casos-uso-001.puml agregando:
 ```plantuml
-eliminarPrograma .> abrirProgramas : <<include>>
-eliminarCurso .> abrirCursos : <<include>>
+eliminarPrograma .> abrirProgramas : &lt;&lt;include&gt;&gt;
+eliminarCurso .> abrirCursos : &lt;&lt;include&gt;&gt;
 ```
 
 Claude completó 002 y 003 con el patrón completo.
@@ -3361,13 +3361,13 @@ Claude completó 002 y 003 con el patrón completo.
 #### 3. Corrección de eliminarPrograma()
 
 **Especificación corregida**:
-- Transiciones: `<<include>> abrirProgramas() - lista actualizada`
+- Transiciones: `&lt;&lt;include&gt;&gt; abrirProgramas() - lista actualizada`
 - Doble entrada: PROGRAMAS_ABIERTO y PROGRAMA_ABIERTO
 - Navegación unificada hacia PROGRAMAS_ABIERTO
 
 **Análisis MVC actualizado**:
 - EliminarProgramaView recibe desde ambos contextos
-- Salida: `<<include>> :Collaboration AbrirProgramas`
+- Salida: `&lt;&lt;include&gt;&gt; :Collaboration AbrirProgramas`
 - Patrón de reutilización sin duplicación
 
 **Dashboard actualizado**:
@@ -3380,11 +3380,11 @@ Claude completó 002 y 003 con el patrón completo.
 1. **Confirmación requerida**: Evita eliminaciones accidentales
 2. **Información completa**: Muestra qué se va a eliminar
 3. **Operación irreversible**: Claridad sobre consecuencias
-4. **Navegación incluida**: <<include>> abrirXs() para lista actualizada
+4. **Navegación incluida**: &lt;&lt;include&gt;&gt; abrirXs() para lista actualizada
 
 #### Separación de Responsabilidades
 - **eliminarX()**: Se enfoca en eliminar
-- **<<include>> abrirXs()**: Evita duplicar funcionalidad de listado
+- **&lt;&lt;include&gt;&gt; abrirXs()**: Evita duplicar funcionalidad de listado
 - **Doble entrada**: Funciona desde contexto de lista o detalle
 
 ### Calidad del Resultado Final
@@ -3392,13 +3392,13 @@ Claude completó 002 y 003 con el patrón completo.
 #### Coherencia Metodológica
 - **Vocabulario RUP**: Actor solicita, Sistema presenta/permite solicitar
 - **Estados internos**: ConfirmandoEliminacion → EliminandoPrograma
-- **Navegación arquitectónica**: Patrón <<include>> sistemático
+- **Navegación arquitectónica**: Patrón &lt;&lt;include&gt;&gt; sistemático
 
 #### Valor del Patrón Establecido
 Como dijo Manuel: "hecho bien esto, el resto es como comer pipas (Luis Fernández dixit)"
 
 **Template arquitectónico creado**:
-- Especificación con <<include>>
+- Especificación con &lt;&lt;include&gt;&gt;
 - Análisis MVC con doble entrada
 - Dashboard con transiciones completas
 - Patrón replicable para todas las entidades
@@ -3406,7 +3406,7 @@ Como dijo Manuel: "hecho bien esto, el resto es como comer pipas (Luis Fernánde
 ### Lecciones Aprendidas
 
 #### Sobre Arquitectura de Software
-- **<<include>>** es fundamental para evitar duplicación de funcionalidad
+- **&lt;&lt;include&gt;&gt;** es fundamental para evitar duplicación de funcionalidad
 - **Doble entrada** en casos de uso mejora UX sin complicar arquitectura
 - **Navegación consistente** requiere patrones sistemáticos
 

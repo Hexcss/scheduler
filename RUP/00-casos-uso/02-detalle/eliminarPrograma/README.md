@@ -112,13 +112,13 @@ Especificación detallada del caso de uso `eliminarPrograma()` mediante diagrama
 
 ### operaciones de eliminación
 
-- **Confirmar eliminación** → Programa eliminado, **<<include>>** `abrirProgramas()` 
-- **Cancelar eliminación** → **<<include>>** `abrirProgramas()` sin cambios
+- **Confirmar eliminación** → Programa eliminado, **&lt;&lt;include&gt;&gt;** `abrirProgramas()` 
+- **Cancelar eliminación** → **&lt;&lt;include&gt;&gt;** `abrirProgramas()` sin cambios
 
 ### navegación del sistema
 
-- **Eliminación exitosa** → **<<include>>** `abrirProgramas()` con lista actualizada
-- **Cancelación** → **<<include>>** `abrirProgramas()` sin modificaciones
+- **Eliminación exitosa** → **&lt;&lt;include&gt;&gt;** `abrirProgramas()` con lista actualizada
+- **Cancelación** → **&lt;&lt;include&gt;&gt;** `abrirProgramas()` sin modificaciones
 
 ## conexión con diagrama de contexto
 
@@ -127,7 +127,7 @@ Este caso de uso corresponde a las transiciones:
 - **PROGRAMA_ABIERTO** → `eliminarPrograma()` → **PROGRAMAS_ABIERTO**
 
 Ambas transiciones incluyen:
-- **<<include>>** `abrirProgramas()` → **PROGRAMAS_ABIERTO** (lista actualizada)
+- **&lt;&lt;include&gt;&gt;** `abrirProgramas()` → **PROGRAMAS_ABIERTO** (lista actualizada)
 
 ## vocabulario utilizado
 
@@ -172,7 +172,7 @@ Ambas transiciones incluyen:
 - **Confirmación requerida**: Evita eliminaciones accidentales
 - **Información completa**: Muestra qué se va a eliminar
 - **Operación irreversible**: Claridad sobre las consecuencias
-- **Navegación incluida**: **<<include>>** `abrirProgramas()` para mostrar lista actualizada
+- **Navegación incluida**: **&lt;&lt;include&gt;&gt;** `abrirProgramas()` para mostrar lista actualizada
 
 ## referencias
 
