@@ -1,0 +1,25 @@
+@startsalt editarProfesor-wireframes
+{
+  <b>SigHor - Editar Profesor</b> | { [X] }
+  {
+    <b>Datos completos del profesor</b>
+    .
+    Código: | "PROF001" | <i>(solo lectura)</i>
+    Nombres *: | "Juan Carlos"
+    Apellidos *: | "García López"
+    Correo electrónico: | "jgarcia@universidad.edu"
+    Teléfono: | "+51 999 123 456"
+    .
+    Observaciones:
+    ^
+    "Profesor con experiencia en algoritmos
+    y estructuras de datos. Prefiere
+    aulas con proyector."
+    ^
+    .
+    <i>(*) Campos obligatorios</i>
+    .
+    { [Guardar profesor] | [Configurar preferencias] | [Cancelar] }
+  }
+}
+@endsalt

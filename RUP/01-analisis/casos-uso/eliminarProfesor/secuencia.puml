@@ -1,0 +1,68 @@
+@startuml eliminarProfesor-analisis-secuencia
+!theme plain
+
+actor "Administrador" as admin
+participant "profesorListaView : ProfesorListaView" as view
+participant "profesorController : ProfesorController" as controller
+participant "dependencyVerifier : DependencyVerifier" as verifier
+participant "profesorRepository : ProfesorRepository" as repository
+
+admin -> view : solicitarEliminarProfesor(id)
+activate view
+
+view -> controller : procesarEliminacion(id)
+activate controller
+
+controller -> verifier : verificarDependencias(id)
+activate verifier
+verifier -> controller : dependenciasIdentificadas(info)
+deactivate verifier
+
+controller -> view : presentarConfirmacion(info)
+deactivate controller
+
+view -> admin : mostrarAdvertenciasDependencias()
+deactivate view
+
+admin -> view : confirmarEliminacion()
+activate view
+
+view -> controller : ejecutarEliminacion(id)
+activate controller
+
+controller -> repository : eliminarProfesor(id)
+activate repository
+
+== Eliminación Transaccional ==
+repository -> repository : eliminarDependencias(id)
+repository -> controller : profesorEliminado()
+deactivate repository
+
+controller -> view : actualizarLista()
+deactivate controller
+
+view -> admin : mostrarConfirmacionEliminacion()
+deactivate view
+
+note right of admin
+  <b>Eliminación segura:</b>
+  Verificación exhaustiva de
+  dependencias seguida de
+  confirmación explícita
+end note
+
+note right of verifier
+  <b>Verificación de dependencias:</b>
+  Identifica cursos asignados,
+  horarios generados y
+  preferencias configuradas
+end note
+
+note right of repository
+  <b>Operación transaccional:</b>
+  Elimina profesor y dependencias
+  de forma atómica garantizando
+  consistencia de datos
+end note
+
+@enduml

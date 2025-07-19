@@ -1,0 +1,84 @@
+@startuml eliminarProfesor-especificacion
+!theme plain
+skinparam state {
+  BackgroundColor LightPink
+  BorderColor Red
+  FontName Arial
+  FontSize 12
+}
+skinparam note {
+  BackgroundColor LightYellow
+  BorderColor Orange
+  FontSize 10
+}
+
+state "Sistema verifica dependencias" as VerificarDependencias {
+  VerificarDependencias: • Cursos asignados al profesor
+  VerificarDependencias: • Horarios generados que incluyen al profesor
+  VerificarDependencias: • Preferencias configuradas del profesor
+  VerificarDependencias: --
+  VerificarDependencias: Sistema evalúa:
+  VerificarDependencias: • Impacto de eliminación
+  VerificarDependencias: • Dependencias críticas
+}
+
+state "Sistema presenta confirmación de eliminación" as PresentarConfirmacion {
+  PresentarConfirmacion: • Datos del profesor a eliminar
+  PresentarConfirmacion: • Advertencia sobre dependencias encontradas
+  PresentarConfirmacion: • Consecuencias de la eliminación
+  PresentarConfirmacion: --
+  PresentarConfirmacion: Sistema permite solicitar:
+  PresentarConfirmacion: • Confirmar eliminación
+  PresentarConfirmacion: • Cancelar eliminación
+}
+
+state "Sistema elimina profesor y dependencias" as EliminarProfesor {
+  EliminarProfesor: • Elimina dependencias relacionadas
+  EliminarProfesor: • Elimina profesor de la base de datos
+  EliminarProfesor: • Presenta confirmación de eliminación exitosa
+  EliminarProfesor: • Actualiza lista de profesores
+  EliminarProfesor: --
+  EliminarProfesor: Sistema mantiene:
+  EliminarProfesor: • Estado PROFESORES_ABIERTO
+}
+
+state "Sistema presenta mensaje de error" as MostrarError {
+  MostrarError: • Mensaje de error del sistema
+  MostrarError: • Conserva profesor y dependencias intactas
+  MostrarError: --
+  MostrarError: Sistema permite:
+  MostrarError: • Reintentar eliminación
+  MostrarError: • Cancelar operación
+}
+
+[*] --> VerificarDependencias : Actor solicita eliminar profesor
+VerificarDependencias --> PresentarConfirmacion : Dependencias verificadas
+PresentarConfirmacion --> EliminarProfesor : Actor confirma eliminación
+PresentarConfirmacion --> [*] : Actor cancela eliminación
+EliminarProfesor --> [*] : Eliminación exitosa
+EliminarProfesor --> MostrarError : Error durante eliminación
+MostrarError --> VerificarDependencias : Actor reintenta
+MostrarError --> [*] : Actor cancela operación
+
+note top of VerificarDependencias
+  <b>Verificación exhaustiva:</b>
+  Identifica todas las dependencias
+  antes de proceder con eliminación
+  para informar al usuario
+end note
+
+note right of PresentarConfirmacion
+  <b>Eliminación segura:</b>
+  Confirmación explícita requerida
+  con información completa sobre
+  consecuencias de la eliminación
+end note
+
+note bottom of EliminarProfesor
+  <b>Operación transaccional:</b>
+  Elimina profesor y dependencias
+  de forma atómica para garantizar
+  consistencia de datos
+end note
+
+@enduml

@@ -1,0 +1,64 @@
+@startuml editarProfesor-analisis-secuencia
+!theme plain
+
+actor "Administrador" as admin
+participant "profesorEdicionView : ProfesorEdicionView" as view
+participant "profesorController : ProfesorController" as controller
+participant "profesor : Profesor" as profesor
+participant "profesorRepository : ProfesorRepository" as repository
+
+admin -> view : solicitarEditarProfesor(id)
+activate view
+
+view -> controller : cargarProfesor(id)
+activate controller
+
+controller -> repository : obtenerProfesor(id)
+activate repository
+repository -> controller : profesorCargado(datos)
+deactivate repository
+
+controller -> view : presentarDatosEdicion(datos)
+deactivate controller
+
+view -> admin : mostrarDatosCompletos()
+deactivate view
+
+admin -> view : modificarDatos(cambios)
+activate view
+
+view -> controller : procesarModificaciones(cambios)
+activate controller
+
+controller -> profesor : validarCambios(cambios)
+activate profesor
+profesor -> controller : cambiosValidos()
+deactivate profesor
+
+controller -> repository : actualizarProfesor(profesor)
+activate repository
+repository -> controller : profesorActualizado()
+deactivate repository
+
+controller -> view : confirmarGuardado()
+deactivate controller
+
+view -> admin : mostrarConfirmacion()
+view -> admin : mantenerEdicionContinua()
+deactivate view
+
+note right of admin
+  <b>Filosofía "El gordo":</b>
+  Edición completa con todos
+  los campos disponibles y
+  edición continua
+end note
+
+note right of controller
+  <b>Edición continua:</b>
+  Mantiene estado después
+  de guardar para permitir
+  múltiples modificaciones
+end note
+
+@enduml

@@ -1,0 +1,55 @@
+@startuml crearProfesor-analisis
+!theme plain
+
+package "View" {
+  object "profesorCreacionView : ProfesorCreacionView" as view
+}
+
+package "Controller" {
+  object "profesorController : ProfesorController" as controller
+}
+
+package "Model" {
+  object "profesor : Profesor" as profesor
+  object "profesorRepository : ProfesorRepository" as repository
+}
+
+actor "Administrador" as admin
+
+admin -> view : 1: solicitarCrearProfesor()
+view -> admin : 2: presentarSolicitudDatos()
+admin -> view : 3: introducirDatos(nombres, apellidos)
+view -> controller : 4: procesarCreacion(nombres, apellidos)
+controller -> profesor : 5: validarDatos(nombres, apellidos)
+profesor -> controller : 6: datosValidos()
+controller -> repository : 7: almacenarProfesor(profesor)
+repository -> controller : 8: profesorAlmacenado(id)
+controller -> view : 9: redirigirEditarProfesor(id)
+view -> admin : 10: mostrarEdicionProfesor()
+
+note top of view
+  <b>Vista:</b>
+  Presenta interfaz mínima
+  para captura de datos
+  de creación
+end note
+
+note top of controller
+  <b>Controlador:</b>
+  Coordina flujo de creación
+  y redirección a edición
+end note
+
+note top of profesor
+  <b>Entidad:</b>
+  Aplica reglas de negocio
+  y validaciones de datos
+end note
+
+note top of repository
+  <b>Repositorio:</b>
+  Persiste profesor y
+  genera identificador único
+end note
+
+@enduml

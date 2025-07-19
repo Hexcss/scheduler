@@ -1,0 +1,22 @@
+@startsalt eliminarProfesor-wireframes
+{
+  <b>SigHor - Confirmar Eliminación de Profesor</b> | { [X] }
+  {
+    <b>¿Eliminar profesor seleccionado?</b>
+    .
+    <b>Profesor a eliminar:</b>
+    Código: PROF001
+    Nombre: Juan Carlos García López
+    .
+    <color:red><b>⚠ ADVERTENCIA:</b></color>
+    <color:red>Esta acción eliminará permanentemente:</color>
+    • <color:red>2 cursos asignados al profesor</color>
+    • <color:red>1 horario generado que incluye al profesor</color>
+    • <color:red>Preferencias configuradas del profesor</color>
+    .
+    <color:red><b>Esta operación NO se puede deshacer</b></color>
+    .
+    { [<color:red>Confirmar eliminación</color>] | [Cancelar] }
+  }
+}
+@endsalt

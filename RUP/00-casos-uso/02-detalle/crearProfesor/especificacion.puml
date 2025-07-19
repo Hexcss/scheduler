@@ -1,0 +1,65 @@
+@startuml crearProfesor-especificacion
+!theme plain
+skinparam state {
+  BackgroundColor LightBlue
+  BorderColor Blue
+  FontName Arial
+  FontSize 12
+}
+skinparam note {
+  BackgroundColor LightYellow
+  BorderColor Orange
+  FontSize 10
+}
+
+state "Sistema presenta solicitud de datos mínimos del profesor" as PresentarSolicitud {
+  PresentarSolicitud: • Nombres del profesor (obligatorio)
+  PresentarSolicitud: • Apellidos del profesor (obligatorio)
+  PresentarSolicitud: --
+  PresentarSolicitud: Sistema permite solicitar:
+  PresentarSolicitud: • Guardar profesor
+  PresentarSolicitud: • Cancelar creación
+}
+
+state "Sistema valida y almacena profesor" as ValidarAlmacenar {
+  ValidarAlmacenar: • Valida datos mínimos
+  ValidarAlmacenar: • Almacena profesor con datos mínimos
+  ValidarAlmacenar: • Genera identificador único
+  ValidarAlmacenar: --
+  ValidarAlmacenar: Sistema permite:
+  ValidarAlmacenar: • Redirigir a editarProfesor()
+}
+
+state "Sistema presenta mensaje de error" as MostrarError {
+  MostrarError: • Mensaje de error específico
+  MostrarError: • Mantiene datos introducidos
+  MostrarError: --
+  MostrarError: Sistema permite:
+  MostrarError: • Corregir datos
+  MostrarError: • Cancelar creación
+}
+
+[*] --> PresentarSolicitud : Actor solicita crear profesor
+PresentarSolicitud --> ValidarAlmacenar : Actor solicita guardar profesor
+PresentarSolicitud --> [*] : Actor solicita cancelar creación
+ValidarAlmacenar --> [*] : Éxito: Redirige a editarProfesor()
+ValidarAlmacenar --> MostrarError : Datos mínimos inválidos
+MostrarError --> PresentarSolicitud : Actor corrige datos
+MostrarError --> [*] : Actor cancela creación
+
+note top of PresentarSolicitud
+  <b>Filosofía "El delgado"</b>
+  Solo datos mínimos para
+  creación rápida antes de
+  redirigir a edición completa
+end note
+
+note right of ValidarAlmacenar
+  <b>Validaciones aplicadas:</b>
+  • Nombres y apellidos obligatorios
+  • Longitud mínima: 2 caracteres
+  • Solo caracteres alfabéticos y espacios
+  • Combinación nombres+apellidos única
+end note
+
+@enduml

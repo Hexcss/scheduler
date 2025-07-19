@@ -2802,6 +2802,68 @@ CerrarSesionView → ":Sesion Cerrada" : sesionCerrada()
 
 ---
 
+## Conversación 37: INCIDENTE - Aplicación Automática No Solicitada Post-Compactación
+**Fecha**: 2025-07-19  
+**Participantes**: Manuel (Usuario) + Claude Code
+
+### Descripción del Incidente
+
+**Naturaleza del problema**: Claude Code aplicó automáticamente el patrón CRUD sistemático a la entidad Profesor sin solicitud explícita del usuario, tras un proceso de compactación de conversación.
+
+### Análisis de la Causa Raíz
+
+#### Secuencia de eventos identificada:
+1. **Pre-compactación**: Claude estaba trabajando en una tarea específica solicitada por Manuel
+2. **Proceso de compactación**: El sistema activó compactación por límites de contexto
+3. **Post-compactación**: Al "volver", Claude perdió el contexto específico de la tarea en curso
+4. **Inferencia errónea**: Interpretó el summary de conversación como instrucciones frescas
+5. **Ejecución automática**: Leyó la todo list y ejecutó "a saco" el trabajo en Profesor
+
+#### Factores contribuyentes:
+- **Pérdida de continuidad**: La compactación rompió el estado específico de "qué estaba haciendo justo antes"
+- **Interpretación de contexto**: El summary no preservó la diferencia entre "información de contexto" vs "instrucciones activas"
+- **System reminder malinterpretado**: "Continue on with the tasks at hand if applicable" se interpretó como autorización automática
+
+### Trabajo Ejecutado Sin Autorización
+
+**Entidad**: Profesor (CRUD completo)  
+**Artefactos creados**:
+- **crearProfesor()**: Especificación + wireframes + análisis MVC
+- **editarProfesor()**: Especificación + wireframes + análisis MVC  
+- **eliminarProfesor()**: Especificación + wireframes + análisis MVC
+
+**Calidad técnica**: Patrón "como comer pipas" aplicado correctamente, pero con errores técnicos identificados por Manuel
+
+### Lecciones Aprendidas
+
+#### Para Claude Code:
+1. **Verificación post-compactación**: Siempre preguntar explícitamente la prioridad actual tras compactación
+2. **Distinción contexto vs instrucciones**: El summary proporciona contexto, no instrucciones automáticas
+3. **Todo list como referencia**: Las tareas pendientes no autorizan ejecución automática
+4. **Confirmación explícita**: Requerir autorización específica antes de iniciar trabajo substantivo
+
+#### Para el proyecto:
+1. **Evidencia didáctica valiosa**: Este incidente se mantiene como caso de estudio de colaboración humano-IA
+2. **Patrón técnico validado**: El trabajo ejecutado establece un template correcto (con correcciones)
+3. **Trazabilidad completa**: Documentación del incidente enriquece el valor didáctico del proyecto
+
+### Resolución Acordada
+
+**Estrategia**: Mantener el trabajo en rama principal como evidencia, seguir con plan de corrección:
+1. **Commit con descripción clara del error** (incluyendo errores técnicos)
+2. **Documentación del incidente** en conversation-log.md ✅
+3. **Corrección paso a paso** de errores técnicos identificados
+4. **Retomar tarea original** que estaba en curso antes de la compactación
+5. **Aplicar lecciones aprendidas** en futuras sesiones
+
+### Valor Didáctico del Incidente
+
+**Para RUP**: Demuestra importancia de control de calidad y validación en procesos de desarrollo  
+**Para colaboración humano-IA**: Caso de estudio sobre límites de autonomía y necesidad de supervisión  
+**Para el proyecto**: Evidencia de cómo manejar errores constructivamente manteniendo valor educativo
+
+---
+
 ## Conversación 35: Completar Análisis Casos Uso Plurales + Mejoras UX Dashboard
 **Fecha**: 2025-07-16  
 **Participantes**: Manuel (Usuario) + Claude Code

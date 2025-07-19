@@ -1,0 +1,84 @@
+@startuml editarProfesor-especificacion
+!theme plain
+skinparam state {
+  BackgroundColor LightGreen
+  BorderColor Green
+  FontName Arial
+  FontSize 12
+}
+skinparam note {
+  BackgroundColor LightYellow
+  BorderColor Orange
+  FontSize 10
+}
+
+state "Sistema presenta datos de edición del profesor" as PresentarDatos {
+  PresentarDatos: • Código del profesor (solo lectura)
+  PresentarDatos: • Nombres del profesor
+  PresentarDatos: • Apellidos del profesor
+  PresentarDatos: • Correo electrónico
+  PresentarDatos: • Teléfono
+  PresentarDatos: • Observaciones
+  PresentarDatos: --
+  PresentarDatos: Sistema permite solicitar:
+  PresentarDatos: • Modificar campos
+  PresentarDatos: • Guardar profesor
+  PresentarDatos: • Configurar preferencias
+  PresentarDatos: • Cancelar edición
+}
+
+state "Sistema valida y actualiza profesor" as ValidarActualizar {
+  ValidarActualizar: • Valida datos completos
+  ValidarActualizar: • Actualiza profesor en base de datos
+  ValidarActualizar: • Presenta confirmación de guardado
+  ValidarActualizar: --
+  ValidarActualizar: Sistema permite:
+  ValidarActualizar: • Continuar editando
+  ValidarActualizar: • Configurar preferencias
+  ValidarActualizar: • Finalizar edición
+}
+
+state "Sistema presenta mensaje de error" as MostrarError {
+  MostrarError: • Mensaje de error específico
+  MostrarError: • Mantiene datos modificados
+  MostrarError: --
+  MostrarError: Sistema permite:
+  MostrarError: • Corregir datos
+  MostrarError: • Cancelar edición
+}
+
+state "configurarPreferenciasProfesor()" as ConfigurarPreferencias
+
+[*] --> PresentarDatos : Actor solicita editar profesor
+PresentarDatos --> ValidarActualizar : Actor solicita guardar profesor
+PresentarDatos --> ConfigurarPreferencias : Actor solicita configurar preferencias
+PresentarDatos --> [*] : Actor solicita cancelar edición
+ValidarActualizar --> PresentarDatos : Edición continua
+ValidarActualizar --> ConfigurarPreferencias : Actor solicita configurar preferencias
+ValidarActualizar --> [*] : Actor finaliza edición
+ValidarActualizar --> MostrarError : Datos inválidos
+MostrarError --> PresentarDatos : Actor corrige datos
+MostrarError --> [*] : Actor cancela edición
+ConfigurarPreferencias --> PresentarDatos : Regreso desde preferencias
+
+note top of PresentarDatos
+  <b>Filosofía "El gordo"</b>
+  Edición completa con todos
+  los campos del profesor
+  disponibles para modificación
+end note
+
+note right of ValidarActualizar
+  <b>Edición continua:</b>
+  Mantiene estado PROFESOR_ABIERTO
+  después de guardar para permitir
+  múltiples ciclos de modificación
+end note
+
+note bottom of ConfigurarPreferencias
+  <b>Navegación contextual:</b>
+  Acceso directo a preferencias
+  sin perder el contexto de edición
+end note
+
+@enduml

@@ -1,0 +1,15 @@
+@startsalt crearProfesor-wireframes
+{
+  <b>SigHor - Crear Profesor</b> | { [X] }
+  {
+    <b>Datos mínimos del profesor</b>
+    .
+    Nombres del profesor *: | ""
+    Apellidos del profesor *: | ""
+    .
+    <i>(*) Campos obligatorios</i>
+    .
+    { [Guardar profesor] | [Cancelar] }
+  }
+}
+@endsalt
