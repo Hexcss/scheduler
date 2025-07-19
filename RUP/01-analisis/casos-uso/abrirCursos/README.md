@@ -1,8 +1,7 @@
 # SigHor - Análisis de colaboración: abrirCursos()
 
-> |abrirCursos()|||||
-> |-|-|-|-|-|
-> |[Detalle](/RUP/00-casos-uso/02-detalle/abrirCursos/README.md)|**Análisis**|Diseño|Desarrollo|Pruebas|
+> |[🏠️](/RUP/README.md)|[ 📊](https://raw.githubusercontent.com/mmasias/pySigHor/main/images/RUP/99-seguimiento/diagrama-contexto-administrador.svg)|[Detalle](/RUP/00-casos-uso/02-detalle/abrirCursos/README.md)|**Análisis**|Diseño|Desarrollo|Pruebas|
+> |-|-|-|-|-|-|-|
 
 
 ## información del artefacto

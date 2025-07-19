@@ -1,7 +1,7 @@
 # SigHor - Análisis del caso de uso: cerrarSesion()
 
-> |[🏠️](/RUP/README.md)|[Detalle](/RUP/00-casos-uso/02-detalle/cerrarSesion/README.md)|Análisis|Diseño|Desarrollo|Pruebas|
-> |-|-|-|-|-|-|
+> |[🏠️](/RUP/README.md)|[ 📊](https://raw.githubusercontent.com/mmasias/pySigHor/main/images/RUP/99-seguimiento/diagrama-contexto-administrador.svg)|[Detalle](/RUP/00-casos-uso/02-detalle/cerrarSesion/README.md)|**Análisis**|Diseño|Desarrollo|Pruebas|
+> |-|-|-|-|-|-|-|
 
 ## información del artefacto
 
