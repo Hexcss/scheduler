@@ -12,7 +12,7 @@
 
 - **Proyecto**: pySigHor - Modernización del Sistema Generador de Horarios
 - **Fase RUP**: Inception (Inicio)
-- **Versión**: 1.0
+- **Versión**: 1.1
 - **Fecha**: 2025-07-04
 - **Autor**: Equipo de desarrollo
 
@@ -176,6 +176,6 @@ El algoritmo de generación de horarios busca crear instancias de **Horario** qu
 ## Referencias
 
 - Sistema SigHor Original (1998) - Documentación de Ingeniería Inversa
-- [reverseEngineering.md](../../reverseEngineering.md) - Análisis técnico del sistema legacy
-- [reflexiones.md](../../reflexiones.md) - Análisis de resultados del algoritmo original
-- [reflexionesAlgoritmo.md](../../reflexionesAlgoritmo.md) - Análisis detallado del algoritmo
+- [reverseEngineering.md](../../../extraDocs/000-ingenieria-inversa/reverseEngineering.md) - Análisis técnico del sistema legacy
+- [reflexiones.md](../../../extraDocs/000-ingenieria-inversa/reflexiones.md) - Análisis de resultados del algoritmo original
+- [reflexionesAlgoritmo.md](../../../extraDocs/000-ingenieria-inversa/reflexionesAlgoritmo.md) - Análisis detallado del algoritmo

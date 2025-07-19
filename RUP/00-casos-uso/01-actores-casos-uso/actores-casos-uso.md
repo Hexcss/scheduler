@@ -170,6 +170,6 @@ La estructura permite agregar nuevos casos de uso sin afectar los existentes:
 
 ## Referencias
 
-- [Modelo del dominio](../modelo-dominio/modelo-dominio.md) - Base conceptual para identificación de casos de uso
+- [Modelo del dominio](../00-modelo-del-dominio/modelo-dominio.md) - Base conceptual para identificación de casos de uso
 - Sistema SigHor Original (1998) - Funcionalidad del sistema legacy
-- [reverseEngineering.md](../../reverseEngineering.md) - Análisis técnico del sistema original
+- [reverseEngineering.md](../../../extraDocs/000-ingenieria-inversa/reverseEngineering.md) - Análisis técnico del sistema original

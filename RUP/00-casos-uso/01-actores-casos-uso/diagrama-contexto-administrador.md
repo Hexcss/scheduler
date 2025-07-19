@@ -195,7 +195,7 @@ El diseño permite agregar nuevas entidades siguiendo el patrón X_ABIERTO estab
 
 ## Referencias
 
-- [Modelo del dominio](../modelo-dominio/modelo-dominio.md) - Entidades del sistema
-- [Actores y casos de uso](../actores-casos-uso/actores-casos-uso.md) - Casos de uso del administrador
+- [Modelo del dominio](../00-modelo-del-dominio/modelo-dominio.md) - Entidades del sistema
+- [Actores y casos de uso](actores-casos-uso.md) - Casos de uso del administrador
 - Sistema SigHor Original (1998) - Flujo de navegación del sistema legacy
-- [conversation-log.md](../../conversation-log.md) - Proceso de diseño del diagrama de contexto
+- [conversation-log.md](../../../conversation-log.md) - Proceso de diseño del diagrama de contexto
