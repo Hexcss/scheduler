@@ -198,7 +198,7 @@ El sistema de etiquetado ético adapta CRediT (Contributor Roles Taxonomy) al co
 
 ---
 
-**Fecha**: 2025-01-09  
+**Fecha**: 2025-07-09  
 **Autores**: Manuel (Conceptualización: Principal, Validación: Principal) + Claude Code (Análisis: Equal, Implementación: Principal)  
 **Estado**: En desarrollo  
 **Próxima revisión**: Tras completar análisis detallado del conversation-log

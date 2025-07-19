@@ -1,4 +1,4 @@
-# SigHor - Análisis de colaboración: editarCurso()
+# pySigHor > editarCurso > Análisis
 
 > |[🏠️](/RUP/README.md)|[ 📊](https://raw.githubusercontent.com/mmasias/pySigHor/main/images/RUP/99-seguimiento/diagrama-contexto-administrador.svg)|[Detalle](/RUP/00-casos-uso/02-detalle/editarCurso/README.md)|**Análisis**|Diseño|Desarrollo|Pruebas|
 > |-|-|-|-|-|-|-|

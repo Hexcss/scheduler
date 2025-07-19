@@ -1,4 +1,4 @@
-# SigHor - Caso de uso detallado: editarPrograma()
+# pySigHor > editarPrograma > Detalle y prototipado
 
 > |[🏠️](/RUP/README.md)|[ 📊](https://raw.githubusercontent.com/mmasias/pySigHor/main/images/RUP/99-seguimiento/diagrama-contexto-administrador.svg)|**Detalle**|[Análisis](/RUP/01-analisis/casos-uso/editarPrograma/README.md)|Diseño|Desarrollo|Pruebas|
 > |-|-|-|-|-|-|-|

@@ -1,4 +1,4 @@
-# SigHor - Análisis de colaboración: abrirProgramas()
+# pySigHor > abrirProgramas > Análisis
 
 > |[🏠️](/RUP/README.md)|[ 📊](https://raw.githubusercontent.com/mmasias/pySigHor/main/images/RUP/99-seguimiento/diagrama-contexto-administrador.svg)|[Detalle](/RUP/00-casos-uso/02-detalle/abrirProgramas/README.md)|**Análisis**|Diseño|Desarrollo|Pruebas|
 > |-|-|-|-|-|-|-|
@@ -9,7 +9,7 @@
 - **Fase RUP**: Elaboration (Elaboración)
 - **Disciplina**: Análisis y Diseño
 - **Versión**: 1.0
-- **Fecha**: 2025-01-16
+- **Fecha**: 2025-07-16
 - **Autor**: Equipo de desarrollo
 
 ## propósito

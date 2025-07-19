@@ -4,7 +4,7 @@
 
 **Hash**: [Por determinar - commit donde se realizó la reorganización]
 **Enlace**: [Por agregar después del commit]
-**Fecha**: 2025-01-08
+**Fecha**: 2025-07-08
 **Mensaje**: [Por determinar - reorganización RUP.md → /RUP/README.md]
 
 ## Conversación específica donde surgió la reflexión

@@ -1,4 +1,4 @@
-# SigHor - Análisis de colaboración: eliminarPrograma()
+# pySigHor > eliminarPrograma > Análisis
 
 > |[🏠️](/RUP/README.md)|[ 📊](https://raw.githubusercontent.com/mmasias/pySigHor/main/images/RUP/99-seguimiento/diagrama-contexto-administrador.svg)|[Detalle](/RUP/00-casos-uso/02-detalle/eliminarPrograma/README.md)|**Análisis**|Diseño|Desarrollo|Pruebas|
 > |-|-|-|-|-|-|-|

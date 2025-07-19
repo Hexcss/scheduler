@@ -1,4 +1,4 @@
-# SigHor - Caso de uso detallado: crearCurso()
+# pySigHor > crearCurso > Detalle y prototipado
 
 > |[🏠️](/RUP/README.md)|[ 📊](https://raw.githubusercontent.com/mmasias/pySigHor/main/images/RUP/99-seguimiento/diagrama-contexto-administrador.svg)|**Detalle**|[Análisis](/RUP/01-analisis/casos-uso/crearCurso/README.md)|Diseño|Desarrollo|Pruebas|
 > |-|-|-|-|-|-|-|

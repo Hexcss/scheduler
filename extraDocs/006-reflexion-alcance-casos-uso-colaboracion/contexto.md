@@ -4,7 +4,7 @@
 
 ### Estado del proyecto pySigHor-RUP
 
-**Fecha del descubrimiento:** 2025-01-12  
+**Fecha del descubrimiento:** 2025-07-12  
 **Contexto metodológico:** Análisis de casos de uso en fase de Elaboración RUP
 
 **Progreso alcanzado:**

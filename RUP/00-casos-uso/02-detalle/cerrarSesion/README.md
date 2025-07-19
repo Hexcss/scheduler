@@ -1,4 +1,4 @@
-# SigHor - Caso de uso detallado: cerrarSesion()
+# pySigHor > cerrarSesion > Detalle y prototipado
 
 > |[🏠️](/RUP/README.md)|[ 📊](https://raw.githubusercontent.com/mmasias/pySigHor/main/images/RUP/99-seguimiento/diagrama-contexto-administrador.svg)|**Detalle**|[Análisis](/RUP/01-analisis/casos-uso/cerrarSesion/README.md)|Diseño|Desarrollo|Pruebas|
 > |-|-|-|-|-|-|-|
@@ -9,7 +9,7 @@
 - **Fase RUP**: Inception (Inicio)
 - **Disciplina**: Requisitos
 - **Versión**: 1.0
-- **Fecha**: 2025-01-13
+- **Fecha**: 2025-07-13
 - **Autor**: Equipo de desarrollo
 
 ## propósito
