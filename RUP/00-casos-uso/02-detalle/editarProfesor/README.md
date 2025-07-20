@@ -1,172 +1,201 @@
 <div align=right>
  
-|[![](https://img.shields.io/badge/-Inicio-FFF?style=flat&logo=Emlakjet&logoColor=black)](../../../../README.md) [![](https://img.shields.io/badge/-RUP-FFF?style=flat&logo=Elsevier&logoColor=black)](../../../README.md) [![](https://img.shields.io/badge/-Modelo_del_dominio-FFF?style=flat&logo=freedesktop.org&logoColor=black)](../../00-modelo-del-dominio/modelo-dominio.md) [![](https://img.shields.io/badge/-Actores_&_Casos_de_Uso-FFF?style=flat&logo=crewunited&logoColor=black)](../../01-actores-casos-uso/actores-casos-uso.md) [![](https://img.shields.io/badge/-Diagrama_de_contexto-FFF?style=flat&logo=diagramsdotnet&logoColor=black)](../../01-actores-casos-uso/diagrama-contexto-administrador.md) [![](https://img.shields.io/badge/-Detalle_&_Prototipo-FFF?style=flat&logo=typeorm&logoColor=black)](../README.md) [![](https://img.shields.io/badge/-Análisis-FFF?style=flat&logo=multisim&logoColor=black)](../../../01-analisis/casos-uso/README.md)
-|-:
-|[![](https://img.shields.io/badge/-Estado-FFF?style=flat&logo=greensock&logoColor=black)](../../../README.md) [![](https://img.shields.io/badge/-Propuesta_de_dashboard-FFF?style=flat&logo=composer&logoColor=black)](https://raw.githubusercontent.com/mmasias/pySigHor/main/images/RUP/99-seguimiento/diagrama-contexto-administrador.svg) [![](https://img.shields.io/badge/-Reflexiones-FFF?style=flat&logo=hootsuite&logoColor=black)](../../../../extraDocs/README.md) [![](https://img.shields.io/badge/-Log_de_conversación-FFF?style=flat&logo=gnometerminal&logoColor=black)](../../../../conversation-log.md)
+|[![](https://img.shields.io/badge/-Inicio-FFF?style=flat&logo=Emlakjet&logoColor=black)](../../../../README.md) [![](https://img.shields.io/badge/-RUP-FFF?style=flat&logo=Elsevier&logoColor=black)](../../../README.md) [![](https://img.shields.io/badge/-Modelo_del_dominio-FFF?style=flat&logo=freedesktop.org&logoColor=black)](../../00-modelo-del-dominio/modelo-dominio.md) [![](https://img.shields.io/badge/-Actores_&_Casos_de_Uso-FFF?style=flat&logo=crewunited&logoColor=black)](../../01-actores-casos-uso/actores-casos-uso.md) [![](https://img.shields.io/badge/-Diagrama_de_contexto-FFF?style=flat&logo=diagramsdotnet&logoColor=black)](../../01-actores-casos-uso/diagrama-contexto-administrador.md) [![](https://img.shields.io/badge/-Detalle_&_Prototipo-FFF?style=flat&logo=typeorm&logoColor=black)](../README.md) [![](https://img.shields.io/badge/-Análisis-FFF?style=flat&logo=multisim&logoColor=black)](../../../01-analisis/casos-uso/README.md)|
+|-:|
+|[![](https://img.shields.io/badge/-Estado-FFF?style=flat&logo=greensock&logoColor=black)](../../../README.md) [![](https://img.shields.io/badge/-Propuesta_de_dashboard-FFF?style=flat&logo=composer&logoColor=black)](https://raw.githubusercontent.com/mmasias/pySigHor/main/images/RUP/99-seguimiento/diagrama-contexto-administrador.svg) [![](https://img.shields.io/badge/-Reflexiones-FFF?style=flat&logo=hootsuite&logoColor=black)](../../../../extraDocs/README.md) [![](https://img.shields.io/badge/-Log_de_conversación-FFF?style=flat&logo=gnometerminal&logoColor=black)](../../../../conversation-log.md)|
 
 </div>
 
-# pySigHor > editarProfesor > Detalle
+# pySigHor > editarProfesor > Detalle y prototipado
 
-## Información del artefacto
+> |[🏠️](/RUP/README.md)|[ 📊](https://raw.githubusercontent.com/mmasias/pySigHor/main/images/RUP/99-seguimiento/diagrama-contexto-administrador.svg)|**Detalle**|[Análisis](/RUP/01-analisis/casos-uso/editarProfesor/README.md)|Diseño|Desarrollo|Pruebas|
+> |-|-|-|-|-|-|-|
+
+## información del artefacto
 
 - **Proyecto**: pySigHor - Modernización del Sistema Generador de Horarios
-- **Caso de uso**: editarProfesor
-- **Actor**: Administrador de Horarios  
-- **Fase RUP**: Elaboration
+- **Fase RUP**: Inception (Inicio)
+- **Disciplina**: Requisitos
 - **Versión**: 1.0
-- **Fecha**: 2025-07-19
+- **Fecha**: 2025-07-20
 - **Autor**: Equipo de desarrollo
 
-## Propósito
+## propósito
 
-Definir el comportamiento del sistema cuando el Administrador de Horarios solicita editar un profesor existente siguiendo la filosofía "El gordo" (edición completa) donde se permiten modificaciones de todos los campos del profesor con edición continua.
+Especificación detallada del caso de uso `editarProfesor()` mediante diagrama de estado, mostrando la conversación completa entre el Administrador y el Sistema para la edición de profesores.
 
-## Diagrama de especificación
+## información del caso de uso
+
+|Atributo|Valor|
+|-|-|
+|**Nombre**|editarProfesor()|
+|**Actor primario**|Administrador|
+|**Objetivo**|Presentar datos de edición de profesor con capacidad de modificación y guardado|
+|**Tipo**|Primario, esencial|
+|**Nivel**|Objetivo de usuario|
+|**Precondición**|Profesor seleccionado desde abrirProfesores() o profesor recién creado desde crearProfesor()|
+|**Postcondición exitosa**|Profesor modificado guardado, usuario puede continuar editando en PROFESOR_ABIERTO o volver al sistema|
+|**Postcondición de fallo**|N/A - caso de uso sin condiciones de fallo|
+
+## diagrama de especificación
 
 <div align=center>
 
-|![Especificación editarProfesor](/images/RUP/00-casos-uso/02-detalle/editarProfesor/editarProfesor-especificacion.svg)
-|:-:
-|Código fuente: [especificacion.puml](./especificacion.puml)
+|![Caso de uso: editarProfesor()](/images/RUP/00-casos-uso/02-detalle/editarProfesor/editarProfesor.svg)|
+|-|
+|Código fuente: [especificacion.puml](especificacion.puml)|
 
 </div>
 
-## Wireframes
+## prototipo de interfaz
+
+### propósito del prototipo
+
+**Objetivo:** Que te digan que NO lo antes posible - validar la especificación antes de invertir en desarrollo.
+
+### wireframes
+
+#### pantalla 1: edición de profesor
 
 <div align=center>
 
-|![Wireframes editarProfesor](/images/RUP/00-casos-uso/02-detalle/editarProfesor/editarProfesor-wireframes.svg)
-|:-:
-|Código fuente: [wireframes.puml](./wireframes.puml)
+|![Wireframe: Edición de profesor](/images/RUP/00-casos-uso/02-detalle/editarProfesor/editarProfesor-wireframe.svg)|
+|-|
+|**Estado**: EditandoDatos / GuardandoDatos|
 
 </div>
 
-## Especificación detallada
+**Correspondencia con especificación:**
+- Sistema "presenta datos de edición" 
+- Actor "solicita modificar campos"
+- Sistema "permite solicitar modificar información"
+- Actor "solicita guardar y salir"
 
-### Flujo principal
+### validaciones del wireframe
 
-1. Actor solicita editar profesor (desde lista o redirigido desde crearProfesor)
-2. Sistema presenta datos de edición del profesor:
-   - Código del profesor (solo lectura)
-   - Nombres del profesor
-   - Apellidos del profesor
-   - Correo electrónico
-   - Teléfono
-   - Observaciones
-3. Sistema permite solicitar:
-   - Modificar campos
-   - Guardar profesor
-   - Configurar preferencias
-   - Cancelar edición
-4. Actor modifica campos del profesor
-5. Actor solicita guardar profesor
-6. Sistema valida datos completos
-7. Sistema actualiza profesor en base de datos
-8. Sistema presenta confirmación de guardado
-9. Sistema mantiene estado PROFESOR_ABIERTO para edición continua
+- ¿Se presentan claramente todos los campos editables del profesor?
+- ¿Es fácil modificar los datos del profesor?
+- ¿Las opciones de guardado están bien diferenciadas?
+- ¿La navegación permite continuar editando o salir?
 
-### Flujos alternativos
+**Código fuente:** [wireframes.puml](wireframes.puml)
 
-**FA1**: Actor configura preferencias
-- En cualquier momento después del paso 2, Actor puede solicitar configurar preferencias
-- Sistema redirige a configurarPreferenciasProfesor()
-- Al regresar, continúa en paso 2 con datos preservados
+## conversación detallada
 
-**FA2**: Actor cancela edición
-- En cualquier momento antes del paso 5, Actor puede solicitar cancelar
-- Sistema descarta cambios no guardados
-- Sistema retorna a estado PROFESORES_ABIERTO
+### flujo principal (único)
 
-**FA3**: Datos de edición inválidos
-- En paso 6, si datos no cumplen validaciones:
-- Sistema presenta mensaje de error específico
-- Sistema mantiene datos modificados
-- Sistema permite corregir datos
-- Continúa en paso 3
+|Actor|Acción|Sistema|Respuesta|
+|-|-|-|-|
+|**Administrador**|solicita editar profesor||
+||**Sistema**|presenta datos de edición|• Código, nombres, apellidos del profesor<br>• Correo electrónico, teléfono<br>• Observaciones del profesor<br>• Permite solicitar modificar campos<br>• Permite solicitar guardar profesor<br>• Permite solicitar cancelar edición|
+|**Administrador**|solicita modificar campos||(opcional)|
+||**Sistema**|permite solicitar modificar información|• Permite editar todos los campos<br>• Permite solicitar guardar cambios<br>• Permite solicitar continuar editando|
+|**Administrador**|solicita guardar y salir||
 
-**FA4**: Error de actualización
-- En paso 7, si falla actualización:
-- Sistema presenta mensaje de error del sistema
-- Sistema mantiene datos modificados
-- Actor puede reintentar o cancelar
+## estados internos del caso de uso
 
-### Precondiciones
+|Estado|Descripción|Responsabilidad|
+|-|-|-|
+|**EditandoDatos**|Estado donde se presentan los datos de edición del profesor|Sistema debe presentar todos los campos editables del profesor|
+|**GuardandoDatos**|Estado donde se procesan las modificaciones del profesor|Sistema debe procesar cambios y permitir continuar o salir|
 
-- Actor autenticado como Administrador de Horarios
-- Profesor existe en el sistema
-- Sistema en estado PROFESOR_ABIERTO o redirección desde crearProfesor
-- Sistema de base de datos disponible
+## funcionalidad de edición completa
 
-### Postcondiciones
+### concepto clave - "el gordo"
 
-**Éxito**:
-- Profesor actualizado con nuevos datos
-- Sistema mantiene estado PROFESOR_ABIERTO para edición continua
-- Actor puede continuar editando o navegar a preferencias
+- **editarProfesor()** es "el gordo" que:
+  - **Presenta** datos completos con todos los campos
+  - **Permite** modificación de cualquier campo del profesor
+  - **Mantiene** sesión de edición activa (puede continuar)
+  - **Guarda** cambios cuando el administrador solicita
 
-**Cancelación**:
-- Sin cambios en base de datos
-- Sistema retorna a estado PROFESORES_ABIERTO
+### información presentada
 
-### Reglas de negocio
+- **Datos básicos del profesor**:
+  - Código del profesor
+  - Nombres del profesor
+  - Apellidos del profesor
+- **Datos de contacto**:
+  - Correo electrónico
+  - Teléfono
+- **Información adicional**:
+  - Observaciones del profesor
 
-- **RN01**: Nombres son obligatorios y no pueden estar vacíos
-- **RN02**: Apellidos son obligatorios y no pueden estar vacíos
-- **RN03**: La combinación nombres+apellidos debe ser única en el sistema
-- **RN04**: Correo electrónico debe ser válido si se proporciona
-- **RN05**: Código del profesor es inmutable una vez asignado
-- **RN06**: Teléfono debe cumplir formato válido si se proporciona
+## opciones de navegación
 
-### Validaciones
+### operaciones de edición
 
-- **VAL01**: Nombres contienen solo caracteres alfabéticos y espacios
-- **VAL02**: Apellidos contienen solo caracteres alfabéticos y espacios
-- **VAL03**: Correo electrónico sigue formato estándar (si proporcionado)
-- **VAL04**: Teléfono contiene solo dígitos y caracteres permitidos (si proporcionado)
-- **VAL05**: Longitud máxima de nombres: 50 caracteres
-- **VAL06**: Longitud máxima de apellidos: 50 caracteres
-- **VAL07**: Longitud máxima de correo: 100 caracteres
-- **VAL08**: Longitud máxima de teléfono: 20 caracteres
-- **VAL09**: Longitud máxima de observaciones: 500 caracteres
+- **Continuar editando** → Mantiene `PROFESOR_ABIERTO` en modo edición
+- **Guardar y salir** → `abrirProfesores()` con lista actualizada
+- **Cancelar edición** → `abrirProfesores()` sin cambios
 
-### Casos de uso incluidos
+### navegación del sistema
 
-- **<<include>> configurarPreferenciasProfesor()**: Navegación a configuración especializada
+- **Continuar editando** → Permanece en `PROFESOR_ABIERTO`
+- **Guardar y salir** → `PROFESORES_ABIERTO` via `abrirProfesores()`
+- **Cancelación** → `PROFESORES_ABIERTO` sin modificaciones
 
-## Trazabilidad
+## conexión con diagrama de contexto
 
-### Relación con casos de uso
+Este caso de uso corresponde a las transiciones:
+- **PROFESORES_ABIERTO** → `editarProfesor()` → **PROFESOR_ABIERTO**
+- **PROFESOR_ABIERTO** → `editarProfesor()` → **PROFESOR_ABIERTO** (continuar editando)
 
-- **crearProfesor()**: Caso de uso origen que redirige automáticamente
-- **configurarPreferenciasProfesor()**: Caso de uso especializado accesible desde edición
-- **eliminarProfesor()**: Caso de uso relacionado para gestión de profesores
-- **abrirProfesores()**: Caso de uso origen alternativo desde lista
+Ambas transiciones incluyen:
+- **&lt;&lt;include&gt;&gt;** `abrirProfesores()` → **PROFESORES_ABIERTO** (al guardar y salir)
 
-### Relación con entidades del dominio
+## vocabulario utilizado
 
-- **Profesor**: Entidad principal editada
-- **Recurso**: Relacionada a través de preferencias (accesible vía configurarPreferenciasProfesor)
-- **Curso**: Relación de enseñanza (pueden existir cursos asignados)
+### actor (Administrador)
 
-### Notas de implementación
+- **solicita**: expresa la intención de editar un profesor específico
+- **solicita**: expresa modificación de campos del profesor
+- **solicita**: expresa guardado de cambios del profesor
 
-- La edición continua mantiene el estado PROFESOR_ABIERTO después de guardar
-- Los campos opcionales pueden quedar vacíos sin afectar funcionalidad
-- La navegación a preferencias preserva el contexto de edición
-- El patrón "El gordo" permite edición completa y continua
+### sistema
 
-### Consideraciones de diseño
+- **presenta**: muestra información editable del profesor seleccionado
+- **permite solicitar**: habilita modificación y guardado de cambios
+- **procesa**: ejecuta guardado de modificaciones del profesor
 
-- **Interfaz completa**: Todos los campos del profesor disponibles
-- **Validación progresiva**: Feedback inmediato sobre errores
-- **Edición continua**: Permite múltiples ciclos de modificación
-- **Navegación contextual**: Acceso directo a preferencias sin perder estado
-- **Recuperación de errores**: Mantiene datos del usuario ante fallos
+## características metodológicas
 
-## Referencias
+### separación de responsabilidades
 
-- [Modelo del dominio](../../00-modelo-del-dominio/modelo-dominio.md) - Definición de entidad Profesor
-- [Actores y casos de uso](../../01-actores-casos-uso/actores-casos-uso.md) - Contexto del actor
-- [crearProfesor](../crearProfesor/README.md) - Caso de uso origen
-- [eliminarProfesor](../eliminarProfesor/README.md) - Caso de uso relacionado
+- **Actor**: Solo solicita edición, modificación y guardado
+- **Sistema**: Solo presenta información y permite solicitar modificaciones
+
+### ausencia de detalles de implementación
+
+- No especifica tecnología de persistencia
+- No incluye detalles de validación de campos
+- No menciona estructura de almacenamiento
+
+### conversación de edición continua
+
+- El caso de uso representa una conversación de modificación
+- Tiene objetivo claro: editar profesor con todos sus campos
+- Permite continuar editando o guardar y salir
+
+### rol del actor
+
+- **Entrada**: Administrador (desde profesores abiertos o profesor recién creado)
+- **Salida**: Administrador (con conocimiento de profesor modificado)
+- **Estado**: Permanece como Administrador durante toda la conversación
+
+### patrón de "el gordo"
+
+- **Edición completa**: Permite modificar todos los campos del profesor
+- **Sesión continua**: Mantiene estado de edición activa
+- **Flexibilidad**: Puede continuar editando o guardar y salir
+- **Navegación incluida**: **&lt;&lt;include&gt;&gt;** `abrirProfesores()` para mostrar lista actualizada
+
+## referencias
+
+- [Diagrama de contexto - Administrador](../../01-actores-casos-uso/diagrama-contexto-administrador.md)
+- [Modelo del dominio](../../00-modelo-del-dominio/modelo-dominio.md)
+- [abrirProfesores()](../abrirProfesores/README.md) - Caso de uso de navegación
+- [crearProfesor()](../crearProfesor/README.md) - Caso complementario del CRUD
+- [eliminarProfesor()](../eliminarProfesor/README.md) - Caso complementario del CRUD
+- [editarCurso()](../editarCurso/README.md) - Patrón de referencia para "el gordo"
+- [conversation-log.md](../../../../conversation-log.md) - Metodología de especificación detallada

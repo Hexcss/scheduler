@@ -1,25 +1,27 @@
-@startsalt editarProfesor-wireframes
+@startsalt editarProfesor-wireframe
 {
-  <b>SigHor - Editar Profesor</b> | { [X] }
-  {
-    <b>Datos completos del profesor</b>
-    .
-    Código: | "PROF001" | <i>(solo lectura)</i>
-    Nombres *: | "Juan Carlos"
-    Apellidos *: | "García López"
-    Correo electrónico: | "jgarcia@universidad.edu"
-    Teléfono: | "+51 999 123 456"
-    .
-    Observaciones:
-    ^
-    "Profesor con experiencia en algoritmos
-    y estructuras de datos. Prefiere
-    aulas con proyector."
-    ^
-    .
-    <i>(*) Campos obligatorios</i>
-    .
-    { [Guardar profesor] | [Configurar preferencias] | [Cancelar] }
-  }
+    <b>EDITAR PROFESOR</b>
+    ===
+    {
+        <b>Datos del profesor:</b>
+        --
+        {
+            {
+            {<b>Código:</b> | "PROF-001                    "
+            <b>Nombres:</b> | "Juan Carlos                  "}
+            {<b>Apellidos:</b> | "García López                 "
+            <b>Correo:</b> | "jgarcia@universidad.edu      "}
+            {<b>Teléfono:</b> | "+51 999 123 456              "
+            <b>Observaciones:</b> |
+                {"Profesor especializado en algoritmos
+                y estructuras de datos. Experiencia
+                en desarrollo de software educativo  "}}
+            }
+        }
+
+        ~~
+
+        {[Guardar cambios] | [Continuar editando] | [Cancelar]}
+    }
 }
 @endsalt

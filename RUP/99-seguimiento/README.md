@@ -58,6 +58,7 @@ Los casos de uso analizados incluyen **2 enlaces** de navegación:
 - **editarCurso()** - Edición de cursos como "el gordo" con edición continua (especificación + prototipo + análisis + secuencia)
 - **eliminarCurso()** - Eliminación segura de cursos con confirmación (especificación + prototipo + análisis)
 - **eliminarProfesor()** - Eliminación segura de profesores con confirmación (especificación + prototipo + análisis) - CORREGIDO
+- **editarProfesor()** - Edición de profesores como "el gordo" con edición continua (especificación + prototipo + análisis) - CORREGIDO
 - **cerrarSesion()** - Cierre de sesión (especificación + prototipo + análisis)
 
 ### Casos de uso identificados únicamente (🔘 Gris)
@@ -67,7 +68,7 @@ Los casos de uso analizados incluyen **2 enlaces** de navegación:
 
 #### Operaciones CRUD
 
-- **❌ crearProfesor()** / **❌ editarProfesor()** / **eliminarProfesor()** - ❌ ERROR: Aplicación automática no solicitada (eliminarProfesor CORREGIDO)
+- **❌ crearProfesor()** / **editarProfesor()** / **eliminarProfesor()** - ❌ ERROR: Aplicación automática no solicitada (editarProfesor y eliminarProfesor CORREGIDOS)
 - **crearEdificio()** / **editarEdificio()** / **eliminarEdificio()**
 - **crearAula()** / **editarAula()** / **eliminarAula()**
 - **crearRecurso()** / **editarRecurso()** / **eliminarRecurso()**
@@ -87,7 +88,7 @@ Los casos de uso analizados incluyen **2 enlaces** de navegación:
 
 - **Total de casos de uso**: 32
 - **Casos de uso en análisis**: 18 (56.25%)
-  - 16 casos correctos + 2 casos erróneos (❌ crearProfesor, editarProfesor) + 1 corregido (eliminarProfesor)
+  - 17 casos correctos + 1 caso erróneo (❌ crearProfesor) + 2 corregidos (eliminarProfesor, editarProfesor)
 - **Casos de uso identificados**: 14 (43.75%)
 - **Progreso general**: 56.25% (incluyendo errores pendientes de corrección)
 

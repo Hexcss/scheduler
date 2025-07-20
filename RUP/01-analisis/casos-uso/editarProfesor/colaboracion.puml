@@ -1,64 +1,32 @@
 @startuml editarProfesor-analisis
-!theme plain
-allow_mixing
+skinparam linetype polyline
 
-package "View" {
-  object "profesorEdicionView : ProfesorEdicionView" as view
+rectangle #CDEBA5 ":Profesores Abierto" as ProfesoresAbierto
+rectangle #CDEBA5 ":Profesor Abierto" as ProfesorAbierto
+rectangle #CDEBA5 ":Collaboration CrearProfesor" as CrearProfesor
+rectangle #CDEBA5 ":Collaboration AbrirProfesores" as AbrirProfesores
+
+package editarProfesor as "editarProfesor()" {
+    rectangle #629EF9 EditarProfesorView
+    rectangle #b5bd68 ProfesorController
+    rectangle #F2AC4E ProfesorRepository
+    rectangle #F2AC4E Profesor
 }
 
-package "Controller" {
-  object "profesorController : ProfesorController" as controller
-}
+ProfesoresAbierto --> EditarProfesorView: editarProfesor(profesorId)
+ProfesorAbierto --> EditarProfesorView: editarProfesor(profesorId)
+CrearProfesor --> EditarProfesorView: editarProfesor(profesorNuevo)
 
-package "Model" {
-  object "profesor : Profesor" as profesor
-  object "profesorRepository : ProfesorRepository" as repository
-}
+EditarProfesorView -d-> ProfesorController: cargarProfesorParaEdición(profesorId) : Profesor
 
-actor "Administrador" as admin
+ProfesorController --> ProfesorRepository: obtenerPorId(profesorId) : Profesor
 
-admin -> view : 1: solicitarEditarProfesor(id)
-view -> controller : 2: cargarProfesor(id)
-controller -> repository : 3: obtenerProfesor(id)
-repository -> controller : 4: profesorCargado(datos)
-controller -> view : 5: presentarDatosEdicion(datos)
-view -> admin : 6: mostrarDatosCompletos()
-admin -> view : 7: modificarDatos(cambios)
-view -> controller : 8: procesarModificaciones(cambios)
-controller -> profesor : 9: validarCambios(cambios)
-profesor -> controller : 10: cambiosValidos()
-controller -> repository : 11: actualizarProfesor(profesor)
-repository -> controller : 12: profesorActualizado()
-controller -> view : 13: confirmarGuardado()
-view -> admin : 14: mostrarConfirmacion()
-view -> admin : 15: mantenerEdicionContinua()
+EditarProfesorView --> ProfesorController: modificarCampos(profesorId, cambios) : boolean
 
-note top of view
-  <b>Vista:</b>
-  Presenta interfaz completa
-  para edición con todos los
-  campos del profesor
-end note
+ProfesorController --> ProfesorRepository: actualizar(profesor) : boolean
 
-note top of controller
-  <b>Controlador:</b>
-  Coordina carga, edición
-  y mantiene estado para
-  edición continua
-end note
+ProfesorRepository -- Profesor
 
-note top of profesor
-  <b>Entidad:</b>
-  Aplica reglas de negocio
-  y mantiene integridad
-  durante actualizaciones
-end note
-
-note top of repository
-  <b>Repositorio:</b>
-  Carga y actualiza profesor
-  manteniendo consistencia
-  transaccional
-end note
+EditarProfesorView ..> AbrirProfesores: <<include>> abrirProfesores()
 
 @enduml
