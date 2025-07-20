@@ -66,7 +66,7 @@ Los casos de uso analizados incluyen **2 enlaces** de navegación:
 
 #### Operaciones CRUD
 
-- **crearProfesor()** / **editarProfesor()** / **eliminarProfesor()**
+- **❌ crearProfesor()** / **❌ editarProfesor()** / **❌ eliminarProfesor()** - ❌ ERROR: Aplicación automática no solicitada
 - **crearEdificio()** / **editarEdificio()** / **eliminarEdificio()**
 - **crearAula()** / **editarAula()** / **eliminarAula()**
 - **crearRecurso()** / **editarRecurso()** / **eliminarRecurso()**
@@ -85,15 +85,17 @@ Los casos de uso analizados incluyen **2 enlaces** de navegación:
 ## Estadísticas del proyecto
 
 - **Total de casos de uso**: 32
-- **Casos de uso en análisis**: 15 (46.88%)
-- **Casos de uso identificados**: 17 (53.12%)
-- **Progreso general**: 46.88%
+- **Casos de uso en análisis**: 18 (56.25%)
+  - 15 casos correctos + 3 casos erróneos (❌ crearProfesor, editarProfesor, eliminarProfesor)
+- **Casos de uso identificados**: 14 (43.75%)
+- **Progreso general**: 56.25% (incluyendo errores pendientes de corrección)
 
 ## Próximos pasos
 
-Los siguientes casos de uso son candidatos para la próxima iteración:
+### Corrección prioritaria
+1. **❌ Corregir errores en casos de uso de Profesor** - Los casos crearProfesor, editarProfesor y eliminarProfesor contienen errores técnicos identificados y deben corregirse antes de usar como template
 
-1. **crearProfesor()** / **editarProfesor()** / **eliminarProfesor()** - Aplicar patrón CRUD validado a profesores
+### Próxima iteración (después de corrección)
 2. **crearAula()** / **editarAula()** / **eliminarAula()** - Aplicar patrón CRUD validado a aulas
 3. **crearEdificio()** / **editarEdificio()** / **eliminarEdificio()** - Aplicar patrón CRUD validado a edificios
 4. **crearRecurso()** / **editarRecurso()** / **eliminarRecurso()** - Aplicar patrón CRUD validado a recursos

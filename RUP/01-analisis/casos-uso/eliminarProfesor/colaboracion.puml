@@ -1,5 +1,6 @@
 @startuml eliminarProfesor-analisis
 !theme plain
+allow_mixing
 
 package "View" {
   object "profesorListaView : ProfesorListaView" as view

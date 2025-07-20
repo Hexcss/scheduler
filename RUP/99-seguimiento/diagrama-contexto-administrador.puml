@@ -76,10 +76,10 @@ ListCursos -[#darkgoldenrod,thickness=2]-> EditCurso: [[https://github.com/mmasi
 ListCursos -[#darkgoldenrod,thickness=2]-> ListCursos: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/eliminarCurso/README.md eliminarCurso()]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/eliminarCurso/README.md A]]
 EditCurso -[#darkgoldenrod,thickness=2]-> EditCurso: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/editarCurso/README.md editarCurso()]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/editarCurso/README.md A]]
 EditCurso -[#darkgoldenrod,thickness=2]-> ListCursos: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/abrirCursos/README.md abrirCursos()]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/abrirCursos/README.md A]]
-ListProfesores -[#gray,dotted]-> EditProfesor: crearProfesor()
-ListProfesores -[#gray,dotted]-> EditProfesor: editarProfesor()
-ListProfesores -[#gray,dotted]-> ListProfesores: eliminarProfesor()
-EditProfesor -[#gray,dotted]-> EditProfesor: editarProfesor()
+ListProfesores -[#red,dotted]-> EditProfesor: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/crearProfesor/README.md crearProfesor()]] ❌ [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/crearProfesor/README.md A]] ❌
+ListProfesores -[#red,dotted]-> EditProfesor: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/editarProfesor/README.md editarProfesor()]] ❌ [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/editarProfesor/README.md A]] ❌
+ListProfesores -[#red,dotted]-> ListProfesores: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/eliminarProfesor/README.md eliminarProfesor()]] ❌ [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/eliminarProfesor/README.md A]] ❌
+EditProfesor -[#red,dotted]-> EditProfesor: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/editarProfesor/README.md editarProfesor()]] ❌ [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/editarProfesor/README.md A]] ❌
 EditProfesor -[#gray,dotted]-> EditProfesorPreferencias: configurarPreferenciasProfesor()
 EditProfesor -[#darkgoldenrod,thickness=2]-> ListProfesores: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/abrirProfesores/README.md abrirProfesores()]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/abrirProfesores/README.md A]]
 EditProfesorPreferencias -[#gray,dotted]-> EditProfesorPreferencias: configurarPreferenciasProfesor()

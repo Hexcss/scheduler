@@ -26,7 +26,7 @@ Definir el comportamiento del sistema cuando el Administrador de Horarios solici
 
 <div align=center>
 
-|![Especificación crearProfesor](/images/RUP/00-casos-uso/02-detalle/crearProfesor/especificacion.svg)
+|![Especificación crearProfesor](/images/RUP/00-casos-uso/02-detalle/crearProfesor/crearProfesor-especificacion.svg)
 |:-:
 |Código fuente: [especificacion.puml](./especificacion.puml)
 
@@ -36,7 +36,7 @@ Definir el comportamiento del sistema cuando el Administrador de Horarios solici
 
 <div align=center>
 
-|![Wireframes crearProfesor](/images/RUP/00-casos-uso/02-detalle/crearProfesor/wireframes.svg)
+|![Wireframes crearProfesor](/images/RUP/00-casos-uso/02-detalle/crearProfesor/crearProfesor-wireframes.svg)
 |:-:
 |Código fuente: [wireframes.puml](./wireframes.puml)
 

@@ -27,7 +27,7 @@ Analizar la interacción entre los objetos del sistema durante la ejecución del
 
 <div align=center>
 
-|![Colaboración crearProfesor](/images/RUP/01-analisis/casos-uso/crearProfesor/colaboracion.svg)
+|![Colaboración crearProfesor](/images/RUP/01-analisis/casos-uso/crearProfesor/crearProfesor-analisis.svg)
 |:-:
 |Código fuente: [colaboracion.puml](./colaboracion.puml)
 
@@ -37,7 +37,7 @@ Analizar la interacción entre los objetos del sistema durante la ejecución del
 
 <div align=center>
 
-|![Secuencia crearProfesor](/images/RUP/01-analisis/casos-uso/crearProfesor/secuencia.svg)
+|![Secuencia crearProfesor](/images/RUP/01-analisis/casos-uso/crearProfesor/crearProfesor-analisis-secuencia.svg)
 |:-:
 |Código fuente: [secuencia.puml](./secuencia.puml)
 

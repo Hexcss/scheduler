@@ -45,9 +45,9 @@ Emojis para fases futuras:
 |**crearCurso()**|[📋](/RUP/00-casos-uso/02-detalle/crearCurso/README.md#diagrama-de-especificación)|[🎨](/RUP/00-casos-uso/02-detalle/crearCurso/README.md#wireframes)|[🔍](/RUP/01-analisis/casos-uso/crearCurso/README.md)|⚪|⚪|⚪|*"El delgado" filosofía C→U completa*
 |**editarCurso()**|[📋](/RUP/00-casos-uso/02-detalle/editarCurso/README.md#diagrama-de-especificación)|[🎨](/RUP/00-casos-uso/02-detalle/editarCurso/README.md#wireframes)|[🔍](/RUP/01-analisis/casos-uso/editarCurso/README.md)|⚪|⚪|⚪|*"El gordo" con edición continua completa*
 |**eliminarCurso()**|[📋](/RUP/00-casos-uso/02-detalle/eliminarCurso/README.md#diagrama-de-especificación)|[🎨](/RUP/00-casos-uso/02-detalle/eliminarCurso/README.md#wireframes)|[🔍](/RUP/01-analisis/casos-uso/eliminarCurso/README.md)|⚪|⚪|⚪|*Eliminación segura con confirmación completa*
-|**crearProfesor()**|⚪|⚪|⚪|⚪|⚪|⚪|
-|**editarProfesor()**|⚪|⚪|⚪|⚪|⚪|⚪|
-|**eliminarProfesor()**|⚪|⚪|⚪|⚪|⚪|⚪|
+|**crearProfesor()**|[📋](/RUP/00-casos-uso/02-detalle/crearProfesor/README.md#diagrama-de-especificación) ❌|[🎨](/RUP/00-casos-uso/02-detalle/crearProfesor/README.md#wireframes) ❌|[🔍](/RUP/01-analisis/casos-uso/crearProfesor/README.md) ❌|⚪|⚪|⚪|*❌ ERROR: Aplicación automática no solicitada*
+|**editarProfesor()**|[📋](/RUP/00-casos-uso/02-detalle/editarProfesor/README.md#diagrama-de-especificación) ❌|[🎨](/RUP/00-casos-uso/02-detalle/editarProfesor/README.md#wireframes) ❌|[🔍](/RUP/01-analisis/casos-uso/editarProfesor/README.md) ❌|⚪|⚪|⚪|*❌ ERROR: Aplicación automática no solicitada*
+|**eliminarProfesor()**|[📋](/RUP/00-casos-uso/02-detalle/eliminarProfesor/README.md#diagrama-de-especificación) ❌|[🎨](/RUP/00-casos-uso/02-detalle/eliminarProfesor/README.md#wireframes) ❌|[🔍](/RUP/01-analisis/casos-uso/eliminarProfesor/README.md) ❌|⚪|⚪|⚪|*❌ ERROR: Aplicación automática no solicitada*
 |**configurarPreferenciasProfesor()**|⚪|⚪|⚪|⚪|⚪|⚪|
 |**crearEdificio()**|⚪|⚪|⚪|⚪|⚪|⚪|
 |**editarEdificio()**|⚪|⚪|⚪|⚪|⚪|⚪|

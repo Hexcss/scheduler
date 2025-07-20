@@ -1,5 +1,7 @@
 @startuml crearProfesor-analisis
 !theme plain
+allowmixing
+actor "Administrador" as admin
 
 package "View" {
   object "profesorCreacionView : ProfesorCreacionView" as view
@@ -13,8 +15,6 @@ package "Model" {
   object "profesor : Profesor" as profesor
   object "profesorRepository : ProfesorRepository" as repository
 }
-
-actor "Administrador" as admin
 
 admin -> view : 1: solicitarCrearProfesor()
 view -> admin : 2: presentarSolicitudDatos()

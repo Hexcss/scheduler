@@ -26,7 +26,7 @@ Definir el comportamiento del sistema cuando el Administrador de Horarios solici
 
 <div align=center>
 
-|![Especificación eliminarProfesor](/images/RUP/00-casos-uso/02-detalle/eliminarProfesor/especificacion.svg)
+|![Especificación eliminarProfesor](/images/RUP/00-casos-uso/02-detalle/eliminarProfesor/eliminarProfesor-especificacion.svg)
 |:-:
 |Código fuente: [especificacion.puml](./especificacion.puml)
 
@@ -36,7 +36,7 @@ Definir el comportamiento del sistema cuando el Administrador de Horarios solici
 
 <div align=center>
 
-|![Wireframes eliminarProfesor](/images/RUP/00-casos-uso/02-detalle/eliminarProfesor/wireframes.svg)
+|![Wireframes eliminarProfesor](/images/RUP/00-casos-uso/02-detalle/eliminarProfesor/eliminarProfesor-wireframes.svg)
 |:-:
 |Código fuente: [wireframes.puml](./wireframes.puml)
 
