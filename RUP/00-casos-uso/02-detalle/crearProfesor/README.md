@@ -1,152 +1,197 @@
 <div align=right>
  
-|[![](https://img.shields.io/badge/-Inicio-FFF?style=flat&logo=Emlakjet&logoColor=black)](../../../../README.md) [![](https://img.shields.io/badge/-RUP-FFF?style=flat&logo=Elsevier&logoColor=black)](../../../README.md) [![](https://img.shields.io/badge/-Modelo_del_dominio-FFF?style=flat&logo=freedesktop.org&logoColor=black)](../../00-modelo-del-dominio/modelo-dominio.md) [![](https://img.shields.io/badge/-Actores_&_Casos_de_Uso-FFF?style=flat&logo=crewunited&logoColor=black)](../../01-actores-casos-uso/actores-casos-uso.md) [![](https://img.shields.io/badge/-Diagrama_de_contexto-FFF?style=flat&logo=diagramsdotnet&logoColor=black)](../../01-actores-casos-uso/diagrama-contexto-administrador.md) [![](https://img.shields.io/badge/-Detalle_&_Prototipo-FFF?style=flat&logo=typeorm&logoColor=black)](../README.md) [![](https://img.shields.io/badge/-Análisis-FFF?style=flat&logo=multisim&logoColor=black)](../../../01-analisis/casos-uso/README.md)
-|-:
-|[![](https://img.shields.io/badge/-Estado-FFF?style=flat&logo=greensock&logoColor=black)](../../../README.md) [![](https://img.shields.io/badge/-Propuesta_de_dashboard-FFF?style=flat&logo=composer&logoColor=black)](https://raw.githubusercontent.com/mmasias/pySigHor/main/images/RUP/99-seguimiento/diagrama-contexto-administrador.svg) [![](https://img.shields.io/badge/-Reflexiones-FFF?style=flat&logo=hootsuite&logoColor=black)](../../../../extraDocs/README.md) [![](https://img.shields.io/badge/-Log_de_conversación-FFF?style=flat&logo=gnometerminal&logoColor=black)](../../../../conversation-log.md)
+|[![](https://img.shields.io/badge/-Inicio-FFF?style=flat&logo=Emlakjet&logoColor=black)](../../../../README.md) [![](https://img.shields.io/badge/-RUP-FFF?style=flat&logo=Elsevier&logoColor=black)](../../../README.md) [![](https://img.shields.io/badge/-Modelo_del_dominio-FFF?style=flat&logo=freedesktop.org&logoColor=black)](../../00-modelo-del-dominio/modelo-dominio.md) [![](https://img.shields.io/badge/-Actores_&_Casos_de_Uso-FFF?style=flat&logo=crewunited&logoColor=black)](../../01-actores-casos-uso/actores-casos-uso.md) [![](https://img.shields.io/badge/-Diagrama_de_contexto-FFF?style=flat&logo=diagramsdotnet&logoColor=black)](../../01-actores-casos-uso/diagrama-contexto-administrador.md) [![](https://img.shields.io/badge/-Detalle_&_Prototipo-FFF?style=flat&logo=typeorm&logoColor=black)](../README.md) [![](https://img.shields.io/badge/-Análisis-FFF?style=flat&logo=multisim&logoColor=black)](../../../01-analisis/casos-uso/README.md)|
+|-:|
+|[![](https://img.shields.io/badge/-Estado-FFF?style=flat&logo=greensock&logoColor=black)](../../../README.md) [![](https://img.shields.io/badge/-Propuesta_de_dashboard-FFF?style=flat&logo=composer&logoColor=black)](https://raw.githubusercontent.com/mmasias/pySigHor/main/images/RUP/99-seguimiento/diagrama-contexto-administrador.svg) [![](https://img.shields.io/badge/-Reflexiones-FFF?style=flat&logo=hootsuite&logoColor=black)](../../../../extraDocs/README.md) [![](https://img.shields.io/badge/-Log_de_conversación-FFF?style=flat&logo=gnometerminal&logoColor=black)](../../../../conversation-log.md)|
 
 </div>
 
-# pySigHor > crearProfesor > Detalle
+# pySigHor > crearProfesor > Detalle y prototipado
 
-## Información del artefacto
+> |[🏠️](/RUP/README.md)|[ 📊](https://raw.githubusercontent.com/mmasias/pySigHor/main/images/RUP/99-seguimiento/diagrama-contexto-administrador.svg)|**Detalle**|[Análisis](/RUP/01-analisis/casos-uso/crearProfesor/README.md)|Diseño|Desarrollo|Pruebas|
+> |-|-|-|-|-|-|-|
+
+## información del artefacto
 
 - **Proyecto**: pySigHor - Modernización del Sistema Generador de Horarios
-- **Caso de uso**: crearProfesor
-- **Actor**: Administrador de Horarios  
-- **Fase RUP**: Elaboration
+- **Fase RUP**: Inception (Inicio)
+- **Disciplina**: Requisitos
 - **Versión**: 1.0
-- **Fecha**: 2025-07-19
+- **Fecha**: 2025-07-20
 - **Autor**: Equipo de desarrollo
 
-## Propósito
+## propósito
 
-Definir el comportamiento del sistema cuando el Administrador de Horarios solicita crear un nuevo profesor siguiendo la filosofía "El delgado" (Creation→Update) donde la creación requiere únicamente datos mínimos antes de redirigir a edición completa.
+Especificación detallada del caso de uso `crearProfesor()` mediante diagrama de estado, mostrando la conversación completa entre el Administrador y el Sistema para la creación de profesores aplicando la filosofía C→U como "el delgado".
 
-## Diagrama de especificación
+## información del caso de uso
+
+|Atributo|Valor|
+|-|-|
+|**Nombre**|crearProfesor()|
+|**Actor primario**|Administrador|
+|**Objetivo**|Crear profesor con datos mínimos y transferir inmediatamente a edición completa|
+|**Tipo**|Primario, esencial|
+|**Nivel**|Objetivo de usuario|
+|**Precondición**|Usuario autenticado como Administrador en estado PROFESORES_ABIERTO|
+|**Postcondición exitosa**|Profesor creado con datos mínimos, usuario en modo edición completa|
+|**Postcondición de fallo**|N/A - caso de uso sin condiciones de fallo|
+
+## diagrama de especificación
 
 <div align=center>
 
-|![Especificación crearProfesor](/images/RUP/00-casos-uso/02-detalle/crearProfesor/crearProfesor-especificacion.svg)
-|:-:
-|Código fuente: [especificacion.puml](./especificacion.puml)
+|![Caso de uso: crearProfesor()](/images/RUP/00-casos-uso/02-detalle/crearProfesor/crearProfesor.svg)|
+|-|
+|Código fuente: [especificacion.puml](especificacion.puml)|
 
 </div>
 
-## Wireframes
+## prototipo de interfaz
+
+### propósito del prototipo
+
+**Objetivo:** Que te digan que NO lo antes posible - validar la especificación antes de invertir en desarrollo.
+
+### wireframes
+
+#### pantalla 1: creación rápida de profesor
 
 <div align=center>
 
-|![Wireframes crearProfesor](/images/RUP/00-casos-uso/02-detalle/crearProfesor/crearProfesor-wireframes.svg)
-|:-:
-|Código fuente: [wireframes.puml](./wireframes.puml)
+|![Wireframe: Creación de profesor](/images/RUP/00-casos-uso/02-detalle/crearProfesor/crearProfesor-wireframe.svg)|
+|-|
+|**Estado**: CreandoProfesor|
 
 </div>
 
-## Especificación detallada
+**Correspondencia con especificación:**
+- Sistema "presenta formulario de creación"
+- Actor "solicita crear profesor"
+- Sistema "permite solicitar crear con datos mínimos"
+- Actor "solicita crear y editar"
 
-### Flujo principal
+### validaciones del wireframe
 
-1. Actor solicita crear nuevo profesor
-2. Sistema presenta solicitud de datos mínimos del profesor:
-   - Nombres del profesor (obligatorio)
-   - Apellidos del profesor (obligatorio)
-3. Actor introduce datos mínimos del profesor
-4. Sistema permite solicitar:
-   - Guardar profesor
-   - Cancelar creación
-5. Actor solicita guardar profesor
-6. Sistema valida datos mínimos
-7. Sistema almacena profesor con datos mínimos
-8. Sistema genera identificador único para el profesor
-9. Sistema redirige automáticamente a editarProfesor() con el profesor recién creado
+- ¿Se solicitan únicamente los campos mínimos necesarios?
+- ¿Es claro que se transferirá inmediatamente a edición completa?
+- ¿La navegación es directa y eficiente?
+- ¿Los campos obligatorios están claramente marcados?
 
-### Flujos alternativos
+**Código fuente:** [wireframes.puml](wireframes.puml)
 
-**FA1**: Actor cancela creación
-- En cualquier momento antes del paso 5, Actor puede solicitar cancelar
-- Sistema descarta datos introducidos
-- Sistema retorna a estado PROFESORES_ABIERTO
+## conversación detallada
 
-**FA2**: Datos mínimos inválidos
-- En paso 6, si datos no cumplen validaciones:
-- Sistema presenta mensaje de error específico
-- Sistema mantiene datos introducidos
-- Sistema permite corregir datos
-- Continúa en paso 3
+### flujo principal (único)
 
-**FA3**: Error de almacenamiento
-- En paso 7, si falla almacenamiento:
-- Sistema presenta mensaje de error del sistema
-- Sistema mantiene datos introducidos
-- Actor puede reintentar o cancelar
+|Actor|Acción|Sistema|Respuesta|
+|-|-|-|-|
+|**Administrador**|solicita crear profesor||
+||**Sistema**|presenta formulario de creación|• Campo código del profesor<br>• Campo nombres del profesor<br>• Campo apellidos del profesor<br>• Permite solicitar crear profesor<br>• Permite solicitar cancelar creación|
+|**Administrador**|solicita crear profesor||(con datos mínimos)|
+||**Sistema**|permite solicitar crear con datos mínimos|• Valida código único<br>• Valida nombres no vacíos<br>• Valida apellidos no vacíos<br>• Permite solicitar crear y editar|
+|**Administrador**|solicita crear y editar||
 
-### Precondiciones
+## estados internos del caso de uso
 
-- Actor autenticado como Administrador de Horarios
-- Sistema en estado PROFESORES_ABIERTO
-- Sistema de base de datos disponible
+|Estado|Descripción|Responsabilidad|
+|-|-|-|
+|**CreandoProfesor**|Estado donde se presenta el formulario de creación con campos mínimos|Sistema debe presentar solo los campos esenciales para crear el profesor|
 
-### Postcondiciones
+## funcionalidad de creación rápida
 
-**Éxito**:
-- Nuevo profesor almacenado con datos mínimos
-- Sistema en estado PROFESOR_ABIERTO con profesor recién creado
-- Actor puede continuar editando inmediatamente
+### concepto clave - "el delgado"
 
-**Cancelación**:
-- Sin cambios en base de datos
-- Sistema retorna a estado PROFESORES_ABIERTO
+- **crearProfesor()** es "el delgado" que:
+  - **Solicita** solo datos mínimos indispensables
+  - **Crea** profesor con información básica
+  - **Transfiere** inmediatamente a edición completa
+  - **Aplica** filosofía C→U (Create→Update)
 
-### Reglas de negocio
+### información solicitada (mínima)
 
-- **RN01**: Nombres son obligatorios y no pueden estar vacíos
-- **RN02**: Apellidos son obligatorios y no pueden estar vacíos
-- **RN03**: La combinación nombres+apellidos debe ser única en el sistema
-- **RN04**: Nombres y apellidos deben tener al menos 2 caracteres
-- **RN05**: Sistema genera automáticamente códigos únicos para profesores
+- **Datos esenciales del profesor**:
+  - Código del profesor (único, obligatorio)
+  - Nombres del profesor (obligatorio)
+  - Apellidos del profesor (obligatorio)
 
-### Validaciones
+### campos no solicitados (se completan en edición)
 
-- **VAL01**: Nombres contienen solo caracteres alfabéticos y espacios
-- **VAL02**: Apellidos contienen solo caracteres alfabéticos y espacios
-- **VAL03**: No se permiten nombres o apellidos que contengan solo espacios
-- **VAL04**: Longitud máxima de nombres: 50 caracteres
-- **VAL05**: Longitud máxima de apellidos: 50 caracteres
+- **Datos de contacto**: Correo electrónico, teléfono
+- **Información adicional**: Observaciones del profesor
 
-### Casos de uso incluidos
+## opciones de navegación
 
-- **<<include>> editarProfesor()**: Redirige automáticamente después de creación exitosa
+### operaciones de creación
 
-## Trazabilidad
+- **Crear y editar** → Profesor creado + **&lt;&lt;include&gt;&gt;** `editarProfesor()` para completar datos
+- **Cancelar creación** → **&lt;&lt;include&gt;&gt;** `abrirProfesores()` sin cambios
 
-### Relación con casos de uso
+### navegación del sistema
 
-- **editarProfesor()**: Caso de uso destino después de creación
-- **abrirProfesores()**: Caso de uso origen para llegar a este punto
-- **eliminarProfesor()**: Caso de uso relacionado para gestión de profesores
+- **Creación exitosa** → **&lt;&lt;include&gt;&gt;** `editarProfesor()` en `PROFESOR_ABIERTO`
+- **Cancelación** → **&lt;&lt;include&gt;&gt;** `abrirProfesores()` en `PROFESORES_ABIERTO`
 
-### Relación con entidades del dominio
+## conexión con diagrama de contexto
 
-- **Profesor**: Entidad principal creada
-- **Sistema de autenticación**: Valida precondiciones de acceso
+Este caso de uso corresponde a la transición:
+- **PROFESORES_ABIERTO** → `crearProfesor()` → **PROFESOR_ABIERTO**
 
-### Notas de implementación
+La transición incluye:
+- **&lt;&lt;include&gt;&gt;** `editarProfesor()` → **PROFESOR_ABIERTO** (para completar datos)
 
-- La redirección automática a editarProfesor() implementa la filosofía "El delgado"
-- Los datos mínimos permiten crear rápidamente antes de especificar detalles
-- El patrón Creation→Update optimiza la experiencia de usuario
-- La validación de unicidad debe considerar profesores existentes
+## vocabulario utilizado
 
-### Consideraciones de diseño
+### actor (Administrador)
 
-- **Interfaz mínima**: Solo campos esenciales para crear
-- **Validación inmediata**: Feedback rápido sobre errores
-- **Flujo continuo**: Transición natural a edición completa
-- **Recuperación de errores**: Mantiene datos del usuario ante fallos
+- **solicita**: expresa la intención de crear un nuevo profesor
+- **solicita**: expresa creación con datos mínimos proporcionados
+- **solicita**: expresa crear y pasar inmediatamente a edición
 
-## Referencias
+### sistema
 
-- [Modelo del dominio](../../00-modelo-del-dominio/modelo-dominio.md) - Definición de entidad Profesor
-- [Actores y casos de uso](../../01-actores-casos-uso/actores-casos-uso.md) - Contexto del actor
-- [editarProfesor](../editarProfesor/README.md) - Caso de uso destino
-- [eliminarProfesor](../eliminarProfesor/README.md) - Caso de uso relacionado
+- **presenta**: muestra formulario con campos mínimos de creación
+- **permite solicitar**: habilita creación con validación básica
+- **valida**: verifica unicidad de código y completitud de campos obligatorios
+
+## características metodológicas
+
+### separación de responsabilidades
+
+- **Actor**: Solo solicita creación y proporciona datos mínimos
+- **Sistema**: Solo presenta formulario mínimo y permite solicitar creación
+
+### ausencia de detalles de implementación
+
+- No especifica tecnología de persistencia
+- No incluye detalles de validación avanzada
+- No menciona estructura de almacenamiento
+
+### conversación de creación mínima
+
+- El caso de uso representa una conversación de creación rápida
+- Tiene objetivo claro: crear profesor con datos mínimos
+- Termina transfiriendo inmediatamente a edición completa
+
+### rol del actor
+
+- **Entrada**: Administrador (desde profesores abiertos)
+- **Salida**: Administrador (con conocimiento de profesor creado en edición)
+- **Estado**: Permanece como Administrador durante toda la conversación
+
+### patrón de "el delgado" - filosofía C→U
+
+- **Creación mínima**: Solo solicita datos indispensables para crear
+- **Transferencia inmediata**: Pasa directamente a edición completa
+- **Eficiencia**: Minimiza fricción en el proceso de creación
+- **Navegación incluida**: **&lt;&lt;include&gt;&gt;** `editarProfesor()` para completar información
+
+## referencias
+
+- [Diagrama de contexto - Administrador](../../01-actores-casos-uso/diagrama-contexto-administrador.md)
+- [Modelo del dominio](../../00-modelo-del-dominio/modelo-dominio.md)
+- [abrirProfesores()](../abrirProfesores/README.md) - Caso de uso de navegación
+- [editarProfesor()](../editarProfesor/README.md) - Caso de transferencia inmediata
+- [eliminarProfesor()](../eliminarProfesor/README.md) - Caso complementario del CRUD
+- [crearCurso()](../crearCurso/README.md) - Patrón de referencia para "el delgado"
+- [conversation-log.md](../../../../conversation-log.md) - Metodología de especificación detallada
