@@ -3704,4 +3704,110 @@ Durante la sesión surgió el concepto del **"tiburón tranquilo"** cuando Claud
 
 ---
 
+## Conversación 38: Corrección Sistemática de Casos CRUD Profesor
+**Fecha**: 2025-07-20  
+**Sesión**: Corrección post-incidente aplicación automática  
+**Estado**: COMPLETADA ✅
+
+### Contexto de Entrada
+Continuación de sesión anterior que se cortó por límite de uso. Se requería corrección sistemática de los casos CRUD de Profesor que fueron aplicados automáticamente sin autorización tras compactación de contexto.
+
+### Trabajo Realizado
+
+#### Corrección Sistemática "Como Comer Pipas"
+**Secuencia ejecutada**:
+1. ✅ **eliminarProfesor()** - Corrección siguiendo patrón eliminarCurso
+2. ✅ **editarProfesor()** - Corrección siguiendo patrón editarCurso  
+3. ✅ **crearProfesor()** - Corrección siguiendo patrón crearCurso (CIERRE FINAL)
+
+**Metodología aplicada**: Replicación exacta de patrones establecidos
+- **Template**: Leer caso de uso de referencia completo
+- **Target**: Leer caso de uso a corregir
+- **Apply**: Aplicar patrón exacto sin interpretación
+
+#### Artefactos Corregidos por Caso
+**Por cada caso CRUD**:
+- `README.md` (detalle y prototipado)
+- `especificacion.puml` (diagrama de estado)
+- `wireframes.puml` (prototipo Salt)
+- `colaboracion.puml` (análisis MVC)
+- `README.md` (análisis completo)
+
+#### Actualización de Dashboards
+- ✅ **RUP/README.md**: Eliminación de marcas ❌ de error
+- ✅ **diagrama-contexto-administrador.puml**: Estado correcto sin errores
+
+#### Documentación del Incidente
+**Actualización del décimo artículo extraDocs**:
+- ✅ **Trazabilidad completa**: Enlaces directos a todos los commits
+- ✅ **Evolución cronológica**: Desde error hasta corrección final
+- ✅ **Índice actualizado**: Secuencia de commits en orden evolutivo
+
+### Commits Generados
+**Evolución del incidente documentada**:
+1. `1d4b7f4` - ❌ ERROR: Aplicación automática no solicitada
+2. `a8dc1c9` - ❌ MARCADO VISUAL: Indicación de error  
+3. `7269793` - fix(eliminarProfesor): corrección sistemática
+4. `8bafd43` - fix(editarProfesor): corrección sistemática
+5. `d1308ed` - fix(crearProfesor): corrección sistemática
+6. `c717c8a` - docs(incidente): actualización del artículo
+
+### Lecciones Aprendidas
+
+#### Metodología "Como Comer Pipas" Validada
+- **Replicación exacta** previene interpretaciones erróneas
+- **Lectura de templates** esencial antes de aplicar cambios
+- **Orden sistemático** (eliminar → editar → crear) funciona eficientemente
+
+#### Manejo Constructivo de Errores
+- **Preservación como evidencia**: Error marcado pero accesible
+- **Corrección sistemática**: Patrón establecido aplicado consistentemente  
+- **Documentación completa**: Trazabilidad de error a solución
+
+#### Valor Didáctico del Incidente
+- **Caso de estudio completo** de colaboración humano-IA
+- **Evidencia concreta** en commits linkables
+- **Protocolo establecido** para futuros incidentes similares
+
+### Estado Final del Proyecto
+
+#### Casos de Uso CRUD Completos
+**Entidades con patrón CRUD completado**:
+- ✅ **Programa**: Crear, Editar, Eliminar (correcto desde origen)
+- ✅ **Curso**: Crear, Editar, Eliminar (correcto desde origen)  
+- ✅ **Profesor**: Crear, Editar, Eliminar (CORREGIDO sistemáticamente)
+
+#### Filosofía C→U Implementada
+- **"El delgado"**: crearX() con datos mínimos + transferencia automática
+- **"El gordo"**: editarX() con edición continua completa
+- **Eliminación segura**: eliminarX() con confirmación desde lista y detalle
+
+#### Dashboard RUP Actualizado
+- **Estados correctos**: Todos los casos CRUD marcados como implementados
+- **Sin errores**: Eliminación completa de marcas ❌
+- **Navegación completa**: Enlaces funcionales a todos los artefactos
+
+### Para Próxima Sesión
+
+#### Estado del Proyecto
+**Fase RUP**: Elaboration (Elaboración) - Casos de uso principales
+**Metodología**: Systematic replication ("como comer pipas")
+**Última tarea**: Corrección sistemática de Profesor COMPLETADA
+
+#### Próximos Casos de Uso Pendientes
+- **Edificio**: crearEdificio(), editarEdificio(), eliminarEdificio()
+- **Aula**: crearAula(), editarAula(), eliminarAula()  
+- **Recurso**: crearRecurso(), editarRecurso(), eliminarRecurso()
+- **Especializados**: configurarPreferenciasProfesor(), asignarProfesorACurso()
+
+#### Instrucciones para Claude
+1. **Leer siempre**: `conversation-log.md` + `CLAUDE.md`
+2. **Estado actual**: Casos CRUD de Profesor completamente corregidos
+3. **Metodología**: Continuar con "como comer pipas" para entidades restantes
+4. **Referencia**: Usar Curso/Programa como templates para nuevos casos
+
+**IMPORTANTE**: El incidente post-compactación está completamente resuelto y documentado. Todos los casos CRUD de Profesor funcionan correctamente siguiendo los patrones establecidos.
+
+---
+
 *Este registro se actualizará continuamente conforme avance el proyecto*

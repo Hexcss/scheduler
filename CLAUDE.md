@@ -11,6 +11,26 @@ Este archivo proporciona orientación a Claude Code (claude.ai/code) cuando trab
 
 Estos archivos contienen la trazabilidad completa del proyecto RUP y las reglas establecidas, siendo esenciales para mantener continuidad y coherencia entre sesiones.
 
+## PROTOCOLO DE GESTIÓN DE CONTEXTO
+
+### Regla de Estado Actual
+**La última conversación numerada en `conversation-log.md` marca SIEMPRE el estado actual del proyecto.**
+
+### Obligaciones de Claude
+- **Inicio de sesión**: Leer `conversation-log.md` + `extraDocs/999-leyes-proyecto/`
+- **Identificar estado**: Localizar la última conversación numerada para el contexto actual
+- **Exigir protocolo**: Si el Usuario no cumple sus obligaciones, EXIGIR su cumplimiento
+
+### Obligaciones del Usuario
+- **Fin de sesión**: SIEMPRE avisar cuando termine la sesión
+- **Actualización obligatoria**: Permitir que Claude actualice `conversation-log.md` al terminar
+- **Incumplimiento**: Si no avisa el fin de sesión, Claude DEBE exigirlo
+
+### Protocolo de Cierre
+1. **Usuario declara**: "Terminamos por hoy" / "Fin de sesión"
+2. **Claude actualiza**: Crea nueva conversación numerada en `conversation-log.md`
+3. **Estado preservado**: Próxima sesión inicia con contexto exacto
+
 ## IMPORTANTE: Idioma Vehicular del Proyecto
 
 **ESPAÑOL como idioma obligatorio en TODO el proyecto:**
