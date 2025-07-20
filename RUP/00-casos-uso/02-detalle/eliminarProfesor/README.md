@@ -6,172 +6,192 @@
 
 </div>
 
-# pySigHor > eliminarProfesor > Detalle
+# pySigHor > eliminarProfesor > Detalle y prototipado
 
-## Información del artefacto
+> |[🏠️](/RUP/README.md)|[ 📊](https://raw.githubusercontent.com/mmasias/pySigHor/main/images/RUP/99-seguimiento/diagrama-contexto-administrador.svg)|**Detalle**|[Análisis](/RUP/01-analisis/casos-uso/eliminarProfesor/README.md)|Diseño|Desarrollo|Pruebas|
+> |-|-|-|-|-|-|-|
+
+## información del artefacto
 
 - **Proyecto**: pySigHor - Modernización del Sistema Generador de Horarios
-- **Caso de uso**: eliminarProfesor
-- **Actor**: Administrador de Horarios  
-- **Fase RUP**: Elaboration
+- **Fase RUP**: Inception (Inicio)
+- **Disciplina**: Requisitos
 - **Versión**: 1.0
-- **Fecha**: 2025-07-19
+- **Fecha**: 2025-07-20
 - **Autor**: Equipo de desarrollo
 
-## Propósito
+## propósito
 
-Definir el comportamiento del sistema cuando el Administrador de Horarios solicita eliminar un profesor existente, implementando eliminación segura con confirmación y verificación de dependencias antes de proceder.
+Especificación detallada del caso de uso `eliminarProfesor()` mediante diagrama de estado, mostrando la conversación completa entre el Administrador y el Sistema para la eliminación segura de profesores.
 
-## Diagrama de especificación
+## información del caso de uso
+
+|Atributo|Valor|
+|-|-|
+|**Nombre**|eliminarProfesor()|
+|**Actor primario**|Administrador|
+|**Objetivo**|Eliminar profesor de forma segura con confirmación previa|
+|**Tipo**|Primario, esencial|
+|**Nivel**|Objetivo de usuario|
+|**Precondición**|Profesor seleccionado desde abrirProfesores(), usuario autenticado como Administrador|
+|**Postcondición exitosa**|Profesor eliminado del sistema, usuario regresa a lista de profesores actualizada|
+|**Postcondición de fallo**|N/A - caso de uso sin condiciones de fallo|
+
+## diagrama de especificación
 
 <div align=center>
 
-|![Especificación eliminarProfesor](/images/RUP/00-casos-uso/02-detalle/eliminarProfesor/eliminarProfesor-especificacion.svg)
-|:-:
-|Código fuente: [especificacion.puml](./especificacion.puml)
+|![Caso de uso: eliminarProfesor()](/images/RUP/00-casos-uso/02-detalle/eliminarProfesor/eliminarProfesor.svg)|
+|-|
+|Código fuente: [especificacion.puml](especificacion.puml)|
 
 </div>
 
-## Wireframes
+## prototipo de interfaz
+
+### propósito del prototipo
+
+**Objetivo:** Que te digan que NO lo antes posible - validar la especificación antes de invertir en desarrollo.
+
+### wireframes
+
+#### pantalla 1: confirmación de eliminación
 
 <div align=center>
 
-|![Wireframes eliminarProfesor](/images/RUP/00-casos-uso/02-detalle/eliminarProfesor/eliminarProfesor-wireframes.svg)
-|:-:
-|Código fuente: [wireframes.puml](./wireframes.puml)
+|![Wireframe: Eliminación de profesor](/images/RUP/00-casos-uso/02-detalle/eliminarProfesor/eliminarProfesor-wireframe.svg)|
+|-|
+|**Estado**: ConfirmandoEliminacion / EliminandoProfesor|
 
 </div>
 
-## Especificación detallada
+**Correspondencia con especificación:**
+- Sistema "presenta información del profesor a eliminar"
+- Actor "solicita confirmación de eliminación"
+- Sistema "permite solicitar confirmar eliminación"
+- Sistema "permite solicitar cancelar eliminación"
 
-### Flujo principal
+### validaciones del wireframe
 
-1. Actor solicita eliminar profesor desde lista
-2. Sistema verifica dependencias del profesor:
-   - Cursos asignados al profesor
-   - Horarios generados que incluyen al profesor
-   - Preferencias configuradas del profesor
-3. Sistema presenta confirmación de eliminación:
-   - Datos del profesor a eliminar
-   - Advertencia sobre dependencias encontradas
-   - Opciones de confirmación
-4. Sistema permite solicitar:
-   - Confirmar eliminación
-   - Cancelar eliminación
-5. Actor confirma eliminación
-6. Sistema elimina dependencias relacionadas
-7. Sistema elimina profesor de la base de datos
-8. Sistema presenta confirmación de eliminación exitosa
-9. Sistema actualiza lista de profesores
-10. Sistema mantiene estado PROFESORES_ABIERTO
+- ¿Se presenta claramente la información del profesor a eliminar?
+- ¿Es claro el impacto de la eliminación?
+- ¿Las opciones de confirmación están bien diferenciadas?
+- ¿La advertencia de eliminación es suficientemente visible?
 
-### Flujos alternativos
+**Código fuente:** [prototipo.puml](prototipo.puml)
 
-**FA1**: Actor cancela eliminación
-- En paso 5, Actor puede solicitar cancelar
-- Sistema descarta operación de eliminación
-- Sistema mantiene estado PROFESORES_ABIERTO sin cambios
-- Profesor permanece en el sistema
+## conversación detallada
 
-**FA2**: Profesor con dependencias críticas
-- En paso 2, si profesor tiene cursos activos asignados:
-- Sistema presenta advertencia de dependencias críticas
-- Sistema explica consecuencias de la eliminación
-- Sistema requiere confirmación explícita adicional
-- Actor debe confirmar eliminación de dependencias
+### flujo principal (único)
 
-**FA3**: Error durante eliminación
-- En pasos 6-7, si falla eliminación:
-- Sistema presenta mensaje de error del sistema
-- Sistema conserva profesor y dependencias intactas
-- Actor puede reintentar o cancelar operación
+|Actor|Acción|Sistema|Respuesta|
+|-|-|-|-|
+|**Administrador**|solicita eliminar profesor||
+||**Sistema**|presenta información del profesor a eliminar|• Código, nombres, apellidos del profesor<br>• Correo electrónico, teléfono<br>• Observaciones, cursos asignados<br>• Presenta advertencia de eliminación<br>• Permite solicitar confirmar eliminación<br>• Permite solicitar cancelar eliminación|
+|**Administrador**|solicita confirmación de eliminación||(opcional)|
+||**Sistema**|permite solicitar confirmar eliminación|• Permite confirmar eliminación<br>• Permite cancelar eliminación|
+|**Administrador**|solicita una de las opciones||
 
-**FA4**: Profesor no encontrado
-- En paso 2, si profesor ya no existe:
-- Sistema presenta mensaje de profesor no encontrado
-- Sistema actualiza lista de profesores
-- Sistema mantiene estado PROFESORES_ABIERTO
+## estados internos del caso de uso
 
-### Precondiciones
+|Estado|Descripción|Responsabilidad|
+|-|-|-|
+|**ConfirmandoEliminacion**|Estado donde se presenta la información del profesor a eliminar|Sistema debe presentar todos los datos del profesor y advertencia de eliminación|
+|**EliminandoProfesor**|Estado donde se procesa la eliminación del profesor|Sistema debe procesar eliminación y presentar resultado|
 
-- Actor autenticado como Administrador de Horarios
-- Sistema en estado PROFESORES_ABIERTO
-- Profesor existe en el sistema
-- Sistema de base de datos disponible
+## funcionalidad de eliminación segura
 
-### Postcondiciones
+### concepto clave
 
-**Éxito**:
-- Profesor eliminado permanentemente del sistema
-- Dependencias relacionadas eliminadas o actualizadas
-- Lista de profesores actualizada
-- Sistema mantiene estado PROFESORES_ABIERTO
+- **eliminarProfesor()** es un caso de uso que abarca:
+  - **Presentar** información completa del profesor a eliminar
+  - **Permitir solicitar** confirmación del administrador
+  - **Procesar** eliminación del profesor del sistema
 
-**Cancelación**:
-- Sin cambios en base de datos
-- Profesor permanece en el sistema
-- Sistema mantiene estado PROFESORES_ABIERTO
+### información presentada
 
-### Reglas de negocio
+- **Datos del profesor** presentados para confirmación:
+  - Código del profesor
+  - Nombres del profesor
+  - Apellidos del profesor
+  - Correo electrónico
+  - Teléfono
+  - Observaciones
+  - Cursos asignados actualmente
+  - Advertencia sobre eliminación irreversible
 
-- **RN01**: No se puede eliminar un profesor sin confirmación explícita
-- **RN02**: Eliminación de profesor implica eliminación de sus preferencias
-- **RN03**: Cursos asignados al profesor quedan sin asignar tras eliminación
-- **RN04**: Horarios generados que incluyen al profesor se invalidan
-- **RN05**: La eliminación es irreversible una vez confirmada
-- **RN06**: Sistema debe verificar dependencias antes de proceder
+## opciones de navegación
 
-### Validaciones
+### operaciones de eliminación
 
-- **VAL01**: Verificar existencia del profesor antes de eliminar
-- **VAL02**: Identificar todos los cursos asignados al profesor
-- **VAL03**: Identificar horarios generados que incluyen al profesor
-- **VAL04**: Verificar integridad referencial antes de eliminación
-- **VAL05**: Confirmar eliminación exitosa antes de actualizar interfaz
+- **Confirmar eliminación** → Profesor eliminado, **&lt;&lt;include&gt;&gt;** `abrirProfesores()` 
+- **Cancelar eliminación** → **&lt;&lt;include&gt;&gt;** `abrirProfesores()` sin cambios
 
-### Dependencias gestionadas
+### navegación del sistema
 
-- **Preferencias del profesor**: Eliminadas automáticamente
-- **Asignaciones profesor-curso**: Removidas, cursos quedan sin asignar
-- **Horarios generados**: Marcados como inválidos si incluyen al profesor
-- **Referencias en auditoría**: Conservadas para trazabilidad histórica
+- **Eliminación exitosa** → **&lt;&lt;include&gt;&gt;** `abrirProfesores()` con lista actualizada
+- **Cancelación** → **&lt;&lt;include&gt;&gt;** `abrirProfesores()` sin modificaciones
 
-## Trazabilidad
+## conexión con diagrama de contexto
 
-### Relación con casos de uso
+Este caso de uso corresponde a las transiciones:
+- **PROFESORES_ABIERTO** → `eliminarProfesor()` → **PROFESORES_ABIERTO**
+- **PROFESOR_ABIERTO** → `eliminarProfesor()` → **PROFESORES_ABIERTO**
 
-- **abrirProfesores()**: Caso de uso origen para acceder a lista
-- **crearProfesor()**: Caso de uso complementario para gestión
-- **editarProfesor()**: Caso de uso complementario para gestión
-- **configurarPreferenciasProfesor()**: Dependencia eliminada
-- **asignarProfesorACurso()**: Asignaciones afectadas por eliminación
-- **generarHorario()**: Horarios existentes pueden invalidarse
+Ambas transiciones incluyen:
+- **&lt;&lt;include&gt;&gt;** `abrirProfesores()` → **PROFESORES_ABIERTO** (lista actualizada)
 
-### Relación con entidades del dominio
+## vocabulario utilizado
 
-- **Profesor**: Entidad principal eliminada
-- **Curso**: Cursos quedan sin profesor asignado
-- **Recurso**: Preferencias de recursos eliminadas
-- **Horario**: Horarios existentes se invalidan si incluyen al profesor
+### actor (Administrador)
 
-### Notas de implementación
+- **solicita**: expresa la intención de eliminar un profesor específico
+- **solicita**: expresa confirmación de eliminación del profesor
 
-- La eliminación debe ser transaccional para garantizar consistencia
-- Las verificaciones de dependencias deben ser exhaustivas
-- La confirmación debe ser clara sobre las consecuencias
-- El sistema debe manejar referencias hústoricas apropiadamente
+### sistema
 
-### Consideraciones de diseño
+- **presenta**: muestra información del profesor seleccionado
+- **permite solicitar**: habilita confirmación o cancelación de eliminación
+- **procesa**: ejecuta eliminación del profesor del sistema
 
-- **Eliminación segura**: Múltiples verificaciones antes de proceder
-- **Feedback claro**: Información completa sobre dependencias
-- **Operación atómica**: Garantiza consistencia de datos
-- **Recuperación de errores**: Manejo robusto de fallos durante eliminación
-- **Auditoría**: Preservación de trazabilidad histórica
+## características metodológicas
 
-## Referencias
+### separación de responsabilidades
 
-- [Modelo del dominio](../../00-modelo-del-dominio/modelo-dominio.md) - Definición de entidad Profesor
-- [Actores y casos de uso](../../01-actores-casos-uso/actores-casos-uso.md) - Contexto del actor
-- [crearProfesor](../crearProfesor/README.md) - Caso de uso complementario
-- [editarProfesor](../editarProfesor/README.md) - Caso de uso complementario
+- **Actor**: Solo solicita eliminación y confirmación
+- **Sistema**: Solo presenta información y permite solicitar confirmación
+
+### ausencia de detalles de implementación
+
+- No especifica tecnología de persistencia
+- No incluye detalles de eliminación física vs lógica
+- No menciona estructura de almacenamiento
+
+### conversación de confirmación
+
+- El caso de uso representa una conversación de verificación
+- Tiene objetivo claro: eliminar profesor con confirmación
+- Termina con confirmación o cancelación explícita
+
+### rol del actor
+
+- **Entrada**: Administrador (desde profesores abiertos)
+- **Salida**: Administrador (con conocimiento de profesor eliminado o cancelación)
+- **Estado**: Permanece como Administrador durante toda la conversación
+
+### patrón de eliminación segura
+
+- **Confirmación requerida**: Evita eliminaciones accidentales
+- **Información completa**: Muestra qué se va a eliminar
+- **Operación irreversible**: Claridad sobre las consecuencias
+- **Navegación incluida**: **&lt;&lt;include&gt;&gt;** `abrirProfesores()` para mostrar lista actualizada
+
+## referencias
+
+- [Diagrama de contexto - Administrador](../../01-actores-casos-uso/diagrama-contexto-administrador.md)
+- [Modelo del dominio](../../00-modelo-del-dominio/modelo-dominio.md)
+- [abrirProfesores()](../abrirProfesores/README.md) - Caso de uso de navegación
+- [editarProfesor()](../editarProfesor/README.md) - Caso complementario del CRUD
+- [crearProfesor()](../crearProfesor/README.md) - Caso complementario del CRUD
+- [eliminarCurso()](../eliminarCurso/README.md) - Patrón de referencia para eliminación
+- [conversation-log.md](../../../../conversation-log.md) - Metodología de especificación detallada

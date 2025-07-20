@@ -42,7 +42,7 @@ XXX-nombre-del-articulo/
 | 007 | [Diagramas de contexto múltiples por tecnología: pureza metodológica vs implementación práctica](007-diagramas-contexto-multiples-tecnologias/articulo.md) | [`7975ac6`](https://github.com/mmasias/pySigHor/tree/7975ac6) | Arquitectura multiplataforma y pureza RUP |
 | 008 | [Filosofía C→U: Integración de Creación y Edición en Casos de Uso CRUD](008-filosofia-crud-creacion-edicion/README.md) | [`69c0f68`](https://github.com/mmasias/pySigHor/tree/69c0f681227d1a0aad86ea8fa21313db09d570d7) | Metodología CRUD y experiencia de usuario |
 | 009 | [Valoración de un tercer LLM (ChatGPT) de la interacción](009-opinion-tercer-llm/articulo.md) | [`69c0f68`](https://github.com/mmasias/pySigHor/tree/69c0f681227d1a0aad86ea8fa21313db09d570d7) | Análisis externo de colaboración humano-IA |
-| 010 | [Incidente de aplicación automática post-compactación: análisis de límites de autonomía en colaboración humano-IA](010-incidente-aplicacion-automatica-post-compactacion/README.md) | [`1d4b7f4`](https://github.com/mmasias/pySigHor/tree/1d4b7f4) | Caso de estudio de control de calidad y protocolos de colaboración |
+| 010 | [Incidente de aplicación automática post-compactación: análisis de límites de autonomía en colaboración humano-IA](010-incidente-aplicacion-automatica-post-compactacion/README.md) | [`1d4b7f4`](https://github.com/mmasias/pySigHor/tree/1d4b7f4) / [`a8dc1c9`](https://github.com/mmasias/pySigHor/tree/a8dc1c9) | Caso de estudio de control de calidad y protocolos de colaboración |
 
 ## Uso didáctico
 

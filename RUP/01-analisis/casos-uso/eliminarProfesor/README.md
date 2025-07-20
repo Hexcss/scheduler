@@ -1,211 +1,232 @@
 <div align=right>
  
-|[![](https://img.shields.io/badge/-Inicio-FFF?style=flat&logo=Emlakjet&logoColor=black)](../../../../README.md) [![](https://img.shields.io/badge/-RUP-FFF?style=flat&logo=Elsevier&logoColor=black)](../../../README.md) [![](https://img.shields.io/badge/-Modelo_del_dominio-FFF?style=flat&logo=freedesktop.org&logoColor=black)](../../../00-casos-uso/00-modelo-del-dominio/modelo-dominio.md) [![](https://img.shields.io/badge/-Actores_&_Casos_de_Uso-FFF?style=flat&logo=crewunited&logoColor=black)](../../../00-casos-uso/01-actores-casos-uso/actores-casos-uso.md) [![](https://img.shields.io/badge/-Diagrama_de_contexto-FFF?style=flat&logo=diagramsdotnet&logoColor=black)](../../../00-casos-uso/01-actores-casos-uso/diagrama-contexto-administrador.md) [![](https://img.shields.io/badge/-Detalle_&_Prototipo-FFF?style=flat&logo=typeorm&logoColor=black)](../../../00-casos-uso/02-detalle/README.md) [![](https://img.shields.io/badge/-Análisis-FFF?style=flat&logo=multisim&logoColor=black)](../README.md)
-|-:
-|[![](https://img.shields.io/badge/-Estado-FFF?style=flat&logo=greensock&logoColor=black)](../../../README.md) [![](https://img.shields.io/badge/-Propuesta_de_dashboard-FFF?style=flat&logo=composer&logoColor=black)](https://raw.githubusercontent.com/mmasias/pySigHor/main/images/RUP/99-seguimiento/diagrama-contexto-administrador.svg) [![](https://img.shields.io/badge/-Reflexiones-FFF?style=flat&logo=hootsuite&logoColor=black)](../../../../extraDocs/README.md) [![](https://img.shields.io/badge/-Log_de_conversación-FFF?style=flat&logo=gnometerminal&logoColor=black)](../../../../conversation-log.md)
+|[![](https://img.shields.io/badge/-Inicio-FFF?style=flat&logo=Emlakjet&logoColor=black)](../../../../README.md) [![](https://img.shields.io/badge/-RUP-FFF?style=flat&logo=Elsevier&logoColor=black)](../../../README.md) [![](https://img.shields.io/badge/-Modelo_del_dominio-FFF?style=flat&logo=freedesktop.org&logoColor=black)](../../../00-casos-uso/00-modelo-del-dominio/modelo-dominio.md) [![](https://img.shields.io/badge/-Actores_&_Casos_de_Uso-FFF?style=flat&logo=crewunited&logoColor=black)](../../../00-casos-uso/01-actores-casos-uso/actores-casos-uso.md) [![](https://img.shields.io/badge/-Diagrama_de_contexto-FFF?style=flat&logo=diagramsdotnet&logoColor=black)](../../../00-casos-uso/01-actores-casos-uso/diagrama-contexto-administrador.md) [![](https://img.shields.io/badge/-Detalle_&_Prototipo-FFF?style=flat&logo=typeorm&logoColor=black)](../../../00-casos-uso/02-detalle/README.md) [![](https://img.shields.io/badge/-Análisis-FFF?style=flat&logo=multisim&logoColor=black)](../README.md)|
+|-:|
+|[![](https://img.shields.io/badge/-Estado-FFF?style=flat&logo=greensock&logoColor=black)](../../../README.md) [![](https://img.shields.io/badge/-Propuesta_de_dashboard-FFF?style=flat&logo=composer&logoColor=black)](https://raw.githubusercontent.com/mmasias/pySigHor/main/images/RUP/99-seguimiento/diagrama-contexto-administrador.svg) [![](https://img.shields.io/badge/-Reflexiones-FFF?style=flat&logo=hootsuite&logoColor=black)](../../../../extraDocs/README.md) [![](https://img.shields.io/badge/-Log_de_conversación-FFF?style=flat&logo=gnometerminal&logoColor=black)](../../../../conversation-log.md)|
 
 </div>
 
 # pySigHor > eliminarProfesor > Análisis
 
-## Información del artefacto
+> |[🏠️](/RUP/README.md)|[ 📊](https://raw.githubusercontent.com/mmasias/pySigHor/main/images/RUP/99-seguimiento/diagrama-contexto-administrador.svg)|[Detalle](/RUP/00-casos-uso/02-detalle/eliminarProfesor/README.md)|**Análisis**|Diseño|Desarrollo|Pruebas|
+> |-|-|-|-|-|-|-|
+
+## información del artefacto
 
 - **Proyecto**: pySigHor - Modernización del Sistema Generador de Horarios
-- **Caso de uso**: eliminarProfesor
-- **Actor**: Administrador de Horarios  
-- **Fase RUP**: Elaboration
+- **Fase RUP**: Elaboration (Elaboración)
 - **Disciplina**: Análisis y Diseño
 - **Versión**: 1.0
-- **Fecha**: 2025-07-19
+- **Fecha**: 2025-07-20
 - **Autor**: Equipo de desarrollo
 
-## Propósito
+## propósito
 
-Analizar la interacción entre los objetos del sistema durante la ejecución del caso de uso eliminarProfesor(), identificando responsabilidades y colaboraciones siguiendo el patrón arquitectónico MVC con eliminación segura.
+Análisis de colaboración del caso de uso `eliminarProfesor()` mediante el patrón MVC, identificando las clases de análisis, sus responsabilidades y colaboraciones necesarias para implementar eliminación segura de profesores con confirmación.
 
-## Diagrama de colaboración
-
-<div align=center>
-
-|![Colaboración eliminarProfesor](/images/RUP/01-analisis/casos-uso/eliminarProfesor/eliminarProfesor-analisis.svg)
-|:-:
-|Código fuente: [colaboracion.puml](./colaboracion.puml)
-
-</div>
-
-## Diagrama de secuencia
+## diagrama de colaboración
 
 <div align=center>
 
-|![Secuencia eliminarProfesor](/images/RUP/01-analisis/casos-uso/eliminarProfesor/eliminarProfesor-analisis-secuencia.svg)
-|:-:
-|Código fuente: [secuencia.puml](./secuencia.puml)
+|![Análisis: eliminarProfesor()](/images/RUP/01-analisis/casos-uso/eliminarProfesor/eliminarProfesor-analisis.svg)|
+|-|
+|Código fuente: [colaboracion.puml](colaboracion.puml)|
 
 </div>
 
-## Análisis de responsabilidades
+## clases de análisis identificadas
 
-### Patrón MVC aplicado
+### clases de vista (boundary)
 
-#### **View (Vista)**
-- **ProfesorListaView**: Interfaz para selección y eliminación
-  - Presenta lista de profesores con opciones de eliminación
-  - Captura solicitud de eliminación del Actor
-  - Presenta confirmación de eliminación con advertencias
-  - Muestra resultados de verificación de dependencias
-  - Comunica decisiones de confirmación al controlador
+#### EliminarProfesorView
+**Estereotipo**: Vista (Boundary)  
+**Responsabilidades**:
+- Recibir la solicitud de eliminación de profesor
+- Interactuar con el controlador para obtener información del profesor
+- Presentar información completa del profesor a eliminar
+- Presentar advertencia de eliminación irreversible
+- Permitir solicitar confirmación o cancelación del administrador
 
-#### **Controller (Controlador)**
-- **ProfesorController**: Coordina el flujo de eliminación segura
-  - Procesa solicitud de eliminación desde la vista
-  - Coordina verificación de dependencias
-  - Gestiona confirmación de eliminación
-  - Coordina eliminación transaccional
-  - Maneja errores y excepciones durante eliminación
-  - Actualiza vista después de eliminación exitosa
+**Colaboraciones**:
+- **Entrada**: Recibe `eliminarProfesor(profesorId)` desde `:Profesores Abierto` o `:Profesor Abierto`
+- **Control**: Se comunica con `ProfesorController`
+- **Salida**: **&lt;&lt;include&gt;&gt;** `:Collaboration AbrirProfesores` para mostrar lista actualizada
 
-#### **Model (Modelo)**
-- **Profesor**: Entidad de dominio principal
-  - Encapsula datos del profesor a eliminar
-  - Proporciona identificación para verificaciones
-- **ProfesorRepository**: Persistencia y verificación
-  - Verifica existencia del profesor
-  - Identifica dependencias relacionadas
-  - Ejecuta eliminación transaccional
-  - Actualiza referencias y dependencias
-- **DependencyVerifier**: Servicio de verificación
-  - Identifica cursos asignados al profesor
-  - Verifica horarios generados que incluyen al profesor
-  - Identifica preferencias configuradas
-  - Evalua impacto de eliminación
-
-### Flujo de colaboración
-
-1. **Solicitud**: Actor solicita eliminar profesor desde lista
-2. **Verificación**: ProfesorController coordina verificación de dependencias
-3. **Evaluación**: DependencyVerifier identifica impacto de eliminación
-4. **Confirmación**: ProfesorListaView presenta confirmación con advertencias
-5. **Decisión**: Actor confirma o cancela eliminación
-6. **Eliminación**: ProfesorRepository ejecuta eliminación transaccional
-7. **Actualización**: Sistema actualiza lista y mantiene estado
-
-### Responsabilidades detalladas
-
-#### ProfesorListaView
-- Presentar lista de profesores con opciones de acción
-- Capturar solicitudes de eliminación del usuario
-- Mostrar confirmación con información de dependencias
-- Presentar advertencias sobre consecuencias
-- Comunicar decisiones de confirmación al controlador
-- Actualizar lista después de eliminación exitosa
-- Mostrar mensajes de error y confirmación
+### clases de control
 
 #### ProfesorController
-- Coordinar flujo completo de eliminación segura
-- Procesar solicitudes de eliminación
-- Coordinar verificación de dependencias
-- Gestionar proceso de confirmación
-- Coordinar eliminación transaccional
-- Manejar errores durante el proceso
-- Actualizar estado del sistema después de eliminación
+**Estereotipo**: Control  
+**Responsabilidades**:
+- Coordinar la carga de datos del profesor a eliminar
+- Validar que el profesor existe y puede ser eliminado
+- Verificar restricciones de integridad (no hay cursos asignados activos)
+- Manejar la lógica de eliminación tras confirmación
+- Servir como intermediario entre la vista y el repositorio
 
-#### Profesor (Entidad)
-- Encapsular datos del profesor
-- Proporcionar identificación única
-- Mantener integridad de datos durante consultas
+**Colaboraciones**:
+- **Vista**: Responde a solicitudes de `EliminarProfesorView`
+- **Repositorio**: Delega operaciones de datos a `ProfesorRepository`
+
+### clases de entidad (entity)
 
 #### ProfesorRepository
-- Verificar existencia del profesor antes de eliminar
-- Ejecutar eliminación transaccional segura
-- Eliminar dependencias relacionadas
-- Actualizar referencias en otras entidades
-- Manejar excepciones de persistencia
-- Mantener consistencia de base de datos
+**Estereotipo**: Entidad  
+**Responsabilidades**:
+- Abstraer el acceso a datos de profesores
+- Proporcionar método para obtener profesor por ID
+- Implementar eliminación física o lógica del profesor
+- Verificar restricciones de integridad antes de eliminar
+- Gestionar relaciones con cursos asignados
 
-#### DependencyVerifier
-- Identificar cursos asignados al profesor
-- Verificar horarios generados que incluyen al profesor
-- Identificar preferencias configuradas del profesor
-- Evaluar impacto crítico de la eliminación
-- Proporcionar información detallada de dependencias
+**Colaboraciones**:
+- **Control**: Responde a `ProfesorController`
+- **Entidad**: Gestiona instancias de `Profesor`
 
-## Consideraciones de diseño
+#### Profesor
+**Estereotipo**: Entidad  
+**Responsabilidades**:
+- Representar la información del profesor a eliminar
+- Encapsular atributos: código, nombres, apellidos, correo, teléfono, observaciones
+- Mantener relación con cursos asignados
+- Validar si el profesor puede ser eliminado
+- Mantener la integridad de los datos durante eliminación
 
-### Separación de responsabilidades
-- **Vista**: Presentación y confirmación de eliminación
-- **Controlador**: Lógica de coordinación y flujo seguro
-- **Modelo**: Lógica de negocio y persistencia transaccional
-- **Servicio**: Verificación especializada de dependencias
+**Colaboraciones**:
+- **Repositorio**: Es gestionado por `ProfesorRepository`
 
-### Eliminación segura
-- Verificación exhaustiva de dependencias antes de proceder
-- Confirmación explícita con información completa
-- Eliminación transaccional para garantizar consistencia
-- Manejo robusto de errores durante el proceso
+## flujo de colaboración principal
 
-### Manejo de dependencias
-- Identificación completa de entidades relacionadas
-- Eliminación en cascada controlada
-- Actualización de referencias para mantener integridad
-- Preservación de datos históricos cuando sea necesario
+### secuencia: eliminar profesor
 
-### Manejo de errores
-- Validaciones en múltiples capas
-- Propagación controlada de excepciones
-- Rollback automático en caso de fallo
-- Mensajes de error específicos para el usuario
+1. **Inicio**: `:Profesores Abierto` → `EliminarProfesorView.eliminarProfesor(profesorId)`
+2. **Carga**: `EliminarProfesorView` → `ProfesorController.cargarProfesorParaEliminacion(profesorId)`
+3. **Obtención**: `ProfesorController` → `ProfesorRepository.obtenerPorId(profesorId) : Profesor`
+4. **Presentación**: `EliminarProfesorView` presenta información del `Profesor` con advertencia
+5. **Confirmación**: Administrador confirma o cancela en `EliminarProfesorView`
+6. **Eliminación**: `EliminarProfesorView` → `ProfesorController.eliminarProfesor(profesorId)`
+7. **Persistencia**: `ProfesorController` → `ProfesorRepository.eliminar(profesorId)`
+8. **Finalización**: `EliminarProfesorView` → **&lt;&lt;include&gt;&gt;** `:Collaboration AbrirProfesores.abrirProfesores()`
 
-### Extensibilidad
-- Patrón MVC facilita modificaciones futuras
-- Servicio de verificación reutilizable
-- Separación clara permite testing independiente
-- Estructura replicable para otras entidades
+## patrón de eliminación segura para profesores
 
-## Patrones aplicados
+### confirmación obligatoria
 
-### Repository Pattern
-- ProfesorRepository encapsula lógica de persistencia
-- Abstrae detalles de eliminación transaccional
-- Facilita testing con implementaciones mock
+Este análisis implementa eliminación con confirmación que:
+- **Muestra información completa**: Todos los datos del profesor
+- **Advierte sobre irreversibilidad**: Mensaje claro de advertencia
+- **Requiere confirmación explícita**: No permite eliminación accidental
+- **Verifica dependencias**: No hay cursos asignados activos
 
-### MVC Pattern
-- Separación clara de responsabilidades
-- Vista independiente de lógica de negocio
-- Controlador como coordinador central
+### responsabilidades de seguridad
 
-### Service Pattern
-- DependencyVerifier como servicio especializado
-- Encapsula lógica compleja de verificación
-- Reutilizable across diferentes entidades
+**EliminarProfesorView** maneja confirmación:
+- **Presenta datos**: Información completa del profesor
+- **Muestra advertencias**: Mensajes de eliminación irreversible
+- **Captura decisión**: Confirmación o cancelación explícita
 
-### Transaction Pattern
-- Eliminación transaccional garantiza consistencia
-- Rollback automático en caso de error
-- Operaciones atómicas para integridad de datos
+**ProfesorController** valida eliminación:
+- **Verifica existencia**: Profesor existe y es válido
+- **Controla restricciones**: Verifica que puede ser eliminado
+- **Valida dependencias**: No hay cursos asignados activos
+- **Procesa eliminación**: Solo tras confirmación explícita
 
-## Trazabilidad
+## patrones arquitectónicos aplicados
 
-### Relación con especificación
-- Implementa flujo principal definido en especificación
-- Maneja flujos alternativos de error y cancelación
-- Cumple precondiciones y postcondiciones
-- Implementa eliminación segura especificada
+### patrón MVC para eliminación de profesores
 
-### Relación con casos de uso
-- **crearProfesor()**: Comparte modelo Profesor
-- **editarProfesor()**: Comparte modelo Profesor
-- **configurarPreferenciasProfesor()**: Dependencia eliminada
-- **asignarProfesorACurso()**: Asignaciones afectadas
-- **generarHorario()**: Horarios pueden invalidarse
+- **Model**: `Profesor` + `ProfesorRepository` (datos del profesor y eliminación)
+- **View**: `EliminarProfesorView` (confirmación e interacción)
+- **Controller**: `ProfesorController` (coordinación y validación)
 
-### Relación con arquitectura
-- Implementa patrón arquitectónico MVC establecido
-- Reutiliza componentes para consistencia across entidades
-- Establece patrón de eliminación segura replicable
+### patrón Repository con eliminación segura
 
-## Referencias
+- **Abstracción de eliminación**: `ProfesorRepository` encapsula lógica de borrado
+- **Separación de responsabilidades**: Controlador no conoce detalles de persistencia
+- **Flexibilidad**: Puede implementar eliminación física o lógica
+- **Validaciones**: Verifica restricciones de integridad
 
-- [Especificación detallada](../../../00-casos-uso/02-detalle/eliminarProfesor/README.md) - Comportamiento requerido
-- [Modelo del dominio](../../../00-casos-uso/00-modelo-del-dominio/modelo-dominio.md) - Definición de entidad Profesor
-- [crearProfesor - Análisis](../crearProfesor/README.md) - Caso de uso relacionado
-- [editarProfesor - Análisis](../editarProfesor/README.md) - Caso de uso relacionado
+### confirmación de dos pasos para profesores
+
+- **Paso 1**: Presentar información completa del profesor
+- **Paso 2**: Confirmar eliminación explícitamente
+- **Cancelación**: Disponible en cualquier momento
+- **Validación**: Verificar que no hay cursos asignados
+
+## consideraciones de diseño específicas para profesores
+
+### reutilización del controlador
+
+El diseño permite que `ProfesorController` sea reutilizado:
+- **Compartido**: Con crearProfesor() y editarProfesor()
+- **Método específico**: eliminarProfesor() con validaciones propias
+- **Consistencia**: Mismo patrón de comunicación con repositorio
+- **Validaciones**: Específicas para entidad profesor
+
+### patrón include para navegación
+
+- **Separación de responsabilidades**: eliminarProfesor() se enfoca en eliminar
+- **Reutilización**: **&lt;&lt;include&gt;&gt;** abrirProfesores() evita duplicar funcionalidad de listado
+- **Doble entrada**: Funciona desde `:Profesores Abierto` o `:Profesor Abierto`
+- **Navegación consistente**: Regresa siempre a lista actualizada
+
+### flexibilidad de eliminación
+
+- **ProfesorRepository** puede implementar:
+  - **Eliminación física**: Borrado real de la base de datos
+  - **Eliminación lógica**: Marcado como eliminado/inactivo
+  - **Archivo**: Mover a histórico de profesores
+  - **Preservación**: Mantener para consultas históricas
+
+### experiencia de usuario
+
+- **Información clara**: Muestra datos completos del profesor
+- **Advertencias específicas**: Destaca impacto en asignaciones
+- **Navegación consistente**: Regresa al contexto de gestión de profesores
+
+## validaciones de negocio
+
+### restricciones de integridad
+
+**ProfesorController** debe verificar:
+- **Existencia del profesor**: Profesor válido y encontrado
+- **Dependencias**: No hay cursos asignados activos
+- **Relaciones**: Verificar impacto en asignaciones
+- **Permisos administrativos**: Administrador autorizado para eliminar profesores
+
+### manejo de errores
+
+- **Profesor no encontrado**: Mensaje informativo
+- **Restricciones**: Explicación de dependencias con cursos asignados
+- **Error de sistema**: Manejo graceful de fallos de persistencia
+
+## diferencias con otros casos CRUD de profesores
+
+### eliminarProfesor() vs editarProfesor()
+
+**eliminarProfesor():**
+- **Objetivo**: Confirmación y eliminación
+- **Interacción**: Solo lectura + confirmación
+- **Validaciones**: Restricciones de integridad
+- **Resultado**: Profesor removido del sistema
+
+**editarProfesor():**
+- **Objetivo**: Modificación de datos
+- **Interacción**: Lectura + escritura múltiple
+- **Validaciones**: Restricciones de contenido
+- **Resultado**: Profesor actualizado en sistema
+
+### complementariedad CRUD para profesores
+
+- **crearProfesor()**: Añade nuevos profesores al sistema
+- **editarProfesor()**: Modifica profesores existentes
+- **eliminarProfesor()**: Remueve profesores del sistema
+- **abrirProfesores()**: Lista y selecciona profesores
+
+## referencias
+
+- [Caso de uso detallado](../../../00-casos-uso/02-detalle/eliminarProfesor/README.md)
+- [editarProfesor() - Caso complementario](../editarProfesor/README.md)
+- [crearProfesor() - Caso complementario](../crearProfesor/README.md)
+- [abrirProfesores() - Contexto de navegación](../abrirProfesores/README.md)
+- [eliminarCurso() - Patrón de referencia](../eliminarCurso/README.md)
+- [Modelo del dominio](../../../00-casos-uso/00-modelo-del-dominio/modelo-dominio.md)

@@ -1,66 +1,30 @@
 @startuml eliminarProfesor-analisis
-!theme plain
-allow_mixing
+skinparam linetype polyline
 
-package "View" {
-  object "profesorListaView : ProfesorListaView" as view
+rectangle #CDEBA5 ":Profesores Abierto" as ProfesoresAbierto
+rectangle #CDEBA5 ":Profesor Abierto" as ProfesorAbierto
+rectangle #CDEBA5 ":Collaboration AbrirProfesores" as AbrirProfesores
+
+package eliminarProfesor as "eliminarProfesor()" {
+    rectangle #629EF9 EliminarProfesorView
+    rectangle #b5bd68 ProfesorController
+    rectangle #F2AC4E ProfesorRepository
+    rectangle #F2AC4E Profesor
 }
 
-package "Controller" {
-  object "profesorController : ProfesorController" as controller
-}
+ProfesoresAbierto --> EliminarProfesorView: eliminarProfesor(profesorId)
+ProfesorAbierto --> EliminarProfesorView: eliminarProfesor(profesorId)
 
-package "Model" {
-  object "profesor : Profesor" as profesor
-  object "profesorRepository : ProfesorRepository" as repository
-}
+EliminarProfesorView -d-> ProfesorController: cargarProfesorParaEliminacion(profesorId) : Profesor
 
-package "Service" {
-  object "dependencyVerifier : DependencyVerifier" as verifier
-}
+ProfesorController --> ProfesorRepository: obtenerPorId(profesorId) : Profesor
 
-actor "Administrador" as admin
+ProfesorRepository -- Profesor
 
-admin -> view : 1: solicitarEliminarProfesor(id)
-view -> controller : 2: procesarEliminacion(id)
-controller -> verifier : 3: verificarDependencias(id)
-verifier -> controller : 4: dependenciasIdentificadas(info)
-controller -> view : 5: presentarConfirmacion(info)
-view -> admin : 6: mostrarAdvertenciasDependencias()
-admin -> view : 7: confirmarEliminacion()
-view -> controller : 8: ejecutarEliminacion(id)
-controller -> repository : 9: eliminarProfesor(id)
-repository -> repository : 10: eliminarDependencias(id)
-repository -> controller : 11: profesorEliminado()
-controller -> view : 12: actualizarLista()
-view -> admin : 13: mostrarConfirmacionEliminacion()
+EliminarProfesorView --> ProfesorController: eliminarProfesor(profesorId) : void
 
-note top of view
-  <b>Vista:</b>
-  Presenta confirmación con
-  advertencias sobre dependencias
-  y consecuencias de eliminación
-end note
+ProfesorController --> ProfesorRepository: eliminar(profesorId) : void
 
-note top of controller
-  <b>Controlador:</b>
-  Coordina verificación de
-  dependencias y eliminación
-  transaccional segura
-end note
-
-note top of verifier
-  <b>Servicio:</b>
-  Identifica cursos asignados,
-  horarios generados y
-  preferencias del profesor
-end note
-
-note top of repository
-  <b>Repositorio:</b>
-  Ejecuta eliminación
-  transaccional de profesor
-  y dependencias relacionadas
-end note
+EliminarProfesorView ..> AbrirProfesores: <<include>> abrirProfesores()
 
 @enduml

@@ -1,10 +1,17 @@
 # Evidencia: Incidente de Aplicación Automática Post-Compactación
 
-## Commit del incidente
+## Commits relacionados
 
+### Commit del incidente original
 **Hash**: `1d4b7f4`  
 **Mensaje**: `❌ ERROR: Aplicación automática no solicitada del patrón CRUD Profesor`  
 **Fecha**: 2025-07-19  
+**Branch**: main
+
+### Commit de marcado visual de error
+**Hash**: `a8dc1c9`  
+**Mensaje**: `❌ MARCADO VISUAL: Indicación de error en casos de uso de Profesor`  
+**Fecha**: 2025-07-20  
 **Branch**: main  
 
 ### Archivos creados sin autorización
