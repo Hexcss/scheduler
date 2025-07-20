@@ -3810,4 +3810,78 @@ Continuación de sesión anterior que se cortó por límite de uso. Se requería
 
 ---
 
+## Conversación 39: Establecimiento de Protocolo de Gestión de Contexto
+**Fecha**: 2025-07-20  
+**Sesión**: Creación de protocolo bidireccional  
+**Estado**: COMPLETADA ✅
+
+### Contexto
+Tras completar la corrección sistemática de casos CRUD de Profesor, se identificó la necesidad de establecer un protocolo formal para gestión de contexto entre sesiones, evitando pérdida de estado y trabajo duplicado.
+
+### Trabajo Realizado
+
+#### Establecimiento de LEY DEL PROYECTO 003
+**Protocolo de Gestión de Contexto**:
+- ✅ **CLAUDE.md actualizado**: Sección "PROTOCOLO DE GESTIÓN DE CONTEXTO"
+- ✅ **Nueva ley creada**: `extraDocs/999-leyes-proyecto/protocolo-gestion-contexto.md`
+- ✅ **Obligaciones bidireccionales**: Usuario y Claude con responsabilidades claras
+
+#### Reglas Establecidas
+**Regla fundamental**: La última conversación numerada en `conversation-log.md` marca SIEMPRE el estado actual del proyecto.
+
+**Obligaciones de Claude**:
+- Leer `conversation-log.md` + `extraDocs/999-leyes-proyecto/` al inicio de cada sesión
+- Identificar última conversación numerada como estado actual
+- EXIGIR cumplimiento del protocolo al Usuario
+
+**Obligaciones del Usuario**:
+- SIEMPRE avisar explícitamente fin de sesión
+- Permitir actualización de `conversation-log.md`
+- Aceptar exigencias de cumplimiento de Claude
+
+#### Protocolo de Cierre Implementado
+1. **Usuario declara**: "Terminamos por hoy" (✅ CUMPLIDO)
+2. **Claude actualiza**: conversation-log.md con estado final
+3. **Estado preservado**: Próxima sesión inicia con contexto exacto
+
+### Estado Final del Proyecto
+
+#### Trabajo Completado
+- ✅ **Casos CRUD Profesor**: Corrección sistemática completa
+- ✅ **Incidente documentado**: Trazabilidad completa en extraDocs
+- ✅ **Protocolo establecido**: Gestión bidireccional de contexto
+- ✅ **LEY 003 creada**: Disciplina metodológica implementada
+
+#### Dashboard Actualizado
+- **RUP/README.md**: Estados correctos sin marcas de error
+- **Diagrama contexto**: Navegación completa funcional
+- **ExtraDocs**: Artículo 010 con evolución cronológica completa
+
+### Para Próxima Sesión
+
+#### Estado del Proyecto
+**Fase RUP**: Elaboration (Elaboración) - Casos de uso principales  
+**Metodología**: Systematic replication ("como comer pipas")  
+**Última tarea**: Protocolo de contexto establecido
+
+#### Próximas Entidades Pendientes
+- **Edificio**: crearEdificio(), editarEdificio(), eliminarEdificio()
+- **Aula**: crearAula(), editarAula(), eliminarAula()  
+- **Recurso**: crearRecurso(), editarRecurso(), eliminarRecurso()
+- **Especializados**: configurarPreferenciasProfesor(), asignarProfesorACurso()
+
+#### Instrucciones para Claude
+1. **OBLIGATORIO**: Leer `conversation-log.md` (Conversación 39) + `extraDocs/999-leyes-proyecto/`
+2. **Estado actual**: Protocolo de contexto establecido, casos CRUD Profesor completados
+3. **Metodología**: Continuar "como comer pipas" usando Curso/Programa como templates
+4. **Protocolo**: Aplicar LEY 003 - exigir fin de sesión explícito
+
+#### Commits Generados Esta Sesión
+- `c717c8a` - docs(incidente): actualización del artículo
+- `35c3720` - ley(protocolo): establecer gestión bidireccional de contexto proyecto
+
+**PROTOCOLO APLICADO EXITOSAMENTE**: Usuario declaró fin de sesión, estado actualizado, continuidad garantizada.
+
+---
+
 *Este registro se actualizará continuamente conforme avance el proyecto*
