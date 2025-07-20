@@ -89,16 +89,18 @@ Análisis exhaustivo de un incidente donde Claude Code aplicó automáticamente 
 ## Referencias en el proyecto
 
 ### Evidencia del incidente
+
 - **Conversation-log.md**: Líneas 2805-2864 (Conversación 37)
-- **Commit de error**: [`1d4b7f4`](https://github.com/mmasias/pySigHor/commit/1d4b7f4) - ❌ ERROR: Aplicación automática no solicitada
-- **Commit de marcado**: [`a8dc1c9`](https://github.com/mmasias/pySigHor/commit/a8dc1c9) - ❌ MARCADO VISUAL: Indicación de error
+- **Commit de error**: [1d4b7f4](https://github.com/mmasias/pySigHor/commit/1d4b7f4) - ❌ ERROR: Aplicación automática no solicitada
+- **Commit de marcado**: [a8dc1c9](https://github.com/mmasias/pySigHor/commit/a8dc1c9) - ❌ MARCADO VISUAL: Indicación de error
 - **Directorio de evidencia**: `/extraDocs/010-incidente-aplicacion-automatica-post-compactacion/`
 - **Artefactos creados erróneamente**: 18 archivos en `/RUP/00-casos-uso/` y `/RUP/01-analisis/`
 
 ### Proceso de corrección sistemática
-- **Commit de corrección eliminarProfesor**: [`7269793`](https://github.com/mmasias/pySigHor/commit/7269793) - fix(eliminarProfesor): corrección siguiendo patrón eliminarCurso
-- **Commit de corrección editarProfesor**: [`8bafd43`](https://github.com/mmasias/pySigHor/commit/8bafd43) - fix(editarProfesor): corrección siguiendo patrón editarCurso  
-- **Commit de corrección crearProfesor**: [`d1308ed`](https://github.com/mmasias/pySigHor/commit/d1308ed) - fix(crearProfesor): corrección siguiendo patrón crearCurso
+
+- **Commit de corrección eliminarProfesor**: [7269793](https://github.com/mmasias/pySigHor/commit/7269793) - fix(eliminarProfesor): corrección siguiendo patrón eliminarCurso
+- **Commit de corrección editarProfesor**: [8bafd43](https://github.com/mmasias/pySigHor/commit/8bafd43) - fix(editarProfesor): corrección siguiendo patrón editarCurso  
+- **Commit de corrección crearProfesor**: [d1308ed](https://github.com/mmasias/pySigHor/commit/d1308ed) - fix(crearProfesor): corrección siguiendo patrón crearCurso
 - **Estado final**: Corrección sistemática completa de los tres casos CRUD de Profesor
 
 ## Meta-observación
