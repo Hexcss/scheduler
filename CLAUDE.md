@@ -31,6 +31,30 @@ Estos archivos contienen la trazabilidad completa del proyecto RUP y las reglas 
 2. **Claude actualiza**: Crea nueva conversación numerada en `conversation-log.md`
 3. **Estado preservado**: Próxima sesión inicia con contexto exacto
 
+## LEY 004: Rama de Revisión Obligatoria
+
+**TODO trabajo producto de la iteración Manuel-Claude DEBE ir primero a la rama `xRevisar` antes de incorporarse a `main`.**
+
+### Flujo Obligatorio para Claude
+1. **Proponer artefactos**: "Artefactos listos, necesito que generes los SVG"
+2. **Esperar SVG**: Manuel convierte archivos .puml a imágenes .svg
+3. **Rama xRevisar**: SIEMPRE `git checkout -b xRevisar` o `git checkout xRevisar` 
+4. **Push completo**: `git add [archivos + SVG]` → `git commit` → `git push -u origin xRevisar`
+5. **Comunicar**: "Trabajo completado en rama xRevisar, listo para revisión"
+6. **Esperar OK**: NO proceder sin aprobación explícita de Manuel
+7. **Pull Request**: Solo después de recibir "OK para PR" de Manuel
+
+### Casos que REQUIEREN xRevisar
+- ✅ Nuevos casos de uso RUP, modificaciones a especificaciones
+- ✅ Documentación técnica nueva, cambios en estructura del proyecto  
+- ✅ Implementación de nuevas funcionalidades
+
+### Casos que NO requieren xRevisar
+- ❌ Correcciones menores de typos, ajustes de formato
+- ❌ Actualizaciones del conversation-log.md, cambios cosméticos
+
+**Referencia completa**: `/extraDocs/999-leyes-proyecto/ley-rama-revision.md`
+
 ## IMPORTANTE: Idioma Vehicular del Proyecto
 
 **ESPAÑOL como idioma obligatorio en TODO el proyecto:**

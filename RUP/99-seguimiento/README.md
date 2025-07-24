@@ -59,6 +59,9 @@ Los casos de uso analizados incluyen **2 enlaces** de navegación:
 - **eliminarCurso()** - Eliminación segura de cursos con confirmación (especificación + prototipo + análisis)
 - **eliminarProfesor()** - Eliminación segura de profesores con confirmación (especificación + prototipo + análisis) - CORREGIDO
 - **editarProfesor()** - Edición de profesores como "el gordo" con edición continua (especificación + prototipo + análisis) - CORREGIDO
+- **crearEdificio()** - Creación de edificios como "el delgado" C→U (especificación + prototipo + análisis)
+- **editarEdificio()** - Edición de edificios como "el gordo" con edición continua (especificación + prototipo + análisis)
+- **eliminarEdificio()** - Eliminación segura de edificios con confirmación (especificación + prototipo + análisis)
 - **cerrarSesion()** - Cierre de sesión (especificación + prototipo + análisis)
 
 ### Casos de uso identificados únicamente (🔘 Gris)
@@ -68,8 +71,7 @@ Los casos de uso analizados incluyen **2 enlaces** de navegación:
 
 #### Operaciones CRUD
 
-- **❌ crearProfesor()** / **editarProfesor()** / **eliminarProfesor()** - ❌ ERROR: Aplicación automática no solicitada (editarProfesor y eliminarProfesor CORREGIDOS)
-- **crearEdificio()** / **editarEdificio()** / **eliminarEdificio()**
+- **❌ crearProfesor()** - ❌ ERROR: Aplicación automática no solicitada (CORREGIDO)
 - **crearAula()** / **editarAula()** / **eliminarAula()**
 - **crearRecurso()** / **editarRecurso()** / **eliminarRecurso()**
 
@@ -87,20 +89,19 @@ Los casos de uso analizados incluyen **2 enlaces** de navegación:
 ## Estadísticas del proyecto
 
 - **Total de casos de uso**: 32
-- **Casos de uso en análisis**: 18 (56.25%)
-  - 17 casos correctos + 1 caso erróneo (❌ crearProfesor) + 2 corregidos (eliminarProfesor, editarProfesor)
-- **Casos de uso identificados**: 14 (43.75%)
-- **Progreso general**: 56.25% (incluyendo errores pendientes de corrección)
+- **Casos de uso en análisis**: 21 (65.63%)
+  - 20 casos correctos + 1 caso erróneo corregido (❌ crearProfesor)
+- **Casos de uso identificados**: 11 (34.37%)
+- **Progreso general**: 65.63% (hilo Edificios completado)
 
 ## Próximos pasos
 
-### Corrección prioritaria
-1. **❌ Corregir errores en casos de uso de Profesor** - Los casos crearProfesor, editarProfesor y eliminarProfesor contienen errores técnicos identificados y deben corregirse antes de usar como template
+### Hilo completado
+1. **✅ Hilo Edificios completado** - crearEdificio(), editarEdificio(), eliminarEdificio() con especificación + prototipo + análisis
 
-### Próxima iteración (después de corrección)
+### Próxima iteración
 2. **crearAula()** / **editarAula()** / **eliminarAula()** - Aplicar patrón CRUD validado a aulas
-3. **crearEdificio()** / **editarEdificio()** / **eliminarEdificio()** - Aplicar patrón CRUD validado a edificios
-4. **crearRecurso()** / **editarRecurso()** / **eliminarRecurso()** - Aplicar patrón CRUD validado a recursos
+3. **crearRecurso()** / **editarRecurso()** / **eliminarRecurso()** - Aplicar patrón CRUD validado a recursos
 
 ## Metodología
 
