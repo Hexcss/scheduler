@@ -49,9 +49,9 @@ Emojis para fases futuras:
 |**editarProfesor()**|[📋](/RUP/00-casos-uso/02-detalle/editarProfesor/README.md#diagrama-de-especificación)|[🎨](/RUP/00-casos-uso/02-detalle/editarProfesor/README.md#wireframes)|[🔍](/RUP/01-analisis/casos-uso/editarProfesor/README.md)|⚪|⚪|⚪|*"El gordo" con edición continua - CORREGIDO*
 |**eliminarProfesor()**|[📋](/RUP/00-casos-uso/02-detalle/eliminarProfesor/README.md#diagrama-de-especificación)|[🎨](/RUP/00-casos-uso/02-detalle/eliminarProfesor/README.md#wireframes)|[🔍](/RUP/01-analisis/casos-uso/eliminarProfesor/README.md)|⚪|⚪|⚪|*Eliminación segura con confirmación - CORREGIDO*
 |**configurarPreferenciasProfesor()**|⚪|⚪|⚪|⚪|⚪|⚪|
-|**crearEdificio()**|⚪|⚪|⚪|⚪|⚪|⚪|
-|**editarEdificio()**|⚪|⚪|⚪|⚪|⚪|⚪|
-|**eliminarEdificio()**|⚪|⚪|⚪|⚪|⚪|⚪|
+|**crearEdificio()**|[📋](/RUP/00-casos-uso/02-detalle/crearEdificio/README.md#diagrama-de-especificación)|[🎨](/RUP/00-casos-uso/02-detalle/crearEdificio/README.md#wireframes)|[🔍](/RUP/01-analisis/casos-uso/crearEdificio/README.md)|⚪|⚪|⚪|*"El delgado" filosofía C→U*
+|**editarEdificio()**|[📋](/RUP/00-casos-uso/02-detalle/editarEdificio/README.md#diagrama-de-especificación)|[🎨](/RUP/00-casos-uso/02-detalle/editarEdificio/README.md#wireframes)|[🔍](/RUP/01-analisis/casos-uso/editarEdificio/README.md)|⚪|⚪|⚪|*"El gordo" con edición continua*
+|**eliminarEdificio()**|[📋](/RUP/00-casos-uso/02-detalle/eliminarEdificio/README.md#diagrama-de-especificación)|[🎨](/RUP/00-casos-uso/02-detalle/eliminarEdificio/README.md#wireframes)|[🔍](/RUP/01-analisis/casos-uso/eliminarEdificio/README.md)|⚪|⚪|⚪|*Eliminación segura con confirmación*
 |**crearAula()**|⚪|⚪|⚪|⚪|⚪|⚪|
 |**editarAula()**|⚪|⚪|⚪|⚪|⚪|⚪|
 |**eliminarAula()**|⚪|⚪|⚪|⚪|⚪|⚪|
