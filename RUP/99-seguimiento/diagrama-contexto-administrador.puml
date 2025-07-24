@@ -92,11 +92,11 @@ ListEdificios -[#darkgoldenrod,bold]-> ListEdificios: [[https://github.com/mmasi
 EditEdificio -[#darkgoldenrod,bold]-> EditEdificio: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/editarEdificio/README.md editarEdificio()]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/editarEdificio/README.md A]]
 EditEdificio -[#darkgoldenrod,bold]-> ListEdificios: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/eliminarEdificio/README.md eliminarEdificio()]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/eliminarEdificio/README.md A]]
 EditEdificio -[#darkgoldenrod]-> ListEdificios: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/abrirEdificios/README.md abrirEdificios()]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/abrirEdificios/README.md A]]
-ListAulas -[#gray,dotted]-> EditAula: crearAula()
-ListAulas -[#gray,dotted]-> EditAula: editarAula()
-ListAulas -[#gray,dotted]-> ListAulas: eliminarAula()
-EditAula -[#gray,dotted]-> EditAula: editarAula()
-EditAula -[#gray,dotted]-> ListAulas: eliminarAula()
+ListAulas -[#darkgoldenrod,bold]-> EditAula: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/crearAula/README.md crearAula()]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/crearAula/README.md A]]
+ListAulas -[#darkgoldenrod,bold]-> EditAula: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/editarAula/README.md editarAula()]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/editarAula/README.md A]]
+ListAulas -[#darkgoldenrod,bold]-> ListAulas: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/eliminarAula/README.md eliminarAula()]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/eliminarAula/README.md A]]
+EditAula -[#darkgoldenrod,bold]-> EditAula: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/editarAula/README.md editarAula()]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/editarAula/README.md A]]
+EditAula -[#darkgoldenrod,bold]-> ListAulas: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/eliminarAula/README.md eliminarAula()]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/eliminarAula/README.md A]]
 EditAula -[#darkgoldenrod]-> ListAulas: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/abrirAulas/README.md abrirAulas()]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/abrirAulas/README.md A]]
 ListRecursos -[#gray,dotted]-> EditRecurso: crearRecurso()
 ListRecursos -[#gray,dotted]-> EditRecurso: editarRecurso()

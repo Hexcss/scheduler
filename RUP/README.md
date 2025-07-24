@@ -52,9 +52,9 @@ Emojis para fases futuras:
 |**crearEdificio()**|[📋](/RUP/00-casos-uso/02-detalle/crearEdificio/README.md#diagrama-de-especificación)|[🎨](/RUP/00-casos-uso/02-detalle/crearEdificio/README.md#wireframes)|[🔍](/RUP/01-analisis/casos-uso/crearEdificio/README.md)|⚪|⚪|⚪|*"El delgado" filosofía C→U*
 |**editarEdificio()**|[📋](/RUP/00-casos-uso/02-detalle/editarEdificio/README.md#diagrama-de-especificación)|[🎨](/RUP/00-casos-uso/02-detalle/editarEdificio/README.md#wireframes)|[🔍](/RUP/01-analisis/casos-uso/editarEdificio/README.md)|⚪|⚪|⚪|*"El gordo" con edición continua*
 |**eliminarEdificio()**|[📋](/RUP/00-casos-uso/02-detalle/eliminarEdificio/README.md#diagrama-de-especificación)|[🎨](/RUP/00-casos-uso/02-detalle/eliminarEdificio/README.md#wireframes)|[🔍](/RUP/01-analisis/casos-uso/eliminarEdificio/README.md)|⚪|⚪|⚪|*Eliminación segura con confirmación*
-|**crearAula()**|⚪|⚪|⚪|⚪|⚪|⚪|
-|**editarAula()**|⚪|⚪|⚪|⚪|⚪|⚪|
-|**eliminarAula()**|⚪|⚪|⚪|⚪|⚪|⚪|
+|**crearAula()**|[📋](/RUP/00-casos-uso/02-detalle/crearAula/README.md#diagrama-de-especificación)|[🎨](/RUP/00-casos-uso/02-detalle/crearAula/README.md#wireframes)|[🔍](/RUP/01-analisis/casos-uso/crearAula/README.md)|⚪|⚪|⚪|*"El delgado" filosofía C→U*
+|**editarAula()**|[📋](/RUP/00-casos-uso/02-detalle/editarAula/README.md#diagrama-de-especificación)|[🎨](/RUP/00-casos-uso/02-detalle/editarAula/README.md#wireframes)|[🔍](/RUP/01-analisis/casos-uso/editarAula/README.md)|⚪|⚪|⚪|*"El gordo" con edición continua*
+|**eliminarAula()**|[📋](/RUP/00-casos-uso/02-detalle/eliminarAula/README.md#diagrama-de-especificación)|[🎨](/RUP/00-casos-uso/02-detalle/eliminarAula/README.md#wireframes)|[🔍](/RUP/01-analisis/casos-uso/eliminarAula/README.md)|⚪|⚪|⚪|*Eliminación segura con confirmación*
 |**crearRecurso()**|⚪|⚪|⚪|⚪|⚪|⚪|
 |**editarRecurso()**|⚪|⚪|⚪|⚪|⚪|⚪|
 |**eliminarRecurso()**|⚪|⚪|⚪|⚪|⚪|⚪|
