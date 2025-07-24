@@ -62,6 +62,9 @@ Los casos de uso analizados incluyen **2 enlaces** de navegación:
 - **crearEdificio()** - Creación de edificios como "el delgado" C→U (especificación + prototipo + análisis)
 - **editarEdificio()** - Edición de edificios como "el gordo" con edición continua (especificación + prototipo + análisis)
 - **eliminarEdificio()** - Eliminación segura de edificios con confirmación (especificación + prototipo + análisis)
+- **crearAula()** - Creación de aulas como "el delgado" C→U (especificación + prototipo + análisis)
+- **editarAula()** - Edición de aulas como "el gordo" con edición continua (especificación + prototipo + análisis)
+- **eliminarAula()** - Eliminación segura de aulas con confirmación (especificación + prototipo + análisis)
 - **cerrarSesion()** - Cierre de sesión (especificación + prototipo + análisis)
 
 ### Casos de uso identificados únicamente (🔘 Gris)
@@ -72,7 +75,6 @@ Los casos de uso analizados incluyen **2 enlaces** de navegación:
 #### Operaciones CRUD
 
 - **❌ crearProfesor()** - ❌ ERROR: Aplicación automática no solicitada (CORREGIDO)
-- **crearAula()** / **editarAula()** / **eliminarAula()**
 - **crearRecurso()** / **editarRecurso()** / **eliminarRecurso()**
 
 #### Funcionalidades especiales
@@ -89,18 +91,18 @@ Los casos de uso analizados incluyen **2 enlaces** de navegación:
 ## Estadísticas del proyecto
 
 - **Total de casos de uso**: 32
-- **Casos de uso en análisis**: 21 (65.63%)
-  - 20 casos correctos + 1 caso erróneo corregido (❌ crearProfesor)
-- **Casos de uso identificados**: 11 (34.37%)
-- **Progreso general**: 65.63% (hilo Edificios completado)
+- **Casos de uso en análisis**: 24 (75.00%)
+  - 23 casos correctos + 1 caso erróneo corregido (❌ crearProfesor)
+- **Casos de uso identificados**: 8 (25.00%)
+- **Progreso general**: 75.00% (hilos Edificios y Aulas completados)
 
 ## Próximos pasos
 
-### Hilo completado
+### Hilos completados
 1. **✅ Hilo Edificios completado** - crearEdificio(), editarEdificio(), eliminarEdificio() con especificación + prototipo + análisis
+2. **✅ Hilo Aulas completado** - crearAula(), editarAula(), eliminarAula() con especificación + prototipo + análisis
 
 ### Próxima iteración
-2. **crearAula()** / **editarAula()** / **eliminarAula()** - Aplicar patrón CRUD validado a aulas
 3. **crearRecurso()** / **editarRecurso()** / **eliminarRecurso()** - Aplicar patrón CRUD validado a recursos
 
 ## Metodología

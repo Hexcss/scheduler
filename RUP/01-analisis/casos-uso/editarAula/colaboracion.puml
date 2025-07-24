@@ -1,0 +1,32 @@
+@startuml editarAula-analisis
+skinparam linetype polyline
+
+rectangle #CDEBA5 ":Aulas Abierto" as AulasAbierto
+rectangle #CDEBA5 ":Aula Abierta" as AulaAbierta
+rectangle #CDEBA5 ":Collaboration CrearAula" as CrearAula
+rectangle #CDEBA5 ":Collaboration AbrirAulas" as AbrirAulas
+
+package editarAula as "editarAula()" {
+    rectangle #629EF9 EditarAulaView
+    rectangle #b5bd68 AulaController
+    rectangle #F2AC4E AulaRepository
+    rectangle #F2AC4E Aula
+}
+
+AulasAbierto --> EditarAulaView: editarAula(aulaId)
+AulaAbierta --> EditarAulaView: editarAula(aulaId)
+CrearAula --> EditarAulaView: editarAula(aulaNueva)
+
+EditarAulaView -d-> AulaController: cargarAulaParaEdición(aulaId) : Aula
+
+AulaController --> AulaRepository: obtenerPorId(aulaId) : Aula
+
+EditarAulaView --> AulaController: modificarCampos(aulaId, cambios) : boolean
+
+AulaController --> AulaRepository: actualizar(aula) : boolean
+
+AulaRepository -- Aula
+
+EditarAulaView ..> AbrirAulas: <<include>> abrirAulas()
+
+@enduml
