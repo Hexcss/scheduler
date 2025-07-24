@@ -86,11 +86,11 @@ EditProfesor -[#gray,dotted]-> EditProfesorPreferencias: configurarPreferenciasP
 EditProfesor -[#darkgoldenrod,thickness=2]-> ListProfesores: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/abrirProfesores/README.md abrirProfesores()]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/abrirProfesores/README.md A]]
 EditProfesorPreferencias -[#gray,dotted]-> EditProfesorPreferencias: configurarPreferenciasProfesor()
 EditProfesorPreferencias -[#gray,dotted]-> EditProfesor: abrirEdicionProfesor()
-ListEdificios -[#darkgoldenrod,bold]-> EditEdificio: [[../00-casos-uso/02-detalle/crearEdificio/README.md crearEdificio()]] [[../01-analisis/casos-uso/crearEdificio/README.md [A]]]
-ListEdificios -[#darkgoldenrod,bold]-> EditEdificio: [[../00-casos-uso/02-detalle/editarEdificio/README.md editarEdificio()]] [[../01-analisis/casos-uso/editarEdificio/README.md [A]]]
-ListEdificios -[#darkgoldenrod,bold]-> ListEdificios: [[../00-casos-uso/02-detalle/eliminarEdificio/README.md eliminarEdificio()]] [[../01-analisis/casos-uso/eliminarEdificio/README.md [A]]]
-EditEdificio -[#darkgoldenrod,bold]-> EditEdificio: [[../00-casos-uso/02-detalle/editarEdificio/README.md editarEdificio()]] [[../01-analisis/casos-uso/editarEdificio/README.md [A]]]
-EditEdificio -[#darkgoldenrod,bold]-> ListEdificios: [[../00-casos-uso/02-detalle/eliminarEdificio/README.md eliminarEdificio()]] [[../01-analisis/casos-uso/eliminarEdificio/README.md [A]]]
+ListEdificios -[#darkgoldenrod,bold]-> EditEdificio: [[../00-casos-uso/02-detalle/crearEdificio/README.md crearEdificio()]] [[../01-analisis/casos-uso/crearEdificio/README.md A]]
+ListEdificios -[#darkgoldenrod,bold]-> EditEdificio: [[../00-casos-uso/02-detalle/editarEdificio/README.md editarEdificio()]] [[../01-analisis/casos-uso/editarEdificio/README.md A]]
+ListEdificios -[#darkgoldenrod,bold]-> ListEdificios: [[../00-casos-uso/02-detalle/eliminarEdificio/README.md eliminarEdificio()]] [[../01-analisis/casos-uso/eliminarEdificio/README.md A]]
+EditEdificio -[#darkgoldenrod,bold]-> EditEdificio: [[../00-casos-uso/02-detalle/editarEdificio/README.md editarEdificio()]] [[../01-analisis/casos-uso/editarEdificio/README.md A]]
+EditEdificio -[#darkgoldenrod,bold]-> ListEdificios: [[../00-casos-uso/02-detalle/eliminarEdificio/README.md eliminarEdificio()]] [[../01-analisis/casos-uso/eliminarEdificio/README.md A]]
 EditEdificio -[#darkgoldenrod]-> ListEdificios: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/abrirEdificios/README.md abrirEdificios()]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/abrirEdificios/README.md A]]
 ListAulas -[#gray,dotted]-> EditAula: crearAula()
 ListAulas -[#gray,dotted]-> EditAula: editarAula()
