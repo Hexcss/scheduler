@@ -15,11 +15,11 @@
 
 ### Flujo Obligatorio
 1. **Desarrollo**: Trabajo colaborativo Manuel-Claude en rama local/temporal
-2. **Commit inicial**: Commit del trabajo completado
-3. **Rama xRevisar**: SIEMPRE crear/cambiar a rama `xRevisar`
-4. **Push obligatorio**: Subir trabajo a `origin/xRevisar`
-5. **Generación SVG**: Manuel genera imágenes .svg desde archivos .puml
-6. **Revisión bilateral**: Aprobación explícita de Manuel Y Claude
+2. **Claude propone**: Archivos .puml y documentación completa
+3. **Manuel genera SVG**: Convierte archivos .puml a imágenes .svg
+4. **Rama xRevisar**: SIEMPRE crear/cambiar a rama `xRevisar`
+5. **Push completo**: Subir trabajo CON imágenes .svg a `origin/xRevisar`
+6. **Validación bilateral**: Revisión completa en GitHub de Manuel Y Claude
 7. **Pull Request**: Solo después de OK de ambos
 8. **Merge a main**: Incorporación final al proyecto
 
@@ -40,17 +40,18 @@ git push -u origin xRevisar
 ## Obligaciones Definidas
 
 ### Obligaciones de Claude
-1. **Rama obligatoria**: NUNCA hacer commit directo a `main`
-2. **xRevisar siempre**: TODO trabajo DEBE ir a rama `xRevisar`
-3. **Comunicar ubicación**: Informar URL del trabajo para revisión
-4. **Esperar aprobación**: NO proceder sin OK explícito de Manuel
+1. **Proponer artefactos**: Crear archivos .puml y documentación completa
+2. **Rama obligatoria**: NUNCA hacer commit directo a `main`
+3. **Push completo**: Subir trabajo CON imágenes .svg a rama `xRevisar`
+4. **Comunicar ubicación**: Informar URL del trabajo para revisión
+5. **Esperar aprobación**: NO proceder sin OK explícito de Manuel
 
 ### Obligaciones de Manuel
-1. **Generar SVG**: Convertir archivos .puml a imágenes .svg
+1. **Generar SVG**: Convertir archivos .puml a imágenes .svg ANTES del push
 2. **Revisar trabajo**: Examinar el trabajo completo en rama `xRevisar`
-3. **Dar feedback**: Aprobar o solicitar modificaciones
+3. **Validar GitHub**: Verificar que todo se ve correctamente en GitHub
 4. **OK explícito**: Declarar aprobación antes del PR
-5. **Pull Request**: Crear PR solo después de revisión completa
+5. **Pull Request**: Crear PR solo después de validación completa
 
 ## Casos de Aplicación
 
@@ -87,12 +88,14 @@ git push -u origin xRevisar
 ## Protocolo de Aprobación
 
 ### Secuencia de Aprobación
-1. **Claude declara**: "Trabajo completado en rama xRevisar, listo para revisión"
+1. **Claude propone**: "Artefactos listos, necesito que generes los SVG"
 2. **Manuel genera SVG**: Convierte archivos .puml a imágenes .svg
-3. **Manuel revisa**: Examina el trabajo completo en la rama
-4. **Manuel aprueba**: "OK para PR" o solicita cambios
-5. **Claude ejecuta**: Crea Pull Request solo después del OK
-6. **Merge coordinado**: Incorporación a main tras PR aprobado
+3. **Claude sube**: Commit y push completo a rama `xRevisar` con SVG incluidos
+4. **Claude comunica**: "Trabajo completado en rama xRevisar, listo para revisión"
+5. **Manuel valida**: Examina trabajo completo en GitHub
+6. **Manuel aprueba**: "OK para PR" o solicita cambios
+7. **Claude ejecuta**: Crea Pull Request solo después del OK
+8. **Merge coordinado**: Incorporación a main tras PR aprobado
 
 ### Frases de Aprobación Estándar
 - **Manuel**: "OK para PR", "Aprobado para merge", "Listo para main"

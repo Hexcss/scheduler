@@ -36,11 +36,11 @@ Estos archivos contienen la trazabilidad completa del proyecto RUP y las reglas 
 **TODO trabajo producto de la iteración Manuel-Claude DEBE ir primero a la rama `xRevisar` antes de incorporarse a `main`.**
 
 ### Flujo Obligatorio para Claude
-1. **Desarrollo**: Completar trabajo colaborativo
-2. **Rama xRevisar**: SIEMPRE `git checkout -b xRevisar` o `git checkout xRevisar` 
-3. **Commit y Push**: `git add [archivos]` → `git commit` → `git push -u origin xRevisar`
-4. **Comunicar**: Informar URL para revisión de Manuel
-5. **Esperar generación SVG**: Manuel convierte archivos .puml a .svg
+1. **Proponer artefactos**: "Artefactos listos, necesito que generes los SVG"
+2. **Esperar SVG**: Manuel convierte archivos .puml a imágenes .svg
+3. **Rama xRevisar**: SIEMPRE `git checkout -b xRevisar` o `git checkout xRevisar` 
+4. **Push completo**: `git add [archivos + SVG]` → `git commit` → `git push -u origin xRevisar`
+5. **Comunicar**: "Trabajo completado en rama xRevisar, listo para revisión"
 6. **Esperar OK**: NO proceder sin aprobación explícita de Manuel
 7. **Pull Request**: Solo después de recibir "OK para PR" de Manuel
 
