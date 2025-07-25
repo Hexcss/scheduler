@@ -1,79 +1,37 @@
 @startuml generarHorario-analisis
+skinparam linetype polyline
 
-participant ":Administrador" as Admin
-participant "GenerarHorarioView" as View <<boundary>>
-participant "HorarioController" as Controller <<control>>
-participant "HorarioRepository" as Repository <<entity>>
-participant "HorarioGenerator" as Generator <<entity>>
-participant "Validador" as Validator <<entity>>
+rectangle #CDEBA5 ":Sistema Disponible" as SistemaDisponible
+rectangle #CDEBA5 ":Collaboration ConsultarHorario" as ConsultarHorario
+rectangle #CDEBA5 ":Collaboration CompletarGestion" as CompletarGestion
 
-Admin -> View : solicita generar horario
+package generarHorario as "generarHorario()" {
+    rectangle #629EF9 GenerarHorarioView
+    rectangle #b5bd68 HorarioController
+    rectangle #F2AC4E HorarioRepository
+    rectangle #F2AC4E HorarioGenerator
+    rectangle #F2AC4E Validador
+    rectangle #F2AC4E Horario
+}
 
-activate View
-View -> Controller : validarDatosMinimos()
-activate Controller
+SistemaDisponible --> GenerarHorarioView: generarHorario()
 
-Controller -> Validator : verificarDatosMinimos()
-activate Validator
-Validator -> Repository : contarCursos()
-Validator -> Repository : contarProfesores()  
-Validator -> Repository : contarAulas()
-Validator --> Controller : resultado validación
-deactivate Validator
+GenerarHorarioView -d-> HorarioController: procesarGeneracion() : ResultadoGeneracion
 
-alt datos insuficientes
-    Controller --> View : datosInsuficientes(detalles)
-    View --> Admin : presenta datos insuficientes
-    Admin -> View : solicita reconocer
-    View -> Controller : reconocerError()
-    Controller --> View : transferirAMenu()
-    View --> Admin : **<<include>>** completarGestion()
-else datos suficientes
-    Controller -> Repository : existeHorario()
-    activate Repository
-    Repository --> Controller : horarioExistente
-    deactivate Repository
-    
-    alt horario existe
-        Controller --> View : confirmarReemplazo(datosActuales)
-        View --> Admin : presenta confirmación de reemplazo
-        
-        alt administrador cancela
-            Admin -> View : solicita cancelar
-            View -> Controller : cancelarGeneracion()
-            Controller --> View : transferirAMenu()
-            View --> Admin : **<<include>>** completarGestion()
-        else administrador confirma
-            Admin -> View : solicita confirmar generación
-            View -> Controller : confirmarGeneracion()
-        end
-    end
-    
-    Controller -> Generator : generarHorario()
-    activate Generator
-    View --> Admin : presenta progreso generación
-    
-    Generator -> Repository : cargarDatos()
-    activate Repository
-    Repository --> Generator : datos maestros
-    deactivate Repository
-    
-    Generator -> Generator : ejecutarAlgoritmo4Fases()
-    note right : PrepararH(), GeneraPreHorario(),\nGeneraHorario(), casos especiales
-    
-    Generator -> Repository : guardarHorario(horarioGenerado)
-    activate Repository
-    Repository --> Generator : horario guardado
-    deactivate Repository
-    
-    Generator --> Controller : horarioGenerado
-    deactivate Generator
-    
-    Controller --> View : generacionExitosa(horario)
-    View --> Admin : **<<include>>** consultarHorario()
-end
+HorarioController --> Validador: verificarDatosMinimos() : boolean
 
-deactivate Controller
-deactivate View
+HorarioController --> HorarioRepository: existeHorario() : boolean
+HorarioController --> HorarioRepository: verificarDatosDisponibles() : DatosDisponibles
+
+HorarioController --> HorarioGenerator: ejecutarGeneracion() : Horario
+
+HorarioGenerator --> HorarioRepository: cargarDatosMaestros() : DatosMaestros
+HorarioGenerator --> HorarioRepository: guardarHorario(horario) : boolean
+
+HorarioRepository -- Horario
+HorarioRepository -- Validador
+
+GenerarHorarioView ..> ConsultarHorario: <<include>> consultarHorario() [generación exitosa]
+GenerarHorarioView ..> CompletarGestion: <<include>> completarGestion() [cancelación/error]
 
 @enduml

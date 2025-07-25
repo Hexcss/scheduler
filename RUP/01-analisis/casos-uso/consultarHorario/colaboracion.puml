@@ -1,58 +1,31 @@
 @startuml consultarHorario-analisis
+skinparam linetype polyline
 
-participant ":Administrador" as Admin
-participant "ConsultarHorarioView" as View <<boundary>>
-participant "HorarioController" as Controller <<control>>
-participant "HorarioRepository" as Repository <<entity>>
-participant "Horario" as Schedule <<entity>>
+rectangle #CDEBA5 ":Sistema Disponible" as SistemaDisponible
+rectangle #CDEBA5 ":Horario Abierto" as HorarioAbierto
+rectangle #CDEBA5 ":Collaboration GenerarHorario" as GenerarHorario
+rectangle #CDEBA5 ":Collaboration CompletarGestion" as CompletarGestion
 
-Admin -> View : solicita consultar horario
+package consultarHorario as "consultarHorario()" {
+    rectangle #629EF9 ConsultarHorarioView
+    rectangle #b5bd68 HorarioController
+    rectangle #F2AC4E HorarioRepository
+    rectangle #F2AC4E Horario
+}
 
-activate View
-View -> Controller : consultarHorario()
-activate Controller
+SistemaDisponible --> ConsultarHorarioView: consultarHorario()
+HorarioAbierto --> ConsultarHorarioView: consultarHorario()
+GenerarHorario --> ConsultarHorarioView: consultarHorario(horarioGenerado)
 
-Controller -> Repository : existeHorario()
-activate Repository
-Repository --> Controller : horarioExistente
-deactivate Repository
+ConsultarHorarioView -d-> HorarioController: procesarConsulta() : ResultadoConsulta
 
-alt sin horario generado
-    Controller --> View : sinHorarioDisponible(estadoSistema)
-    View --> Admin : presenta ausencia de horario
-    
-    Admin -> View : solicita continuar
-    View -> Controller : continuarNavegacion()
-    Controller --> View : transferirAMenu()
-    View --> Admin : **<<include>>** completarGestion()
-    
-else horario existe
-    Controller -> Repository : cargarHorario()
-    activate Repository
-    Repository -> Schedule : obtenerDatosCompletos()
-    activate Schedule
-    Schedule --> Repository : horarioCompleto
-    deactivate Schedule
-    Repository --> Controller : horarioCompleto
-    deactivate Repository
-    
-    Controller --> View : presentarHorario(horarioCompleto)
-    View --> Admin : presenta horario académico
-    
-    loop navegación interna
-        Admin -> View : solicita navegar
-        View -> Controller : navegarHorario()
-        Controller --> View : presentarVista()
-        View --> Admin : presenta vista horario
-    end
-    
-    Admin -> View : solicita salir
-    View -> Controller : salirConsulta()
-    Controller --> View : transferirAMenu()
-    View --> Admin : **<<include>>** completarGestion()
-end
+HorarioController --> HorarioRepository: cargarHorario() : Horario
+HorarioController --> HorarioRepository: existeHorario() : boolean
 
-deactivate Controller
-deactivate View
+HorarioRepository --> Horario: obtenerDatosCompletos() : DatosHorario
+
+HorarioRepository -- Horario
+
+ConsultarHorarioView ..> CompletarGestion: <<include>> completarGestion() [al salir]
 
 @enduml

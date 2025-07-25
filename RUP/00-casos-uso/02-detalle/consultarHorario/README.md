@@ -61,7 +61,7 @@ Especificación detallada del caso de uso `consultarHorario()` mediante diagrama
 
 |![Wireframe: Horario académico](/images/RUP/00-casos-uso/02-detalle/consultarHorario/consultarHorario-wireframe-schedule.svg)|
 |-|
-|**Estado**: PresentingSchedule|
+|**Estado**: ProvidingSchedule|
 
 </div>
 
@@ -71,7 +71,7 @@ Especificación detallada del caso de uso `consultarHorario()` mediante diagrama
 
 |![Wireframe: Sin horario disponible](/images/RUP/00-casos-uso/02-detalle/consultarHorario/consultarHorario-wireframe-noSchedule.svg)|
 |-|
-|**Estado**: ShowingNoSchedule|
+|**Estado**: ProvidingSchedule - sin horario|
 
 </div>
 
@@ -92,34 +92,24 @@ Especificación detallada del caso de uso `consultarHorario()` mediante diagrama
 
 ## conversación detallada
 
-### flujo principal: consulta exitosa
+### flujo principal (único)
 
 |Actor|Acción|Sistema|Respuesta|
 |-|-|-|-|
 |**Administrador**|solicita consultar horario||
-||**Sistema**|presenta verificación|• verificar existencia de horario generado|
-||**Sistema**|presenta horario|• horario académico completo<br>• información de cursos, profesores, aulas<br>• resumen estadístico|
-|**Administrador**|solicita navegar||dentro del horario (futuras extensiones)|
-|**Administrador**|solicita salir||
-||**Sistema**|presenta resultado|• transferir a completarGestion()|
-
-### flujo alternativo: sin horario disponible
-
-|Actor|Acción|Sistema|Respuesta|
-|-|-|-|-|
-|**Administrador**|solicita consultar horario||
-||**Sistema**|presenta verificación|• verificar existencia de horario generado|
-||**Sistema**|presenta ausencia|• mensaje sin horario disponible<br>• instrucciones para generar horario<br>• estado actual del sistema|
-|**Administrador**|solicita continuar||
+||**Sistema**|presenta|• horario generado<br>• mensaje si no hay horario|
+|**Administrador**|solicita continuar consultando||
+||**Sistema**|presenta|• mantener vista horario|
+|**Administrador**|solicita salir de consulta||
 ||**Sistema**|presenta resultado|• transferir a completarGestion()|
 
 ## estados internos del caso de uso
 
 |Estado|Descripción|Responsabilidad|
 |-|-|-|
-|**CheckingScheduleExistence**|Estado donde el sistema verifica existencia de horario|Sistema debe verificar si existe horario generado|
-|**PresentingSchedule**|Estado donde se muestra el horario académico completo|Sistema debe presentar horario en formato comprensible|
-|**ShowingNoSchedule**|Estado donde se informa ausencia de horario|Sistema debe presentar mensaje informativo y opciones|
+|**RequiringConsultation**|Estado donde el administrador solicita consultar horario|Actor debe solicitar consultar horario|
+|**ProvidingSchedule**|Estado donde el sistema presenta horario o mensaje|Sistema debe presentar horario generado o mensaje si no hay horario|
+|**Choice point**|Punto de decisión con opciones de navegación|Evaluación de continuar consultando o salir de consulta|
 
 ## funcionalidad de consulta de horario
 

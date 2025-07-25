@@ -61,7 +61,7 @@ Especificación detallada del caso de uso `generarHorario()` mediante diagrama d
 
 |![Wireframe: Confirmación de reemplazo de horario](/images/RUP/00-casos-uso/02-detalle/generarHorario/generarHorario-wireframe-confirmation.svg)|
 |-|
-|**Estado**: RequiringConfirmation|
+|**Estado**: ProvidingConfirmation|
 
 </div>
 
@@ -71,7 +71,7 @@ Especificación detallada del caso de uso `generarHorario()` mediante diagrama d
 
 |![Wireframe: Datos insuficientes](/images/RUP/00-casos-uso/02-detalle/generarHorario/generarHorario-wireframe-insufficient.svg)|
 |-|
-|**Estado**: ShowingInsufficient|
+|**Estado**: Choice point - datos insuficientes|
 
 </div>
 
@@ -81,7 +81,7 @@ Especificación detallada del caso de uso `generarHorario()` mediante diagrama d
 
 |![Wireframe: Generación en progreso](/images/RUP/00-casos-uso/02-detalle/generarHorario/generarHorario-wireframe-generating.svg)|
 |-|
-|**Estado**: GeneratingSchedule|
+|**Estado**: Choice point - generación exitosa|
 
 </div>
 
@@ -102,45 +102,24 @@ Especificación detallada del caso de uso `generarHorario()` mediante diagrama d
 
 ## conversación detallada
 
-### flujo principal: generación exitosa con confirmación
+### flujo principal (único)
 
 |Actor|Acción|Sistema|Respuesta|
 |-|-|-|-|
 |**Administrador**|solicita generar horario||
-||**Sistema**|presenta validación|• verificar datos mínimos (1+ curso, profesor, aula)|
-||**Sistema**|presenta confirmación|• horario existente será reemplazado<br>• datos disponibles para generación<br>• advertencia de reemplazo|
+||**Sistema**|presenta|• datos disponibles para generación<br>• advertencia si horario existe|
 |**Administrador**|solicita confirmar generación||
-||**Sistema**|presenta progreso|• generación en progreso<br>• datos procesados<br>• algoritmo ejecutándose|
 ||**Sistema**|presenta resultado|• horario generado exitosamente<br>• transferir a consultarHorario()|
-
-### flujo alternativo: datos insuficientes
-
-|Actor|Acción|Sistema|Respuesta|
-|-|-|-|-|
-|**Administrador**|solicita generar horario||
-||**Sistema**|presenta validación|• verificar datos mínimos|
-||**Sistema**|presenta error|• datos insuficientes detectados<br>• detalle de requisitos faltantes<br>• acciones recomendadas|
-|**Administrador**|solicita reconocer||
-||**Sistema**|presenta resultado|• transferir a completarGestion()|
-
-### flujo alternativo: cancelación
-
-|Actor|Acción|Sistema|Respuesta|
-|-|-|-|-|
-|**Administrador**|solicita generar horario||
-||**Sistema**|presenta confirmación|• horario existente será reemplazado|
-|**Administrador**|solicita cancelar||
+|**Administrador**|solicita cancelar generación||
 ||**Sistema**|presenta resultado|• operación cancelada<br>• transferir a completarGestion()|
 
 ## estados internos del caso de uso
 
 |Estado|Descripción|Responsabilidad|
 |-|-|-|
-|**ValidatingMinimalData**|Estado donde el sistema verifica datos mínimos|Sistema debe verificar 1+ curso, profesor, aula|
-|**CheckingExistingSchedule**|Estado donde el sistema verifica si existe horario previo|Sistema debe detectar horario existente para advertir reemplazo|
-|**RequiringConfirmation**|Estado donde se solicita confirmación por reemplazo|Administrador debe solicitar confirmar o cancelar|
-|**GeneratingSchedule**|Estado donde el algoritmo genera el horario|Sistema ejecuta algoritmo de 4 fases automáticamente|
-|**ShowingInsufficient**|Estado donde se informa de datos insuficientes|Administrador debe reconocer error para continuar|
+|**RequiringGeneration**|Estado donde el administrador solicita generar horario|Actor debe solicitar generar horario|
+|**ProvidingConfirmation**|Estado donde el sistema presenta datos y advertencias|Sistema debe presentar datos disponibles y advertencia si horario existe|
+|**Choice point**|Punto de decisión con múltiples salidas|Evaluación de cancelación, datos insuficientes o generación exitosa|
 
 ## funcionalidad de generación algorítmica
 
