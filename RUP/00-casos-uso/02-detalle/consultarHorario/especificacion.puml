@@ -1,41 +1,46 @@
 @startuml consultarHorario
 
-[*] -[#green]-> CheckingScheduleExistence 
+skinparam linetype polyline
+
+state consultarHorario as "consultarHorario()" {
+
+    state " " as RequiringConsultation
+    state " " as ProvidingSchedule
+    state c <<choice>>
+
+    [*] -[#green]-> RequiringConsultation 
+    note on link
+    <b>Administrador</b> solicita consultar horario
+    end note    
+    
+    RequiringConsultation -[#green]-> ProvidingSchedule
+    note on link
+    <b>Sistema</b> presenta
+    • horario generado
+    • mensaje si no hay horario
+    end note
+    
+    ProvidingSchedule -[#green]-> c
+    note on link
+    <b>Administrador</b> solicita
+    • continuar consultando
+    • salir de consulta
+    end note
+    
+    c -[#green]-> ProvidingSchedule
+    note on link
+    continuar navegando
+    end note
+
+    c -[#green]-> [*]
+    note on link
+    salir de consulta
+    end note
+}
+
+consultarHorario -[#green]-> SISTEMA_DISPONIBLE
 note on link
-<b>Administrador</b> solicita consultar horario
-end note
-
-CheckingScheduleExistence : Verificando existencia de horario
-
-CheckingScheduleExistence -[#red]-> ShowingNoSchedule : [sin horario generado]
-note on link
-Sistema presenta mensaje sin horario
-end note
-
-CheckingScheduleExistence -[#green]-> PresentingSchedule : [horario existe]
-note on link
-Sistema presenta horario completo
-end note
-
-ShowingNoSchedule : Mostrando ausencia de horario
-note right : Informar que no hay horario disponible
-
-ShowingNoSchedule -[#blue]-> [*] : [Administrador solicita continuar]
-note on link
-Sistema presenta opciones de navegación
-end note
-
-PresentingSchedule : Presentando horario generado
-note right : Mostrar horario académico completo
-
-PresentingSchedule -[#green]-> PresentingSchedule : [Administrador solicita navegar]
-note on link
-Sistema permite solicitar navegación
-end note
-
-PresentingSchedule -[#blue]-> [*] : [Administrador solicita salir]
-note on link
-Sistema presenta resultado navegación
+completarGestion()
 end note
 
 @enduml
