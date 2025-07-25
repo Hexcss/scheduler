@@ -1,0 +1,165 @@
+# Q&A Log - pySigHor
+
+Registro de preguntas y respuestas para optimizar el contexto durante el desarrollo del proyecto pySigHor.
+
+---
+
+## Referencia: Conversación 40 - Casos de uso generarHorario() y consultarHorario()
+
+### Fecha: 2025-07-25
+### Contexto: Planificación de los casos de uso finales del primer nivel del sistema
+
+---
+
+## Validaciones previas en generarHorario()
+
+**Pregunta**: ¿Qué verificaciones mínimas debe hacer el sistema antes de iniciar el proceso de generación de horarios? Por ejemplo:
+- ¿Al menos X cursos configurados?
+- ¿Al menos Y profesores con datos completos?
+- ¿Al menos Z aulas disponibles?
+- ¿Verificación de que hay recursos suficientes?
+
+**Contexto**: El algoritmo original en `Horario.bas` requiere datos maestros completos para funcionar correctamente.
+
+**Respuesta**:
+
+Lo mínimo sería 1 curso, 1 profesor y 1 aula. Lógicamente, el horario sería único, pero se construiría siguiendo el algoritmo.
+
+---
+
+## Confirmación previa en generarHorario()
+
+**Pregunta**: ¿El caso de uso generarHorario() debería requerir confirmación previa del administrador mostrando un resumen de los datos disponibles antes de iniciar el proceso computacionalmente intensivo?
+
+**Contexto**: Considerando que la generación puede ser un proceso largo y que modifica el estado del sistema.
+
+**Respuesta**:
+
+Confirmación previa de iniciar en caso que exista un horario generado, porque efectivamente lo eliminaría. Pero si no hay horario generado, no hace falta confirmación previa de nada.
+
+---
+
+## Modelado de complejidad algorítmica
+
+**Pregunta**: ¿Cómo modelamos la complejidad algorítmica de las 4 fases (PrepararH, GeneraPreHorario, GeneraHorario, casos especiales) sin entrar en detalles de implementación en la especificación del caso de uso?
+
+**Contexto**: Necesitamos representar el proceso sin violar la separación entre requisitos y diseño.
+
+**Respuesta**:
+
+Incluso en la especificación del caso de uso hablamos únicamente de que el sistema genera el horario. Estas fases formarán parte del algoritmo que lo genera, que desde el caso de uso -e incluso en el análisis- se ve como un "servicio" al que se le utiliza. La complejidad la analizaremos luego.
+
+---
+
+## Manejo del tiempo de procesamiento
+
+**Pregunta**: ¿Cómo debemos manejar el tiempo de procesamiento en la especificación? ¿Mostramos progreso, mensaje de "procesando", o simplemente esperamos hasta completar?
+
+**Contexto**: El algoritmo puede tardar tiempo considerable dependiendo de la cantidad de datos.
+
+**Respuesta**:
+
+En primera instancia, simplemente esperamos. A priori, por evidencia empírica el tiempo no es tan largo.
+
+---
+
+## Persistencia del resultado
+
+**Pregunta**: ¿El horario generado se guarda automáticamente al completarse el proceso o requiere confirmación adicional del usuario? ¿Qué información presenta el sistema después del proceso?
+
+**Contexto**: Definir el flujo posterior a la generación exitosa.
+
+**Respuesta**:
+
+Se guarda mientras se genera: no hace falta confirmar nada. EL sistema, al termina el proceso, muestra el horario.
+
+---
+
+## Gestión de versiones de horario
+
+**Pregunta**: ¿El nuevo horario generado reemplaza automáticamente uno anterior o el sistema puede mantener múltiples versiones? ¿Hay historial de generaciones?
+
+**Contexto**: Definir la política de versionado de horarios en el sistema.
+
+**Respuesta**:
+
+Sí, lo reemplaza.
+
+---
+
+## Comportamiento cuando no existe horario
+
+**Pregunta**: En consultarHorario(), ¿qué debe hacer el sistema si todavía no se ha generado ningún horario? ¿Mensaje de error, redirección a generarHorario(), pantalla vacía?
+
+**Contexto**: Definir el comportamiento del caso de consulta sin datos.
+
+**Respuesta**:
+
+Decir que no hay horario.
+
+---
+
+## Tipos de vistas y filtros en consultarHorario()
+
+**Pregunta**: ¿Qué tipos de vistas/filtros debería ofrecer consultarHorario()? Por ejemplo:
+
+- Vista por profesor individual
+- Vista por aula específica
+- Vista por día de la semana
+- Vista general completa
+- ¿Algún otro tipo de filtro específico?
+
+**Contexto**: Definir la granularidad de visualización del horario.
+
+**Respuesta**:
+
+Luego nos metemos en esos filtros. A priori, consultarHorario muestra el horario sin mas.
+
+---
+
+## Capacidad de exportación
+
+**Pregunta**: ¿consultarHorario() es solo visualización o debería permitir algún tipo de exportación (PDF, Excel, impresión)?
+
+**Contexto**: Definir si es puramente de consulta o incluye funcionalidades adicionales.
+
+**Respuesta**:
+
+Solo visualización. Como el sistema es modular y respeta open-close, luego podemos extenderlo para otras cosas.
+
+---
+
+## Patrón de diseño para casos de proceso
+
+**Pregunta**: ¿generarHorario() y consultarHorario() siguen el mismo patrón de especificación que los casos CRUD o tienen características especiales por ser "casos de proceso" vs "casos de entidad"?
+
+**Contexto**: Determinar si aplicamos la misma metodología "como comer pipas" o necesitan un enfoque diferente.
+
+**Respuesta**:
+
+- generarHorario el usuario solicita generarlo, el sistema lo genera y luego pasa la pelota a consultarHorario.
+- consultarHorario muestra el horario.
+
+---
+
+## Estado de transición desde generarHorario()
+
+**Pregunta**: ¿A qué estado del diagrama de contexto debe transitar generarHorario() una vez completado exitosamente? ¿Directamente a consultarHorario() (HORARIO_ABIERTO) o regresa al menú principal?
+
+**Contexto**: Definir la navegación posterior a la generación exitosa.
+
+**Respuesta**:
+
+Te lo he contestado arriba.
+
+---
+
+## Manejo de errores en generación
+
+**Pregunta**: ¿Cómo debe comportarse el sistema si el algoritmo de generación falla o no encuentra solución viable? ¿Mensaje de error específico, sugerencias de ajuste de datos, regreso al menú?
+
+**Contexto**: El algoritmo original puede no encontrar soluciones óptimas en ciertos escenarios.
+
+**Respuesta**:
+
+A priori, si se cumple la condición mínima (1 aula, 1 curso, 1 profesor), el algoritmo siempre concluye proponiendo un horario. Y lo muestra.

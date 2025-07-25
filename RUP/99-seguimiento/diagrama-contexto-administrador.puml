@@ -58,8 +58,8 @@ Menu -[#darkgoldenrod,thickness=2]-> ListProfesores: [[https://github.com/mmasia
 Menu -[#darkgoldenrod]-> ListEdificios: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/abrirEdificios/README.md abrirEdificios()]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/abrirEdificios/README.md A]]
 Menu -[#darkgoldenrod]-> ListAulas: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/abrirAulas/README.md abrirAulas()]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/abrirAulas/README.md A]]
 Menu -[#darkgoldenrod]-> ListRecursos: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/abrirRecursos/README.md abrirRecursos()]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/abrirRecursos/README.md A]]
-Menu -[#gray,dotted]-> Generacion: generarHorario()
-Menu -[#gray,dotted]-> Consulta: consultarHorario()
+Menu -[#darkgoldenrod,bold]-> Generacion: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/generarHorario/README.md generarHorario()]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/generarHorario/README.md A]]
+Menu -[#darkgoldenrod,bold]-> Consulta: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/consultarHorario/README.md consultarHorario()]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/consultarHorario/README.md A]]
 
 EditProfesor -[#gray,dotted]-> Asignaciones: asignarProfesorACurso()
 
@@ -110,6 +110,6 @@ ListProfesores -[#darkgoldenrod,thickness=2]-> Menu: [[https://github.com/mmasia
 ListEdificios -[#darkgoldenrod]-> Menu: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/completarGestion/README.md completarGestion()]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/completarGestion/README.md A]]
 ListAulas -[#darkgoldenrod]-> Menu: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/completarGestion/README.md completarGestion()]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/completarGestion/README.md A]]
 ListRecursos -[#darkgoldenrod,bold]-> Menu: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/completarGestion/README.md completarGestion()]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/completarGestion/README.md A]]
-Generacion -[#darkgoldenrod,thickness=2]-> Menu: completarProceso()
-Consulta -[#darkgoldenrod,thickness=2]-> Menu: completarConsulta()
+Generacion -[#darkgoldenrod,bold]-> Consulta: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/consultarHorario/README.md consultarHorario()]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/consultarHorario/README.md A]]
+Consulta -[#darkgoldenrod,bold]-> Menu: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/completarGestion/README.md completarGestion()]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/completarGestion/README.md A]]
 @enduml

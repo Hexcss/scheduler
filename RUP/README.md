@@ -59,8 +59,8 @@ Emojis para fases futuras:
 |**editarRecurso()**|[📋](/RUP/00-casos-uso/02-detalle/editarRecurso/README.md#diagrama-de-especificación)|[🎨](/RUP/00-casos-uso/02-detalle/editarRecurso/README.md#wireframes)|[🔍](/RUP/01-analisis/casos-uso/editarRecurso/README.md)|⚪|⚪|⚪|*"El gordo" con edición continua*
 |**eliminarRecurso()**|[📋](/RUP/00-casos-uso/02-detalle/eliminarRecurso/README.md#diagrama-de-especificación)|[🎨](/RUP/00-casos-uso/02-detalle/eliminarRecurso/README.md#wireframes)|[🔍](/RUP/01-analisis/casos-uso/eliminarRecurso/README.md)|⚪|⚪|⚪|*Eliminación segura con confirmación*
 |**asignarProfesorACurso()**|⚪|⚪|⚪|⚪|⚪|⚪|
-|**generarHorario()**|⚪|⚪|⚪|⚪|⚪|⚪|
-|**consultarHorario()**|⚪|⚪|⚪|⚪|⚪|⚪|
+|**generarHorario()**|[📋](/RUP/00-casos-uso/02-detalle/generarHorario/README.md#diagrama-de-especificación)|[🎨](/RUP/00-casos-uso/02-detalle/generarHorario/README.md#wireframes)|[🔍](/RUP/01-analisis/casos-uso/generarHorario/README.md)|⚪|⚪|⚪|*Proceso algorítmico de 4 fases*
+|**consultarHorario()**|[📋](/RUP/00-casos-uso/02-detalle/consultarHorario/README.md#diagrama-de-especificación)|[🎨](/RUP/00-casos-uso/02-detalle/consultarHorario/README.md#wireframes)|[🔍](/RUP/01-analisis/casos-uso/consultarHorario/README.md)|⚪|⚪|⚪|*Visualización simple del horario académico*
 |**cerrarSesion()**|[📋](/RUP/00-casos-uso/02-detalle/cerrarSesion/README.md#diagrama-de-especificación)|[🎨](/RUP/00-casos-uso/02-detalle/cerrarSesion/README.md#wireframes)|[🔍](/RUP/01-analisis/casos-uso/cerrarSesion/README.md)|⚪|⚪|⚪|*Validación de estado de sesión*
 
 </div>
