@@ -98,18 +98,18 @@ ListAulas -[#darkgoldenrod,bold]-> ListAulas: [[https://github.com/mmasias/pySig
 EditAula -[#darkgoldenrod,bold]-> EditAula: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/editarAula/README.md editarAula()]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/editarAula/README.md A]]
 EditAula -[#darkgoldenrod,bold]-> ListAulas: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/eliminarAula/README.md eliminarAula()]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/eliminarAula/README.md A]]
 EditAula -[#darkgoldenrod]-> ListAulas: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/abrirAulas/README.md abrirAulas()]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/abrirAulas/README.md A]]
-ListRecursos -[#gray,dotted]-> EditRecurso: crearRecurso()
-ListRecursos -[#gray,dotted]-> EditRecurso: editarRecurso()
-ListRecursos -[#gray,dotted]-> ListRecursos: eliminarRecurso()
-EditRecurso -[#gray,dotted]-> EditRecurso: editarRecurso()
-EditRecurso -[#gray,dotted]-> ListRecursos: eliminarRecurso()
+ListRecursos -[#darkgoldenrod,bold]-> EditRecurso: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/crearRecurso/README.md crearRecurso()]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/crearRecurso/README.md A]]
+ListRecursos -[#darkgoldenrod,bold]-> EditRecurso: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/editarRecurso/README.md editarRecurso()]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/editarRecurso/README.md A]]
+ListRecursos -[#darkgoldenrod,bold]-> ListRecursos: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/eliminarRecurso/README.md eliminarRecurso()]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/eliminarRecurso/README.md A]]
+EditRecurso -[#darkgoldenrod,bold]-> EditRecurso: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/editarRecurso/README.md editarRecurso()]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/editarRecurso/README.md A]]
+EditRecurso -[#darkgoldenrod,bold]-> ListRecursos: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/eliminarRecurso/README.md eliminarRecurso()]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/eliminarRecurso/README.md A]]
 EditRecurso -[#darkgoldenrod]-> ListRecursos: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/abrirRecursos/README.md abrirRecursos()]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/abrirRecursos/README.md A]]
 ListProgramas -[#darkgoldenrod,thickness=2]-> Menu: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/completarGestion/README.md completarGestion()]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/completarGestion/README.md A]]
 ListCursos -[#darkgoldenrod,thickness=2]-> Menu: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/completarGestion/README.md completarGestion()]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/completarGestion/README.md A]]
 ListProfesores -[#darkgoldenrod,thickness=2]-> Menu: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/completarGestion/README.md completarGestion()]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/completarGestion/README.md A]]
 ListEdificios -[#darkgoldenrod]-> Menu: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/completarGestion/README.md completarGestion()]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/completarGestion/README.md A]]
 ListAulas -[#darkgoldenrod]-> Menu: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/completarGestion/README.md completarGestion()]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/completarGestion/README.md A]]
-ListRecursos -[#darkgoldenrod]-> Menu: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/completarGestion/README.md completarGestion()]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/completarGestion/README.md A]]
+ListRecursos -[#darkgoldenrod,bold]-> Menu: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/completarGestion/README.md completarGestion()]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/completarGestion/README.md A]]
 Generacion -[#darkgoldenrod,thickness=2]-> Menu: completarProceso()
 Consulta -[#darkgoldenrod,thickness=2]-> Menu: completarConsulta()
 @enduml
