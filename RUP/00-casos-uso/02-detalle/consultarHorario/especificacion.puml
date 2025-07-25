@@ -1,0 +1,41 @@
+@startuml consultarHorario
+
+[*] -[#green]-> CheckingScheduleExistence 
+note on link
+<b>Administrador</b> solicita consultar horario
+end note
+
+CheckingScheduleExistence : Verificando existencia de horario
+
+CheckingScheduleExistence -[#red]-> ShowingNoSchedule : [sin horario generado]
+note on link
+Sistema presenta mensaje sin horario
+end note
+
+CheckingScheduleExistence -[#green]-> PresentingSchedule : [horario existe]
+note on link
+Sistema presenta horario completo
+end note
+
+ShowingNoSchedule : Mostrando ausencia de horario
+note right : Informar que no hay horario disponible
+
+ShowingNoSchedule -[#blue]-> [*] : [Administrador solicita continuar]
+note on link
+Sistema presenta opciones de navegación
+end note
+
+PresentingSchedule : Presentando horario generado
+note right : Mostrar horario académico completo
+
+PresentingSchedule -[#green]-> PresentingSchedule : [Administrador solicita navegar]
+note on link
+Sistema permite solicitar navegación
+end note
+
+PresentingSchedule -[#blue]-> [*] : [Administrador solicita salir]
+note on link
+Sistema presenta resultado navegación
+end note
+
+@enduml

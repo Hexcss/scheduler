@@ -1,0 +1,79 @@
+@startuml generarHorario-analisis
+
+participant ":Administrador" as Admin
+participant "GenerarHorarioView" as View <<boundary>>
+participant "HorarioController" as Controller <<control>>
+participant "HorarioRepository" as Repository <<entity>>
+participant "HorarioGenerator" as Generator <<entity>>
+participant "Validador" as Validator <<entity>>
+
+Admin -> View : solicita generar horario
+
+activate View
+View -> Controller : validarDatosMinimos()
+activate Controller
+
+Controller -> Validator : verificarDatosMinimos()
+activate Validator
+Validator -> Repository : contarCursos()
+Validator -> Repository : contarProfesores()  
+Validator -> Repository : contarAulas()
+Validator --> Controller : resultado validación
+deactivate Validator
+
+alt datos insuficientes
+    Controller --> View : datosInsuficientes(detalles)
+    View --> Admin : presenta datos insuficientes
+    Admin -> View : solicita reconocer
+    View -> Controller : reconocerError()
+    Controller --> View : transferirAMenu()
+    View --> Admin : **<<include>>** completarGestion()
+else datos suficientes
+    Controller -> Repository : existeHorario()
+    activate Repository
+    Repository --> Controller : horarioExistente
+    deactivate Repository
+    
+    alt horario existe
+        Controller --> View : confirmarReemplazo(datosActuales)
+        View --> Admin : presenta confirmación de reemplazo
+        
+        alt administrador cancela
+            Admin -> View : solicita cancelar
+            View -> Controller : cancelarGeneracion()
+            Controller --> View : transferirAMenu()
+            View --> Admin : **<<include>>** completarGestion()
+        else administrador confirma
+            Admin -> View : solicita confirmar generación
+            View -> Controller : confirmarGeneracion()
+        end
+    end
+    
+    Controller -> Generator : generarHorario()
+    activate Generator
+    View --> Admin : presenta progreso generación
+    
+    Generator -> Repository : cargarDatos()
+    activate Repository
+    Repository --> Generator : datos maestros
+    deactivate Repository
+    
+    Generator -> Generator : ejecutarAlgoritmo4Fases()
+    note right : PrepararH(), GeneraPreHorario(),\nGeneraHorario(), casos especiales
+    
+    Generator -> Repository : guardarHorario(horarioGenerado)
+    activate Repository
+    Repository --> Generator : horario guardado
+    deactivate Repository
+    
+    Generator --> Controller : horarioGenerado
+    deactivate Generator
+    
+    Controller --> View : generacionExitosa(horario)
+    View --> Admin : **<<include>>** consultarHorario()
+end
+
+deactivate Controller
+deactivate View
+
+@enduml

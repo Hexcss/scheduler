@@ -1,0 +1,58 @@
+@startuml generarHorario
+
+[*] -[#green]-> ValidatingMinimalData 
+note on link
+<b>Administrador</b> solicita generar horario
+end note
+
+ValidatingMinimalData : Validando datos mínimos
+note right : Verificar 1+ cursos, profesores, aulas
+
+ValidatingMinimalData -[#red]-> ShowingInsufficient : [datos insuficientes]
+note on link
+Sistema presenta mensaje datos insuficientes
+end note
+
+ValidatingMinimalData -[#green]-> CheckingExistingSchedule : [datos suficientes]
+
+CheckingExistingSchedule : Verificando horario existente
+
+CheckingExistingSchedule -[#green]-> GeneratingSchedule : [sin horario previo]
+note on link
+Sistema permite solicitar generar
+end note
+
+CheckingExistingSchedule -[#orange]-> RequiringConfirmation : [horario existe]
+note on link
+Sistema presenta confirmación de reemplazo
+end note
+
+RequiringConfirmation : Solicitando confirmación
+note right : Mostrar advertencia de reemplazo
+
+RequiringConfirmation -[#red]-> [*] : [Administrador solicita cancelar]
+note on link
+Sistema presenta resultado cancelación
+end note
+
+RequiringConfirmation -[#green]-> GeneratingSchedule : [Administrador solicita confirmar]
+note on link
+Sistema permite solicitar generar
+end note
+
+GeneratingSchedule : Generando horario
+note right : Algoritmo de 4 fases ejecutándose
+
+GeneratingSchedule -[#green]-> [*] : [generación exitosa]
+note on link
+Sistema presenta horario generado
+Transición a HORARIO_ABIERTO
+end note
+
+ShowingInsufficient -[#red]-> [*] : [Administrador reconoce]
+note on link
+Sistema presenta resultado
+Regreso a SISTEMA_DISPONIBLE
+end note
+
+@enduml

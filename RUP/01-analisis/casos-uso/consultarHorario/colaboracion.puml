@@ -1,0 +1,58 @@
+@startuml consultarHorario-analisis
+
+participant ":Administrador" as Admin
+participant "ConsultarHorarioView" as View <<boundary>>
+participant "HorarioController" as Controller <<control>>
+participant "HorarioRepository" as Repository <<entity>>
+participant "Horario" as Schedule <<entity>>
+
+Admin -> View : solicita consultar horario
+
+activate View
+View -> Controller : consultarHorario()
+activate Controller
+
+Controller -> Repository : existeHorario()
+activate Repository
+Repository --> Controller : horarioExistente
+deactivate Repository
+
+alt sin horario generado
+    Controller --> View : sinHorarioDisponible(estadoSistema)
+    View --> Admin : presenta ausencia de horario
+    
+    Admin -> View : solicita continuar
+    View -> Controller : continuarNavegacion()
+    Controller --> View : transferirAMenu()
+    View --> Admin : **<<include>>** completarGestion()
+    
+else horario existe
+    Controller -> Repository : cargarHorario()
+    activate Repository
+    Repository -> Schedule : obtenerDatosCompletos()
+    activate Schedule
+    Schedule --> Repository : horarioCompleto
+    deactivate Schedule
+    Repository --> Controller : horarioCompleto
+    deactivate Repository
+    
+    Controller --> View : presentarHorario(horarioCompleto)
+    View --> Admin : presenta horario académico
+    
+    loop navegación interna
+        Admin -> View : solicita navegar
+        View -> Controller : navegarHorario()
+        Controller --> View : presentarVista()
+        View --> Admin : presenta vista horario
+    end
+    
+    Admin -> View : solicita salir
+    View -> Controller : salirConsulta()
+    Controller --> View : transferirAMenu()
+    View --> Admin : **<<include>>** completarGestion()
+end
+
+deactivate Controller
+deactivate View
+
+@enduml

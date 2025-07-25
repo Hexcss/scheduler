@@ -3884,4 +3884,101 @@ Tras completar la corrección sistemática de casos CRUD de Profesor, se identif
 
 ---
 
+## Conversación 40: Implementación del Hilo Recursos y Establecimiento de LEY 005
+**Fecha**: 2025-07-25  
+**Sesión**: Completar hilo Recursos + Sistema Q&A  
+**Estado**: EN PROGRESO 🔄
+
+### Contexto
+Continuación desde Conversación 39. Estado del proyecto: Hilo Aulas completado y mergeado en PR #2. Siguiente objetivo: implementar hilo Recursos completo siguiendo metodología "como comer pipas".
+
+### Trabajo Realizado
+
+#### Implementación Sistemática del Hilo Recursos
+**Casos implementados**:
+- ✅ **crearRecurso()**: "El delgado" filosofía C→U con transferencia automática
+- ✅ **editarRecurso()**: "El gordo" edición completa con sesión continua  
+- ✅ **eliminarRecurso()**: Eliminación segura con confirmación
+
+#### Correcciones Metodológicas Críticas
+**Problema identificado**: Especificaciones iniciales violaban estándares del proyecto.
+
+**Correcciones aplicadas**:
+- ✅ **Vocabulario CdU.dCdU.md**: Actor (solicita) vs Sistema (presenta/permite solicitar)
+- ✅ **Estados con choice points**: Según patrón `ejemploDetalleCasoDeUso.puml`
+- ✅ **Campos del modelo**: Limitados a código, nombre, descripción del recurso
+- ✅ **Coherencia total**: Especificación ↔ wireframe ↔ README ↔ análisis
+
+#### Análisis MVC Completado
+- ✅ **Clases de análisis**: Identificadas con responsabilidades específicas
+- ✅ **Patrón Repository**: Separación de responsabilidades clara
+- ✅ **Transferencia automática**: crearRecurso() → editarRecurso()
+
+#### Dashboards Actualizados
+- ✅ **RUP/README.md**: Enlaces completos a especificación, wireframes y análisis
+- ✅ **Dashboard seguimiento**: Estado `#darkgoldenrod,bold` para hilo completado
+
+#### LEY 004 Aplicada
+- ✅ **Rama xRevisar**: Trabajo en rama de revisión según protocolo
+- ✅ **Commit sistemático**: `7884e14` con 27 archivos, 1283 insertions
+- ✅ **PR creado**: #3 desde xRevisar → main (APROBADO por Usuario)
+
+### Establecimiento de LEY 005: Sistema Q&A para Optimización de Contexto
+
+#### Contexto del Problema
+Al abordar los casos finales `generarHorario()` y `consultarHorario()`, surgen múltiples dudas complejas que requieren clarificación antes de implementar.
+
+#### Innovación Metodológica: Documento Q&A
+**Solución propuesta**: Sistema estructurado de preguntas y respuestas para optimizar uso de contexto.
+
+**Implementación**:
+- ✅ **Archivo creado**: `QyA.log` en raíz del proyecto
+- ✅ **Estructura formal**: Secciones ## por tema, referencias a conversación
+- ✅ **12 dudas identificadas**: Sobre generarHorario() y consultarHorario()
+
+#### LEY 005: Protocolo de Gestión de Dudas
+**Principio**: Cuando surjan múltiples dudas complejas, crear documento Q&A estructurado para optimizar contexto y evitar discusiones extensas durante implementación.
+
+**Proceso**:
+1. **Claude identifica**: Dudas múltiples o complejas durante planificación
+2. **Documento Q&A**: Creación en formato markdown con estructura formal
+3. **Usuario responde**: Completa respuestas en formato estructurado
+4. **Implementación**: Claude procede con información específica clara
+
+#### Dudas Documentadas para Cases Finales
+**Casos objetivo**: generarHorario() y consultarHorario()
+
+**Categorías de dudas**:
+- Validaciones previas y confirmaciones
+- Modelado de complejidad algorítmica
+- Manejo de tiempo de procesamiento  
+- Gestión de versiones y persistencia
+- Comportamiento en casos de error
+- Tipos de vistas y filtros
+- Patrones de diseño específicos
+
+### Estado Actual del Proyecto
+
+#### Progreso RUP
+**Hilos completados**: Profesor ✅, Edificio ✅, Aulas ✅, **Recursos ✅**  
+**Hilos pendientes**: generarHorario(), consultarHorario()  
+**Metodología**: "Como comer pipas" funcionando efectivamente
+
+#### Calidad Metodológica
+- **Estándares altos**: Vocabulario CdU, coherencia de artefactos
+- **Proceso maduro**: LEY 004 (revisión) + LEY 005 (Q&A) establecidas
+- **Trazabilidad completa**: Conversation-log + Q&A log + leyes proyecto
+
+### Próximos Pasos Inmediatos
+1. **Usuario completa**: Respuestas en QyA.log
+2. **Claude implementa**: generarHorario() y consultarHorario() con información específica
+3. **Completar primer nivel**: Sistema básico RUP finalizado
+
+#### Estado LEY 005
+**Creada**: Protocolo Q&A establecido  
+**En aplicación**: Usuario respondiendo dudas en QyA.log  
+**Objetivo**: Optimizar implementación casos finales
+
+---
+
 *Este registro se actualizará continuamente conforme avance el proyecto*
