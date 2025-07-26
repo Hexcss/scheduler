@@ -9,7 +9,11 @@
 
 ## Diagrama de Especificación
 
+<div align=center>
+
 ![abrirAulas](/images/RUP/00-casos-uso/02-detalle/abrirAulas/abrirAulas.svg)
+
+</div>
 
 ## Prototipo de Interfaz
 

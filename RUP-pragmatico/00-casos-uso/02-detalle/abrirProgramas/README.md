@@ -9,7 +9,11 @@
 
 ## Diagrama de Especificación
 
+<div align=center>
+
 ![abrirProgramas](/images/RUP/00-casos-uso/02-detalle/abrirProgramas/abrirProgramas.svg)
+
+</div>
 
 ## Prototipo de Interfaz
 

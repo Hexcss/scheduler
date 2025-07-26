@@ -9,7 +9,11 @@
 
 ## Diagrama de Especificación
 
+<div align=center>
+
 ![abrirEdificios](/images/RUP/00-casos-uso/02-detalle/abrirEdificios/abrirEdificios.svg)
+
+</div>
 
 ## Prototipo de Interfaz
 

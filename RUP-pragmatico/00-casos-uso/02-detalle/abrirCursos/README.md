@@ -9,7 +9,11 @@
 
 ## Diagrama de Especificación
 
+<div align=center>
+
 ![abrirCursos](/images/RUP/00-casos-uso/02-detalle/abrirCursos/abrirCursos.svg)
+
+</div>
 
 ## Prototipo de Interfaz
 

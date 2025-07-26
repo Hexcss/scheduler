@@ -9,7 +9,11 @@
 
 ## Diagrama de Especificación
 
+<div align=center>
+
 ![iniciarSesion](/images/RUP/00-casos-uso/02-detalle/iniciarSesion/iniciarSesion.svg)
+
+</div>
 
 ## Prototipo de Interfaz
 

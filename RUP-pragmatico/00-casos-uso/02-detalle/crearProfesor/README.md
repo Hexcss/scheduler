@@ -9,7 +9,11 @@
 
 ## Diagrama de Especificación
 
+<div align=center>
+
 ![crearProfesor](/images/RUP/00-casos-uso/02-detalle/crearProfesor/crearProfesor.svg)
+
+</div>
 
 ## Prototipo de Interfaz
 

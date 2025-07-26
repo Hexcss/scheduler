@@ -9,7 +9,11 @@
 
 ## Diagrama de Especificación
 
+<div align=center>
+
 ![crearRecurso](/images/RUP/00-casos-uso/02-detalle/crearRecurso/crearRecurso.svg)
+
+</div>
 
 ## Prototipo de Interfaz
 

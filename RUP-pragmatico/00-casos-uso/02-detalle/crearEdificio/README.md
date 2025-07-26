@@ -9,7 +9,11 @@
 
 ## Diagrama de Especificación
 
+<div align=center>
+
 ![crearEdificio](/images/RUP/00-casos-uso/02-detalle/crearEdificio/crearEdificio.svg)
+
+</div>
 
 ## Prototipo de Interfaz
 

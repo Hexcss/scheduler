@@ -9,7 +9,11 @@
 
 ## Diagrama de Especificación
 
+<div align=center>
+
 ![crearCurso](/images/RUP/00-casos-uso/02-detalle/crearCurso/crearCurso.svg)
+
+</div>
 
 ## Prototipo de Interfaz
 

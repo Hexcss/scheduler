@@ -9,7 +9,11 @@
 
 ## Diagrama de Especificación
 
+<div align=center>
+
 ![cerrarSesion](/images/RUP/00-casos-uso/02-detalle/cerrarSesion/cerrarSesion.svg)
+
+</div>
 
 ## Prototipo de Interfaz
 

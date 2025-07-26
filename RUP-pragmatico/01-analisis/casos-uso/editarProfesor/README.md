@@ -1,16 +1,21 @@
 <div align=right>
  
 |[🏠️](../../../README.md)|[ 📊](https://raw.githubusercontent.com/mmasias/pySigHor/main/images/RUP/99-seguimiento/diagrama-contexto-administrador.svg)|[Detalle (Pragmático)](../../../00-casos-uso/02-detalle/editarProfesor/README.md)|**Análisis (Pragmático)**|[Diseño](../../../../RUP/02-diseno/casos-uso/editarProfesor/README.md)|Desarrollo|Pruebas|
-|-:
+|-|-|-|-|-|-|-|
+
 </div>
 
 # Editar Profesor (Análisis Pragmático)
 
-## Diagrama de Colaboración
+## diagrama de colaboración
 
-![editarProfesor-colaboracion](../../../../../images/RUP/01-analisis/casos-uso/editarProfesor/colaboracion.svg)
+<div align=center>
 
-**Código fuente:** [colaboracion.puml](../../../../RUP/01-analisis/casos-uso/editarProfesor/colaboracion.puml)
+|![Análisis: editarProfesor()](/images/RUP/01-analisis/casos-uso/editarProfesor/editarProfesor-analisis.svg)|
+|-|
+|Código fuente: [colaboracion.puml](../../../../RUP/01-analisis/casos-uso/editarProfesor/colaboracion.puml)|
+
+</div>
 
 ## Referencias
 

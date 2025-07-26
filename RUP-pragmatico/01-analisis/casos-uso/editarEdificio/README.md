@@ -1,16 +1,21 @@
 <div align=right>
  
 |[🏠️](../../../README.md)|[ 📊](https://raw.githubusercontent.com/mmasias/pySigHor/main/images/RUP/99-seguimiento/diagrama-contexto-administrador.svg)|[Detalle (Pragmático)](../../../00-casos-uso/02-detalle/editarEdificio/README.md)|**Análisis (Pragmático)**|[Diseño](../../../../RUP/02-diseno/casos-uso/editarEdificio/README.md)|Desarrollo|Pruebas|
-|-:
+|-|-|-|-|-|-|-|
+
 </div>
 
 # Editar Edificio (Análisis Pragmático)
 
-## Diagrama de Colaboración
+## diagrama de colaboración
 
-![editarEdificio-colaboracion](../../../../../images/RUP/01-analisis/casos-uso/editarEdificio/colaboracion.svg)
+<div align=center>
 
-**Código fuente:** [colaboracion.puml](../../../../RUP/01-analisis/casos-uso/editarEdificio/colaboracion.puml)
+|![Análisis: editarEdificio()](/images/RUP/01-analisis/casos-uso/editarEdificio/editarEdificio-analisis.svg)|
+|-|
+|Código fuente: [colaboracion.puml](../../../../RUP/01-analisis/casos-uso/editarEdificio/colaboracion.puml)|
+
+</div>
 
 ## Referencias
 

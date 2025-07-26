@@ -9,7 +9,11 @@
 
 ## Diagrama de Especificación
 
+<div align=center>
+
 ![completarGestion](/images/RUP/00-casos-uso/02-detalle/completarGestion/completarGestion.svg)
+
+</div>
 
 ## Prototipo de Interfaz
 
