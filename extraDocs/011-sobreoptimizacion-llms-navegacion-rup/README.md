@@ -1,11 +1,8 @@
 # Sobreoptimización de LLMs: El Problema de la Navegación Anticipada en RUP
 
-## Contexto del Análisis
+*Ver también: [Contexto del proyecto](contexto.md) | [Evidencia y enlaces](evidencia.md)*
 
-**Fecha**: 2025-07-26  
-**Commit analizado**: [`c2b488f`](https://github.com/mmasias/pySigHor/commit/c2b488fcadbbea17a8fbfc859d3fe74792bd00e8)  
-**Colaborador**: Becario Gemini (Conversación 41)  
-**Descubrimiento**: Claude Code (Conversación 42)
+---
 
 ## El Problema Identificado
 
