@@ -40,6 +40,7 @@ Esta carpeta contiene la especificación detallada y prototipado de cada caso de
 - [editarProfesor](editarProfesor/) - Edición de profesores
 - [eliminarProfesor](eliminarProfesor/) - Eliminación de profesores
 - [configurarPreferenciasProfesor](configurarPreferenciasProfesor/) - Configuración de preferencias de recursos
+- [asignarProfesorACurso](asignarProfesorACurso/) - Gestión de asignaciones profesor-curso
 
 ### CRUD de Edificios
 - [crearEdificio](crearEdificio/) - Creación de edificios

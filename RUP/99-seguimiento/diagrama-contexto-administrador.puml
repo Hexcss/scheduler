@@ -61,10 +61,10 @@ Menu -[#darkgoldenrod]-> ListRecursos: [[https://github.com/mmasias/pySigHor/blo
 Menu -[#darkgoldenrod,bold]-> Generacion: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/generarHorario/README.md generarHorario()]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/generarHorario/README.md A]]
 Menu -[#darkgoldenrod,bold]-> Consulta: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/consultarHorario/README.md consultarHorario()]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/consultarHorario/README.md A]]
 
-EditProfesor -[#gray,dotted]-> Asignaciones: asignarProfesorACurso()
+EditProfesor -[#darkgoldenrod,thickness=2]-> Asignaciones: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/asignarProfesorACurso/README.md asignarProfesorACurso()]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/asignarProfesorACurso/README.md A]]
 
-Asignaciones -[#gray,dotted]-> Asignaciones: asignarProfesorACurso()
-Asignaciones -[#gray,dotted]-> EditProfesor: editarProfesor()
+Asignaciones -[#darkgoldenrod,thickness=2]-> Asignaciones: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/asignarProfesorACurso/README.md asignarProfesorACurso()]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/asignarProfesorACurso/README.md A]]
+Asignaciones -[#darkgoldenrod,thickness=2]-> EditProfesor: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/editarProfesor/README.md editarProfesor()]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/editarProfesor/README.md A]]
 ListProgramas -[#darkgoldenrod,thickness=2]-> EditPrograma: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/crearPrograma/README.md crearPrograma()]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/crearPrograma/README.md A]]
 ListProgramas -[#darkgoldenrod,thickness=2]-> EditPrograma: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/editarPrograma/README.md editarPrograma()]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/editarPrograma/README.md A]]
 ListProgramas -[#darkgoldenrod,thickness=2]-> ListProgramas: [[https://github.com/mmasias/pySigHor/blob/main/RUP/00-casos-uso/02-detalle/eliminarPrograma/README.md eliminarPrograma()]] [[https://github.com/mmasias/pySigHor/blob/main/RUP/01-analisis/casos-uso/eliminarPrograma/README.md A]]

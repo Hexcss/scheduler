@@ -40,6 +40,7 @@ Esta carpeta contiene el análisis MVC (Model-View-Controller) de cada caso de u
 - [editarProfesor](editarProfesor/) - Análisis de edición continua "el gordo"
 - [eliminarProfesor](eliminarProfesor/) - Análisis de eliminación segura
 - [configurarPreferenciasProfesor](configurarPreferenciasProfesor/) - Análisis de configuración específica
+- [asignarProfesorACurso](asignarProfesorACurso/) - Análisis de gestión de asignaciones profesor-curso
 
 ### CRUD de Edificios
 - [crearEdificio](crearEdificio/) - Análisis de creación con relación a aulas
