@@ -1,6 +1,6 @@
 <div align=right>
  
-|[🏠️](../../../README.md)|[ 📊](https://raw.githubusercontent.com/mmasias/pySigHor/main/images/RUP/99-seguimiento/diagrama-contexto-administrador.svg)|[Detalle (Pragmático)](../../../00-casos-uso/02-detalle/completarGestion/README.md)|**Análisis (Pragmático)**|[Diseño](../../../../RUP/02-diseno/casos-uso/completarGestion/README.md)|Desarrollo|Pruebas|
+|[🏠️](../../../README.md)|[ 📊](https://raw.githubusercontent.com/mmasias/pySigHor/main/images/RUP/99-seguimiento/diagrama-contexto-administrador.svg)|[Detalle (Pragmático)](../../../00-casos-uso/02-detalle/configurarPreferenciasProfesor/README.md)|**Análisis (Pragmático)**|Diseño|Desarrollo|Pruebas|
 |-|-|-|-|-|-|-|
 
 </div>
