@@ -5,6 +5,10 @@
 **Versión simplificada y orientada a la práctica de la documentación RUP**  
 *Enfocada en artefactos clave para comprensión rápida y eficiente*
 
+||||
+|-|-|-|
+|**Inicio**|[Casos de uso](./00-casos-uso/02-detalle/README.md)|[Análisis](./01-analisis/casos-uso/README.md)|
+
 </div>
 
 ## ¿Qué?
@@ -17,15 +21,6 @@ Ideal para:
 - **Comprensión ágil** del análisis MVC realizado.
 - **Demostración didáctica** de adaptabilidad de RUP.
 - **Navegación eficiente** sin perder rigor metodológico.
-
-## Contenido
-
-<div align=center>
-
-|[Casos de uso](./00-casos-uso/02-detalle/README.md)|[Análisis](./01-analisis/casos-uso/README.md)|
-|-|-|
-
-</div>
 
 ## Filosofía de la versión *pragmática*
 

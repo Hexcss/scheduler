@@ -1,5 +1,16 @@
 # Casos de Uso de Análisis Pragmáticos
 
+<div align=center>
+
+**Versión simplificada y orientada a la práctica de la documentación RUP**  
+*Enfocada en artefactos clave para comprensión rápida y eficiente*
+
+||||
+|-|-|-|
+|[Inicio](../../README.md)|[Casos de uso](../../00-casos-uso/02-detalle/README.md)|**Análisis**|
+
+</div>
+
 Esta carpeta contiene las versiones pragmáticas de los artefactos de análisis de los casos de uso.
 
 ## Casos de uso analizados

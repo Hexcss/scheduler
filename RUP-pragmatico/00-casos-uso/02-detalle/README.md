@@ -1,5 +1,16 @@
 # Casos de Uso Pragmáticos
 
+<div align=center>
+
+**Versión simplificada y orientada a la práctica de la documentación RUP**  
+*Enfocada en artefactos clave para comprensión rápida y eficiente*
+
+||||
+|-|-|-|
+|[Inicio](../../README.md)|**Casos de uso**|[Análisis](../../01-analisis/casos-uso/README.md)|
+
+</div>
+
 Esta carpeta contiene las versiones pragmáticas de los casos de uso detallados.
 
 ## Casos de uso especificados
