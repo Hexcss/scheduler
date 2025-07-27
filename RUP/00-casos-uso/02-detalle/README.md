@@ -35,6 +35,31 @@ Esta carpeta contiene la especificación detallada y prototipado de cada caso de
 - [editarCurso](editarCurso/) - Edición de cursos académicos
 - [eliminarCurso](eliminarCurso/) - Eliminación de cursos académicos
 
+### CRUD de Profesores
+- [crearProfesor](crearProfesor/) - Creación de profesores
+- [editarProfesor](editarProfesor/) - Edición de profesores
+- [eliminarProfesor](eliminarProfesor/) - Eliminación de profesores
+- [configurarPreferenciasProfesor](configurarPreferenciasProfesor/) - Configuración de preferencias de recursos
+
+### CRUD de Edificios
+- [crearEdificio](crearEdificio/) - Creación de edificios
+- [editarEdificio](editarEdificio/) - Edición de edificios
+- [eliminarEdificio](eliminarEdificio/) - Eliminación de edificios
+
+### CRUD de Aulas
+- [crearAula](crearAula/) - Creación de aulas
+- [editarAula](editarAula/) - Edición de aulas
+- [eliminarAula](eliminarAula/) - Eliminación de aulas
+
+### CRUD de Recursos
+- [crearRecurso](crearRecurso/) - Creación de recursos
+- [editarRecurso](editarRecurso/) - Edición de recursos
+- [eliminarRecurso](eliminarRecurso/) - Eliminación de recursos
+
+### Gestión de Horarios
+- [generarHorario](generarHorario/) - Generación automática de horarios
+- [consultarHorario](consultarHorario/) - Consulta de horarios generados
+
 ## Estructura de cada caso de uso
 
 Cada carpeta de caso de uso contiene:

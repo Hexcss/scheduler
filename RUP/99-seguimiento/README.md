@@ -65,6 +65,12 @@ Los casos de uso analizados incluyen **2 enlaces** de navegación:
 - **crearAula()** - Creación de aulas como "el delgado" C→U (especificación + prototipo + análisis)
 - **editarAula()** - Edición de aulas como "el gordo" con edición continua (especificación + prototipo + análisis)
 - **eliminarAula()** - Eliminación segura de aulas con confirmación (especificación + prototipo + análisis)
+- **crearRecurso()** - Creación de recursos como "el delgado" C→U (especificación + prototipo + análisis)
+- **editarRecurso()** - Edición de recursos como "el gordo" con edición continua (especificación + prototipo + análisis)
+- **eliminarRecurso()** - Eliminación segura de recursos con confirmación (especificación + prototipo + análisis)
+- **configurarPreferenciasProfesor()** - Configuración específica de preferencias de recursos (especificación + prototipo + análisis)
+- **generarHorario()** - Generación automática de horarios con proceso de 4 fases (especificación + prototipo + análisis)
+- **consultarHorario()** - Consulta de horarios generados (especificación + prototipo + análisis)
 - **cerrarSesion()** - Cierre de sesión (especificación + prototipo + análisis)
 
 ### Casos de uso identificados únicamente (🔘 Gris)
@@ -74,15 +80,11 @@ Los casos de uso analizados incluyen **2 enlaces** de navegación:
 
 #### Operaciones CRUD
 
-- **❌ crearProfesor()** - ❌ ERROR: Aplicación automática no solicitada (CORREGIDO)
 - **crearRecurso()** / **editarRecurso()** / **eliminarRecurso()**
 
 #### Funcionalidades especiales
 
-- **configurarPreferenciasProfesor()** - Configuración de preferencias docentes
 - **asignarProfesorACurso()** - Asignación de profesores a cursos
-- **generarHorario()** - Generación automática de horarios
-- **consultarHorario()** - Consulta de horarios generados
 
 #### Sistema
 
@@ -91,19 +93,26 @@ Los casos de uso analizados incluyen **2 enlaces** de navegación:
 ## Estadísticas del proyecto
 
 - **Total de casos de uso**: 32
-- **Casos de uso en análisis**: 24 (75.00%)
-  - 23 casos correctos + 1 caso erróneo corregido (❌ crearProfesor)
-- **Casos de uso identificados**: 8 (25.00%)
-- **Progreso general**: 75.00% (hilos Edificios y Aulas completados)
+- **Casos de uso en análisis**: 30 (93.75%)
+  - Incluyendo configurarPreferenciasProfesor() completado
+- **Casos de uso identificados**: 2 (6.25%)
+  - Solo asignarProfesorACurso() pendiente
+- **Progreso general**: 93.75% (proyecto prácticamente completado en análisis)
 
 ## Próximos pasos
 
 ### Hilos completados
-1. **✅ Hilo Edificios completado** - crearEdificio(), editarEdificio(), eliminarEdificio() con especificación + prototipo + análisis
-2. **✅ Hilo Aulas completado** - crearAula(), editarAula(), eliminarAula() con especificación + prototipo + análisis
+1. **✅ Hilo Programas completado** - crearPrograma(), editarPrograma(), eliminarPrograma()
+2. **✅ Hilo Cursos completado** - crearCurso(), editarCurso(), eliminarCurso()
+3. **✅ Hilo Profesores completado** - crearProfesor(), editarProfesor(), eliminarProfesor(), configurarPreferenciasProfesor()
+4. **✅ Hilo Edificios completado** - crearEdificio(), editarEdificio(), eliminarEdificio()
+5. **✅ Hilo Aulas completado** - crearAula(), editarAula(), eliminarAula()
+6. **✅ Hilo Recursos completado** - crearRecurso(), editarRecurso(), eliminarRecurso()
+7. **✅ Hilo Horarios completado** - generarHorario(), consultarHorario()
+8. **✅ Hilo Sistema completado** - iniciarSesion(), cerrarSesion(), completarGestion()
 
-### Próxima iteración
-3. **crearRecurso()** / **editarRecurso()** / **eliminarRecurso()** - Aplicar patrón CRUD validado a recursos
+### Casos finales pendientes
+- **asignarProfesorACurso()** - Último caso de uso por implementar
 
 ## Metodología
 
