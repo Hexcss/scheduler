@@ -45,42 +45,18 @@ pySigHor/
 
 <div align=center>
 
-![](/images/F8zDugwX0AArV7H.jpeg)
-
----
-
-![](/images/F8zDzlZXQAAe-o8.jpeg)
-
----
-
-![](/images/F8zDw0CWEAADw8U.jpeg)
-
----
-
-![](/images/F8zD4afXAAIsnGn.jpeg)
-
----
-
-![](/images/F8zD2blXAAArega.jpeg)
+|![](/images/F8zDugwX0AArV7H.jpeg)|![](/images/F8zDzlZXQAAe-o8.jpeg)|![](/images/F8zDw0CWEAADw8U.jpeg)|![](/images/F8zD4afXAAIsnGn.jpeg)|![](/images/F8zD2blXAAArega.jpeg)
+|:-:|:-:|:-:|:-:|:-:|
+|Definición de aulas|Definición de asignaturas (cursos)|Definición de profesores|Pantalla principal|Horario generado|
 
 </div>
 
 ## Hitos metodológicos que guían el trabajo (y se esperan alcanzar)
 
-### Pureza conceptual
+|Pureza conceptual|Patrón metodológico|Documentación metodológica
+|-|-|-|
+|**Casos de uso atómicos** identificados y organizados|**Conexión sistemática** entre casos de uso mediante colaboraciones|**Artículos técnicos** documentando lecciones aprendidas y decisiones metodológicas
+|**Nomenclatura tecnológicamente agnóstica** aplicada sistemáticamente  |**Marco escalable** para análisis futuro de casos de uso restantes|**Trazabilidad completa** en conversation-log con todas las conversaciones registradas
+|**Diagramas de contexto** libres de sesgo tecnológico||**Patrones reutilizables** establecidos para proyectos RUP similares
+|**Trazabilidad completa** desde requisitos hasta análisis de colaboración||
 
-- **Casos de uso atómicos** identificados y organizados
-- **Nomenclatura tecnológicamente agnóstica** aplicada sistemáticamente  
-- **Diagramas de contexto** libres de sesgo tecnológico
-- **Trazabilidad completa** desde requisitos hasta análisis de colaboración
-
-### Patrón metodológico
-
-- **Conexión sistemática** entre casos de uso mediante colaboraciones
-- **Marco escalable** para análisis futuro de casos de uso restantes
-
-### Documentación metodológica
-
-- **Artículos técnicos** documentando lecciones aprendidas y decisiones metodológicas
-- **Trazabilidad completa** en conversation-log con todas las conversaciones registradas
-- **Patrones reutilizables** establecidos para proyectos RUP similares
