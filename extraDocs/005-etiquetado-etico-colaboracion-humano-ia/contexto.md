@@ -1,5 +1,13 @@
 # Contexto: etiquetado ético en colaboración humano-IA
 
+<div align=right>
+
+|||||
+|-|-|-|-|
+|[🏠️](../README.md)|[Artículo](README.md)|**Contexto** | [Evidencia](evidencia.md)
+
+</div>
+
 ## Origen del análisis
 
 ### Situación inicial

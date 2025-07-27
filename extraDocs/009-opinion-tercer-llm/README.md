@@ -1,5 +1,13 @@
 # Valoración externa: LLMs analizan la colaboración humano-IA
 
+<div align=right>
+
+|||||
+|-|-|-|-|
+|[🏠️](../README.md)|**Artículo**|N/A | N/A
+
+</div>
+
 ## Contexto del experimento
 
 **pySigHor** es un proyecto de modernización de un sistema legacy de generación de horarios universitarios (Visual Basic 3.0, 1998) utilizando metodología RUP como herramienta didáctica. El proyecto documenta en tiempo real la **colaboración entre Manuel (experto en ingeniería de software) y Claude Code (IA)** para desarrollar casos de uso, análisis MVC y artefactos RUP completos.

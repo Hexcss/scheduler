@@ -1,5 +1,13 @@
 # Contexto del proyecto - coherencia estructural: cuando los README.md están en el lugar equivocado
 
+<div align=right>
+
+|||||
+|-|-|-|-|
+|[🏠️](../README.md)|[Artículo](README.md)|**Contexto** | [Evidencia](evidencia.md)
+
+</div>
+
 ## Estado del proyecto en el momento de la reflexión
 
 ### Fase del proyecto: consolidación post-reorganización disciplinar

@@ -1,5 +1,13 @@
 # Contexto: Incidente de Aplicación Automática Post-Compactación
 
+<div align=right>
+
+|||||
+|-|-|-|-|
+|[🏠️](../README.md)|[Artículo](README.md)|**Contexto** | [Evidencia](evidencia.md)
+
+</div>
+
 ## Información del artículo
 
 - **Proyecto**: pySigHor - Modernización del Sistema Generador de Horarios

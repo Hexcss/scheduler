@@ -1,5 +1,13 @@
 # Evidencia: Incidente de Aplicación Automática Post-Compactación
 
+<div align=right>
+
+|||||
+|-|-|-|-|
+|[🏠️](../README.md)|[Artículo](README.md)|[Contexto](contexto.md) | **Evidencia**
+
+</div>
+
 ## Commits relacionados
 
 ### Commit del incidente original

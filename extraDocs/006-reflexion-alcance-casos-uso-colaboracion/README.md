@@ -1,5 +1,13 @@
 # Reflexión metodológica: delimitación del alcance en diagramas de colaboración RUP
 
+<div align=right>
+
+|||||
+|-|-|-|-|
+|[🏠️](../README.md)|**Artículo**|[Contexto](contexto.md) | [Evidencia](evidencia.md)
+
+</div>
+
 ## Contexto del descubrimiento
 
 Durante el análisis del caso de uso `mostrarMenu()` en el proyecto de modernización SigHor, nos enfrentamos a una cuestión metodológica fundamental: **¿dónde termina la responsabilidad de un caso de uso y dónde comienzan las colaboraciones externas?**

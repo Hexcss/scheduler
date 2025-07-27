@@ -1,5 +1,13 @@
 # Contexto: diagramas de contexto múltiples por tecnología
 
+<div align=right>
+
+|||||
+|-|-|-|-|
+|[🏠️](../README.md)|[Artículo](README.md)|**Contexto** | [Evidencia](evidencia.md)
+
+</div>
+
 ## Origen de la reflexión
 
 ### **Conversación disparadora**

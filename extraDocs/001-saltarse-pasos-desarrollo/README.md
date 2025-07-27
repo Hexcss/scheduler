@@ -1,5 +1,13 @@
 # El problema de saltarse pasos: de la ilusión de eficiencia al caos sistemático
 
+<div align=right>
+
+|||||
+|-|-|-|-|
+|[🏠️](../README.md)|**Artículo**|[Contexto](contexto.md) | [Evidencia](evidencia.md)
+
+</div>
+
 ## Resumen ejecutivo
 
 Durante el desarrollo del proyecto pySigHor, se presentó un momento crítico donde se planteó saltar directamente al análisis MVC del caso de uso `crearPrograma()` sin completar las actividades de especificación detallada y prototipado requeridas por la disciplina de Requisitos. Este artículo analiza este dilema específico y extrae lecciones generales sobre por qué saltarse pasos metodológicos conduce sistemáticamente al caos en proyectos de software.

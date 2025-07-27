@@ -1,5 +1,13 @@
 # Aplicación de etiquetado ético en colaboración humano-IA: caso de estudio pySigHor
 
+<div align=right>
+
+|||||
+|-|-|-|-|
+|[🏠️](../README.md)|**Artículo**|[Contexto](contexto.md) | [Evidencia](evidencia.md)
+
+</div>
+
 ## Resumen
 
 Este documento presenta la primera aplicación práctica documentada del sistema de etiquetado ético propuesto para colaboración humano-IA, utilizando como caso de estudio el proyecto pySigHor-RUP. A través del análisis sistemático del registro de conversaciones completo, se demuestra cómo mapear contribuciones específicas a roles CRediT adaptados, proporcionando transparencia y reconocimiento justo en el trabajo colaborativo.

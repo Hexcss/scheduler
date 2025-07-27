@@ -1,5 +1,13 @@
 # Evidencia práctica: dashboard visual RUP
 
+<div align=right>
+
+|||||
+|-|-|-|-|
+|[🏠️](../README.md)|[Artículo](README.md)|[Contexto](contexto.md) | **Evidencia**
+
+</div>
+
 ## Casos de uso demostrativos
 
 ### Caso 1: estado inicial del proyecto

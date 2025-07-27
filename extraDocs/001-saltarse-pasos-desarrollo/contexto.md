@@ -1,5 +1,13 @@
 # Contexto del proyecto - el problema de saltarse pasos
 
+<div align=right>
+
+|||||
+|-|-|-|-|
+|[🏠️](../README.md)|[Artículo](README.md)|**Contexto**|[Evidencia](evidencia.md)
+
+</div>
+
 ## Estado del proyecto en el momento del dilema
 
 ### Fase del proyecto: transición requisitos → análisis

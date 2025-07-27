@@ -1,5 +1,13 @@
 # La promesa de RUP: análisis independiente de tecnología - experimento metodológico en tiempo real
 
+<div align=right>
+
+|||||
+|-|-|-|-|
+|[🏠️](../README.md)|**Artículo**|[Contexto](contexto.md) | [Evidencia](evidencia.md)
+
+</div>
+
 ## Resumen ejecutivo
 
 Este artículo documenta una decisión estratégica metodológica: completar todo el análisis RUP antes de abordar cualquier tecnología específica, como prueba experimental de la promesa fundamental de RUP sobre independencia tecnológica. Es una apuesta consciente por validar en tiempo real si una disciplina de análisis rigurosa puede resistir múltiples implementaciones tecnológicas sin modificaciones.

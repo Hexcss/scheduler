@@ -1,5 +1,13 @@
 # Evidencia - el problema de saltarse pasos
 
+<div align=right>
+
+|||||
+|-|-|-|-|
+|[🏠️](../README.md)|[Artículo](README.md)|[Contexto](contexto.md) | **Evidencia**
+
+</div>
+
 ## Commit específico
 
 **Hash**: `b5711c76a9b96432252c596b0d0c53815550fdf8`

@@ -1,5 +1,13 @@
 # Coherencia estructural: cuando los README.md están en el lugar equivocado
 
+<div align=right>
+
+|||||
+|-|-|-|-|
+|[🏠️](../README.md)|**Artículo**|[Contexto](contexto.md) | [Evidencia](evidencia.md)
+
+</div>
+
 ## Resumen ejecutivo
 
 Durante la evolución del proyecto pySigHor, se identificó una inconsistencia estructural: el archivo `RUP.md` ubicado en la raíz del proyecto contenía información organizacional que pertenecía conceptualmente a la carpeta `/RUP/`. Este artículo documenta la reflexión que llevó a reconocer el problema y la reorganización aplicada para lograr coherencia estructural en la documentación del proyecto.

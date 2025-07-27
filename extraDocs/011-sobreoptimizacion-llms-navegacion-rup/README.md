@@ -1,8 +1,12 @@
 # Sobreoptimización de LLMs: El Problema de la Navegación Anticipada en RUP
 
-*Ver también: [Contexto del proyecto](contexto.md) | [Evidencia y enlaces](evidencia.md)*
+<div align=right>
 
----
+|||||
+|-|-|-|-|
+|[🏠️](../README.md)|**Artículo**|[Contexto](contexto.md) | [Evidencia](evidencia.md)
+
+</div>
 
 ## El Problema Identificado
 

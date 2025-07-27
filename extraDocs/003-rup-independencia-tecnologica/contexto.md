@@ -1,5 +1,13 @@
 # Contexto: estado del proyecto al decidir el experimento RUP
 
+<div align=right>
+
+|||||
+|-|-|-|-|
+|[🏠️](../README.md)|[Artículo](README.md)|**Contexto** | [Evidencia](evidencia.md)
+
+</div>
+
 ## Momento de la decisión
 
 ### Estado de madurez metodológica

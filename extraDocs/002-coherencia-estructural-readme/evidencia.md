@@ -1,5 +1,13 @@
 # Evidencia - coherencia estructural: cuando los README.md están en el lugar equivocado
 
+<div align=right>
+
+|||||
+|-|-|-|-|
+|[🏠️](../README.md)|[Artículo](README.md)|[Contexto](contexto.md) | **Evidencia**
+
+</div>
+
 ## Commit específico
 
 **Hash**: [Por determinar - commit donde se realizó la reorganización]

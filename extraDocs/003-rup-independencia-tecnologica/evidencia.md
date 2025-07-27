@@ -1,5 +1,13 @@
 # Evidencia: la promesa de RUP - experimento metodológico
 
+<div align=right>
+
+|||||
+|-|-|-|-|
+|[🏠️](../README.md)|[Artículo](README.md)|[Contexto](contexto.md) | **Evidencia**
+
+</div>
+
 ## Conversación específica
 
 **Fecha**: 2025-07-08  

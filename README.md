@@ -12,11 +12,11 @@ En 1998, en la asignatura de TPD (Taller de procesamiento de datos) de Ing. Indu
 
 <div align=center>
 
-|El proyecto||
-|-|-
-|[Proceso(s)](/RUP/README.md)|Aplicación de la metodología RUP para la reingeniería del sistema, con énfasis en pureza metodológica y trazabilidad sistemática.
-|[Estado actual](https://raw.githubusercontent.com/mmasias/pySigHor/main/images/RUP/99-seguimiento/diagrama-contexto-administrador.svg)|Propuesta de artefacto dinámico de seguimiento
-|[Reflexiones...](/extraDocs/README.md)|Artículos de reflexión a partir de la dinámica de trabajo
+## El proyecto
+
+|[Proceso(s)](/RUP/README.md)|[Estado actual](https://raw.githubusercontent.com/mmasias/pySigHor/main/images/RUP/99-seguimiento/diagrama-contexto-administrador.svg)|[Reflexiones...](/extraDocs/README.md)|
+|-|-|-|
+|Aplicación de la metodología RUP para la reingeniería del sistema, con énfasis en pureza metodológica y trazabilidad sistemática.|Propuesta de artefacto dinámico de seguimiento|Artículos de reflexión a partir de la dinámica de trabajo
 
 </div>
 

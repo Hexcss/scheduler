@@ -1,5 +1,13 @@
 # Contexto del Proyecto - Artículo 011
 
+<div align=right>
+
+|||||
+|-|-|-|-|
+|[🏠️](../README.md)|[Artículo](README.md)|**Contexto**|[Evidencia](evidencia.md)
+
+</div>
+
 ## Estado del Proyecto en el Momento del Análisis
 
 **Fecha**: 2025-07-26  

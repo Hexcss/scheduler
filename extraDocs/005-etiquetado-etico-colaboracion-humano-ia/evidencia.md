@@ -1,5 +1,13 @@
 # Evidencia específica: aplicación de etiquetado ético
 
+<div align=right>
+
+|||||
+|-|-|-|-|
+|[🏠️](../README.md)|[Artículo](README.md)|[Contexto](contexto.md) | **Evidencia**
+
+</div>
+
 ## Propósito del documento
 
 Este documento complementa el [análisis de contribuciones](analisis-contribuciones.md) proporcionando evidencia específica y casos concretos que demuestran la aplicación práctica del sistema de etiquetado ético propuesto.

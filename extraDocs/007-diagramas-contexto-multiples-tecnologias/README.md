@@ -1,5 +1,13 @@
 # Diagramas de contexto múltiples por tecnología: pureza metodológica vs implementación práctica
 
+<div align=right>
+
+|||||
+|-|-|-|-|
+|[🏠️](../README.md)|**Artículo**|[Contexto](contexto.md) | [Evidencia](evidencia.md)
+
+</div>
+
 ## Resumen ejecutivo
 
 Este artículo propone una arquitectura de diagramas de contexto que reconcilia la tensión entre la pureza metodológica de RUP (análisis independiente de tecnología) y las necesidades prácticas de implementación en múltiples plataformas tecnológicas (GUI, Web, CLI, Móvil).

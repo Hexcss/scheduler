@@ -1,5 +1,13 @@
 # Dashboard visual RUP: diagrama de contexto como herramienta de gestión de proyecto
 
+<div align=right>
+
+|||||
+|-|-|-|-|
+|[🏠️](../README.md)|**Artículo**|[Contexto](contexto.md) | [Evidencia](evidencia.md)
+
+</div>
+
 ## Resumen ejecutivo
 
 Este artículo documenta el descubrimiento y desarrollo de una innovación metodológica para proyectos RUP: el uso del diagrama de contexto como dashboard visual para el seguimiento del progreso del proyecto. La técnica utiliza códigos de color y estilos de línea en PlantUML para convertir un artefacto RUP estándar en una herramienta de gestión de proyecto en tiempo real.
