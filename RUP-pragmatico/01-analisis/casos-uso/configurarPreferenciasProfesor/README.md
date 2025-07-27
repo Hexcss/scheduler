@@ -1,30 +1,23 @@
-# configurarPreferenciasProfesor - Análisis MVC
+<div align=right>
+ 
+|[🏠️](../../../README.md)|[ 📊](https://raw.githubusercontent.com/mmasias/pySigHor/main/images/RUP/99-seguimiento/diagrama-contexto-administrador.svg)|[Detalle (Pragmático)](../../../00-casos-uso/02-detalle/completarGestion/README.md)|**Análisis (Pragmático)**|[Diseño](../../../../RUP/02-diseno/casos-uso/completarGestion/README.md)|Desarrollo|Pruebas|
+|-|-|-|-|-|-|-|
 
-## Clases identificadas
+</div>
 
-### Vista (Boundary)
-- **ConfigurarPreferenciasProfesorView**: Presenta lista de recursos ordenable, captura modificaciones de prioridad
+# Configurar Preferencias Profesor (Análisis Pragmático)
 
-### Control
-- **PreferenciasProfesorController**: Coordina carga de datos, validación de orden y guardado de configuración
+## Diagrama de Colaboración
 
-### Entidad (Entity)
-- **ProfesorRepository**: Gestiona datos del profesor y sus preferencias
-- **RecursoRepository**: Gestiona datos de recursos disponibles
-- **Profesor**: Entidad profesor con relación a preferencias
-- **PreferenciasRecurso**: Relación profesor-recurso con orden de prioridad
-- **Recurso**: Entidad recurso configurable
+<div align=center>
 
-## Colaboraciones principales
+|![](/images/RUP/01-analisis/casos-uso/configurarPreferenciasProfesor/configurarPreferenciasProfesor-analisis.svg)|
+|-|
+|**Disciplina**: Análisis RUP<br>**Enfoque**: Diagramas de colaboración MVC|
 
-1. **Vista** solicita datos al **Controlador**
-2. **Controlador** obtiene profesor y recursos de **Repositorios**
-3. **Vista** presenta configuración y captura cambios
-4. **Controlador** valida nuevo orden y actualiza **ProfesorRepository**
-5. **Vista** navega de regreso a edición del profesor
+</div>
 
-## Responsabilidades clave
+## Referencias
 
-- **Validación de orden**: Secuencia completa y sin duplicados
-- **Configuración continua**: Múltiples modificaciones en sesión activa
-- **Navegación específica**: Regreso al contexto de edición del profesor
+- [Versión Formal del Análisis](../../../../RUP/01-analisis/casos-uso/configurarPreferenciasProfesor/README.md)
+- [Detalle (Pragmático)](../../../00-casos-uso/02-detalle/configurarPreferenciasProfesor/README.md)
