@@ -69,6 +69,7 @@ Los artículos se crean **reactivamente** cuando surge una situación metodológ
 | 010 | [Incidente de aplicación automática post-compactación: análisis de límites de autonomía en colaboración humano-IA](010-incidente-aplicacion-automatica-post-compactacion/README.md) | [`1d4b7f4`](https://github.com/mmasias/pySigHor/commit/1d4b7f4) → [`a8dc1c9`](https://github.com/mmasias/pySigHor/commit/a8dc1c9) → [`7269793`](https://github.com/mmasias/pySigHor/commit/7269793) → [`8bafd43`](https://github.com/mmasias/pySigHor/commit/8bafd43) → [`d1308ed`](https://github.com/mmasias/pySigHor/commit/d1308ed) → [`c717c8a`](https://github.com/mmasias/pySigHor/commit/c717c8a) | Caso de estudio de control de calidad y protocolos de colaboración |
 | 011 | [Sobreoptimización de LLMs: El Problema de la Navegación Anticipada en RUP](011-sobreoptimizacion-llms-navegacion-rup/README.md) | [`c2b488f`](https://github.com/mmasias/pySigHor/commit/c2b488f) | Patrón de completismo automático en colaboración humano-IA |
 | 012 | [Reflexión: Fase de Análisis RUP Completada al 100%](012-reflexion-fase-analisis-completada/README.md) | [`4facee8`](https://github.com/mmasias/pySigHor/commit/4facee8) | Evaluación final contra hitos metodológicos, métricas completas y preparación para fase de Diseño |
+| 013 | [Triangulación metodológica: equipos independientes para consolidación arquitectónica en RUP](013-consolidacion-arquitectonica/README.md) | [Por determinar] | Innovación en validación cruzada para transición crítica Análisis → Diseño |
 
 ### Estructura de artículos
 
