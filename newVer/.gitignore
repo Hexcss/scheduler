@@ -1,0 +1,27 @@
+# Binaries
+/bin
+/university-timetable
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Build / test artifacts
+*.test
+*.out
+
+# Go vendor
+/vendor
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
+
+# Config
+.env
+.env.local
+config.yaml

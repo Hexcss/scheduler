@@ -1,0 +1,36 @@
+# .air.toml - Live reload for Go development
+# Docs: https://github.com/cosmtrek/air
+
+root = "."
+tmp_dir = "tmp"
+
+[build]
+# Main Go entrypoint
+cmd = "go build -o ./tmp/university-timetable ./cmd/api"
+bin = "tmp/university-timetable"
+full_bin = "APP_ENV=development ./tmp/university-timetable"
+
+# Watch file changes and recompile
+include_ext = ["go", "yaml", "toml", "env"]
+exclude_dir = ["vendor", "api/openapi/gen-go", "api/proto/gen-go", "tmp", "migrations"]
+exclude_regex = ["_test.go"]
+
+# Add ldflags if you want version injection
+# args_bin = ["-ldflags", "-X main.version=dev"]
+
+# Delay after rebuild to restart binary
+delay = 1000 # ms
+
+[log]
+time = true
+color = true
+
+[color]
+main = "yellow"
+watcher = "cyan"
+build = "green"
+runner = "magenta"
+app = "white"
+
+[misc]
+clean_on_exit = true
