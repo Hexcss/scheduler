@@ -1,0 +1,33 @@
+flowchart LR
+  subgraph "Client Apps"
+    W["Web / Desktop / Mobile / CLI"]
+  end
+
+  W -->|"HTTP/JSON (OpenAPI)"| H["HTTP Adapter<br/>internal/adapters/http"]
+  W -.->|"WebSocket/SSE"| N["Notifier<br/>WebSocket Hub"]
+
+  subgraph "API Server (cmd/api)"
+    H --> M["Router & Handlers"]
+    M --> A["Application Layer<br/>internal/app/*"]
+    A --> D["Domain Layer<br/>entities + rules"]
+    A --> RP["Repository Ports"]
+    A --> SP["Solver Port"]
+    A --> NP["Notifier Port"]
+    A --> AU["Auth/Policies"]
+
+    RP --> RDB["Repo Adapters<br/>Postgres sqlc"]
+    SP --> SG["Solver Adapter<br/>Greedy"]
+    SP -.-> SC["Solver Adapter<br/>OR-Tools/gRPC"]
+    NP --> N
+
+    subgraph Infra
+      RDB --- DB[("Postgres")]
+      C[("Redis Cache/Locks")]
+      MET[("Prometheus")]
+      TR[("OpenTelemetry")]
+    end
+
+    M --> LOG[("Logger")]
+    M --> MET
+    M --> TR
+  end
