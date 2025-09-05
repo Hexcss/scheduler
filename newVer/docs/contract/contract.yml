@@ -1,0 +1,2016 @@
+openapi: 3.0.3
+info:
+  title: University Timetabling API
+  version: 1.0.0
+  description: >
+    General-week timetable backend (no calendar dates). Contracts are DTO-based and decoupled
+    from the persistence schema. Supports multiple frontends (web/desktop/mobile/CLI).
+    Includes CRUD endpoints and specialized scheduling operations (solve/validate/assign/move).
+
+servers:
+  - url: https://api.example.com/v1
+    description: Production
+  - url: https://staging.api.example.com/v1
+    description: Staging
+  - url: http://localhost:8080/v1
+    description: Local dev
+
+tags:
+  - name: Universities
+  - name: Campuses
+  - name: Buildings
+  - name: UniversityOperatingHours
+  - name: Classrooms
+  - name: Programs
+  - name: Semesters
+  - name: Cohorts
+  - name: Subjects
+  - name: SubjectOfferings
+  - name: Professors
+  - name: ProfessorWorkingHours
+  - name: Timeslots
+  - name: SubjectSessions
+  - name: SessionProfessors
+  - name: Solver
+
+security:
+  - bearerAuth: []
+
+paths:
+
+  ########################################
+  # Universities
+  ########################################
+  /universities:
+    get:
+      tags: [Universities]
+      summary: List universities
+      parameters:
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/limit'
+        - in: query
+          name: code
+          schema: { type: string }
+        - in: query
+          name: name
+          schema: { type: string }
+      responses:
+        '200':
+          description: Paged universities
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Page_UniversityOut' }
+    post:
+      tags: [Universities]
+      summary: Create a university
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/UniversityCreateIn' }
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/UniversityOut' }
+        '409': { $ref: '#/components/responses/Conflict' }
+
+  /universities/{universityId}:
+    get:
+      tags: [Universities]
+      summary: Get a university
+      parameters:
+        - $ref: '#/components/parameters/universityId'
+      responses:
+        '200':
+          description: University
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/UniversityOut' }
+        '404': { $ref: '#/components/responses/NotFound' }
+    patch:
+      tags: [Universities]
+      summary: Update a university (partial)
+      parameters:
+        - $ref: '#/components/parameters/universityId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/UniversityUpdateIn' }
+      responses:
+        '200':
+          description: Updated
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/UniversityOut' }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '409': { $ref: '#/components/responses/Conflict' }
+    delete:
+      tags: [Universities]
+      summary: Delete a university
+      parameters:
+        - $ref: '#/components/parameters/universityId'
+      responses:
+        '204': { description: No Content }
+        '404': { $ref: '#/components/responses/NotFound' }
+
+  ########################################
+  # Campuses
+  ########################################
+  /universities/{universityId}/campuses:
+    get:
+      tags: [Campuses]
+      summary: List campuses for a university
+      parameters:
+        - $ref: '#/components/parameters/universityId'
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/limit'
+        - in: query
+          name: code
+          schema: { type: string }
+        - in: query
+          name: name
+          schema: { type: string }
+      responses:
+        '200':
+          description: Paged campuses
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Page_CampusOut' }
+    post:
+      tags: [Campuses]
+      summary: Create campus
+      parameters:
+        - $ref: '#/components/parameters/universityId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/CampusCreateIn' }
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/CampusOut' }
+        '409': { $ref: '#/components/responses/Conflict' }
+
+  /campuses/{campusId}:
+    get:
+      tags: [Campuses]
+      summary: Get campus
+      parameters:
+        - $ref: '#/components/parameters/campusId'
+      responses:
+        '200':
+          description: Campus
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/CampusOut' }
+        '404': { $ref: '#/components/responses/NotFound' }
+    patch:
+      tags: [Campuses]
+      summary: Update campus
+      parameters:
+        - $ref: '#/components/parameters/campusId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/CampusUpdateIn' }
+      responses:
+        '200':
+          description: Updated
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/CampusOut' }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '409': { $ref: '#/components/responses/Conflict' }
+    delete:
+      tags: [Campuses]
+      summary: Delete campus
+      parameters:
+        - $ref: '#/components/parameters/campusId'
+      responses:
+        '204': { description: No Content }
+        '404': { $ref: '#/components/responses/NotFound' }
+
+  ########################################
+  # Buildings
+  ########################################
+  /campuses/{campusId}/buildings:
+    get:
+      tags: [Buildings]
+      summary: List buildings for a campus
+      parameters:
+        - $ref: '#/components/parameters/campusId'
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/limit'
+        - in: query
+          name: code
+          schema: { type: string }
+        - in: query
+          name: name
+          schema: { type: string }
+      responses:
+        '200':
+          description: Paged buildings
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Page_BuildingOut' }
+    post:
+      tags: [Buildings]
+      summary: Create building
+      parameters:
+        - $ref: '#/components/parameters/campusId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/BuildingCreateIn' }
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/BuildingOut' }
+        '409': { $ref: '#/components/responses/Conflict' }
+
+  /buildings/{buildingId}:
+    get:
+      tags: [Buildings]
+      summary: Get building
+      parameters:
+        - $ref: '#/components/parameters/buildingId'
+      responses:
+        '200':
+          description: Building
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/BuildingOut' }
+        '404': { $ref: '#/components/responses/NotFound' }
+    patch:
+      tags: [Buildings]
+      summary: Update building
+      parameters:
+        - $ref: '#/components/parameters/buildingId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/BuildingUpdateIn' }
+      responses:
+        '200':
+          description: Updated
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/BuildingOut' }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '409': { $ref: '#/components/responses/Conflict' }
+    delete:
+      tags: [Buildings]
+      summary: Delete building
+      parameters:
+        - $ref: '#/components/parameters/buildingId'
+      responses:
+        '204': { description: No Content }
+        '404': { $ref: '#/components/responses/NotFound' }
+
+  ########################################
+  # University Operating Hours
+  ########################################
+  /universities/{universityId}/operating-hours:
+    get:
+      tags: [UniversityOperatingHours]
+      summary: List operating hours (per day)
+      parameters:
+        - $ref: '#/components/parameters/universityId'
+      responses:
+        '200':
+          description: Operating hours
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/UniversityOperatingHoursOut' }
+    put:
+      tags: [UniversityOperatingHours]
+      summary: Replace all operating hours for a university (upsert per day)
+      parameters:
+        - $ref: '#/components/parameters/universityId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              minItems: 1
+              items: { $ref: '#/components/schemas/UniversityOperatingHoursIn' }
+      responses:
+        '200':
+          description: Updated
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/UniversityOperatingHoursOut' }
+
+  ########################################
+  # Classrooms
+  ########################################
+  /buildings/{buildingId}/classrooms:
+    get:
+      tags: [Classrooms]
+      summary: List classrooms for a building
+      parameters:
+        - $ref: '#/components/parameters/buildingId'
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/limit'
+        - in: query
+          name: is_lab
+          schema: { type: boolean }
+        - in: query
+          name: lab_type
+          schema: { $ref: '#/components/schemas/LabType' }
+        - in: query
+          name: min_capacity
+          schema: { type: integer, minimum: 1 }
+      responses:
+        '200':
+          description: Paged classrooms
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Page_ClassroomOut' }
+    post:
+      tags: [Classrooms]
+      summary: Create classroom
+      parameters:
+        - $ref: '#/components/parameters/buildingId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/ClassroomCreateIn' }
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ClassroomOut' }
+        '409': { $ref: '#/components/responses/Conflict' }
+
+  /classrooms/{classroomId}:
+    get:
+      tags: [Classrooms]
+      summary: Get classroom
+      parameters:
+        - $ref: '#/components/parameters/classroomId'
+      responses:
+        '200':
+          description: Classroom
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ClassroomOut' }
+        '404': { $ref: '#/components/responses/NotFound' }
+    patch:
+      tags: [Classrooms]
+      summary: Update classroom
+      parameters:
+        - $ref: '#/components/parameters/classroomId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/ClassroomUpdateIn' }
+      responses:
+        '200':
+          description: Updated
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ClassroomOut' }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '409': { $ref: '#/components/responses/Conflict' }
+    delete:
+      tags: [Classrooms]
+      summary: Delete classroom
+      parameters:
+        - $ref: '#/components/parameters/classroomId'
+      responses:
+        '204': { description: No Content }
+        '404': { $ref: '#/components/responses/NotFound' }
+
+  ########################################
+  # Programs
+  ########################################
+  /universities/{universityId}/programs:
+    get:
+      tags: [Programs]
+      summary: List programs
+      parameters:
+        - $ref: '#/components/parameters/universityId'
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/limit'
+        - in: query
+          name: code
+          schema: { type: string }
+        - in: query
+          name: name
+          schema: { type: string }
+      responses:
+        '200':
+          description: Paged programs
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Page_ProgramOut' }
+    post:
+      tags: [Programs]
+      summary: Create program
+      parameters:
+        - $ref: '#/components/parameters/universityId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/ProgramCreateIn' }
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ProgramOut' }
+        '409': { $ref: '#/components/responses/Conflict' }
+
+  /programs/{programId}:
+    get:
+      tags: [Programs]
+      summary: Get program
+      parameters:
+        - $ref: '#/components/parameters/programId'
+      responses:
+        '200':
+          description: Program
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ProgramOut' }
+        '404': { $ref: '#/components/responses/NotFound' }
+    patch:
+      tags: [Programs]
+      summary: Update program
+      parameters:
+        - $ref: '#/components/parameters/programId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/ProgramUpdateIn' }
+      responses:
+        '200':
+          description: Updated
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ProgramOut' }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '409': { $ref: '#/components/responses/Conflict' }
+    delete:
+      tags: [Programs]
+      summary: Delete program
+      parameters:
+        - $ref: '#/components/parameters/programId'
+      responses:
+        '204': { description: No Content }
+        '404': { $ref: '#/components/responses/NotFound' }
+
+  ########################################
+  # Semesters
+  ########################################
+  /universities/{universityId}/semesters:
+    get:
+      tags: [Semesters]
+      summary: List semesters
+      parameters:
+        - $ref: '#/components/parameters/universityId'
+      responses:
+        '200':
+          description: Semesters
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/SemesterOut' }
+    post:
+      tags: [Semesters]
+      summary: Create semester
+      parameters:
+        - $ref: '#/components/parameters/universityId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/SemesterCreateIn' }
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/SemesterOut' }
+        '409': { $ref: '#/components/responses/Conflict' }
+
+  /semesters/{semesterId}:
+    get:
+      tags: [Semesters]
+      summary: Get semester
+      parameters:
+        - $ref: '#/components/parameters/semesterId'
+      responses:
+        '200':
+          description: Semester
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/SemesterOut' }
+        '404': { $ref: '#/components/responses/NotFound' }
+    patch:
+      tags: [Semesters]
+      summary: Update semester
+      parameters:
+        - $ref: '#/components/parameters/semesterId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/SemesterUpdateIn' }
+      responses:
+        '200':
+          description: Updated
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/SemesterOut' }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '409': { $ref: '#/components/responses/Conflict' }
+    delete:
+      tags: [Semesters]
+      summary: Delete semester
+      parameters:
+        - $ref: '#/components/parameters/semesterId'
+      responses:
+        '204': { description: No Content }
+        '404': { $ref: '#/components/responses/NotFound' }
+
+  ########################################
+  # Cohorts
+  ########################################
+  /programs/{programId}/cohorts:
+    get:
+      tags: [Cohorts]
+      summary: List cohorts for a program
+      parameters:
+        - $ref: '#/components/parameters/programId'
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/limit'
+        - in: query
+          name: semesterId
+          schema: { type: integer, format: int64 }
+        - in: query
+          name: yearNumber
+          schema: { type: integer, minimum: 1 }
+      responses:
+        '200':
+          description: Paged cohorts
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Page_CohortOut' }
+    post:
+      tags: [Cohorts]
+      summary: Create cohort
+      parameters:
+        - $ref: '#/components/parameters/programId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/CohortCreateIn' }
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/CohortOut' }
+        '409': { $ref: '#/components/responses/Conflict' }
+
+  /cohorts/{cohortId}:
+    get:
+      tags: [Cohorts]
+      summary: Get cohort
+      parameters:
+        - $ref: '#/components/parameters/cohortId'
+      responses:
+        '200':
+          description: Cohort
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/CohortOut' }
+        '404': { $ref: '#/components/responses/NotFound' }
+    patch:
+      tags: [Cohorts]
+      summary: Update cohort
+      parameters:
+        - $ref: '#/components/parameters/cohortId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/CohortUpdateIn' }
+      responses:
+        '200':
+          description: Updated
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/CohortOut' }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '409': { $ref: '#/components/responses/Conflict' }
+    delete:
+      tags: [Cohorts]
+      summary: Delete cohort
+      parameters:
+        - $ref: '#/components/parameters/cohortId'
+      responses:
+        '204': { description: No Content }
+        '404': { $ref: '#/components/responses/NotFound' }
+
+  ########################################
+  # Subjects (catalog)
+  ########################################
+  /programs/{programId}/subjects:
+    get:
+      tags: [Subjects]
+      summary: List subjects for a program
+      parameters:
+        - $ref: '#/components/parameters/programId'
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/limit'
+        - in: query
+          name: code
+          schema: { type: string }
+        - in: query
+          name: name
+          schema: { type: string }
+      responses:
+        '200':
+          description: Paged subjects
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Page_SubjectOut' }
+    post:
+      tags: [Subjects]
+      summary: Create subject
+      parameters:
+        - $ref: '#/components/parameters/programId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/SubjectCreateIn' }
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/SubjectOut' }
+        '409': { $ref: '#/components/responses/Conflict' }
+
+  /subjects/{subjectId}:
+    get:
+      tags: [Subjects]
+      summary: Get subject
+      parameters:
+        - $ref: '#/components/parameters/subjectId'
+      responses:
+        '200':
+          description: Subject
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/SubjectOut' }
+        '404': { $ref: '#/components/responses/NotFound' }
+    patch:
+      tags: [Subjects]
+      summary: Update subject
+      parameters:
+        - $ref: '#/components/parameters/subjectId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/SubjectUpdateIn' }
+      responses:
+        '200':
+          description: Updated
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/SubjectOut' }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '409': { $ref: '#/components/responses/Conflict' }
+    delete:
+      tags: [Subjects]
+      summary: Delete subject
+      parameters:
+        - $ref: '#/components/parameters/subjectId'
+      responses:
+        '204': { description: No Content }
+        '404': { $ref: '#/components/responses/NotFound' }
+
+  ########################################
+  # Subject Offerings
+  ########################################
+  /cohorts/{cohortId}/offerings:
+    get:
+      tags: [SubjectOfferings]
+      summary: List offerings for a cohort
+      parameters:
+        - $ref: '#/components/parameters/cohortId'
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/limit'
+      responses:
+        '200':
+          description: Paged offerings
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Page_SubjectOfferingOut' }
+    post:
+      tags: [SubjectOfferings]
+      summary: Create offering
+      parameters:
+        - $ref: '#/components/parameters/cohortId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/SubjectOfferingCreateIn' }
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/SubjectOfferingOut' }
+        '409': { $ref: '#/components/responses/Conflict' }
+
+  /offerings/{offeringId}:
+    get:
+      tags: [SubjectOfferings]
+      summary: Get offering
+      parameters:
+        - $ref: '#/components/parameters/offeringId'
+      responses:
+        '200':
+          description: Offering
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/SubjectOfferingOut' }
+        '404': { $ref: '#/components/responses/NotFound' }
+    patch:
+      tags: [SubjectOfferings]
+      summary: Update offering
+      parameters:
+        - $ref: '#/components/parameters/offeringId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/SubjectOfferingUpdateIn' }
+      responses:
+        '200':
+          description: Updated
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/SubjectOfferingOut' }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '409': { $ref: '#/components/responses/Conflict' }
+    delete:
+      tags: [SubjectOfferings]
+      summary: Delete offering
+      parameters:
+        - $ref: '#/components/parameters/offeringId'
+      responses:
+        '204': { description: No Content }
+        '404': { $ref: '#/components/responses/NotFound' }
+
+  ########################################
+  # Professors
+  ########################################
+  /universities/{universityId}/professors:
+    get:
+      tags: [Professors]
+      summary: List professors
+      parameters:
+        - $ref: '#/components/parameters/universityId'
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/limit'
+        - in: query
+          name: code
+          schema: { type: string }
+        - in: query
+          name: name
+          schema: { type: string }
+      responses:
+        '200':
+          description: Paged professors
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Page_ProfessorOut' }
+    post:
+      tags: [Professors]
+      summary: Create professor
+      parameters:
+        - $ref: '#/components/parameters/universityId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/ProfessorCreateIn' }
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ProfessorOut' }
+        '409': { $ref: '#/components/responses/Conflict' }
+
+  /professors/{professorId}:
+    get:
+      tags: [Professors]
+      summary: Get professor
+      parameters:
+        - $ref: '#/components/parameters/professorId'
+      responses:
+        '200':
+          description: Professor
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ProfessorOut' }
+        '404': { $ref: '#/components/responses/NotFound' }
+    patch:
+      tags: [Professors]
+      summary: Update professor
+      parameters:
+        - $ref: '#/components/parameters/professorId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/ProfessorUpdateIn' }
+      responses:
+        '200':
+          description: Updated
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ProfessorOut' }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '409': { $ref: '#/components/responses/Conflict' }
+    delete:
+      tags: [Professors]
+      summary: Delete professor
+      parameters:
+        - $ref: '#/components/parameters/professorId'
+      responses:
+        '204': { description: No Content }
+        '404': { $ref: '#/components/responses/NotFound' }
+
+  ########################################
+  # Professor Working Hours
+  ########################################
+  /professors/{professorId}/working-hours:
+    get:
+      tags: [ProfessorWorkingHours]
+      summary: Get weekly working hours for a professor
+      parameters:
+        - $ref: '#/components/parameters/professorId'
+      responses:
+        '200':
+          description: Per-day working hours
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/ProfessorWorkingHoursOut' }
+    put:
+      tags: [ProfessorWorkingHours]
+      summary: Replace all working hours for a professor (upsert per day)
+      parameters:
+        - $ref: '#/components/parameters/professorId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              minItems: 1
+              items: { $ref: '#/components/schemas/ProfessorWorkingHoursIn' }
+      responses:
+        '200':
+          description: Updated
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/ProfessorWorkingHoursOut' }
+
+  ########################################
+  # Offerings ↔ Professors (many-to-many)
+  ########################################
+  /offerings/{offeringId}/professors:
+    get:
+      tags: [SubjectOfferings]
+      summary: List professors attached to an offering
+      parameters:
+        - $ref: '#/components/parameters/offeringId'
+      responses:
+        '200':
+          description: Professors
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/ProfessorOut' }
+    post:
+      tags: [SubjectOfferings]
+      summary: Attach professors to an offering (replace set)
+      parameters:
+        - $ref: '#/components/parameters/offeringId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [professorIds]
+              properties:
+                professorIds:
+                  type: array
+                  minItems: 1
+                  items: { type: integer, format: int64 }
+      responses:
+        '200':
+          description: Updated set
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/ProfessorOut' }
+
+  ########################################
+  # Timeslots
+  ########################################
+  /universities/{universityId}/timeslots:
+    get:
+      tags: [Timeslots]
+      summary: List timeslots (general week)
+      parameters:
+        - $ref: '#/components/parameters/universityId'
+        - in: query
+          name: dayOfWeek
+          schema: { $ref: '#/components/schemas/DayOfWeek' }
+      responses:
+        '200':
+          description: Timeslots
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/TimeslotOut' }
+    post:
+      tags: [Timeslots]
+      summary: Create timeslot
+      parameters:
+        - $ref: '#/components/parameters/universityId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/TimeslotCreateIn' }
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/TimeslotOut' }
+
+  /timeslots/bulk:
+    post:
+      tags: [Timeslots]
+      summary: Bulk create timeslots (helper)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/BulkTimeslotCreateIn' }
+      responses:
+        '201':
+          description: Created timeslots
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/TimeslotOut' }
+
+  /timeslots/{timeslotId}:
+    get:
+      tags: [Timeslots]
+      summary: Get timeslot
+      parameters:
+        - $ref: '#/components/parameters/timeslotId'
+      responses:
+        '200':
+          description: Timeslot
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/TimeslotOut' }
+        '404': { $ref: '#/components/responses/NotFound' }
+    patch:
+      tags: [Timeslots]
+      summary: Update timeslot
+      parameters:
+        - $ref: '#/components/parameters/timeslotId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/TimeslotUpdateIn' }
+      responses:
+        '200':
+          description: Updated
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/TimeslotOut' }
+        '404': { $ref: '#/components/responses/NotFound' }
+    delete:
+      tags: [Timeslots]
+      summary: Delete timeslot
+      parameters:
+        - $ref: '#/components/parameters/timeslotId'
+      responses:
+        '204': { description: No Content }
+        '404': { $ref: '#/components/responses/NotFound' }
+
+  ########################################
+  # Subject Sessions
+  ########################################
+  /offerings/{offeringId}/sessions:
+    get:
+      tags: [SubjectSessions]
+      summary: List sessions for an offering
+      parameters:
+        - $ref: '#/components/parameters/offeringId'
+      responses:
+        '200':
+          description: Sessions
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/SubjectSessionOut' }
+    post:
+      tags: [SubjectSessions]
+      summary: Create session (manual)
+      parameters:
+        - $ref: '#/components/parameters/offeringId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/SubjectSessionCreateIn' }
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/SubjectSessionOut' }
+
+  /sessions/{sessionId}:
+    get:
+      tags: [SubjectSessions]
+      summary: Get session
+      parameters:
+        - $ref: '#/components/parameters/sessionId'
+      responses:
+        '200':
+          description: Session
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/SubjectSessionOut' }
+        '404': { $ref: '#/components/responses/NotFound' }
+    patch:
+      tags: [SubjectSessions]
+      summary: Update session (move/change room)
+      parameters:
+        - $ref: '#/components/parameters/sessionId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/SubjectSessionUpdateIn' }
+      responses:
+        '200':
+          description: Updated
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/SubjectSessionOut' }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '409': { $ref: '#/components/responses/Conflict' }
+    delete:
+      tags: [SubjectSessions]
+      summary: Delete session
+      parameters:
+        - $ref: '#/components/parameters/sessionId'
+      responses:
+        '204': { description: No Content }
+        '404': { $ref: '#/components/responses/NotFound' }
+
+  /sessions/{sessionId}/professors:
+    get:
+      tags: [SessionProfessors]
+      summary: List professors for a session
+      parameters:
+        - $ref: '#/components/parameters/sessionId'
+      responses:
+        '200':
+          description: Professors for session
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/ProfessorOut' }
+    post:
+      tags: [SessionProfessors]
+      summary: Attach professors to session (replace set)
+      parameters:
+        - $ref: '#/components/parameters/sessionId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [professorIds]
+              properties:
+                professorIds:
+                  type: array
+                  minItems: 1
+                  items: { type: integer, format: int64 }
+      responses:
+        '200':
+          description: Updated set
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/ProfessorOut' }
+
+  /sessions/{sessionId}/suggest-rooms:
+    get:
+      tags: [SubjectSessions]
+      summary: Suggest feasible classrooms for a session (capacity/lab/availability)
+      parameters:
+        - $ref: '#/components/parameters/sessionId'
+        - in: query
+          name: limit
+          schema: { type: integer, minimum: 1, default: 10 }
+      responses:
+        '200':
+          description: Ranked room suggestions
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/RoomSuggestionOut' }
+
+  ########################################
+  # Solver / Specialized Operations
+  ########################################
+  /solver/solve:
+    post:
+      tags: [Solver]
+      summary: Generate sessions for offerings (timeslot assignment) based on constraints & biases
+      description: >
+        Creates or updates SubjectSessions for the provided scope. Can operate at university/program/cohort/offering scope.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/SolveRequestIn' }
+      responses:
+        '200':
+          description: Solve result
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/SolveResultOut' }
+
+  /solver/validate:
+    post:
+      tags: [Solver]
+      summary: Validate current timetable for conflicts and soft-constraint scores
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/ValidateRequestIn' }
+      responses:
+        '200':
+          description: Validation report
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ValidationReportOut' }
+
+  /solver/assign-classrooms:
+    post:
+      tags: [Solver]
+      summary: Assign classrooms to sessions that lack them (respecting capacity/lab/availability)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/AssignRoomsRequestIn' }
+      responses:
+        '200':
+          description: Assignment result
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/AssignRoomsResultOut' }
+
+  /solver/move-session:
+    post:
+      tags: [Solver]
+      summary: Attempt to move a session to a new timeslot/room with constraint checks
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/MoveSessionRequestIn' }
+      responses:
+        '200':
+          description: Move result
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/MoveSessionResultOut' }
+
+components:
+
+  ########################################
+  # Security
+  ########################################
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  ########################################
+  # Parameters
+  ########################################
+  parameters:
+    page:
+      in: query
+      name: page
+      schema: { type: integer, minimum: 1, default: 1 }
+    limit:
+      in: query
+      name: limit
+      schema: { type: integer, minimum: 1, maximum: 200, default: 20 }
+
+    universityId:
+      in: path
+      name: universityId
+      required: true
+      schema: { type: integer, format: int64 }
+    campusId:
+      in: path
+      name: campusId
+      required: true
+      schema: { type: integer, format: int64 }
+    buildingId:
+      in: path
+      name: buildingId
+      required: true
+      schema: { type: integer, format: int64 }
+    programId:
+      in: path
+      name: programId
+      required: true
+      schema: { type: integer, format: int64 }
+    semesterId:
+      in: path
+      name: semesterId
+      required: true
+      schema: { type: integer, format: int64 }
+    cohortId:
+      in: path
+      name: cohortId
+      required: true
+      schema: { type: integer, format: int64 }
+    subjectId:
+      in: path
+      name: subjectId
+      required: true
+      schema: { type: integer, format: int64 }
+    offeringId:
+      in: path
+      name: offeringId
+      required: true
+      schema: { type: integer, format: int64 }
+    professorId:
+      in: path
+      name: professorId
+      required: true
+      schema: { type: integer, format: int64 }
+    timeslotId:
+      in: path
+      name: timeslotId
+      required: true
+      schema: { type: integer, format: int64 }
+    classroomId:
+      in: path
+      name: classroomId
+      required: true
+      schema: { type: integer, format: int64 }
+    sessionId:
+      in: path
+      name: sessionId
+      required: true
+      schema: { type: integer, format: int64 }
+
+  ########################################
+  # Responses
+  ########################################
+  responses:
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Problem' }
+    Conflict:
+      description: Conflict or constraint violation
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Problem' }
+
+  ########################################
+  # Schemas (DTOs)
+  ########################################
+  schemas:
+
+    # ---------- Enums ----------
+    DayOfWeek:
+      type: string
+      enum: [MON, TUE, WED, THU, FRI, SAT, SUN]
+    LabType:
+      type: string
+      enum: [NONE, COMPUTER, CHEMISTRY, PHYSICS, ELECTRONICS, LANGUAGE]
+
+    # ---------- Common ----------
+    Id:
+      type: integer
+      format: int64
+      minimum: 1
+    TimeString:
+      type: string
+      pattern: '^([01]\\d|2[0-3]):[0-5]\\d$'
+      example: '07:30'
+    PageInfo:
+      type: object
+      properties:
+        page: { type: integer, minimum: 1 }
+        limit: { type: integer, minimum: 1 }
+        totalItems: { type: integer, minimum: 0 }
+        totalPages: { type: integer, minimum: 0 }
+      required: [page, limit, totalItems, totalPages]
+    Problem:
+      type: object
+      properties:
+        type: { type: string, format: uri }
+        title: { type: string }
+        status: { type: integer }
+        detail: { type: string }
+        instance: { type: string, format: uri }
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              field: { type: string }
+              message: { type: string }
+
+    # ---------- Page wrappers ----------
+    Page_UniversityOut:
+      type: object
+      properties:
+        data:
+          type: array
+          items: { $ref: '#/components/schemas/UniversityOut' }
+        pageInfo: { $ref: '#/components/schemas/PageInfo' }
+      required: [data, pageInfo]
+    Page_CampusOut:
+      allOf:
+        - $ref: '#/components/schemas/Page_UniversityOut'
+        - type: object
+          properties:
+            data:
+              type: array
+              items: { $ref: '#/components/schemas/CampusOut' }
+    Page_BuildingOut:
+      allOf:
+        - $ref: '#/components/schemas/Page_UniversityOut'
+        - type: object
+          properties:
+            data:
+              type: array
+              items: { $ref: '#/components/schemas/BuildingOut' }
+    Page_ClassroomOut:
+      allOf:
+        - $ref: '#/components/schemas/Page_UniversityOut'
+        - type: object
+          properties:
+            data:
+              type: array
+              items: { $ref: '#/components/schemas/ClassroomOut' }
+    Page_ProgramOut:
+      allOf:
+        - $ref: '#/components/schemas/Page_UniversityOut'
+        - type: object
+          properties:
+            data:
+              type: array
+              items: { $ref: '#/components/schemas/ProgramOut' }
+    Page_CohortOut:
+      allOf:
+        - $ref: '#/components/schemas/Page_UniversityOut'
+        - type: object
+          properties:
+            data:
+              type: array
+              items: { $ref: '#/components/schemas/CohortOut' }
+    Page_SubjectOut:
+      allOf:
+        - $ref: '#/components/schemas/Page_UniversityOut'
+        - type: object
+          properties:
+            data:
+              type: array
+              items: { $ref: '#/components/schemas/SubjectOut' }
+    Page_SubjectOfferingOut:
+      allOf:
+        - $ref: '#/components/schemas/Page_UniversityOut'
+        - type: object
+          properties:
+            data:
+              type: array
+              items: { $ref: '#/components/schemas/SubjectOfferingOut' }
+    Page_ProfessorOut:
+      allOf:
+        - $ref: '#/components/schemas/Page_UniversityOut'
+        - type: object
+          properties:
+            data:
+              type: array
+              items: { $ref: '#/components/schemas/ProfessorOut' }
+
+    # ---------- University ----------
+    UniversityCreateIn:
+      type: object
+      required: [code, name, defaultSlotMinutes]
+      properties:
+        code: { type: string, minLength: 1, maxLength: 32 }
+        name: { type: string, minLength: 1, maxLength: 255 }
+        defaultSlotMinutes: { type: integer, minimum: 15, maximum: 480 }
+        notes: { type: string }
+    UniversityUpdateIn:
+      type: object
+      properties:
+        code: { type: string, minLength: 1, maxLength: 32 }
+        name: { type: string, minLength: 1, maxLength: 255 }
+        defaultSlotMinutes: { type: integer, minimum: 15, maximum: 480 }
+        notes: { type: string }
+    UniversityOut:
+      type: object
+      properties:
+        id: { $ref: '#/components/schemas/Id' }
+        code: { type: string }
+        name: { type: string }
+        defaultSlotMinutes: { type: integer }
+        notes: { type: string }
+
+    # ---------- Campus ----------
+    CampusCreateIn:
+      type: object
+      required: [code, name]
+      properties:
+        code: { type: string, minLength: 1, maxLength: 32 }
+        name: { type: string, minLength: 1, maxLength: 255 }
+        address: { type: string, maxLength: 255 }
+    CampusUpdateIn:
+      type: object
+      properties:
+        code: { type: string, minLength: 1, maxLength: 32 }
+        name: { type: string, minLength: 1, maxLength: 255 }
+        address: { type: string, maxLength: 255 }
+    CampusOut:
+      type: object
+      properties:
+        id: { $ref: '#/components/schemas/Id' }
+        universityId: { $ref: '#/components/schemas/Id' }
+        code: { type: string }
+        name: { type: string }
+        address: { type: string }
+
+    # ---------- Building ----------
+    BuildingCreateIn:
+      type: object
+      required: [code, name]
+      properties:
+        code: { type: string, minLength: 1, maxLength: 32 }
+        name: { type: string, minLength: 1, maxLength: 255 }
+    BuildingUpdateIn:
+      type: object
+      properties:
+        code: { type: string, minLength: 1, maxLength: 32 }
+        name: { type: string, minLength: 1, maxLength: 255 }
+    BuildingOut:
+      type: object
+      properties:
+        id: { $ref: '#/components/schemas/Id' }
+        campusId: { $ref: '#/components/schemas/Id' }
+        code: { type: string }
+        name: { type: string }
+
+    # ---------- Operating Hours ----------
+    UniversityOperatingHoursIn:
+      type: object
+      required: [dayOfWeek, isOpen, openTime, closeTime]
+      properties:
+        dayOfWeek: { $ref: '#/components/schemas/DayOfWeek' }
+        isOpen: { type: boolean, default: true }
+        openTime: { $ref: '#/components/schemas/TimeString' }
+        closeTime: { $ref: '#/components/schemas/TimeString' }
+    UniversityOperatingHoursOut:
+      allOf:
+        - $ref: '#/components/schemas/UniversityOperatingHoursIn'
+        - type: object
+          properties:
+            id: { $ref: '#/components/schemas/Id' }
+            universityId: { $ref: '#/components/schemas/Id' }
+
+    # ---------- Classroom ----------
+    ClassroomCreateIn:
+      type: object
+      required: [code, name, capacity]
+      properties:
+        code: { type: string, minLength: 1, maxLength: 32 }
+        name: { type: string, minLength: 1, maxLength: 255 }
+        capacity: { type: integer, minimum: 1 }
+        isLab: { type: boolean, default: false }
+        labType: { $ref: '#/components/schemas/LabType' }
+        equipment: { type: object, additionalProperties: true }
+    ClassroomUpdateIn:
+      type: object
+      properties:
+        code: { type: string, minLength: 1, maxLength: 32 }
+        name: { type: string, minLength: 1, maxLength: 255 }
+        capacity: { type: integer, minimum: 1 }
+        isLab: { type: boolean }
+        labType: { $ref: '#/components/schemas/LabType' }
+        equipment: { type: object, additionalProperties: true }
+    ClassroomOut:
+      type: object
+      properties:
+        id: { $ref: '#/components/schemas/Id' }
+        buildingId: { $ref: '#/components/schemas/Id' }
+        code: { type: string }
+        name: { type: string }
+        capacity: { type: integer }
+        isLab: { type: boolean }
+        labType: { $ref: '#/components/schemas/LabType' }
+        equipment: { type: object, additionalProperties: true }
+
+    # ---------- Program ----------
+    ProgramCreateIn:
+      type: object
+      required: [code, name, totalYears]
+      properties:
+        code: { type: string, minLength: 1, maxLength: 32 }
+        name: { type: string, minLength: 1, maxLength: 255 }
+        totalYears: { type: integer, minimum: 1, maximum: 12 }
+    ProgramUpdateIn:
+      type: object
+      properties:
+        code: { type: string, minLength: 1, maxLength: 32 }
+        name: { type: string, minLength: 1, maxLength: 255 }
+        totalYears: { type: integer, minimum: 1, maximum: 12 }
+    ProgramOut:
+      type: object
+      properties:
+        id: { $ref: '#/components/schemas/Id' }
+        universityId: { $ref: '#/components/schemas/Id' }
+        code: { type: string }
+        name: { type: string }
+        totalYears: { type: integer }
+
+    # ---------- Semester ----------
+    SemesterCreateIn:
+      type: object
+      required: [code, name, order]
+      properties:
+        code: { type: string, minLength: 1, maxLength: 32 }
+        name: { type: string, minLength: 1, maxLength: 255 }
+        order: { type: integer, minimum: 1, maximum: 12 }
+    SemesterUpdateIn:
+      type: object
+      properties:
+        code: { type: string, minLength: 1, maxLength: 32 }
+        name: { type: string, minLength: 1, maxLength: 255 }
+        order: { type: integer, minimum: 1, maximum: 12 }
+    SemesterOut:
+      type: object
+      properties:
+        id: { $ref: '#/components/schemas/Id' }
+        universityId: { $ref: '#/components/schemas/Id' }
+        code: { type: string }
+        name: { type: string }
+        order: { type: integer }
+
+    # ---------- Cohort ----------
+    CohortCreateIn:
+      type: object
+      required: [yearNumber, semesterId, label, enrollment]
+      properties:
+        yearNumber: { type: integer, minimum: 1 }
+        semesterId: { $ref: '#/components/schemas/Id' }
+        label: { type: string, minLength: 1, maxLength: 64 }
+        enrollment: { type: integer, minimum: 1 }
+    CohortUpdateIn:
+      type: object
+      properties:
+        yearNumber: { type: integer, minimum: 1 }
+        semesterId: { $ref: '#/components/schemas/Id' }
+        label: { type: string, minLength: 1, maxLength: 64 }
+        enrollment: { type: integer, minimum: 1 }
+    CohortOut:
+      type: object
+      properties:
+        id: { $ref: '#/components/schemas/Id' }
+        programId: { $ref: '#/components/schemas/Id' }
+        yearNumber: { type: integer }
+        semesterId: { $ref: '#/components/schemas/Id' }
+        label: { type: string }
+        enrollment: { type: integer }
+
+    # ---------- Subject (catalog) ----------
+    SubjectCreateIn:
+      type: object
+      required: [code, name, defaultHoursPerWeek, defaultSessionMinutes, defaultSessionsPerWeek]
+      properties:
+        code: { type: string, minLength: 1, maxLength: 32 }
+        name: { type: string, minLength: 1, maxLength: 255 }
+        defaultHoursPerWeek: { type: integer, minimum: 1, maximum: 60 }
+        defaultSessionMinutes: { type: integer, minimum: 15, maximum: 480 }
+        defaultSessionsPerWeek: { type: integer, minimum: 1, maximum: 14 }
+        isLabRequired: { type: boolean, default: false }
+        labType: { $ref: '#/components/schemas/LabType' }
+        priority: { type: integer, default: 0 }
+    SubjectUpdateIn:
+      type: object
+      properties:
+        code: { type: string, minLength: 1, maxLength: 32 }
+        name: { type: string, minLength: 1, maxLength: 255 }
+        defaultHoursPerWeek: { type: integer, minimum: 1, maximum: 60 }
+        defaultSessionMinutes: { type: integer, minimum: 15, maximum: 480 }
+        defaultSessionsPerWeek: { type: integer, minimum: 1, maximum: 14 }
+        isLabRequired: { type: boolean }
+        labType: { $ref: '#/components/schemas/LabType' }
+        priority: { type: integer }
+    SubjectOut:
+      type: object
+      properties:
+        id: { $ref: '#/components/schemas/Id' }
+        programId: { $ref: '#/components/schemas/Id' }
+        code: { type: string }
+        name: { type: string }
+        defaultHoursPerWeek: { type: integer }
+        defaultSessionMinutes: { type: integer }
+        defaultSessionsPerWeek: { type: integer }
+        isLabRequired: { type: boolean }
+        labType: { $ref: '#/components/schemas/LabType' }
+        priority: { type: integer }
+
+    # ---------- Subject Offering ----------
+    SubjectOfferingCreateIn:
+      type: object
+      required: [subjectId, hoursPerWeek, sessionMinutes, sessionsPerWeek, enrollmentCount]
+      properties:
+        subjectId: { $ref: '#/components/schemas/Id' }
+        hoursPerWeek: { type: integer, minimum: 1, maximum: 60 }
+        sessionMinutes: { type: integer, minimum: 15, maximum: 480 }
+        sessionsPerWeek: { type: integer, minimum: 1, maximum: 14 }
+        enrollmentCount: { type: integer, minimum: 1 }
+        isLabRequired: { type: boolean, default: false }
+        labType: { $ref: '#/components/schemas/LabType' }
+        preferredBuildingId: { $ref: '#/components/schemas/Id' }
+    SubjectOfferingUpdateIn:
+      type: object
+      properties:
+        hoursPerWeek: { type: integer, minimum: 1, maximum: 60 }
+        sessionMinutes: { type: integer, minimum: 15, maximum: 480 }
+        sessionsPerWeek: { type: integer, minimum: 1, maximum: 14 }
+        enrollmentCount: { type: integer, minimum: 1 }
+        isLabRequired: { type: boolean }
+        labType: { $ref: '#/components/schemas/LabType' }
+        preferredBuildingId: { $ref: '#/components/schemas/Id' }
+    SubjectOfferingOut:
+      type: object
+      properties:
+        id: { $ref: '#/components/schemas/Id' }
+        subjectId: { $ref: '#/components/schemas/Id' }
+        cohortId: { $ref: '#/components/schemas/Id' }
+        hoursPerWeek: { type: integer }
+        sessionMinutes: { type: integer }
+        sessionsPerWeek: { type: integer }
+        enrollmentCount: { type: integer }
+        isLabRequired: { type: boolean }
+        labType: { $ref: '#/components/schemas/LabType' }
+        preferredBuildingId: { $ref: '#/components/schemas/Id' }
+
+    # ---------- Professor ----------
+    ProfessorCreateIn:
+      type: object
+      required: [code, fullName]
+      properties:
+        code: { type: string, minLength: 1, maxLength: 32 }
+        fullName: { type: string, minLength: 1, maxLength: 255 }
+        maxLoadWeek: { type: integer, minimum: 0 }
+        maxLoadDay: { type: integer, minimum: 0 }
+        homeBuildingId: { $ref: '#/components/schemas/Id' }
+    ProfessorUpdateIn:
+      type: object
+      properties:
+        code: { type: string, minLength: 1, maxLength: 32 }
+        fullName: { type: string, minLength: 1, maxLength: 255 }
+        maxLoadWeek: { type: integer, minimum: 0 }
+        maxLoadDay: { type: integer, minimum: 0 }
+        homeBuildingId: { $ref: '#/components/schemas/Id' }
+    ProfessorOut:
+      type: object
+      properties:
+        id: { $ref: '#/components/schemas/Id' }
+        universityId: { $ref: '#/components/schemas/Id' }
+        code: { type: string }
+        fullName: { type: string }
+        maxLoadWeek: { type: integer }
+        maxLoadDay: { type: integer }
+        homeBuildingId: { $ref: '#/components/schemas/Id' }
+
+    # ---------- Professor Working Hours ----------
+    ProfessorWorkingHoursIn:
+      type: object
+      required: [dayOfWeek, isAvailable, startTime, endTime]
+      properties:
+        dayOfWeek: { $ref: '#/components/schemas/DayOfWeek' }
+        isAvailable: { type: boolean, default: true }
+        startTime: { $ref: '#/components/schemas/TimeString' }
+        endTime: { $ref: '#/components/schemas/TimeString' }
+    ProfessorWorkingHoursOut:
+      allOf:
+        - $ref: '#/components/schemas/ProfessorWorkingHoursIn'
+        - type: object
+          properties:
+            id: { $ref: '#/components/schemas/Id' }
+            professorId: { $ref: '#/components/schemas/Id' }
+
+    # ---------- Timeslot ----------
+    TimeslotCreateIn:
+      type: object
+      required: [dayOfWeek, startTime, endTime]
+      properties:
+        dayOfWeek: { $ref: '#/components/schemas/DayOfWeek' }
+        startTime: { $ref: '#/components/schemas/TimeString' }
+        endTime: { $ref: '#/components/schemas/TimeString' }
+    TimeslotUpdateIn:
+      type: object
+      properties:
+        dayOfWeek: { $ref: '#/components/schemas/DayOfWeek' }
+        startTime: { $ref: '#/components/schemas/TimeString' }
+        endTime: { $ref: '#/components/schemas/TimeString' }
+    TimeslotOut:
+      type: object
+      properties:
+        id: { $ref: '#/components/schemas/Id' }
+        universityId: { $ref: '#/components/schemas/Id' }
+        dayOfWeek: { $ref: '#/components/schemas/DayOfWeek' }
+        startTime: { $ref: '#/components/schemas/TimeString' }
+        endTime: { $ref: '#/components/schemas/TimeString' }
+
+    BulkTimeslotCreateIn:
+      type: object
+      required: [universityId, days, startTime, endTime, stepMinutes]
+      properties:
+        universityId: { $ref: '#/components/schemas/Id' }
+        days:
+          type: array
+          minItems: 1
+          items: { $ref: '#/components/schemas/DayOfWeek' }
+        startTime: { $ref: '#/components/schemas/TimeString' }
+        endTime: { $ref: '#/components/schemas/TimeString' }
+        stepMinutes: { type: integer, minimum: 15, maximum: 240 }
+        contiguousBlocks:
+          type: integer
+          minimum: 1
+          default: 1
+          description: Number of adjacent slots to aggregate into a block (e.g., 2x60=120)
+
+    # ---------- Subject Session ----------
+    SubjectSessionCreateIn:
+      type: object
+      required: [timeslotId]
+      properties:
+        timeslotId: { $ref: '#/components/schemas/Id' }
+        classroomId: { $ref: '#/components/schemas/Id' }
+    SubjectSessionUpdateIn:
+      type: object
+      properties:
+        timeslotId: { $ref: '#/components/schemas/Id' }
+        classroomId: { $ref: '#/components/schemas/Id' }
+    SubjectSessionOut:
+      type: object
+      properties:
+        id: { $ref: '#/components/schemas/Id' }
+        subjectOfferingId: { $ref: '#/components/schemas/Id' }
+        timeslotId: { $ref: '#/components/schemas/Id' }
+        classroomId: { $ref: '#/components/schemas/Id' }
+        cohortId: { $ref: '#/components/schemas/Id' }
+
+    RoomSuggestionOut:
+      type: object
+      properties:
+        classroom: { $ref: '#/components/schemas/ClassroomOut' }
+        score: { type: number, format: float, description: Higher is better }
+        reasons:
+          type: array
+          items: { type: string }
+
+    # ---------- Solver inputs/outputs ----------
+    BiasSettingsIn:
+      type: object
+      properties:
+        weekBias:
+          type: string
+          enum: [EARLY_WEEK, MID_WEEK, LATE_WEEK, NONE]
+          default: NONE
+        dayBias:
+          type: string
+          enum: [EARLY_DAY, MID_DAY, LATE_DAY, NONE]
+          default: NONE
+        compactnessCohort:
+          type: integer
+          minimum: 0
+          maximum: 100
+          default: 50
+        backToBack:
+          type: integer
+          minimum: 0
+          maximum: 100
+          default: 50
+        fairness:
+          type: integer
+          minimum: 0
+          maximum: 100
+          default: 50
+        stability:
+          type: integer
+          minimum: 0
+          maximum: 100
+          default: 50
+
+    SolveScopeIn:
+      type: object
+      properties:
+        universityId: { $ref: '#/components/schemas/Id' }
+        programId: { $ref: '#/components/schemas/Id' }
+        cohortId: { $ref: '#/components/schemas/Id' }
+        offeringIds:
+          type: array
+          items: { $ref: '#/components/schemas/Id' }
+      description: Provide exactly one of universityId/programId/cohortId or an explicit set of offeringIds.
+
+    SolveRequestIn:
+      type: object
+      required: [scope]
+      properties:
+        scope: { $ref: '#/components/schemas/SolveScopeIn' }
+        biases: { $ref: '#/components/schemas/BiasSettingsIn' }
+        dryRun:
+          type: boolean
+          default: false
+          description: If true, returns a proposal without mutating sessions.
+        allowRoomAssignment:
+          type: boolean
+          default: false
+          description: If true, also assigns classrooms where possible.
+
+    SolveResultOut:
+      type: object
+      properties:
+        createdSessions:
+          type: array
+          items: { $ref: '#/components/schemas/SubjectSessionOut' }
+        updatedSessions:
+          type: array
+          items: { $ref: '#/components/schemas/SubjectSessionOut' }
+        skippedOfferings:
+          type: array
+          items:
+            type: object
+            properties:
+              offeringId: { $ref: '#/components/schemas/Id' }
+              reason: { type: string }
+        scoreSummary:
+          type: object
+          additionalProperties: { type: number }
+
+    ValidateRequestIn:
+      type: object
+      required: [scope]
+      properties:
+        scope: { $ref: '#/components/schemas/SolveScopeIn' }
+
+    ValidationReportOut:
+      type: object
+      properties:
+        hardConflicts:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+                enum: [ROOM_OVERLAP, PROFESSOR_OVERLAP, COHORT_OVERLAP, OUTSIDE_OPERATING_HOURS]
+              details: { type: string }
+              sessionIds:
+                type: array
+                items: { $ref: '#/components/schemas/Id' }
+        softScores:
+          type: object
+          additionalProperties: { type: number }
+        suggestions:
+          type: array
+          items:
+            type: object
+            properties:
+              sessionId: { $ref: '#/components/schemas/Id' }
+              action: { type: string, example: "MOVE_TO_TIMESLOT" }
+              targetTimeslotId: { $ref: '#/components/schemas/Id' }
+              improvement: { type: number }
+
+    AssignRoomsRequestIn:
+      type: object
+      required: [scope]
+      properties:
+        scope: { $ref: '#/components/schemas/SolveScopeIn' }
+        respectPreferredBuilding:
+          type: boolean
+          default: true
+        allowLabUpgrade:
+          type: boolean
+          default: false
+          description: If true, allows using a lab room even if not required.
+
+    AssignRoomsResultOut:
+      type: object
+      properties:
+        assigned:
+          type: array
+          items: { $ref: '#/components/schemas/SubjectSessionOut' }
+        unassigned:
+          type: array
+          items:
+            type: object
+            properties:
+              sessionId: { $ref: '#/components/schemas/Id' }
+              reasons:
+                type: array
+                items: { type: string }
+
+    MoveSessionRequestIn:
+      type: object
+      required: [sessionId]
+      properties:
+        sessionId: { $ref: '#/components/schemas/Id' }
+        newTimeslotId: { $ref: '#/components/schemas/Id' }
+        newClassroomId: { $ref: '#/components/schemas/Id' }
+        checkOnly:
+          type: boolean
+          default: false
+          description: If true, returns feasibility without applying.
+    MoveSessionResultOut:
+      type: object
+      properties:
+        feasible: { type: boolean }
+        violations:
+          type: array
+          items: { type: string }
+        updated: { $ref: '#/components/schemas/SubjectSessionOut' }

@@ -1,0 +1,270 @@
+// ========================= Enums =========================
+Enum DayOfWeek {
+  MON
+  TUE
+  WED
+  THU
+  FRI
+  SAT
+  SUN
+}
+
+Enum LabType {
+  NONE
+  COMPUTER
+  CHEMISTRY
+  PHYSICS
+  ELECTRONICS
+  LANGUAGE
+}
+
+// ======================= University ======================
+Table University {
+  id                int [pk, increment]
+  code              varchar(32) [unique, not null]
+  name              varchar(255) [not null]
+  default_slot_min  int [not null, note: 'Canonical session block length (e.g., 60/90/120)']
+  notes             text
+
+  Note: 'Top-level tenant. Drives global defaults (e.g., slot length).'
+}
+
+Table Campus {
+  id            int [pk, increment]
+  university_id int [not null, ref: > University.id]
+  code          varchar(32) [not null]
+  name          varchar(255) [not null]
+  address       varchar(255)
+
+  indexes {
+    (university_id, code) [unique]
+  }
+
+  Note: 'A University can have multiple campuses.'
+}
+
+Table Building {
+  id         int [pk, increment]
+  campus_id  int [not null, ref: > Campus.id]
+  code       varchar(32) [not null]
+  name       varchar(255) [not null]
+
+  indexes {
+    (campus_id, code) [unique]
+  }
+
+  Note: 'Scheduling can bias to a Building; Classrooms live inside Buildings.'
+}
+
+// Operating days/hours per day for the University (or Campus/Building later if needed)
+Table UniversityOperatingHours {
+  id             int [pk, increment]
+  university_id  int [not null, ref: > University.id]
+  day_of_week    DayOfWeek [not null]
+  is_open        bool [not null, default: true]
+  open_time      time [not null]   // 24h format (e.g., 07:00)
+  close_time     time [not null]   // 24h format (e.g., 22:00)
+
+  indexes {
+    (university_id, day_of_week) [unique]
+  }
+
+  Note: 'Defines working days and gate times (no classes outside these windows).'
+}
+
+// ==================== Rooms / Classrooms =================
+Table Classroom {
+  id          int [pk, increment]
+  building_id int [not null, ref: > Building.id]
+  code        varchar(32) [not null]
+  name        varchar(255) [not null]
+  capacity    int [not null]
+  is_lab      bool [not null, default: false]
+  lab_type    LabType [not null, default: NULL]
+  equipment   text // JSON/CSV flags if needed
+
+  indexes {
+    (building_id, code) [unique]
+  }
+
+  Note: 'Capacity + (optional) lab constraints. Equipment can be modeled later.'
+}
+
+// ================ Academic structure =====================
+Table Program {
+  id            int [pk, increment]
+  university_id int [not null, ref: > University.id]
+  code          varchar(32) [not null]
+  name          varchar(255) [not null]
+  total_years   int [not null, note: 'Nominal length (e.g., 4, 5)']
+
+  indexes {
+    (university_id, code) [unique]
+  }
+}
+
+Table Semester {
+  id            int [pk, increment]
+  university_id int [not null, ref: > University.id]
+  code          varchar(32) [not null] // e.g., S1, S2
+  name          varchar(255) [not null]
+  order_num     int [not null] // 1..N within an academic year
+
+  indexes {
+    (university_id, code) [unique]
+  }
+}
+
+// Optional explicit "cohort" (Program-Year-Semester stream) to conflict-lock students
+Table Cohort {
+  id            int [pk, increment]
+  program_id    int [not null, ref: > Program.id]
+  year_number   int [not null] // 1..Program.total_years
+  semester_id   int [not null, ref: > Semester.id]
+  label         varchar(64) // e.g., "A", "Evening", "Intl"
+  enrollment    int [not null] // headcount used if Subject lacks a specific count
+
+  indexes {
+    (program_id, year_number, semester_id, label) [unique]
+  }
+
+  Note: 'Subjects offered to a Cohort must not overlap in time.'
+}
+
+// Canonical catalog subject (module)
+Table Subject {
+  id                      int [pk, increment]
+  program_id              int [not null, ref: > Program.id]
+  code                    varchar(32) [not null]
+  name                    varchar(255) [not null]
+  default_hours_per_week  int [not null]
+  default_session_minutes int [not null]
+  default_sessions_week   int [not null]
+  is_lab_required         bool [not null, default: false]
+  lab_type                LabType [not null, default: NULL]
+  priority                int [not null, default: 0, note: 'Higher → schedule earlier/before others']
+
+  indexes {
+    (program_id, code) [unique]
+  }
+
+  Note: 'Catalog definition (not tied to a specific year/semester yet).'
+}
+
+// A Subject offered to a specific Cohort in a specific term (semester) and year
+Table SubjectOffering {
+  id                 int [pk, increment]
+  subject_id         int [not null, ref: > Subject.id]
+  cohort_id          int [not null, ref: > Cohort.id]
+  // Override defaults if needed for this offering
+  hours_per_week     int [not null]
+  session_minutes    int [not null]
+  sessions_per_week  int [not null]
+  enrollment_count   int [not null] // per-offering; takes precedence over cohort.enrollment
+  is_lab_required    bool [not null, default: false]
+  lab_type           LabType [not null, default: NULL]
+  preferred_building_id int [ref: > Building.id] // optional bias
+
+  indexes {
+    (subject_id, cohort_id) [unique]
+  }
+
+  Note: 'Concrete unit to schedule; professors and sessions attach here.'
+}
+
+// ==================== Professors =========================
+Table Professor {
+  id              int [pk, increment]
+  university_id   int [not null, ref: > University.id]
+  code            varchar(32) [not null]
+  full_name       varchar(255) [not null]
+  max_load_week   int // minutes
+  max_load_day    int // minutes
+  home_building_id int [ref: > Building.id]
+
+  indexes {
+    (university_id, code) [unique]
+  }
+}
+
+// Per-day availability windows for a Professor
+Table ProfessorWorkingHours {
+  id            int [pk, increment]
+  professor_id  int [not null, ref: > Professor.id]
+  day_of_week   DayOfWeek [not null]
+  is_available  bool [not null, default: true]
+  start_time    time [not null]
+  end_time      time [not null]
+
+  indexes {
+    (professor_id, day_of_week) [unique]
+  }
+
+  Note: 'Defines constraints like “works 16:00–20:00 on THU only”.'
+}
+
+// Many-to-many: which professors teach a specific SubjectOffering
+Table SubjectOfferingProfessor {
+  subject_offering_id int [not null, ref: > SubjectOffering.id]
+  professor_id        int [not null, ref: > Professor.id]
+
+  indexes {
+    (subject_offering_id, professor_id) [pk]
+    (professor_id)
+  }
+
+  Note: 'Attach one or more professors to an offering; sessions can optionally specialize further.'
+}
+
+// ===================== Time / Schedule ===================
+// Canonical weekly timeslots (university-wide)
+// (Alternative: derive timeslots on-the-fly from start/end times in sessions; this normalizes them)
+Table Timeslot {
+  id             int [pk, increment]
+  university_id  int [not null, ref: > University.id]
+  day_of_week    DayOfWeek [not null]
+  start_time     time [not null]
+  end_time       time [not null]
+
+  indexes {
+    (university_id, day_of_week, start_time, end_time) [unique]
+  }
+
+  Note: 'Discrete building blocks for the general week; must lie within operating hours.'
+}
+
+// One concrete teaching block to schedule (room+timeslot), belongs to an Offering
+Table SubjectSession {
+  id                  int [pk, increment]
+  subject_offering_id int [not null, ref: > SubjectOffering.id]
+  timeslot_id         int [not null, ref: > Timeslot.id]
+  classroom_id        int [ref: > Classroom.id] // nullable until assigned
+  cohort_id           int [not null, ref: > Cohort.id] // denormalized for fast conflict checks
+
+  // --- Conflict-prevention indexes ---
+  // No two sessions in the same room at the same timeslot
+  indexes {
+  (classroom_id, timeslot_id) [unique, name: 'uq_room_timeslot', note: 'Prevents room double-booking']
+  (cohort_id, timeslot_id)    [unique, name: 'uq_cohort_timeslot', note: 'Cohort cannot be in two places at once']
+}
+
+
+  Note: 'The solver/engine ensures lab & capacity fit when assigning classroom_id.'
+}
+
+// If different professors handle different sessions, attach at the session level
+Table SessionProfessor {
+  subject_session_id int [not null, ref: > SubjectSession.id]
+  professor_id       int [not null, ref: > Professor.id]
+
+  indexes {
+    (subject_session_id, professor_id) [pk]
+    (professor_id)
+  }
+
+  // --- Conflict-prevention index for professors ---
+  // A professor cannot teach two sessions in the same timeslot
+  // (Implemented as a partial uniqueness across (professor_id, timeslot_id) via a view or trigger in some RDBMS;
+  // Here we model it logically by an index note.)
+  Note: 'Ensure uniqueness of (professor_id, timeslot_id) across joins. In engines that support it, enforce with a unique index on a derived column or trigger.'
+}
